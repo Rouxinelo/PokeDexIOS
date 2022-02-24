@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
     var URLarray = [String]()
     
     var PokemonArray = [pokemon]()
@@ -34,12 +33,12 @@ class ViewController: UIViewController {
     @IBAction func prevPageClicked(_ sender: UIButton) {
         if let prev = searchForPokemonUrls.previousURL{
             searchForPokemonUrls.requestURL = prev
-            searchForPokemonUrls.fecthData()
+            searchForPokemonUrls.fetchData()
         }
     }
     
     @IBAction func nextPageClicked(_ sender: UIButton) {
-        searchForPokemonUrls.fecthData()
+        searchForPokemonUrls.fetchData()
     }
     
     override func viewDidLoad() {
@@ -50,7 +49,7 @@ class ViewController: UIViewController {
         searchForPokemonStats.delegate = self
         tableView.dataSource = self
         
-        searchForPokemonUrls.fecthData()
+        searchForPokemonUrls.fetchData()
         
         checkButton()
     }
@@ -62,9 +61,9 @@ class ViewController: UIViewController {
 extension ViewController{
     
     func checkButton(){
-        if pageLabel.text == "1" {
+        if searchForPokemonUrls.previousURL == nil {
             prevPageButton.isHidden = true
-        } else if pageLabel.text == "10"{
+        } else if searchForPokemonUrls.requestURL == nil {
             nextPageButton.isHidden = true
         } else {
             prevPageButton.isHidden = false
@@ -91,9 +90,8 @@ extension ViewController: PokeRequestDelegate{
         print(data.count)
         
         searchForPokemonUrls.requestURL = data.next
-        if let prev = data.previous{
-            searchForPokemonUrls.previousURL = prev
-        }
+
+        searchForPokemonUrls.previousURL = data.previous
         
         for res in data.results{
             URLarray.append(res.url)
@@ -101,7 +99,7 @@ extension ViewController: PokeRequestDelegate{
         
         for urlStr in self.URLarray{
             self.searchForPokemonStats.requestURL = urlStr
-            self.searchForPokemonStats.fecthData()
+            self.searchForPokemonStats.fetchData()
         }
         
         print(PokemonArray.count)
@@ -114,6 +112,10 @@ extension ViewController: PokeRequestDelegate{
         }
         
         URLarray.removeAll()
+        
+        DispatchQueue.main.async {
+            self.checkButton()
+        }
     }
 }
 
@@ -140,7 +142,7 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         cell.textLabel?.text = "\(PokemonArray[indexPath.row].id) - \(PokemonArray[indexPath.row].name)"
-        return cell
+            return cell
     }
 }
 

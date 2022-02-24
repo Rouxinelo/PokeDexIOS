@@ -18,7 +18,7 @@ struct PokemonStats{
     var requestURL: String = "https://pokeapi.co/api/v2/pokemon/1/"
     let resultString: String = ""
     
-    func fecthData(){
+    func fetchData(){
         if let url = URL(string: requestURL){
         let session = URLSession(configuration: .default)
         let sem = DispatchSemaphore(value: 0)
