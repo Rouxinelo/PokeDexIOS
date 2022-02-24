@@ -19,6 +19,7 @@
 		AF60236227C80B44008FE236 /* PokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60236127C80B44008FE236 /* PokeData.swift */; };
 		AF60236427C80C96008FE236 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60236327C80C96008FE236 /* Pokemon.swift */; };
 		AF6C87A527C80EF700B1DEE6 /* PokeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */; };
+		AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8E14327C8250600C96FBE /* PokemonStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		AF60236127C80B44008FE236 /* PokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeData.swift; sourceTree = "<group>"; };
 		AF60236327C80C96008FE236 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeRequest.swift; sourceTree = "<group>"; };
+		AFC8E14327C8250600C96FBE /* PokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokemonStats.swift; path = PokeDexIOS/Model/PokemonStats.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		AF60235E27C80A31008FE236 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AFC8E14327C8250600C96FBE /* PokemonStats.swift */,
 				AF60236127C80B44008FE236 /* PokeData.swift */,
 				AF60236327C80C96008FE236 /* Pokemon.swift */,
 				AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */,
@@ -297,6 +300,7 @@
 				AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */,
 				AF60236227C80B44008FE236 /* PokeData.swift in Sources */,
 				AF60233127C809FD008FE236 /* SceneDelegate.swift in Sources */,
+				AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
