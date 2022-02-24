@@ -33,6 +33,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        searchForPokemonUrls.delegate = self
+        
         checkButton()
     }
 
@@ -64,3 +67,35 @@ extension ViewController{
     }
 }
 
+// MARK - PokeRequestDelegate
+extension ViewController: PokeRequestDelegate{
+    func recievedPokeList(data: pokeData) {
+        PokemonArray.removeAll()
+        print(data.count)
+        
+        searchForPokemonUrls.requestURL = data.next
+        if let prev = data.previous{
+            searchForPokemonUrls.previousURL = prev
+        }
+        
+        for res in data.results{
+            URLarray.append(res.url)
+        }
+        
+        for urlStr in self.URLarray{
+            self.searchForPokemonStats.requestURL = urlStr
+            //self.searchForPokemonStats.fecthData()
+        }
+        
+        print(PokemonArray.count)
+        for poke in PokemonArray{
+            print(poke.name)
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+        URLarray.removeAll()
+    }
+}
