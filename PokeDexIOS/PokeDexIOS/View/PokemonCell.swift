@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokemonCell: UICollectionViewCell {
+class PokemonCell: UITableViewCell {
 
     // Outlets
     @IBOutlet weak var pokemonSprite: UIImageView!

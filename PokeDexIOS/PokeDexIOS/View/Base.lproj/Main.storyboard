@@ -19,23 +19,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-fB-gN2">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nbz-CI-EBR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="529"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="RDe-RS-BIh">
-                                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RDe-RS-BIh" id="OPG-eY-vCA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nbz-CI-EBR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                     </tableView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoX-Dx-573">
-                                        <rect key="frame" x="87" y="594" width="240" height="128"/>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="9Ar-Sf-Ikf">
                                         <rect key="frame" x="30.5" y="787" width="353" height="31"/>
                                         <subviews>
@@ -77,14 +63,10 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="3Ux-uc-WXu"/>
-                                    <constraint firstAttribute="trailing" secondItem="eoX-Dx-573" secondAttribute="trailing" constant="87" id="4x1-rt-IsI"/>
-                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="top" secondItem="iZI-fB-gN2" secondAttribute="top" id="FzS-qy-fRf"/>
-                                    <constraint firstItem="eoX-Dx-573" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" constant="87" id="MIu-On-uxN"/>
-                                    <constraint firstItem="eoX-Dx-573" firstAttribute="top" secondItem="Nbz-CI-EBR" secondAttribute="bottom" constant="65" id="QTE-qn-EvL"/>
-                                    <constraint firstItem="eoX-Dx-573" firstAttribute="top" secondItem="Nbz-CI-EBR" secondAttribute="bottom" constant="65" id="WJA-So-quw"/>
-                                    <constraint firstItem="9Ar-Sf-Ikf" firstAttribute="top" secondItem="eoX-Dx-573" secondAttribute="bottom" constant="65" id="Y8y-VY-hsg"/>
-                                    <constraint firstAttribute="trailing" secondItem="Nbz-CI-EBR" secondAttribute="trailing" id="w4I-R5-ueV"/>
+                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="91I-P6-rLX"/>
+                                    <constraint firstItem="9Ar-Sf-Ikf" firstAttribute="top" secondItem="Nbz-CI-EBR" secondAttribute="bottom" constant="65" id="TAE-TU-wxl"/>
+                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="top" secondItem="iZI-fB-gN2" secondAttribute="top" id="ed6-nQ-yQz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nbz-CI-EBR" secondAttribute="trailing" id="zQZ-oP-G7S"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -98,7 +80,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="eoX-Dx-573" id="UJ8-yT-bTc"/>
                         <outlet property="nextPageButton" destination="iDF-I5-0Cu" id="wU6-WA-kie"/>
                         <outlet property="pageLabel" destination="p0Z-9T-tVm" id="ulM-he-SzV"/>
                         <outlet property="prevPageButton" destination="slM-ls-0Qk" id="Ksw-as-kR4"/>

@@ -26,8 +26,6 @@ class ViewController: UIViewController {
     // Table View Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    // Image View Outlets
-    @IBOutlet weak var imageView: UIImageView!
     
     // Navigation Button OnClickActions
     @IBAction func prevPageClicked(_ sender: UIButton) {
@@ -48,8 +46,11 @@ class ViewController: UIViewController {
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         
         searchForPokemonUrls.fetchData()
+        
+        tableView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
         checkButton()
     }
@@ -125,10 +126,6 @@ extension ViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon) {
         PokemonArray.append(data)
         
-        // Just a test, to remove after
-        if let url = URL(string: data.sprites.front_default){
-            imageView.load(url: url)
-        }
     }
 }
 
@@ -140,9 +137,21 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
-        cell.textLabel?.text = "\(PokemonArray[indexPath.row].id) - \(PokemonArray[indexPath.row].name)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PokemonCell
+
+        cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
+        cell.pokemonName.text = PokemonArray[indexPath.row].name
+        cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
             return cell
+    }
+}
+
+// MARK - TableViewDelegate
+
+extension ViewController: UITableViewDelegate{
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 
