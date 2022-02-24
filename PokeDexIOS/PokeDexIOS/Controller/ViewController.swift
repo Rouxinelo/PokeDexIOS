@@ -23,6 +23,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     
+    var URLarray = [String]()
+    
+    var PokemonArray = [pokemon]()
+    
+    var searchForPokemonUrls = PokeRequest()
+    var searchForPokemonStats = PokemonStats()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
