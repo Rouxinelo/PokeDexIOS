@@ -9,6 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    var URLarray = [String]()
+    
+    var PokemonArray = [pokemon]()
+    
+    var searchForPokemonUrls = PokeRequest()
+    var searchForPokemonStats = PokemonStats()
+    
     // Button Outlets
     @IBOutlet weak var nextPageButton: UIButton!
     @IBOutlet weak var prevPageButton: UIButton!
@@ -22,13 +30,17 @@ class ViewController: UIViewController {
     // Image View Outlets
     @IBOutlet weak var imageView: UIImageView!
     
+    // Navigation Button OnClickActions
+    @IBAction func prevPageClicked(_ sender: UIButton) {
+        if let prev = searchForPokemonUrls.previousURL{
+            searchForPokemonUrls.requestURL = prev
+            searchForPokemonUrls.fecthData()
+        }
+    }
     
-    var URLarray = [String]()
-    
-    var PokemonArray = [pokemon]()
-    
-    var searchForPokemonUrls = PokeRequest()
-    var searchForPokemonStats = PokemonStats()
+    @IBAction func nextPageClicked(_ sender: UIButton) {
+        searchForPokemonUrls.fecthData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +49,8 @@ class ViewController: UIViewController {
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
         tableView.dataSource = self
+        
+        searchForPokemonUrls.fecthData()
         
         checkButton()
     }
@@ -107,9 +121,6 @@ extension ViewController: PokeRequestDelegate{
 
 extension ViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon) {
-        if PokemonArray.firstIndex(of: data) != nil{
-            return
-        }
         PokemonArray.append(data)
     }
 }
