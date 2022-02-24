@@ -17,6 +17,7 @@
 		AF60235027C809FE008FE236 /* PokeDexIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60234F27C809FE008FE236 /* PokeDexIOSUITests.swift */; };
 		AF60235227C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60235127C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift */; };
 		AF60236227C80B44008FE236 /* PokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60236127C80B44008FE236 /* PokeData.swift */; };
+		AF60236427C80C96008FE236 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60236327C80C96008FE236 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AF60234F27C809FE008FE236 /* PokeDexIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexIOSUITests.swift; sourceTree = "<group>"; };
 		AF60235127C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AF60236127C80B44008FE236 /* PokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeData.swift; sourceTree = "<group>"; };
+		AF60236327C80C96008FE236 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				AF60236127C80B44008FE236 /* PokeData.swift */,
+				AF60236327C80C96008FE236 /* Pokemon.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF60236427C80C96008FE236 /* Pokemon.swift in Sources */,
 				AF60233327C809FD008FE236 /* ViewController.swift in Sources */,
 				AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */,
 				AF60236227C80B44008FE236 /* PokeData.swift in Sources */,
