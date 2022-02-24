@@ -68,6 +68,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Ar-Sf-Ikf" secondAttribute="trailing" id="nDv-JK-h1k"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="eoX-Dx-573" id="UJ8-yT-bTc"/>
+                        <outlet property="nextPageButton" destination="iDF-I5-0Cu" id="bou-oR-9Y1"/>
+                        <outlet property="pageLabel" destination="p0Z-9T-tVm" id="ulM-he-SzV"/>
+                        <outlet property="prevPageButton" destination="slM-ls-0Qk" id="Ksw-as-kR4"/>
+                        <outlet property="tableView" destination="Nbz-CI-EBR" id="vlf-cS-6TI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
