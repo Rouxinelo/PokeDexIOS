@@ -33,8 +33,34 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        checkButton()
     }
 
+}
 
+// MARK - Pagination
+
+extension ViewController{
+    
+    func checkButton(){
+        if pageLabel.text == "1" {
+            prevPageButton.isHidden = true
+        } else if pageLabel.text == "10"{
+            nextPageButton.isHidden = true
+        } else {
+            prevPageButton.isHidden = false
+            nextPageButton.isHidden = false
+        }
+    }
+    
+    @IBAction func pageButtonPressed(_ sender: UIButton) {
+        if sender == prevPageButton{
+            pageLabel.text = String(Int(pageLabel.text!)! - 1)
+            checkButton()
+        } else if sender == nextPageButton {
+            pageLabel.text = String(Int(pageLabel.text!)! + 1)
+            checkButton()
+        }
+    }
 }
 
