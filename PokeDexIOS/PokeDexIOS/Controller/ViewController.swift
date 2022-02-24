@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
+        tableView.dataSource = self
         
         checkButton()
     }
@@ -110,5 +111,19 @@ extension ViewController: PokemonStatsDelegate{
             return
         }
         PokemonArray.append(data)
+    }
+}
+
+// MARK - TableViewDataSource
+
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return PokemonArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        cell.textLabel?.text = "\(PokemonArray[indexPath.row].id) - \(PokemonArray[indexPath.row].name)"
+        return cell
     }
 }
