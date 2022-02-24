@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         searchForPokemonUrls.delegate = self
+        searchForPokemonStats.delegate = self
         
         checkButton()
     }
@@ -68,6 +69,7 @@ extension ViewController{
 }
 
 // MARK - PokeRequestDelegate
+
 extension ViewController: PokeRequestDelegate{
     func recievedPokeList(data: pokeData) {
         PokemonArray.removeAll()
@@ -84,7 +86,7 @@ extension ViewController: PokeRequestDelegate{
         
         for urlStr in self.URLarray{
             self.searchForPokemonStats.requestURL = urlStr
-            //self.searchForPokemonStats.fecthData()
+            self.searchForPokemonStats.fecthData()
         }
         
         print(PokemonArray.count)
@@ -97,5 +99,16 @@ extension ViewController: PokeRequestDelegate{
         }
         
         URLarray.removeAll()
+    }
+}
+
+// MARK - PokemonStatsDelegate
+
+extension ViewController: PokemonStatsDelegate{
+    func recievedPokeInfo(data: pokemon) {
+        if PokemonArray.firstIndex(of: data) != nil{
+            return
+        }
+        PokemonArray.append(data)
     }
 }
