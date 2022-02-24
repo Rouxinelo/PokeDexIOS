@@ -122,6 +122,11 @@ extension ViewController: PokeRequestDelegate{
 extension ViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon) {
         PokemonArray.append(data)
+        
+        // Just a test, to remove after
+        if let url = URL(string: data.sprites.front_default){
+            imageView.load(url: url)
+        }
     }
 }
 
