@@ -101,11 +101,11 @@
 			children = (
 				AF60232E27C809FD008FE236 /* AppDelegate.swift */,
 				AF60233027C809FD008FE236 /* SceneDelegate.swift */,
-				AF60233227C809FD008FE236 /* ViewController.swift */,
-				AF60233427C809FD008FE236 /* Main.storyboard */,
 				AF60233727C809FE008FE236 /* Assets.xcassets */,
-				AF60233927C809FE008FE236 /* LaunchScreen.storyboard */,
 				AF60233C27C809FE008FE236 /* Info.plist */,
+				AF60236027C80A44008FE236 /* Controller */,
+				AF60235F27C80A37008FE236 /* View */,
+				AF60235E27C80A31008FE236 /* Model */,
 			);
 			path = PokeDexIOS;
 			sourceTree = "<group>";
@@ -125,6 +125,30 @@
 				AF60235127C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift */,
 			);
 			path = PokeDexIOSUITests;
+			sourceTree = "<group>";
+		};
+		AF60235E27C80A31008FE236 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF60235F27C80A37008FE236 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF60233927C809FE008FE236 /* LaunchScreen.storyboard */,
+				AF60233427C809FD008FE236 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF60236027C80A44008FE236 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF60233227C809FD008FE236 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
