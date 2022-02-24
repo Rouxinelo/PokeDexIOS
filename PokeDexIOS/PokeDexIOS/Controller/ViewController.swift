@@ -9,6 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    var URLarray = [String]()
+    
+    var PokemonArray = [pokemon]()
+    
+    var searchForPokemonUrls = PokeRequest()
+    var searchForPokemonStats = PokemonStats()
+    
     // Button Outlets
     @IBOutlet weak var nextPageButton: UIButton!
     @IBOutlet weak var prevPageButton: UIButton!
@@ -22,13 +30,17 @@ class ViewController: UIViewController {
     // Image View Outlets
     @IBOutlet weak var imageView: UIImageView!
     
+    // Navigation Button OnClickActions
+    @IBAction func prevPageClicked(_ sender: UIButton) {
+        if let prev = searchForPokemonUrls.previousURL{
+            searchForPokemonUrls.requestURL = prev
+            searchForPokemonUrls.fecthData()
+        }
+    }
     
-    var URLarray = [String]()
-    
-    var PokemonArray = [pokemon]()
-    
-    var searchForPokemonUrls = PokeRequest()
-    var searchForPokemonStats = PokemonStats()
+    @IBAction func nextPageClicked(_ sender: UIButton) {
+        searchForPokemonUrls.fecthData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +48,9 @@ class ViewController: UIViewController {
         
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
+        tableView.dataSource = self
+        
+        searchForPokemonUrls.fecthData()
         
         checkButton()
     }
@@ -106,9 +121,41 @@ extension ViewController: PokeRequestDelegate{
 
 extension ViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon) {
-        if PokemonArray.firstIndex(of: data) != nil{
-            return
-        }
         PokemonArray.append(data)
+        
+        // Just a test, to remove after
+        if let url = URL(string: data.sprites.front_default){
+            imageView.load(url: url)
+        }
+    }
+}
+
+// MARK - TableViewDataSource
+
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return PokemonArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        cell.textLabel?.text = "\(PokemonArray[indexPath.row].id) - \(PokemonArray[indexPath.row].name)"
+        return cell
+    }
+}
+
+// MARK - Load Image From URL
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
