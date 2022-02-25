@@ -141,7 +141,14 @@ extension ViewController: UITableViewDataSource{
         cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
         cell.pokemonName.text = PokemonArray[indexPath.row].name
         cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
-        print(PokemonArray[indexPath.row].sprites.front_default)
+        
+        if PokemonArray[indexPath.row].types.count == 2 {
+            cell.type2Label.text = PokemonArray[indexPath.row].types.last?.type.name
+            cell.type2Label.isHidden = false
+        } else {
+            cell.type2Label.isHidden = true
+        }
+        cell.type1Label.text = PokemonArray[indexPath.row].types.first?.type.name
             return cell
     }
 }

@@ -14,6 +14,9 @@ class PokemonCell: UITableViewCell {
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonNumber: UILabel!
     
+    @IBOutlet weak var type1Label: UILabel!
+    @IBOutlet weak var type2Label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
