@@ -138,7 +138,11 @@ extension PokedexViewController: PokemonStatsDelegate{
     }
     
     func pokemonNotFound() {
-        pokemonSearchBar.placeholder = "Error, Pokemon not found"
+        DispatchQueue.main.async {
+            self.pokemonSearchBar.placeholder = "Error, Pokemon not found"
+            self.pokemonSearchBar.text = ""
+        }
+        
     }
 }
 
@@ -196,15 +200,15 @@ extension PokedexViewController: UITableViewDelegate{
 
 extension PokedexViewController: UISearchBarDelegate{
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.placeholder = "Search: Pokemon Name/ID"
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = searchBar.text {
                 let pokemonToSearch = search.lowercased()
                 searchForPokemonStats.fetchPokemonSearch(urlString: searchForPokemonStats.requestURLSingle + pokemonToSearch + "/")
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.placeholder = "Search: Pokemon Name/ID"
     }
     
 }
