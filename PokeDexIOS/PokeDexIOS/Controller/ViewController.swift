@@ -148,6 +148,7 @@ extension ViewController: UITableViewDataSource{
             
             colorPicker.type = PokemonArray[indexPath.row].types.last?.type.name
             cell.type2Label.backgroundColor = colorPicker.getColorForType()
+            cell.type2Label.textColor = colorPicker.getTextFontColor()
             
             cell.type2Label.isHidden = false
         } else {
@@ -157,7 +158,9 @@ extension ViewController: UITableViewDataSource{
         
         colorPicker.type = PokemonArray[indexPath.row].types.first?.type.name
         cell.type1Label.backgroundColor = colorPicker.getColorForType()
-            return cell
+        cell.type1Label.textColor = colorPicker.getTextFontColor()
+        
+        return cell
     }
 }
 
