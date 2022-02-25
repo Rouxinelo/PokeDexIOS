@@ -176,17 +176,26 @@
                                         <rect key="frame" x="0.0" y="95" width="414" height="549"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="9Ar-Sf-Ikf">
-                                        <rect key="frame" x="30.5" y="646" width="353" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="owM-bI-NgP">
+                                        <rect key="frame" x="23" y="646" width="368" height="31"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nq0-0K-k8q">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WzO-0S-0Yi">
+                                                <rect key="frame" x="0.0" y="0.0" width="96" height="31"/>
                                                 <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yql-Z3-fUS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="⏪"/>
+                                                        <connections>
+                                                            <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJi-Cl-ExO"/>
+                                                            <action selector="prevPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FnU-aL-XTf"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slM-ls-0Qk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
+                                                        <rect key="frame" x="52" y="0.0" width="44" height="31"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="&lt;"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="⬅️"/>
                                                         <connections>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wiY-Ta-2VX"/>
                                                             <action selector="prevPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cnM-q1-Jn5"/>
@@ -194,23 +203,32 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0Z-9T-tVm">
-                                                <rect key="frame" x="160" y="0.0" width="33" height="31"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0Z-9T-tVm">
+                                                <rect key="frame" x="136" y="0.0" width="96" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iM4-tW-zaa">
-                                                <rect key="frame" x="320" y="0.0" width="33" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q6c-nM-b79">
+                                                <rect key="frame" x="272" y="0.0" width="96" height="31"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDF-I5-0Cu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="31"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="➡️"/>
                                                         <connections>
                                                             <action selector="nextPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DzQ-Fb-NAs"/>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q33-hJ-Wg1"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-h4-n8T">
+                                                        <rect key="frame" x="52" y="0.0" width="44" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="⏩"/>
+                                                        <connections>
+                                                            <action selector="nextPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZtB-Kn-Wte"/>
+                                                            <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HB1-dl-Jer"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -246,6 +264,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="firstPageButton" destination="yql-Z3-fUS" id="Dsm-Ma-caD"/>
+                        <outlet property="lastPageButton" destination="1W8-h4-n8T" id="vZU-Rn-iEL"/>
                         <outlet property="nextPageButton" destination="iDF-I5-0Cu" id="wU6-WA-kie"/>
                         <outlet property="pageLabel" destination="p0Z-9T-tVm" id="ulM-he-SzV"/>
                         <outlet property="pokemonSearchBar" destination="UgS-fc-Rwy" id="alL-c5-IkC"/>
@@ -304,7 +324,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cah-tK-uTs"/>
+        <segue reference="ooM-cO-ybC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

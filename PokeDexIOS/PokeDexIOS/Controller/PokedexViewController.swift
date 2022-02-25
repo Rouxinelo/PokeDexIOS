@@ -8,7 +8,10 @@
 import UIKit
 
 class PokedexViewController: UIViewController {
-
+    
+    let pokemonPerPage = 7
+    var maxPages: Int? = 0
+    
     var URLarray = [String]()
     
     var PokemonArray = [pokemon]()
@@ -21,6 +24,8 @@ class PokedexViewController: UIViewController {
     // Button Outlets
     @IBOutlet weak var nextPageButton: UIButton!
     @IBOutlet weak var prevPageButton: UIButton!
+    @IBOutlet weak var firstPageButton: UIButton!
+    @IBOutlet weak var lastPageButton: UIButton!
     
     // Text Label Outlets
     @IBOutlet weak var pageLabel: UILabel!
@@ -38,28 +43,36 @@ class PokedexViewController: UIViewController {
     
     // Navigation Button OnClickActions
     @IBAction func prevPageClicked(_ sender: UIButton) {
-        if let prev = searchForPokemonUrls.previousURL{
-            searchForPokemonUrls.requestURL = prev
-            searchForPokemonUrls.fetchData()
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        if sender == prevPageButton{
+            if let prev = searchForPokemonUrls.previousURL{
+                searchForPokemonUrls.requestURL = prev
             }
+        } else if sender == firstPageButton{
+            searchForPokemonUrls.requestURL = searchForPokemonUrls.firstPageURL
         }
-    }
-    
-    @IBAction func nextPageClicked(_ sender: UIButton) {
         searchForPokemonUrls.fetchData()
-        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
+    @IBAction func nextPageClicked(_ sender: UIButton) {
+        if(sender == lastPageButton){
+            searchForPokemonUrls.requestURL = searchForPokemonUrls.lastPageURL
+            searchForPokemonUrls.fetchData()
+        } else if sender == nextPageButton {
+            searchForPokemonUrls.fetchData()
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-                
+        
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
         tableView.dataSource = self
@@ -68,12 +81,15 @@ class PokedexViewController: UIViewController {
         
         tableView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
+        searchForPokemonUrls.fetchPokeNumber()
+        
+        
         checkButton()
         
         searchForPokemonUrls.fetchData()
         
-        }
-
+    }
+    
 }
 
 // MARK - Pagination
@@ -81,13 +97,21 @@ class PokedexViewController: UIViewController {
 extension PokedexViewController{
     
     func checkButton(){
-        if searchForPokemonUrls.previousURL == nil {
+        if pageLabel.text == "1" {
+            nextPageButton.isHidden = false
+            lastPageButton.isHidden = false
             prevPageButton.isHidden = true
-        } else if searchForPokemonUrls.requestURL == nil {
+            firstPageButton.isHidden = true
+        } else if pageLabel.text == String(maxPages!) {
             nextPageButton.isHidden = true
+            lastPageButton.isHidden = true
+            firstPageButton.isHidden = false
+            prevPageButton.isHidden = false
         } else {
             prevPageButton.isHidden = false
             nextPageButton.isHidden = false
+            firstPageButton.isHidden = false
+            lastPageButton.isHidden = false
         }
     }
     
@@ -98,6 +122,12 @@ extension PokedexViewController{
         } else if sender == nextPageButton {
             pageLabel.text = String(Int(pageLabel.text!)! + 1)
             checkButton()
+        } else if sender == firstPageButton{
+            pageLabel.text = "1"
+            checkButton()
+        } else if sender == lastPageButton{
+            pageLabel.text = "129"
+            checkButton()
         }
     }
 }
@@ -105,11 +135,12 @@ extension PokedexViewController{
 // MARK - PokeRequestDelegate
 
 extension PokedexViewController: PokeRequestDelegate{
+    
     func recievedPokeList(data: pokeData) {
         PokemonArray.removeAll()
         
         searchForPokemonUrls.requestURL = data.next
-
+        
         searchForPokemonUrls.previousURL = data.previous
         
         for res in data.results{
@@ -120,11 +151,21 @@ extension PokedexViewController: PokeRequestDelegate{
             self.searchForPokemonStats.requestURL = urlStr
             self.searchForPokemonStats.fetchData()
         }
-
+        
         URLarray.removeAll()
         
         DispatchQueue.main.async {
             self.checkButton()
+        }
+    }
+    
+    func recievedPokeCount(count: Int) {
+        print(count % self.pokemonPerPage)
+        print(count/self.pokemonPerPage)
+        if count % self.pokemonPerPage == 0 {
+            self.maxPages = (count/self.pokemonPerPage)
+        } else {
+            self.maxPages = (count/self.pokemonPerPage) + 1
         }
         
     }
@@ -159,7 +200,7 @@ extension PokedexViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PokemonCell
-
+        
         cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
         cell.pokemonName.text = PokemonArray[indexPath.row].name
         cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
@@ -189,11 +230,11 @@ extension PokedexViewController: UITableViewDataSource{
 // MARK - TableViewDelegate
 
 extension PokedexViewController: UITableViewDelegate{
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-        
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toPokeStats", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -203,12 +244,12 @@ extension PokedexViewController: UITableViewDelegate{
 // MARK - SearchBarDelegate
 
 extension PokedexViewController: UISearchBarDelegate{
-
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = searchBar.text {
-                let pokemonToSearch = search.lowercased()
-                searchForPokemonStats.fetchPokemonSearch(urlString: searchForPokemonStats.requestURLSingle + pokemonToSearch + "/")
+            let pokemonToSearch = search.lowercased()
+            searchForPokemonStats.fetchPokemonSearch(urlString: searchForPokemonStats.requestURLSingle + pokemonToSearch + "/")
         }
     }
     
