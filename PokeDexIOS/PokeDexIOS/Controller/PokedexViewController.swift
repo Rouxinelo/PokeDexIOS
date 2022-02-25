@@ -171,9 +171,10 @@ extension PokedexViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toPokeStats", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
