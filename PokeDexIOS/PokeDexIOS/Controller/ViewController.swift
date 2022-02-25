@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     var PokemonArray = [pokemon]()
     
+    var colorPicker = TypeColorManager()
     var searchForPokemonUrls = PokeRequest()
     var searchForPokemonStats = PokemonStats()
     
@@ -141,8 +142,25 @@ extension ViewController: UITableViewDataSource{
         cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
         cell.pokemonName.text = PokemonArray[indexPath.row].name
         cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
-        print(PokemonArray[indexPath.row].sprites.front_default)
-            return cell
+        
+        if PokemonArray[indexPath.row].types.count == 2 {
+            cell.type2Label.text = PokemonArray[indexPath.row].types.last?.type.name
+            
+            colorPicker.type = PokemonArray[indexPath.row].types.last?.type.name
+            cell.type2Label.backgroundColor = colorPicker.getColorForType()
+            cell.type2Label.textColor = colorPicker.getTextFontColor()
+            
+            cell.type2Label.isHidden = false
+        } else {
+            cell.type2Label.isHidden = true
+        }
+        cell.type1Label.text = PokemonArray[indexPath.row].types.first?.type.name
+        
+        colorPicker.type = PokemonArray[indexPath.row].types.first?.type.name
+        cell.type1Label.backgroundColor = colorPicker.getColorForType()
+        cell.type1Label.textColor = colorPicker.getTextFontColor()
+        
+        return cell
     }
 }
 

@@ -21,6 +21,7 @@
 		AF62215E27C840EC009D3B1B /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62215C27C840EC009D3B1B /* PokemonCell.swift */; };
 		AF62215F27C840EC009D3B1B /* PokemonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF62215D27C840EC009D3B1B /* PokemonCell.xib */; };
 		AF6C87A527C80EF700B1DEE6 /* PokeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */; };
+		AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */; };
 		AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8E14327C8250600C96FBE /* PokemonStats.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		AF62215C27C840EC009D3B1B /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		AF62215D27C840EC009D3B1B /* PokemonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCell.xib; sourceTree = "<group>"; };
 		AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeRequest.swift; sourceTree = "<group>"; };
+		AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManager.swift; sourceTree = "<group>"; };
 		AFC8E14327C8250600C96FBE /* PokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokemonStats.swift; path = PokeDexIOS/Model/PokemonStats.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				AF60236127C80B44008FE236 /* PokeData.swift */,
 				AF60236327C80C96008FE236 /* Pokemon.swift */,
 				AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */,
+				AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,7 +158,6 @@
 			children = (
 				AF60233927C809FE008FE236 /* LaunchScreen.storyboard */,
 				AF60233427C809FD008FE236 /* Main.storyboard */,
-				AF62215C27C840EC009D3B1B /* PokemonCell.swift */,
 				AF62215D27C840EC009D3B1B /* PokemonCell.xib */,
 			);
 			path = View;
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				AF60233227C809FD008FE236 /* ViewController.swift */,
+				AF62215C27C840EC009D3B1B /* PokemonCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				AF62215E27C840EC009D3B1B /* PokemonCell.swift in Sources */,
 				AF60233127C809FD008FE236 /* SceneDelegate.swift in Sources */,
 				AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */,
+				AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
