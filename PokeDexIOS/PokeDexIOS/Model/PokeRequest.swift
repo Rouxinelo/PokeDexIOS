@@ -19,7 +19,7 @@ struct PokeRequest{
     
     var initialLink = "https://pokeapi.co/api/v2/pokemon?limit="
     var finalLink = "&offset="
-    var requestURL: String? = "https://pokeapi.co/api/v2/pokemon?limit=6&offset=0"
+    var requestURL: String? = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=0"
     
     func fetchData(){
         if let url = URL(string: requestURL!){

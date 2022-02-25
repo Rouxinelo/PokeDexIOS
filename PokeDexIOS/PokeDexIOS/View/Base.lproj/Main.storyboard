@@ -208,19 +208,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-fB-gN2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-fB-gN2">
+                                <rect key="frame" x="0.0" y="108" width="414" height="677"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalCompressionResistancePriority="749" image="pokemonLogo" translatesAutoresizingMaskIntoConstraints="NO" id="k2E-gf-s7J">
+                                        <rect key="frame" x="157" y="0.0" width="100" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="qHN-A0-kdt"/>
+                                            <constraint firstAttribute="height" constant="40" id="vLy-W3-yF3"/>
+                                        </constraints>
+                                    </imageView>
                                     <searchBar contentMode="redraw" barStyle="black" placeholder="Search: Pokemon Name/ID" translatesAutoresizingMaskIntoConstraints="NO" id="UgS-fc-Rwy">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="42" width="414" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="iUA-ZJ-Nfr"/>
+                                        </constraints>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nbz-CI-EBR">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="625"/>
+                                        <rect key="frame" x="0.0" y="95" width="414" height="549"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="9Ar-Sf-Ikf">
-                                        <rect key="frame" x="30.5" y="694" width="353" height="31"/>
+                                        <rect key="frame" x="30.5" y="646" width="353" height="31"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nq0-0K-k8q">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
@@ -260,28 +270,21 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Nbz-CI-EBR" secondAttribute="trailing" id="4YH-6Z-KXu"/>
-                                    <constraint firstItem="9Ar-Sf-Ikf" firstAttribute="top" secondItem="Nbz-CI-EBR" secondAttribute="bottom" constant="9" id="5Ui-Wq-EaM"/>
-                                    <constraint firstItem="UgS-fc-Rwy" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="8cT-LE-YRH"/>
-                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="top" secondItem="UgS-fc-Rwy" secondAttribute="bottom" constant="9" id="SNm-vG-es9"/>
-                                    <constraint firstItem="9Ar-Sf-Ikf" firstAttribute="top" secondItem="Nbz-CI-EBR" secondAttribute="bottom" constant="9" id="Vaf-m1-xjL"/>
-                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="top" secondItem="UgS-fc-Rwy" secondAttribute="bottom" constant="9" id="Y1v-2L-e5a"/>
-                                    <constraint firstAttribute="trailing" secondItem="Nbz-CI-EBR" secondAttribute="trailing" id="dcp-D1-dIx"/>
-                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="top" secondItem="UgS-fc-Rwy" secondAttribute="bottom" constant="9" id="jKQ-5Z-OnU"/>
-                                    <constraint firstAttribute="trailing" secondItem="UgS-fc-Rwy" secondAttribute="trailing" id="lfz-xR-Wgh"/>
-                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="mT4-hm-fnY"/>
-                                    <constraint firstItem="UgS-fc-Rwy" firstAttribute="top" secondItem="iZI-fB-gN2" secondAttribute="top" id="vVp-Yk-1vu"/>
-                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="yQa-De-NM1"/>
+                                    <constraint firstAttribute="trailing" secondItem="UgS-fc-Rwy" secondAttribute="trailing" id="CLz-Sp-N4U"/>
+                                    <constraint firstItem="UgS-fc-Rwy" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="Fdy-KU-zkf"/>
+                                    <constraint firstItem="k2E-gf-s7J" firstAttribute="top" secondItem="iZI-fB-gN2" secondAttribute="top" id="HTg-VI-nmz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nbz-CI-EBR" secondAttribute="trailing" id="K4Z-Ep-Iqs"/>
+                                    <constraint firstItem="Nbz-CI-EBR" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="mWQ-f2-nmL"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iZI-fB-gN2" secondAttribute="bottom" id="SJw-1m-fcl"/>
-                            <constraint firstItem="iZI-fB-gN2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XeN-U2-nHm"/>
-                            <constraint firstItem="iZI-fB-gN2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="amL-hf-7HX"/>
-                            <constraint firstItem="iZI-fB-gN2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cwE-0E-wT0"/>
+                            <constraint firstItem="iZI-fB-gN2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MZ5-ej-REC"/>
+                            <constraint firstItem="iZI-fB-gN2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QXO-OI-XA0"/>
+                            <constraint firstItem="iZI-fB-gN2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fdt-13-Dtb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iZI-fB-gN2" secondAttribute="bottom" constant="28" id="zky-fr-bD6"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -338,6 +341,7 @@
     <resources>
         <image name="myPicture" width="823" height="768"/>
         <image name="pokeDexInitialScreen" width="750" height="1334"/>
+        <image name="pokemonLogo" width="1000" height="1000"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
