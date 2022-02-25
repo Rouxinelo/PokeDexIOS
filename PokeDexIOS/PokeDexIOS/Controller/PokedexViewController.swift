@@ -27,6 +27,9 @@ class PokedexViewController: UIViewController {
     // Table View Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // Search Bar Outlets
+    @IBOutlet weak var pokemonSearchBar: UISearchBar!
+    
     
     // Navigation Button OnClickActions
     @IBAction func prevPageClicked(_ sender: UIButton) {
