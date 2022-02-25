@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
     var URLarray = [String]()
     
     var PokemonArray = [pokemon]()
@@ -27,19 +26,25 @@ class ViewController: UIViewController {
     // Table View Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    // Image View Outlets
-    @IBOutlet weak var imageView: UIImageView!
     
     // Navigation Button OnClickActions
     @IBAction func prevPageClicked(_ sender: UIButton) {
         if let prev = searchForPokemonUrls.previousURL{
             searchForPokemonUrls.requestURL = prev
-            searchForPokemonUrls.fecthData()
+            searchForPokemonUrls.fetchData()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
     @IBAction func nextPageClicked(_ sender: UIButton) {
-        searchForPokemonUrls.fecthData()
+        searchForPokemonUrls.fetchData()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -49,11 +54,15 @@ class ViewController: UIViewController {
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         
-        searchForPokemonUrls.fecthData()
+        tableView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
         checkButton()
-    }
+        
+        searchForPokemonUrls.fetchData()
+        
+        }
 
 }
 
@@ -62,9 +71,9 @@ class ViewController: UIViewController {
 extension ViewController{
     
     func checkButton(){
-        if pageLabel.text == "1" {
+        if searchForPokemonUrls.previousURL == nil {
             prevPageButton.isHidden = true
-        } else if pageLabel.text == "10"{
+        } else if searchForPokemonUrls.requestURL == nil {
             nextPageButton.isHidden = true
         } else {
             prevPageButton.isHidden = false
@@ -88,12 +97,10 @@ extension ViewController{
 extension ViewController: PokeRequestDelegate{
     func recievedPokeList(data: pokeData) {
         PokemonArray.removeAll()
-        print(data.count)
         
         searchForPokemonUrls.requestURL = data.next
-        if let prev = data.previous{
-            searchForPokemonUrls.previousURL = prev
-        }
+
+        searchForPokemonUrls.previousURL = data.previous
         
         for res in data.results{
             URLarray.append(res.url)
@@ -101,19 +108,15 @@ extension ViewController: PokeRequestDelegate{
         
         for urlStr in self.URLarray{
             self.searchForPokemonStats.requestURL = urlStr
-            self.searchForPokemonStats.fecthData()
+            self.searchForPokemonStats.fetchData()
         }
-        
-        print(PokemonArray.count)
-        for poke in PokemonArray{
-            print(poke.name)
-        }
+
+        URLarray.removeAll()
         
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.checkButton()
         }
         
-        URLarray.removeAll()
     }
 }
 
@@ -122,11 +125,6 @@ extension ViewController: PokeRequestDelegate{
 extension ViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon) {
         PokemonArray.append(data)
-        
-        // Just a test, to remove after
-        if let url = URL(string: data.sprites.front_default){
-            imageView.load(url: url)
-        }
     }
 }
 
@@ -138,9 +136,22 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
-        cell.textLabel?.text = "\(PokemonArray[indexPath.row].id) - \(PokemonArray[indexPath.row].name)"
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PokemonCell
+
+        cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
+        cell.pokemonName.text = PokemonArray[indexPath.row].name
+        cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
+        print(PokemonArray[indexPath.row].sprites.front_default)
+            return cell
+    }
+}
+
+// MARK - TableViewDelegate
+
+extension ViewController: UITableViewDelegate{
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
 
