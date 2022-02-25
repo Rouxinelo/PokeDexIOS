@@ -24,6 +24,7 @@
 		AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */; };
 		AFA5BCAD27C9092A003970DF /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA5BCAC27C9092A003970DF /* HomeScreenViewController.swift */; };
 		AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8E14327C8250600C96FBE /* PokemonStats.swift */; };
+		AFF654A727C91ABE00903A58 /* PokemonStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManager.swift; sourceTree = "<group>"; };
 		AFA5BCAC27C9092A003970DF /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		AFC8E14327C8250600C96FBE /* PokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokemonStats.swift; path = PokeDexIOS/Model/PokemonStats.swift; sourceTree = SOURCE_ROOT; };
+		AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				AF60233227C809FD008FE236 /* PokedexViewController.swift */,
 				AF62215C27C840EC009D3B1B /* PokemonCell.swift */,
 				AFA5BCAC27C9092A003970DF /* HomeScreenViewController.swift */,
+				AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				AF60236427C80C96008FE236 /* Pokemon.swift in Sources */,
 				AF60233327C809FD008FE236 /* PokedexViewController.swift in Sources */,
 				AF6C87A527C80EF700B1DEE6 /* PokeRequest.swift in Sources */,
+				AFF654A727C91ABE00903A58 /* PokemonStatsViewController.swift in Sources */,
 				AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */,
 				AF60236227C80B44008FE236 /* PokeData.swift in Sources */,
 				AF62215E27C840EC009D3B1B /* PokemonCell.swift in Sources */,
