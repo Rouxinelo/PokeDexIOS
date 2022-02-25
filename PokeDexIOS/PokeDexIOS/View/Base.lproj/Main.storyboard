@@ -85,11 +85,28 @@
                         <outlet property="pageLabel" destination="p0Z-9T-tVm" id="ulM-he-SzV"/>
                         <outlet property="prevPageButton" destination="slM-ls-0Qk" id="Ksw-as-kR4"/>
                         <outlet property="tableView" destination="Nbz-CI-EBR" id="vlf-cS-6TI"/>
+                        <segue destination="ZGe-D1-D4y" kind="show" id="Rxf-uV-LZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="65.625"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="f2A-5Y-bI6">
+            <objects>
+                <viewController id="ZGe-D1-D4y" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8gc-O5-DIp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bmE-1a-00n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vnS-NS-eN3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-hf-Bdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2052" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sQM-St-5pf">
