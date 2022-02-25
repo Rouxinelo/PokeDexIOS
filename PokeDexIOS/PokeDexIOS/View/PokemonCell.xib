@@ -125,9 +125,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="hZN-W7-Zpp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Eks-TQ-yH5"/>
-                <constraint firstAttribute="trailing" secondItem="hZN-W7-Zpp" secondAttribute="trailing" id="Z8a-2l-Apn"/>
-                <constraint firstItem="hZN-W7-Zpp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dh8-TD-oMo"/>
+                <constraint firstItem="hZN-W7-Zpp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0e1-bP-kFl"/>
+                <constraint firstItem="hZN-W7-Zpp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Cap-7x-99d"/>
+                <constraint firstAttribute="trailing" secondItem="hZN-W7-Zpp" secondAttribute="trailing" id="bG1-v5-0Lo"/>
+                <constraint firstAttribute="bottom" secondItem="hZN-W7-Zpp" secondAttribute="bottom" id="xCJ-AM-XTy"/>
             </constraints>
             <size key="customSize" width="396" height="50"/>
             <connections>

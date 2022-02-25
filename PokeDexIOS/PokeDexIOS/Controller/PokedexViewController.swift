@@ -199,6 +199,7 @@ extension PokedexViewController: UITableViewDelegate{
 // MARK - SearchBarDelegate
 
 extension PokedexViewController: UISearchBarDelegate{
+
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = searchBar.text {
