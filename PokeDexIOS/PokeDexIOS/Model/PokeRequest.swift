@@ -23,6 +23,10 @@ struct PokeRequest{
     
     var requestURL: String? = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=0"
     
+    let firstPageURL: String = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=0"
+    
+    let lastPageURL: String = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=896"
+    
     func fetchData(){
         if let url = URL(string: requestURL!){
         let session = URLSession(configuration: .default)

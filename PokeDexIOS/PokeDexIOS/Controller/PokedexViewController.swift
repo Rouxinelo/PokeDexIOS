@@ -43,22 +43,30 @@ class PokedexViewController: UIViewController {
     
     // Navigation Button OnClickActions
     @IBAction func prevPageClicked(_ sender: UIButton) {
-        if let prev = searchForPokemonUrls.previousURL{
-            searchForPokemonUrls.requestURL = prev
-            searchForPokemonUrls.fetchData()
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        if sender == prevPageButton{
+            if let prev = searchForPokemonUrls.previousURL{
+                searchForPokemonUrls.requestURL = prev
             }
+        } else if sender == firstPageButton{
+            searchForPokemonUrls.requestURL = searchForPokemonUrls.firstPageURL
+        }
+        searchForPokemonUrls.fetchData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     
     @IBAction func nextPageClicked(_ sender: UIButton) {
-        searchForPokemonUrls.fetchData()
-        
+        if(sender == lastPageButton){
+            searchForPokemonUrls.requestURL = searchForPokemonUrls.lastPageURL
+            searchForPokemonUrls.fetchData()
+        } else if sender == nextPageButton {
+            searchForPokemonUrls.fetchData()
+        }
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        
     }
     
     override func viewDidLoad() {
@@ -79,7 +87,7 @@ class PokedexViewController: UIViewController {
         checkButton()
         
         searchForPokemonUrls.fetchData()
-                
+        
     }
     
 }
@@ -89,13 +97,21 @@ class PokedexViewController: UIViewController {
 extension PokedexViewController{
     
     func checkButton(){
-        if searchForPokemonUrls.previousURL == nil {
+        if pageLabel.text == "1" {
+            nextPageButton.isHidden = false
+            lastPageButton.isHidden = false
             prevPageButton.isHidden = true
+            firstPageButton.isHidden = true
         } else if pageLabel.text == String(maxPages!) {
             nextPageButton.isHidden = true
+            lastPageButton.isHidden = true
+            firstPageButton.isHidden = false
+            prevPageButton.isHidden = false
         } else {
             prevPageButton.isHidden = false
             nextPageButton.isHidden = false
+            firstPageButton.isHidden = false
+            lastPageButton.isHidden = false
         }
     }
     
@@ -105,6 +121,12 @@ extension PokedexViewController{
             checkButton()
         } else if sender == nextPageButton {
             pageLabel.text = String(Int(pageLabel.text!)! + 1)
+            checkButton()
+        } else if sender == firstPageButton{
+            pageLabel.text = "1"
+            checkButton()
+        } else if sender == lastPageButton{
+            pageLabel.text = "129"
             checkButton()
         }
     }
@@ -140,11 +162,11 @@ extension PokedexViewController: PokeRequestDelegate{
     func recievedPokeCount(count: Int) {
         print(count % self.pokemonPerPage)
         print(count/self.pokemonPerPage)
-            if count % self.pokemonPerPage == 0 {
-                self.maxPages = (count/self.pokemonPerPage)
-            } else {
-                self.maxPages = (count/self.pokemonPerPage) + 1
-            }
+        if count % self.pokemonPerPage == 0 {
+            self.maxPages = (count/self.pokemonPerPage)
+        } else {
+            self.maxPages = (count/self.pokemonPerPage) + 1
+        }
         
     }
 }
