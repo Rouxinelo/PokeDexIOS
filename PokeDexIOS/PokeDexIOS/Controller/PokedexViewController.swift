@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokedexViewController: UIViewController {
 
     var URLarray = [String]()
     
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 
 // MARK - Pagination
 
-extension ViewController{
+extension PokedexViewController{
     
     func checkButton(){
         if searchForPokemonUrls.previousURL == nil {
@@ -95,7 +95,7 @@ extension ViewController{
 
 // MARK - PokeRequestDelegate
 
-extension ViewController: PokeRequestDelegate{
+extension PokedexViewController: PokeRequestDelegate{
     func recievedPokeList(data: pokeData) {
         PokemonArray.removeAll()
         
@@ -123,7 +123,7 @@ extension ViewController: PokeRequestDelegate{
 
 // MARK - PokemonStatsDelegate
 
-extension ViewController: PokemonStatsDelegate{
+extension PokedexViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon) {
         PokemonArray.append(data)
     }
@@ -131,7 +131,7 @@ extension ViewController: PokemonStatsDelegate{
 
 // MARK - TableViewDataSource
 
-extension ViewController: UITableViewDataSource{
+extension PokedexViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return PokemonArray.count
     }
@@ -166,7 +166,7 @@ extension ViewController: UITableViewDataSource{
 
 // MARK - TableViewDelegate
 
-extension ViewController: UITableViewDelegate{
+extension PokedexViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
