@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L8R-ih-abN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uTY-ht-UOu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,6 +8,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Home Screen View Controller-->
+        <scene sceneID="zep-tH-Oja">
+            <objects>
+                <viewController id="gLT-DD-bHO" customClass="HomeScreenViewController" customModule="PokeDexIOS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QOY-hO-NFU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HyN-cX-Q5s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r5Y-cz-5J9"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toPokeDex" id="BsD-Xr-8Yk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jro-yk-nfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="66"/>
+        </scene>
         <!--Pokedex View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -85,12 +104,12 @@
                         <outlet property="pageLabel" destination="p0Z-9T-tVm" id="ulM-he-SzV"/>
                         <outlet property="prevPageButton" destination="slM-ls-0Qk" id="Ksw-as-kR4"/>
                         <outlet property="tableView" destination="Nbz-CI-EBR" id="vlf-cS-6TI"/>
-                        <segue destination="ZGe-D1-D4y" kind="show" id="Rxf-uV-LZB"/>
+                        <segue destination="ZGe-D1-D4y" kind="show" identifier="toPokeStats" id="Rxf-uV-LZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="65.625"/>
+            <point key="canvasLocation" x="1839.1304347826087" y="65.625"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="f2A-5Y-bI6">
@@ -106,25 +125,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-hf-Bdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="66"/>
+            <point key="canvasLocation" x="2960.8695652173915" y="65.625"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="sQM-St-5pf">
+        <scene sceneID="QaS-MG-SuG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L8R-ih-abN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uTY-ht-UOu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RUM-EL-Hgl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CnK-OF-Fmw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gGh-et-mrZ"/>
+                        <segue destination="gLT-DD-bHO" kind="relationship" relationship="rootViewController" id="5ok-PE-1Ow"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="caB-JQ-p80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YbI-TA-g0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="65.625"/>
+            <point key="canvasLocation" x="-410.14492753623193" y="65.625"/>
         </scene>
     </scenes>
     <resources>
