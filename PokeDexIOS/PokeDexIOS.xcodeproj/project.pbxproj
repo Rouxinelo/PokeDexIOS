@@ -158,7 +158,6 @@
 			children = (
 				AF60233927C809FE008FE236 /* LaunchScreen.storyboard */,
 				AF60233427C809FD008FE236 /* Main.storyboard */,
-				AF62215C27C840EC009D3B1B /* PokemonCell.swift */,
 				AF62215D27C840EC009D3B1B /* PokemonCell.xib */,
 			);
 			path = View;
@@ -168,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				AF60233227C809FD008FE236 /* ViewController.swift */,
+				AF62215C27C840EC009D3B1B /* PokemonCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

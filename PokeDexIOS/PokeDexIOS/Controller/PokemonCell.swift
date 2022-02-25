@@ -14,12 +14,23 @@ class PokemonCell: UITableViewCell {
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonNumber: UILabel!
     
+    @IBOutlet weak var strokeLabel: UILabel!
+    
     @IBOutlet weak var type1Label: UILabel!
     @IBOutlet weak var type2Label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        strokeLabel.layer.borderWidth = 1.0
+
+        pokemonSprite.layer.borderWidth = 1.0
+        
+        type1Label.layer.borderWidth = 1.0
+        type1Label.layer.cornerRadius = 15.0
+        type2Label.layer.borderWidth = 1.0
+        type2Label.layer.cornerRadius = 15.0
     }
 
 }
