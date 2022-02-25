@@ -59,6 +59,7 @@ class PokedexViewController: UIViewController {
         searchForPokemonStats.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        pokemonSearchBar.delegate = self
         
         tableView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
@@ -181,6 +182,21 @@ extension PokedexViewController: UITableViewDelegate{
     }
 }
 
+// MARK - SearchBarDelegate
+
+extension PokedexViewController: UISearchBarDelegate{
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let search = searchBar.text {
+            print(search)
+        }
+    }
+    
+}
 // MARK - Load Image From URL
 
 extension UIImageView {
@@ -196,3 +212,4 @@ extension UIImageView {
         }
     }
 }
+
