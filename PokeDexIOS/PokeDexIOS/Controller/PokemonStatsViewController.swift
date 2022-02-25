@@ -9,6 +9,11 @@ import UIKit
 
 class PokemonStatsViewController: UIViewController {
 
+    // Bar Button OnClickAction
+    @IBAction func InformationClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toAboutMe", sender: sender)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
