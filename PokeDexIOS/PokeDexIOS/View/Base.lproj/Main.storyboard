@@ -15,8 +15,19 @@
                     <view key="view" contentMode="scaleToFill" id="QOY-hO-NFU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="pokeDexInitialScreen" translatesAutoresizingMaskIntoConstraints="NO" id="0QV-Sf-QXA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HyN-cX-Q5s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0QV-Sf-QXA" secondAttribute="bottom" id="GaO-AK-M03"/>
+                            <constraint firstItem="0QV-Sf-QXA" firstAttribute="top" secondItem="QOY-hO-NFU" secondAttribute="top" id="htJ-uu-de6"/>
+                            <constraint firstItem="0QV-Sf-QXA" firstAttribute="leading" secondItem="QOY-hO-NFU" secondAttribute="leading" id="sZp-U1-lKn"/>
+                            <constraint firstAttribute="trailing" secondItem="0QV-Sf-QXA" secondAttribute="trailing" id="u1J-Z7-38l"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="r5Y-cz-5J9"/>
                     <connections>
@@ -25,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jro-yk-nfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="66"/>
+            <point key="canvasLocation" x="669.56521739130437" y="65.625"/>
         </scene>
         <!--Pokedex View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -147,6 +158,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pokeDexInitialScreen" width="750" height="1334"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
