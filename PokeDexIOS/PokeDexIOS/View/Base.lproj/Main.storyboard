@@ -19,14 +19,27 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="pokeDexInitialScreen" translatesAutoresizingMaskIntoConstraints="NO" id="0QV-Sf-QXA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIq-CW-L0X">
+                                <rect key="frame" x="20" y="331" width="50" height="169"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="GO"/>
+                                <connections>
+                                    <action selector="goToPokedex:" destination="gLT-DD-bHO" eventType="touchUpInside" id="ln9-Jb-fl1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HyN-cX-Q5s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="DIq-CW-L0X" firstAttribute="leading" secondItem="HyN-cX-Q5s" secondAttribute="leading" constant="20" id="0YE-eG-xzo"/>
+                            <constraint firstItem="DIq-CW-L0X" firstAttribute="top" secondItem="QOY-hO-NFU" secondAttribute="topMargin" constant="243" id="9GL-5D-0FF"/>
                             <constraint firstAttribute="bottom" secondItem="0QV-Sf-QXA" secondAttribute="bottom" id="GaO-AK-M03"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="DIq-CW-L0X" secondAttribute="bottom" constant="362" id="fd1-OG-pb6"/>
                             <constraint firstItem="0QV-Sf-QXA" firstAttribute="top" secondItem="QOY-hO-NFU" secondAttribute="top" id="htJ-uu-de6"/>
                             <constraint firstItem="0QV-Sf-QXA" firstAttribute="leading" secondItem="QOY-hO-NFU" secondAttribute="leading" id="sZp-U1-lKn"/>
                             <constraint firstAttribute="trailing" secondItem="0QV-Sf-QXA" secondAttribute="trailing" id="u1J-Z7-38l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DIq-CW-L0X" secondAttribute="trailing" constant="324" id="vVU-WO-gJz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="r5Y-cz-5J9"/>
@@ -159,6 +172,9 @@
     </scenes>
     <resources>
         <image name="pokeDexInitialScreen" width="750" height="1334"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
