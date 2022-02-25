@@ -4,7 +4,6 @@
 //
 //  Created by Joao Rouxinol on 25/02/2022.
 //
-
 import UIKit
 
 class HomeScreenViewController: UIViewController {
@@ -12,6 +11,10 @@ class HomeScreenViewController: UIViewController {
     
     @IBAction func goToPokedex(_ sender: UIButton) {
         performSegue(withIdentifier: "toPokeDex", sender: sender)
+    }
+    
+    @IBAction func goToAboutMe(_ sender: UIButton) {
+        performSegue(withIdentifier: "toAboutMe", sender: sender)
     }
     
     override func viewDidLoad() {
