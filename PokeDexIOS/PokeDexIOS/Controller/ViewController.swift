@@ -32,11 +32,19 @@ class ViewController: UIViewController {
         if let prev = searchForPokemonUrls.previousURL{
             searchForPokemonUrls.requestURL = prev
             searchForPokemonUrls.fetchData()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
     @IBAction func nextPageClicked(_ sender: UIButton) {
         searchForPokemonUrls.fetchData()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -48,12 +56,13 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        searchForPokemonUrls.fetchData()
-        
         tableView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
         checkButton()
-    }
+        
+        searchForPokemonUrls.fetchData()
+        
+        }
 
 }
 
@@ -88,7 +97,6 @@ extension ViewController{
 extension ViewController: PokeRequestDelegate{
     func recievedPokeList(data: pokeData) {
         PokemonArray.removeAll()
-        print(data.count)
         
         searchForPokemonUrls.requestURL = data.next
 
@@ -102,21 +110,13 @@ extension ViewController: PokeRequestDelegate{
             self.searchForPokemonStats.requestURL = urlStr
             self.searchForPokemonStats.fetchData()
         }
-        
-        print(PokemonArray.count)
-        for poke in PokemonArray{
-            print(poke.name)
-        }
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-        
+
         URLarray.removeAll()
         
         DispatchQueue.main.async {
             self.checkButton()
         }
+        
     }
 }
 
@@ -125,7 +125,6 @@ extension ViewController: PokeRequestDelegate{
 extension ViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon) {
         PokemonArray.append(data)
-        
     }
 }
 
@@ -142,6 +141,7 @@ extension ViewController: UITableViewDataSource{
         cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
         cell.pokemonName.text = PokemonArray[indexPath.row].name
         cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
+        print(PokemonArray[indexPath.row].sprites.front_default)
             return cell
     }
 }
@@ -151,7 +151,7 @@ extension ViewController: UITableViewDataSource{
 extension ViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 }
 
