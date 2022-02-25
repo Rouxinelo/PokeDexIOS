@@ -31,6 +31,10 @@ class PokedexViewController: UIViewController {
     // Search Bar Outlets
     @IBOutlet weak var pokemonSearchBar: UISearchBar!
     
+    // Bar Button OnClickAction
+    @IBAction func InformationClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toAboutMe", sender: sender)
+    }
     
     // Navigation Button OnClickActions
     @IBAction func prevPageClicked(_ sender: UIButton) {
