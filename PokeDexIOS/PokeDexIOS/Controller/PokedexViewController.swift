@@ -14,6 +14,7 @@ class PokedexViewController: UIViewController {
     var PokemonArray = [pokemon]()
     
     var colorPicker = TypeColorManager()
+    
     var searchForPokemonUrls = PokeRequest()
     var searchForPokemonStats = PokemonStats()
     
@@ -128,8 +129,16 @@ extension PokedexViewController: PokeRequestDelegate{
 // MARK - PokemonStatsDelegate
 
 extension PokedexViewController: PokemonStatsDelegate{
-    func recievedPokeInfo(data: pokemon) {
-        PokemonArray.append(data)
+    func recievedPokeInfo(data: pokemon, single: Bool) {
+        if single == true{
+            print(data.name)
+        } else {
+            PokemonArray.append(data)
+        }
+    }
+    
+    func pokemonNotFound() {
+        pokemonSearchBar.placeholder = "Error, Pokemon not found"
     }
 }
 
@@ -148,6 +157,7 @@ extension PokedexViewController: UITableViewDataSource{
         cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
         
         if PokemonArray[indexPath.row].types.count == 2 {
+            
             cell.type2Label.text = PokemonArray[indexPath.row].types.last?.type.name
             
             colorPicker.type = PokemonArray[indexPath.row].types.last?.type.name
@@ -187,12 +197,13 @@ extension PokedexViewController: UITableViewDelegate{
 extension PokedexViewController: UISearchBarDelegate{
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
+        searchBar.placeholder = "Search: Pokemon Name/ID"
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = searchBar.text {
-            print(search)
+                let pokemonToSearch = search.lowercased()
+                searchForPokemonStats.fetchPokemonSearch(urlString: searchForPokemonStats.requestURLSingle + pokemonToSearch + "/")
         }
     }
     
@@ -212,4 +223,3 @@ extension UIImageView {
         }
     }
 }
-
