@@ -175,7 +175,14 @@ extension PokedexViewController: PokeRequestDelegate{
 
 extension PokedexViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon, single: Bool) {
-        PokemonArray.append(data)
+        if single{
+            selectedPokemon = data
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
+            }
+        } else {
+            PokemonArray.append(data)
+        }
     }
     
     func pokemonNotFound() {
