@@ -19,13 +19,13 @@ struct PokeRequest{
     
     var previousURL: String?
     
-    var pokemonCountLink: String = "https://pokeapi.co/api/v2/pokemon-species/?limit=0"
+    let pokemonCountLink: String = K.URLS.pokemonCountLink
     
     var requestURL: String? = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=0"
     
-    let firstPageURL: String = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=0"
+    let firstPageURL: String = K.URLS.firstPageUrl
     
-    let lastPageURL: String = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=896"
+    let lastPageURL: String = K.URLS.lastPageUrl
     
     func fetchData(){
         if let url = URL(string: requestURL!){

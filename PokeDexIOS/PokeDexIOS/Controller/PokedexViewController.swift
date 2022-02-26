@@ -9,6 +9,8 @@ import UIKit
 
 class PokedexViewController: UIViewController {
     
+    var selectedPokemon: pokemon? =  nil
+    
     let pokemonPerPage = 7
     var maxPages: Int? = 0
     
@@ -38,7 +40,7 @@ class PokedexViewController: UIViewController {
     
     // Bar Button OnClickAction
     @IBAction func InformationClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toAboutMe", sender: sender)
+        performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
     }
     
     // Navigation Button OnClickActions
@@ -79,17 +81,15 @@ class PokedexViewController: UIViewController {
         tableView.delegate = self
         pokemonSearchBar.delegate = self
         
-        tableView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.register(UINib(nibName: K.TableCells.pokeDexCellNibName, bundle: nil), forCellReuseIdentifier: K.TableCells.pokeDexCellIdentifier)
         
         searchForPokemonUrls.fetchPokeNumber()
-        
         
         checkButton()
         
         searchForPokemonUrls.fetchData()
         
     }
-    
 }
 
 // MARK - Pagination
@@ -126,7 +126,7 @@ extension PokedexViewController{
             pageLabel.text = "1"
             checkButton()
         } else if sender == lastPageButton{
-            pageLabel.text = "129"
+            pageLabel.text = String(maxPages!)
             checkButton()
         }
     }
@@ -175,8 +175,11 @@ extension PokedexViewController: PokeRequestDelegate{
 
 extension PokedexViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon, single: Bool) {
-        if single == true{
-            print(data.name)
+        if single{
+            selectedPokemon = data
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
+            }
         } else {
             PokemonArray.append(data)
         }
@@ -184,7 +187,7 @@ extension PokedexViewController: PokemonStatsDelegate{
     
     func pokemonNotFound() {
         DispatchQueue.main.async {
-            self.pokemonSearchBar.placeholder = "Error, Pokemon not found"
+            self.pokemonSearchBar.placeholder = K.SearchBar.errorPlaceHolder
             self.pokemonSearchBar.text = ""
         }
         
@@ -199,7 +202,7 @@ extension PokedexViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PokemonCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.pokeDexCellIdentifier, for: indexPath) as! PokemonCell
         
         cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
         cell.pokemonName.text = PokemonArray[indexPath.row].name
@@ -236,7 +239,10 @@ extension PokedexViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toPokeStats", sender: self)
+        
+        selectedPokemon = PokemonArray[indexPath.row]
+        
+        performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -254,10 +260,35 @@ extension PokedexViewController: UISearchBarDelegate{
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchBar.placeholder = "Search: Pokemon Name/ID"
+        searchBar.placeholder = K.SearchBar.initialPlaceHolder
     }
     
 }
+
+// MARK - Prepare for Segue To PokemonStats
+
+extension PokedexViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.pokeDexToPokeStats {
+            if let VC = segue.destination as? PokemonStatsViewController{
+                
+                if let pokemonChosen = selectedPokemon{
+                    VC.chosenPokemon = pokemonChosen
+                    colorPicker.type = pokemonChosen.types.first?.type.name
+                    VC.type1FontColor = colorPicker.getTextFontColor()
+                    VC.type1Color = colorPicker.getColorForType()
+                    if pokemonChosen.types.count > 1 {
+                        colorPicker.type = pokemonChosen.types.last?.type.name
+                        VC.type2FontColor = colorPicker.getTextFontColor()
+                        VC.type2Color = colorPicker.getColorForType()
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
 // MARK - Load Image From URL
 
 extension UIImageView {
