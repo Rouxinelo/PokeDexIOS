@@ -275,8 +275,13 @@ extension PokedexViewController {
                 if let pokemonChosen = selectedPokemon{
                     VC.chosenPokemon = pokemonChosen
                     colorPicker.type = pokemonChosen.types.first?.type.name
-                    VC.fontColor = colorPicker.getTextFontColor()
-                    VC.backgroundColor = colorPicker.getColorForType()
+                    VC.type1FontColor = colorPicker.getTextFontColor()
+                    VC.type1Color = colorPicker.getColorForType()
+                    if pokemonChosen.types.count > 1 {
+                        colorPicker.type = pokemonChosen.types.last?.type.name
+                        VC.type2FontColor = colorPicker.getTextFontColor()
+                        VC.type2Color = colorPicker.getColorForType()
+                    }
                 }
             }
             
