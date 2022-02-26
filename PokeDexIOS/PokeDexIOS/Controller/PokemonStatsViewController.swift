@@ -20,6 +20,8 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var baseEXP: UILabel!
     @IBOutlet weak var type1Label: UILabel!
     @IBOutlet weak var type2Label: UILabel!
+    @IBOutlet weak var toMovesButton: UIButton!
+    @IBOutlet weak var toAbilitiesButton: UIButton!
     
     var chosenPokemon: pokemon? = nil
     
@@ -45,6 +47,14 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
+    // Moves and Abilities Button OnClickActions
+    @IBAction func showMoreInformation(_ sender: UIButton) {
+        if sender == toMovesButton{
+            performSegue(withIdentifier: K.Segues.pokeStatstoMoves, sender: sender)
+        } else if sender == toAbilitiesButton{
+            performSegue(withIdentifier: K.Segues.pokeStatsToAbilities, sender: sender)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

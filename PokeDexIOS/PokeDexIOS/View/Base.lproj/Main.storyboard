@@ -403,6 +403,9 @@
                                                         <rect key="frame" x="75.5" y="0.0" width="46.5" height="55.5"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.forward" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="showMoreInformation:" destination="ZGe-D1-D4y" eventType="touchUpInside" id="IAO-Bv-htE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -419,6 +422,9 @@
                                                         <rect key="frame" x="90.5" y="0.0" width="46.5" height="55.5"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.right" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="showMoreInformation:" destination="ZGe-D1-D4y" eventType="touchUpInside" id="MkL-Mj-ivN"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -469,14 +475,34 @@
                         <outlet property="pokemonName" destination="1ah-iz-7Ij" id="LpY-ym-n6N"/>
                         <outlet property="pokemonNumber" destination="FzR-vK-ow7" id="VWk-Sz-d7p"/>
                         <outlet property="pokemonWeight" destination="uue-zL-StJ" id="r5j-r6-ZxS"/>
+                        <outlet property="toAbilitiesButton" destination="2i3-qZ-4rC" id="d7e-ci-ny0"/>
+                        <outlet property="toMovesButton" destination="iZj-rY-f11" id="8gj-QE-thi"/>
                         <outlet property="type1Label" destination="Ilj-iI-7v1" id="fY5-ii-KHA"/>
                         <outlet property="type2Label" destination="V95-bj-sV2" id="EFF-Y3-lfh"/>
                         <segue destination="ZIK-xf-tnO" kind="show" identifier="toAboutMe" id="Cah-tK-uTs"/>
+                        <segue destination="75E-Wh-4bM" kind="show" identifier="toAbilities" id="uV4-OV-Pqn"/>
+                        <segue destination="75E-Wh-4bM" kind="show" identifier="toMoves" id="dAV-QY-8gw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-hf-Bdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3871.0144927536235" y="65.625"/>
+        </scene>
+        <!--Abilities Moves View Controller-->
+        <scene sceneID="o6i-Os-OKI">
+            <objects>
+                <viewController id="75E-Wh-4bM" customClass="AbilitiesMovesViewController" customModule="PokeDexIOS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NZL-XM-xBB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ocs-ub-rEX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="G1y-YY-FD9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5y-uJ-tOe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4972" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aa2-EL-iGT">
@@ -498,6 +524,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="dAV-QY-8gw"/>
         <segue reference="Cah-tK-uTs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
