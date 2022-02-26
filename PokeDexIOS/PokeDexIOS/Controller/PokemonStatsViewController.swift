@@ -22,6 +22,8 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var type2Label: UILabel!
     
     var chosenPokemon: pokemon? = nil
+    var fontColor: UIColor = .black
+    var backgroundColor: UIColor = .white
     
     // Bar Button OnClickAction
     @IBAction func InformationClicked(_ sender: Any) {
@@ -42,7 +44,20 @@ class PokemonStatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(chosenPokemon?.name)
+        if let pokemon = chosenPokemon{
+            pokemonColor
+                .backgroundColor = backgroundColor
+            
+            pokemonName.textColor = fontColor
+            pokemonName.text = pokemon.name
+            
+            pokemonNumber.textColor = fontColor
+            pokemonNumber.text = String(pokemon.id)
+            
+            pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+            pokemonImage.layer.cornerRadius = 50
+            pokemonImage.layer.borderWidth = 3.0
+        }
         // Do any additional setup after loading the view.
     }
     
