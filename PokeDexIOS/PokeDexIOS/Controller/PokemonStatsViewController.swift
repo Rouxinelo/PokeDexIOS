@@ -14,6 +14,16 @@ class PokemonStatsViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
     }
     
+    @IBAction func favButtonClicked(_ sender: UIBarButtonItem) {
+        switch sender.image{
+        case K.BarButton.notFav:
+            sender.image = K.BarButton.fav
+        case K.BarButton.fav:
+            sender.image = K.BarButton.notFav
+        default:
+            print("NO IMAGE")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

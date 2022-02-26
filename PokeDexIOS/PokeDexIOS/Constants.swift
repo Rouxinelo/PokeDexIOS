@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct K {
     
@@ -31,4 +32,9 @@ struct K {
         static let lastPageUrl: String = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=896"
     }
     
+    struct BarButton{
+        static let notFav = UIImage(systemName:  "heart")
+        static let fav = UIImage(systemName:  "heart.fill")
+        
+    }
 }
