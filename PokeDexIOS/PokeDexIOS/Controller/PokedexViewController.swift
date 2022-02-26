@@ -9,6 +9,8 @@ import UIKit
 
 class PokedexViewController: UIViewController {
     
+    var selectedPokemon: pokemon? =  nil
+    
     let pokemonPerPage = 7
     var maxPages: Int? = 0
     
@@ -82,11 +84,11 @@ class PokedexViewController: UIViewController {
         tableView.register(UINib(nibName: K.TableCells.pokeDexCellNibName, bundle: nil), forCellReuseIdentifier: K.TableCells.pokeDexCellIdentifier)
         
         searchForPokemonUrls.fetchPokeNumber()
-                
+        
         checkButton()
         
         searchForPokemonUrls.fetchData()
-
+        
     }
 }
 
@@ -173,7 +175,7 @@ extension PokedexViewController: PokeRequestDelegate{
 
 extension PokedexViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon, single: Bool) {
-            PokemonArray.append(data)
+        PokemonArray.append(data)
     }
     
     func pokemonNotFound() {
@@ -230,6 +232,9 @@ extension PokedexViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedPokemon = PokemonArray[indexPath.row]
+        
         performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -252,6 +257,23 @@ extension PokedexViewController: UISearchBarDelegate{
     }
     
 }
+
+// MARK - Prepare for Segue To PokemonStats
+
+extension PokedexViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.pokeDexToPokeStats {
+            if let VC = segue.destination as? PokemonStatsViewController{
+                
+                if let pokemonChosen = selectedPokemon{
+                    VC.chosenPokemon = pokemonChosen
+                }
+            }
+            
+        }
+    }
+}
+
 // MARK - Load Image From URL
 
 extension UIImageView {
@@ -264,15 +286,6 @@ extension UIImageView {
                     }
                 }
             }
-        }
-    }
-}
-
-// MARK - Prepare for Segue To PokemonStats
-
-extension PokedexViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.Segues.pokeDexToPokeStats {
         }
     }
 }

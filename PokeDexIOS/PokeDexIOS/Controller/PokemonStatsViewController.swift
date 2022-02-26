@@ -42,7 +42,7 @@ class PokemonStatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(chosenPokemon?.name)
         // Do any additional setup after loading the view.
     }
     
