@@ -267,3 +267,12 @@ extension UIImageView {
         }
     }
 }
+
+// MARK - Prepare for Segue To PokemonStats
+
+extension PokedexViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.pokeDexToPokeStats {
+        }
+    }
+}

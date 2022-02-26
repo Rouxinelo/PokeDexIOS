@@ -9,6 +9,20 @@ import UIKit
 
 class PokemonStatsViewController: UIViewController {
 
+    //IBOutlets
+    @IBOutlet weak var favButton: UIBarButtonItem!
+    @IBOutlet weak var pokemonNumber: UILabel!
+    @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet weak var pokemonColor: UIStackView!
+    @IBOutlet weak var pokemonHeight: UILabel!
+    @IBOutlet weak var pokemonWeight: UILabel!
+    @IBOutlet weak var baseEXP: UILabel!
+    @IBOutlet weak var type1Label: UILabel!
+    @IBOutlet weak var type2Label: UILabel!
+    
+    var chosenPokemon: pokemon? = nil
+    
     // Bar Button OnClickAction
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
@@ -24,6 +38,8 @@ class PokemonStatsViewController: UIViewController {
             print("NO IMAGE")
         }
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
