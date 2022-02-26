@@ -7,27 +7,22 @@
 
 import Foundation
 
-struct pokemon: Codable, Equatable{
-    static func == (lhs: pokemon, rhs: pokemon) -> Bool {
-        if lhs.name == rhs.name{
-            return true
-        }
-        return false
-    }
+struct pokemon: Codable{
     
-      let id: Int
-      let types: [atype]
-      let abilities: [possibleAbility]
-      let moves: [possibleMoves]
-      let height: Int
-      let weight: Int
-      let name: String
-      let sprites: sprite
+    let id: Int
+    let types: [atype]
+    let abilities: [possibleAbility]
+    let moves: [possibleMoves]
+    let height: Int
+    let weight: Int
+    let name: String
+    let sprites: sprite
+    let base_experience: Int
 }
 
 struct atype: Codable{
-      let slot: Int
-      let type: type
+    let slot: Int
+    let type: type
 }
 //
 struct type: Codable{

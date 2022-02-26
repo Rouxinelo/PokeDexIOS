@@ -175,11 +175,7 @@ extension PokedexViewController: PokeRequestDelegate{
 
 extension PokedexViewController: PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon, single: Bool) {
-        if single == true{
-            print(data.name)
-        } else {
             PokemonArray.append(data)
-        }
     }
     
     func pokemonNotFound() {
