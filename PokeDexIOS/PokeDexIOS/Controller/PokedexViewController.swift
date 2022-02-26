@@ -38,7 +38,7 @@ class PokedexViewController: UIViewController {
     
     // Bar Button OnClickAction
     @IBAction func InformationClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toAboutMe", sender: sender)
+        performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
     }
     
     // Navigation Button OnClickActions
@@ -79,17 +79,15 @@ class PokedexViewController: UIViewController {
         tableView.delegate = self
         pokemonSearchBar.delegate = self
         
-        tableView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.register(UINib(nibName: K.TableCells.pokeDexCellNibName, bundle: nil), forCellReuseIdentifier: K.TableCells.pokeDexCellIdentifier)
         
         searchForPokemonUrls.fetchPokeNumber()
-        
-        
+                
         checkButton()
         
         searchForPokemonUrls.fetchData()
-        
+
     }
-    
 }
 
 // MARK - Pagination
@@ -126,7 +124,7 @@ extension PokedexViewController{
             pageLabel.text = "1"
             checkButton()
         } else if sender == lastPageButton{
-            pageLabel.text = "129"
+            pageLabel.text = String(maxPages!)
             checkButton()
         }
     }
@@ -180,7 +178,7 @@ extension PokedexViewController: PokemonStatsDelegate{
     
     func pokemonNotFound() {
         DispatchQueue.main.async {
-            self.pokemonSearchBar.placeholder = "Error, Pokemon not found"
+            self.pokemonSearchBar.placeholder = K.SearchBar.errorPlaceHolder
             self.pokemonSearchBar.text = ""
         }
         
@@ -195,7 +193,7 @@ extension PokedexViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PokemonCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.pokeDexCellIdentifier, for: indexPath) as! PokemonCell
         
         cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
         cell.pokemonName.text = PokemonArray[indexPath.row].name
@@ -232,7 +230,7 @@ extension PokedexViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toPokeStats", sender: self)
+        performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -250,7 +248,7 @@ extension PokedexViewController: UISearchBarDelegate{
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchBar.placeholder = "Search: Pokemon Name/ID"
+        searchBar.placeholder = K.SearchBar.initialPlaceHolder
     }
     
 }

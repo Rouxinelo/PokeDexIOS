@@ -11,7 +11,7 @@ class PokemonStatsViewController: UIViewController {
 
     // Bar Button OnClickAction
     @IBAction func InformationClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toAboutMe", sender: sender)
+        performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
     }
     
     override func viewDidLoad() {
