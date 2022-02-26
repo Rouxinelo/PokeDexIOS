@@ -11,13 +11,12 @@ struct pokemon: Codable{
     
     let id: Int
     let types: [atype]
-    let abilities: [possibleAbility]
-    let moves: [possibleMoves]
     let height: Int
     let weight: Int
     let name: String
     let sprites: sprite
     let base_experience: Int
+    let stats: [possibleStat]
 }
 
 struct atype: Codable{
@@ -34,19 +33,11 @@ struct sprite: Codable{
     let front_default: String
 }
 
-
-struct possibleMoves: Codable{
-    let move: move
+struct possibleStat: Codable{
+    let base_stat: Int
+    let stat: stat
 }
 
-struct move: Codable{
-    let name: String
-}
-
-struct possibleAbility: Codable{
-    let ability: ability
-}
-
-struct ability: Codable{
+struct stat: Codable{
     let name: String
 }

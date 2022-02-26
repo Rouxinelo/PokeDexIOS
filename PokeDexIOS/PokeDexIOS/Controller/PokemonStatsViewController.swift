@@ -9,7 +9,7 @@ import UIKit
 
 class PokemonStatsViewController: UIViewController {
 
-    //IBOutlets
+    // IBOutlets
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
@@ -20,12 +20,17 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var baseEXP: UILabel!
     @IBOutlet weak var type1Label: UILabel!
     @IBOutlet weak var type2Label: UILabel!
-    @IBOutlet weak var toMovesButton: UIButton!
-    @IBOutlet weak var toAbilitiesButton: UIButton!
+    @IBOutlet weak var hpLabel: UILabel!
+    @IBOutlet weak var atkLabel: UILabel!
+    @IBOutlet weak var defLabel: UILabel!
+    @IBOutlet weak var spAtkLabel: UILabel!
+    @IBOutlet weak var spDefLabel: UILabel!
+    @IBOutlet weak var speedLabel: UILabel!
     
+    // Pokemon to be displayed
     var chosenPokemon: pokemon? = nil
     
-    //Colors
+    // Colors
     var type1FontColor: UIColor = .black
     var type1Color: UIColor = .white
     var type2FontColor: UIColor = .black
@@ -44,15 +49,6 @@ class PokemonStatsViewController: UIViewController {
             sender.image = K.BarButton.notFav
         default:
             return
-        }
-    }
-    
-    // Moves and Abilities Button OnClickActions
-    @IBAction func showMoreInformation(_ sender: UIButton) {
-        if sender == toMovesButton{
-            performSegue(withIdentifier: K.Segues.pokeStatstoMoves, sender: sender)
-        } else if sender == toAbilitiesButton{
-            performSegue(withIdentifier: K.Segues.pokeStatsToAbilities, sender: sender)
         }
     }
     
@@ -99,6 +95,13 @@ class PokemonStatsViewController: UIViewController {
             } else {
                 type2Label.isHidden = true
             }
+            
+            hpLabel.text = String(pokemon.stats[0].base_stat)
+            atkLabel.text = String(pokemon.stats[1].base_stat)
+            defLabel.text = String(pokemon.stats[2].base_stat)
+            spAtkLabel.text = String(pokemon.stats[3].base_stat)
+            spDefLabel.text = String(pokemon.stats[4].base_stat)
+            speedLabel.text = String(pokemon.stats[5].base_stat)
         }
     }
     
