@@ -13,6 +13,7 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var imageTextLabel: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var pokemonColor: UIStackView!
     @IBOutlet weak var pokemonHeight: UILabel!
@@ -29,6 +30,9 @@ class PokemonStatsViewController: UIViewController {
     
     // Pokemon to be displayed
     var chosenPokemon: pokemon? = nil
+    
+    // Image that is displayed (normal or shiny)
+    var displayedImage: String? = nil
     
     // Colors
     var type1FontColor: UIColor = .black
@@ -52,6 +56,28 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+            if sender.state == .ended {
+                if let pokemon = chosenPokemon{
+                    switch displayedImage{
+                    case "Normal":
+                        pokemonImage.load(url: URL(string: pokemon.sprites.front_shiny)!)
+                        imageTextLabel.text = "Shiny"
+                        displayedImage = "Shiny"
+                        break
+                    case "Shiny":
+                        pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+                        imageTextLabel.text = "Normal"
+                        displayedImage = "Normal"
+                        break
+                    default:
+                        print("Error")
+                }
+
+                }
+            }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,6 +94,10 @@ class PokemonStatsViewController: UIViewController {
             pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
             pokemonImage.layer.cornerRadius = 50
             pokemonImage.layer.borderWidth = 3.0
+            
+            imageTextLabel.text = "Normal"
+            displayedImage = "Normal"
+            imageTextLabel.textColor = type1FontColor
             
             pokemonWeight.text = String(pokemon.weight)
             pokemonHeight.text = String(pokemon.height)
@@ -102,6 +132,12 @@ class PokemonStatsViewController: UIViewController {
             spAtkLabel.text = String(pokemon.stats[3].base_stat)
             spDefLabel.text = String(pokemon.stats[4].base_stat)
             speedLabel.text = String(pokemon.stats[5].base_stat)
+            
+            let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+            
+            pokemonImage.addGestureRecognizer(tapPokemonImage)
+            pokemonImage.isUserInteractionEnabled = true
+            
         }
     }
     

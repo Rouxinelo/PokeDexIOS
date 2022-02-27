@@ -29,8 +29,8 @@ struct type: Codable{
 }
 
 struct sprite: Codable{
-    let back_default: String
     let front_default: String
+    let front_shiny: String
 }
 
 struct possibleStat: Codable{
