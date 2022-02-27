@@ -32,6 +32,9 @@ class PokemonStatsViewController: UIViewController {
     // Pokemon to be displayed
     var chosenPokemon: pokemon? = nil
     
+    // Array of pokemons marked as favourite
+    var favPokemon = [FavPokemon]()
+    
     // Image that is displayed (normal or shiny)
     var displayedImage: String? = nil
     
@@ -65,6 +68,15 @@ class PokemonStatsViewController: UIViewController {
 
         default:
             return
+        }
+    }
+    
+    func loadPokemon(){
+        let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
+        do {
+            favPokemon = try context.fetch(request)
+        } catch {
+            print ("ERROR")
         }
     }
     
@@ -157,6 +169,14 @@ class PokemonStatsViewController: UIViewController {
             
             pokemonImage.addGestureRecognizer(tapPokemonImage)
             pokemonImage.isUserInteractionEnabled = true
+            
+            loadPokemon()
+            
+            for fav in favPokemon{
+                if fav.name == chosenPokemon?.name{
+                    favButton.image = K.BarButton.fav
+                }
+            }
             
         }
     }
