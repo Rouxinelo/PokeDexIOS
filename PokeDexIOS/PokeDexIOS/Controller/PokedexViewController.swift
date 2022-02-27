@@ -73,9 +73,6 @@ class PokedexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        print(paths[0])
         
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
@@ -91,7 +88,6 @@ class PokedexViewController: UIViewController {
         checkButton()
         
         searchForPokemonUrls.fetchData()
-        
     }
 }
 
@@ -99,22 +95,20 @@ class PokedexViewController: UIViewController {
 
 extension PokedexViewController{
     
+    func buttonVisibility(prev: Bool, next: Bool){
+        nextPageButton.isHidden = next
+        lastPageButton.isHidden = next
+        prevPageButton.isHidden = prev
+        firstPageButton.isHidden = prev
+    }
+    
     func checkButton(){
         if pageLabel.text == "1" {
-            nextPageButton.isHidden = false
-            lastPageButton.isHidden = false
-            prevPageButton.isHidden = true
-            firstPageButton.isHidden = true
+            buttonVisibility(prev: true, next: false)
         } else if pageLabel.text == String(maxPages!) {
-            nextPageButton.isHidden = true
-            lastPageButton.isHidden = true
-            firstPageButton.isHidden = false
-            prevPageButton.isHidden = false
+            buttonVisibility(prev: false, next: true)
         } else {
-            prevPageButton.isHidden = false
-            nextPageButton.isHidden = false
-            firstPageButton.isHidden = false
-            lastPageButton.isHidden = false
+            buttonVisibility(prev: false, next: false)
         }
     }
     

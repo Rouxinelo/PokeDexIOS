@@ -65,6 +65,13 @@ class PokemonStatsViewController: UIViewController {
             
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
+            
+            for pokemon in favPokemon{
+                if pokemon.name == chosenPokemon?.name{
+                    deletePokemon(toDelete: pokemon)
+                }
+                    
+            }
 
         default:
             return
@@ -76,7 +83,7 @@ class PokemonStatsViewController: UIViewController {
         do {
             favPokemon = try context.fetch(request)
         } catch {
-            print ("ERROR")
+            print ("error loading")
         }
     }
     
@@ -84,7 +91,16 @@ class PokemonStatsViewController: UIViewController {
         do{
             try context.save()
         } catch {
-            print("Error saving context")
+            print("error saving")
+        }
+    }
+    
+    func deletePokemon(toDelete: FavPokemon){
+        do{
+            context.delete(toDelete)
+            try context.save()
+        } catch {
+            print("Error deleting")
         }
     }
     
