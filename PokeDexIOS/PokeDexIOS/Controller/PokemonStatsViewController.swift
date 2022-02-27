@@ -60,15 +60,15 @@ class PokemonStatsViewController: UIViewController {
             if sender.state == .ended {
                 if let pokemon = chosenPokemon{
                     switch displayedImage{
-                    case "Normal":
+                    case "Regular":
                         pokemonImage.load(url: URL(string: pokemon.sprites.front_shiny)!)
                         imageTextLabel.text = "Shiny"
                         displayedImage = "Shiny"
                         break
                     case "Shiny":
                         pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
-                        imageTextLabel.text = "Normal"
-                        displayedImage = "Normal"
+                        imageTextLabel.text = "Regular"
+                        displayedImage = "Regular"
                         break
                     default:
                         print("Error")
@@ -95,8 +95,8 @@ class PokemonStatsViewController: UIViewController {
             pokemonImage.layer.cornerRadius = 50
             pokemonImage.layer.borderWidth = 3.0
             
-            imageTextLabel.text = "Normal"
-            displayedImage = "Normal"
+            imageTextLabel.text = "Regular"
+            displayedImage = "Regular"
             imageTextLabel.textColor = type1FontColor
             
             pokemonWeight.text = String(pokemon.weight)
