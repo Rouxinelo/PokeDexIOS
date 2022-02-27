@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PokemonStatsViewController: UIViewController {
 
@@ -31,6 +32,9 @@ class PokemonStatsViewController: UIViewController {
     // Pokemon to be displayed
     var chosenPokemon: pokemon? = nil
     
+    // Array of pokemons marked as favourite
+    var favPokemon = [FavPokemon]()
+    
     // Image that is displayed (normal or shiny)
     var displayedImage: String? = nil
     
@@ -40,6 +44,10 @@ class PokemonStatsViewController: UIViewController {
     var type2FontColor: UIColor = .black
     var type2Color: UIColor = .white
     
+    // Context for Core Data
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     // Bar Button OnClickActions
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
@@ -49,10 +57,50 @@ class PokemonStatsViewController: UIViewController {
         switch sender.image{
         case K.BarButton.notFav:
             sender.image = K.BarButton.fav
+            
+            //Save in DB
+            let favPokemon = FavPokemon(context: context)
+            favPokemon.name = chosenPokemon?.name
+            savePokemon()
+            
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
+            
+            for pokemon in favPokemon{
+                if pokemon.name == chosenPokemon?.name{
+                    deletePokemon(toDelete: pokemon)
+                }
+                    
+            }
+
         default:
             return
+        }
+    }
+    
+    func loadPokemon(){
+        let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
+        do {
+            favPokemon = try context.fetch(request)
+        } catch {
+            print ("error loading")
+        }
+    }
+    
+    func savePokemon(){
+        do{
+            try context.save()
+        } catch {
+            print("error saving")
+        }
+    }
+    
+    func deletePokemon(toDelete: FavPokemon){
+        do{
+            context.delete(toDelete)
+            try context.save()
+        } catch {
+            print("Error deleting")
         }
     }
     
@@ -137,6 +185,14 @@ class PokemonStatsViewController: UIViewController {
             
             pokemonImage.addGestureRecognizer(tapPokemonImage)
             pokemonImage.isUserInteractionEnabled = true
+            
+            loadPokemon()
+            
+            for fav in favPokemon{
+                if fav.name == chosenPokemon?.name{
+                    favButton.image = K.BarButton.fav
+                }
+            }
             
         }
     }
