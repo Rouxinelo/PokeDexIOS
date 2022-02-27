@@ -81,8 +81,6 @@ class PokedexViewController: UIViewController {
         tableView.delegate = self
         pokemonSearchBar.delegate = self
         
-//        tableView.register(UINib(nibName: K.TableCells.pokeDexCellNibName, bundle: nil), forCellReuseIdentifier: K.TableCells.pokeDexCellIdentifier)
-        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         
