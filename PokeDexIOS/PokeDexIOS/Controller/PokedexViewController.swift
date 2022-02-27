@@ -81,7 +81,10 @@ class PokedexViewController: UIViewController {
         tableView.delegate = self
         pokemonSearchBar.delegate = self
         
-        tableView.register(UINib(nibName: K.TableCells.pokeDexCellNibName, bundle: nil), forCellReuseIdentifier: K.TableCells.pokeDexCellIdentifier)
+//        tableView.register(UINib(nibName: K.TableCells.pokeDexCellNibName, bundle: nil), forCellReuseIdentifier: K.TableCells.pokeDexCellIdentifier)
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
         
         searchForPokemonUrls.fetchPokeNumber()
         
@@ -204,27 +207,7 @@ extension PokedexViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.pokeDexCellIdentifier, for: indexPath) as! PokemonCell
         
-        cell.pokemonNumber.text = String(PokemonArray[indexPath.row].id)
-        cell.pokemonName.text = PokemonArray[indexPath.row].name
-        cell.pokemonSprite.load(url: URL(string: PokemonArray[indexPath.row].sprites.front_default)!)
-        
-        if PokemonArray[indexPath.row].types.count == 2 {
-            
-            cell.type2Label.text = PokemonArray[indexPath.row].types.last?.type.name
-            
-            colorPicker.type = PokemonArray[indexPath.row].types.last?.type.name
-            cell.type2Label.backgroundColor = colorPicker.getColorForType()
-            cell.type2Label.textColor = colorPicker.getTextFontColor()
-            
-            cell.type2Label.isHidden = false
-        } else {
-            cell.type2Label.isHidden = true
-        }
-        cell.type1Label.text = PokemonArray[indexPath.row].types.first?.type.name
-        
-        colorPicker.type = PokemonArray[indexPath.row].types.first?.type.name
-        cell.type1Label.backgroundColor = colorPicker.getColorForType()
-        cell.type1Label.textColor = colorPicker.getTextFontColor()
+        cell.loadPokeInfo(pokemon: PokemonArray[indexPath.row])
         
         return cell
     }
@@ -234,9 +217,6 @@ extension PokedexViewController: UITableViewDataSource{
 
 extension PokedexViewController: UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
