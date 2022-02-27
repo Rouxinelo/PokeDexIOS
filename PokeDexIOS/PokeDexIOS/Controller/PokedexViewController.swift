@@ -8,7 +8,7 @@
 import UIKit
 
 class PokedexViewController: UIViewController {
-    
+        
     var selectedPokemon: pokemon? =  nil
     
     let pokemonPerPage = 7
@@ -73,7 +73,9 @@ class PokedexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+          
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        print(paths[0])
         
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PokemonStatsViewController: UIViewController {
 
@@ -40,6 +41,10 @@ class PokemonStatsViewController: UIViewController {
     var type2FontColor: UIColor = .black
     var type2Color: UIColor = .white
     
+    // Context for Core Data
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     // Bar Button OnClickActions
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
@@ -49,10 +54,25 @@ class PokemonStatsViewController: UIViewController {
         switch sender.image{
         case K.BarButton.notFav:
             sender.image = K.BarButton.fav
+            
+            //Save in DB
+            let favPokemon = FavPokemon(context: context)
+            favPokemon.name = chosenPokemon?.name
+            savePokemon()
+            
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
+
         default:
             return
+        }
+    }
+    
+    func savePokemon(){
+        do{
+            try context.save()
+        } catch {
+            print("Error saving context")
         }
     }
     
