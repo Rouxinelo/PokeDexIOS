@@ -6,18 +6,26 @@
 //
 
 import UIKit
+import CoreData
 
 class PokedexViewController: UIViewController {
+    
+    // Context for Core Data
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var selectedPokemon: pokemon? =  nil
     
     let pokemonPerPage = K.pokemonPerPage
+    
+    // Array of pokemons marked as favourite
+    var favPokemon = [FavPokemon]()
     
     var maxPokemon: Int? = 0
     var maxPages: Int? = 0
     var currentPage: Int = 0
     
     var URLarray = [String]()
+    var URLFavArray = [String]()
     
     var PokemonArray = [pokemon]()
     
@@ -41,6 +49,9 @@ class PokedexViewController: UIViewController {
     // Search Bar Outlets
     @IBOutlet weak var pokemonSearchBar: UISearchBar!
     
+    // Buttons Stack View
+    @IBOutlet weak var buttonStackView: UIStackView!
+    
     // Bar Button OnClickAction
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
@@ -49,11 +60,27 @@ class PokedexViewController: UIViewController {
     @IBAction func favouritesButtonClicked(_ sender: UIBarButtonItem) {
         switch sender.title{
         case "Favourites":
+            URLFavArray.removeAll()
+            
             sender.title = "All"
-        case "All":
+            buttonStackView.isHidden = true
+            
+            loadFavPokemon()
+            
+            for item in favPokemon{
+                URLFavArray.append(K.baseSinglePokemonURL + item.name!)
+                print(K.baseSinglePokemonURL + item.name!)
+            }
+            
+            searchPokemons(filter: "FAV")
+            
+            case "All":
             sender.title = "Favourites"
+            buttonStackView.isHidden = false
+            
+            searchPokemons(filter: "ALL")
         default:
-            print("Error")
+            print("error")
         }
     }
     
@@ -74,11 +101,24 @@ class PokedexViewController: UIViewController {
             }
             
         } else if filter == "FAV" {
+            for pokemon in URLFavArray{
+                self.searchForPokemonStats.requestURL = pokemon
+                self.searchForPokemonStats.fetchData()
+            }
             
         }
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    func loadFavPokemon(){
+        let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
+        do {
+            favPokemon = try context.fetch(request)
+        } catch {
+            print ("error loading")
         }
     }
     
