@@ -127,6 +127,12 @@ class PokedexViewController: UIViewController {
     func loadFavPokemon(){
         let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
         do {
+            
+            let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+            let sortDescriptors = [sortDescriptor]
+            request.sortDescriptors = sortDescriptors
+            
+            
             favPokemon = try context.fetch(request)
         } catch {
             print ("error loading")
