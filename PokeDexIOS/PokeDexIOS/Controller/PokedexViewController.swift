@@ -59,10 +59,10 @@ class PokedexViewController: UIViewController {
     
     @IBAction func favouritesButtonClicked(_ sender: UIBarButtonItem) {
         switch sender.title{
-        case "Favourites":
+        case "All":
             URLFavArray.removeAll()
             
-            sender.title = "All"
+            sender.title = "Favourites"
             buttonStackView.isHidden = true
             
             loadFavPokemon()
@@ -74,8 +74,8 @@ class PokedexViewController: UIViewController {
             
             searchPokemons(filter: "FAV")
             
-            case "All":
-            sender.title = "Favourites"
+            case "Favourites":
+            sender.title = "All"
             buttonStackView.isHidden = false
             
             searchPokemons(filter: "ALL")
