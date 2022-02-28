@@ -10,6 +10,9 @@ import UIKit
 
 struct K {
     
+    static let pokemonPerPage: Int = 7
+    static let baseSinglePokemonURL: String = "https://pokeapi.co/api/v2/pokemon/"
+    
     struct Segues{
         static let pokeDexToAboutMe: String = "toAboutMe"
         static let pokeDexToPokeStats: String = "toPokeStats"
@@ -21,7 +24,8 @@ struct K {
     struct TableCells{
         static let pokeDexCellNibName: String = "PokemonCell"
         static let pokeDexCellIdentifier: String = "ReusableCell"
-        static let pokemonPerPage: Int = 7
+        static let borderRadius: CGFloat = 15.0
+        static let strokeWidth: CGFloat = 1.0
     }
     
     struct SearchBar{
@@ -38,6 +42,5 @@ struct K {
     struct BarButton{
         static let notFav = UIImage(systemName:  "heart")
         static let fav = UIImage(systemName:  "heart.fill")
-        
     }
 }

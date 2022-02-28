@@ -6,18 +6,25 @@
 //
 
 import UIKit
+import CoreData
 
 class PokedexViewController: UIViewController {
     
+    // Context for Core Data
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var selectedPokemon: pokemon? =  nil
+    let pokemonPerPage = K.pokemonPerPage
     
-    let pokemonPerPage = K.TableCells.pokemonPerPage
+    // Array of pokemons marked as favourite
+    var favPokemon = [FavPokemon]()
     
-    var maxPokemon: Int? = 0
-    var maxPages: Int? = 0
+    var maxPokemon: Int = 0
+    var maxPages: Int = 0
     var currentPage: Int = 0
     
     var URLarray = [String]()
+    var URLFavArray = [String]()
     
     var PokemonArray = [pokemon]()
     
@@ -31,6 +38,7 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var prevPageButton: UIButton!
     @IBOutlet weak var firstPageButton: UIButton!
     @IBOutlet weak var lastPageButton: UIButton!
+    @IBOutlet weak var favouritesBarButton: UIBarButtonItem!
     
     // Text Label Outlets
     @IBOutlet weak var pageLabel: UILabel!
@@ -41,55 +49,94 @@ class PokedexViewController: UIViewController {
     // Search Bar Outlets
     @IBOutlet weak var pokemonSearchBar: UISearchBar!
     
+    // Buttons Stack View
+    @IBOutlet weak var buttonStackView: UIStackView!
+    
     // Bar Button OnClickAction
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
     }
     
-    // Navigation Button OnClickActions
-    @IBAction func prevPageClicked(_ sender: UIButton) {
-        //        if sender == prevPageButton{
-        //            if let prev = searchForPokemonUrls.previousURL{
-        //                searchForPokemonUrls.requestURL = prev
-        //            }
-        //        } else if sender == firstPageButton{
-        //            searchForPokemonUrls.requestURL = searchForPokemonUrls.firstPageURL
-        //        }
-        //        searchForPokemonUrls.fetchData()
-        //        DispatchQueue.main.async {
-        //            self.tableView.reloadData()
-        //        }
+    override func didMove(toParent parent: UIViewController?){
+        if favouritesBarButton.title == "Favourites"{
+            loadFavArray()
+            searchPokemons(filter: "FAV")
+        }
     }
     
-    @IBAction func nextPageClicked(_ sender: UIButton) {
-        //        if(sender == lastPageButton){
-        //            searchForPokemonUrls.requestURL = searchForPokemonUrls.lastPageURL
-        //            searchForPokemonUrls.fetchData()
-        //        } else if sender == nextPageButton {
-        //            searchForPokemonUrls.fetchData()
-        //        }
-        //        DispatchQueue.main.async {
-        //            self.tableView.reloadData()
-        //        }
-        
+    @IBAction func favouritesButtonClicked(_ sender: UIBarButtonItem) {
+        switch sender.title{
+        case "All":
+            sender.title = "Favourites"
+            buttonStackView.isHidden = true
+            
+            loadFavArray()
+            
+            searchPokemons(filter: "FAV")
+            
+        case "Favourites":
+            sender.title = "All"
+            buttonStackView.isHidden = false
+            
+            searchPokemons(filter: "ALL")
+        default:
+            print("error")
+        }
     }
     
-    func searchPokemons(){
+    // MARK - Function that requests for pokemon stats data
+    
+    func searchPokemons(filter: String){
         
         PokemonArray.removeAll()
         
-        let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
-        
-        for i in indices[0]...indices[1]{
-            if i==URLarray.count{
-                break
+        if filter == "ALL" {
+            
+            let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
+            
+            for i in indices[0]...indices[1]{
+                if i==URLarray.count{
+                    break
+                }
+                self.searchForPokemonStats.requestURL = URLarray[i]
+                self.searchForPokemonStats.fetchData()
             }
-            self.searchForPokemonStats.requestURL = URLarray[i]
-            self.searchForPokemonStats.fetchData()
+            
+        } else if filter == "FAV" {
+            for pokemon in URLFavArray{
+                self.searchForPokemonStats.requestURL = pokemon
+                self.searchForPokemonStats.fetchData()
+            }
         }
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    // MARK - Favourite Pokemon functions
+    
+    func loadFavArray(){
+        URLFavArray.removeAll()
+        
+        loadFavPokemon()
+        for item in favPokemon{
+            URLFavArray.append(K.baseSinglePokemonURL + item.name!)
+        }
+    }
+    
+    func loadFavPokemon(){
+        let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
+        do {
+            
+            let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+            let sortDescriptors = [sortDescriptor]
+            request.sortDescriptors = sortDescriptors
+            
+            
+            favPokemon = try context.fetch(request)
+        } catch {
+            print ("error loading")
         }
     }
     
@@ -98,20 +145,23 @@ class PokedexViewController: UIViewController {
         
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
-        tableView.dataSource = self
-        tableView.delegate = self
+        
         pokemonSearchBar.delegate = self
         
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         
-        checkButton()
-        
         searchForPokemonUrls.countPokemon()
         
-        searchForPokemonUrls.requestURL = searchForPokemonUrls.requestURL + String(maxPokemon!) + searchForPokemonUrls.requestOffSet
+        checkButton()
         
-        searchForPokemonUrls.fetchData()
+        searchForPokemonUrls.requestURL = searchForPokemonUrls.requestURL + String(maxPokemon) + K.URLS.searchOffSet
+        
+        DispatchQueue.main.async {
+            self.searchForPokemonUrls.fetchData()
+        }
     }
 }
 
@@ -145,22 +195,22 @@ extension PokedexViewController{
             pageLabel.text = String(Int(pageLabel.text!)! - 1)
             currentPage -= 1
             checkButton()
-            searchPokemons()
+            searchPokemons(filter: "ALL")
         } else if sender == nextPageButton {
             pageLabel.text = String(Int(pageLabel.text!)! + 1)
             currentPage+=1
             checkButton()
-            searchPokemons()
+            searchPokemons(filter: "ALL")
         } else if sender == firstPageButton{
             pageLabel.text = "1"
             currentPage = 1
             checkButton()
-            searchPokemons()
+            searchPokemons(filter: "ALL")
         } else if sender == lastPageButton{
-            pageLabel.text = String(maxPages!)
-            currentPage = maxPages!
+            pageLabel.text = String(maxPages)
+            currentPage = maxPages
             checkButton()
-            searchPokemons()
+            searchPokemons(filter: "ALL")
         }
     }
 }
@@ -168,22 +218,13 @@ extension PokedexViewController{
 // MARK - PokeRequestDelegate
 
 extension PokedexViewController: PokeRequestDelegate{
-    
     func recievedPokeList(data: pokeData) {
-        PokemonArray.removeAll()
-        
         for res in data.results{
             URLarray.append(res.url)
         }
         
         currentPage += 1
-        
-        let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
-        
-        for i in indices[0]...indices[1]{
-            self.searchForPokemonStats.requestURL = URLarray[i]
-            self.searchForPokemonStats.fetchData()
-        }
+        searchPokemons(filter: "ALL")
         
         DispatchQueue.main.async {
             self.checkButton()
@@ -220,7 +261,6 @@ extension PokedexViewController: PokemonStatsDelegate{
             self.pokemonSearchBar.placeholder = K.SearchBar.errorPlaceHolder
             self.pokemonSearchBar.text = ""
         }
-        
     }
 }
 
@@ -244,7 +284,6 @@ extension PokedexViewController: UITableViewDataSource{
 
 extension PokedexViewController: UITableViewDelegate{
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedPokemon = PokemonArray[indexPath.row]
@@ -258,7 +297,6 @@ extension PokedexViewController: UITableViewDelegate{
 
 extension PokedexViewController: UISearchBarDelegate{
     
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = searchBar.text {
             let pokemonToSearch = search.lowercased()
@@ -269,7 +307,6 @@ extension PokedexViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.placeholder = K.SearchBar.initialPlaceHolder
     }
-    
 }
 
 // MARK - Prepare for Segue To PokemonStats
@@ -291,7 +328,6 @@ extension PokedexViewController {
                     }
                 }
             }
-            
         }
     }
 }

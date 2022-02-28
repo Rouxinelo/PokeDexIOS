@@ -122,28 +122,28 @@
                                         <rect key="frame" x="0.0" y="362.5" width="414" height="362.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-Hi-2yS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="195.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Bn-rg-Jas">
-                                                <rect key="frame" x="17" y="198.5" width="380" height="164"/>
+                                                <rect key="frame" x="17" y="85" width="380" height="277.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDexIOS is an IOS App made for Pokemon enjoyers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-14-uGV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="68.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="380" height="106"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll through the hundreds of Pokemons, look at their stats and save your favourites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-dR-pp8">
-                                                        <rect key="frame" x="0.0" y="48" width="380" height="68"/>
+                                                        <rect key="frame" x="0.0" y="85.5" width="380" height="106.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With PokeDexIOS you'll never forget about a Pokemon again!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fju-rs-TGc">
-                                                        <rect key="frame" x="0.0" y="95.5" width="380" height="68.5"/>
+                                                        <rect key="frame" x="0.0" y="171.5" width="380" height="106"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -312,7 +312,6 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="⏪"/>
                                                         <connections>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJi-Cl-ExO"/>
-                                                            <action selector="prevPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FnU-aL-XTf"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slM-ls-0Qk">
@@ -322,7 +321,6 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="⬅️"/>
                                                         <connections>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wiY-Ta-2VX"/>
-                                                            <action selector="prevPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cnM-q1-Jn5"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -342,7 +340,6 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="➡️"/>
                                                         <connections>
-                                                            <action selector="nextPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DzQ-Fb-NAs"/>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q33-hJ-Wg1"/>
                                                         </connections>
                                                     </button>
@@ -351,7 +348,6 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="⏩"/>
                                                         <connections>
-                                                            <action selector="nextPageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZtB-Kn-Wte"/>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HB1-dl-Jer"/>
                                                         </connections>
                                                     </button>
@@ -383,6 +379,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RwI-tD-fi7">
+                        <barButtonItem key="leftBarButtonItem" title="All" width="50" id="h0A-Z5-b11">
+                            <connections>
+                                <action selector="favouritesButtonClicked:" destination="BYZ-38-t0r" id="Zm5-nW-WfE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="wdv-ND-mha">
                             <connections>
                                 <action selector="InformationClicked:" destination="BYZ-38-t0r" id="Nos-ho-QBA"/>
@@ -391,6 +392,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonStackView" destination="owM-bI-NgP" id="waE-a3-CPo"/>
+                        <outlet property="favouritesBarButton" destination="h0A-Z5-b11" id="y9E-Z9-J5P"/>
                         <outlet property="firstPageButton" destination="yql-Z3-fUS" id="Dsm-Ma-caD"/>
                         <outlet property="lastPageButton" destination="1W8-h4-n8T" id="vZU-Rn-iEL"/>
                         <outlet property="nextPageButton" destination="iDF-I5-0Cu" id="wU6-WA-kie"/>

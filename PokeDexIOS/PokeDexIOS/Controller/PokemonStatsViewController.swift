@@ -66,6 +66,7 @@ class PokemonStatsViewController: UIViewController {
             //Save in DB
             let favPokemon = FavPokemon(context: context)
             favPokemon.name = chosenPokemon?.name
+            favPokemon.id = Int64((chosenPokemon?.id)!)
             savePokemon()
             
             alertController.title = "Favourite Added:"
@@ -91,6 +92,11 @@ class PokemonStatsViewController: UIViewController {
     func loadPokemon(){
         let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
         do {
+            
+            let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+            let sortDescriptors = [sortDescriptor]
+            request.sortDescriptors = sortDescriptors
+            
             favPokemon = try context.fetch(request)
         } catch {
             print ("error loading")
@@ -110,7 +116,7 @@ class PokemonStatsViewController: UIViewController {
             context.delete(toDelete)
             try context.save()
         } catch {
-            print("Error deleting")
+            print("error deleting")
         }
     }
     
