@@ -17,7 +17,6 @@ struct PokeRequest{
     var delegate: PokeRequestDelegate?
     
     var requestURL: String = K.URLS.searchUrl
-    var requestOffSet: String = K.URLS.searchOffSet
     let countURL: String = K.URLS.searchCount
     
     func fetchData(){

@@ -47,14 +47,14 @@ class PokemonCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        stackView.layer.borderWidth = 1.0
+        stackView.layer.borderWidth = K.TableCells.strokeWidth
         
-        pokemonSprite.layer.borderWidth = 1.0
+        pokemonSprite.layer.borderWidth = K.TableCells.strokeWidth
         
-        type1Label.layer.borderWidth = 1.0
-        type1Label.layer.cornerRadius = 15.0
-        type2Label.layer.borderWidth = 1.0
-        type2Label.layer.cornerRadius = 15.0
+        type1Label.layer.borderWidth = K.TableCells.strokeWidth
+        type1Label.layer.cornerRadius = K.TableCells.borderRadius
+        type2Label.layer.borderWidth = K.TableCells.strokeWidth
+        type2Label.layer.cornerRadius = K.TableCells.borderRadius
     }
     
 }

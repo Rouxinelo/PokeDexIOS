@@ -110,7 +110,7 @@ class PokemonStatsViewController: UIViewController {
             context.delete(toDelete)
             try context.save()
         } catch {
-            print("Error deleting")
+            print("error deleting")
         }
     }
     
