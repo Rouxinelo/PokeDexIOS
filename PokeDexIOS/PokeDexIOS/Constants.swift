@@ -11,6 +11,7 @@ import UIKit
 struct K {
     
     static let pokemonPerPage: Int = 7
+    static let baseSinglePokemonURL: String = "https://pokeapi.co/api/v2/pokemon/"
     
     struct Segues{
         static let pokeDexToAboutMe: String = "toAboutMe"

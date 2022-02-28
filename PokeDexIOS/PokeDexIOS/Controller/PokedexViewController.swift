@@ -46,6 +46,17 @@ class PokedexViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
     }
     
+    @IBAction func favouritesButtonClicked(_ sender: UIBarButtonItem) {
+        switch sender.title{
+        case "Favourites":
+            sender.title = "All"
+        case "All":
+            sender.title = "Favourites"
+        default:
+            print("Error")
+        }
+    }
+    
     func searchPokemons(filter: String){
         
         PokemonArray.removeAll()

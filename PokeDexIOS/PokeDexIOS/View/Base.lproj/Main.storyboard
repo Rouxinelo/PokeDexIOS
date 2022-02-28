@@ -379,7 +379,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RwI-tD-fi7">
-                        <barButtonItem key="leftBarButtonItem" title="Favourites" id="h0A-Z5-b11"/>
+                        <barButtonItem key="leftBarButtonItem" title="Favourites" width="50" id="h0A-Z5-b11">
+                            <connections>
+                                <action selector="favouritesButtonClicked:" destination="BYZ-38-t0r" id="Zm5-nW-WfE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="wdv-ND-mha">
                             <connections>
                                 <action selector="InformationClicked:" destination="BYZ-38-t0r" id="Nos-ho-QBA"/>
