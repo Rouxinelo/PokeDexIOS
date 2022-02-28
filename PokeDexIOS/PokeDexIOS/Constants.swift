@@ -21,6 +21,7 @@ struct K {
     struct TableCells{
         static let pokeDexCellNibName: String = "PokemonCell"
         static let pokeDexCellIdentifier: String = "ReusableCell"
+        static let pokemonPerPage: Int = 7
     }
     
     struct SearchBar{
@@ -29,9 +30,9 @@ struct K {
     }
     
     struct URLS{
-        static let pokemonCountLink: String = "https://pokeapi.co/api/v2/pokemon-species/?limit=0"
-        static let firstPageUrl: String = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=0"
-        static let lastPageUrl: String = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=896"
+        static let searchUrl: String = "https://pokeapi.co/api/v2/pokemon?limit="
+        static let searchOffSet: String = "&offset=0"
+        static let searchCount: String = "https://pokeapi.co/api/v2/pokemon?limit=1&offset=0"
     }
     
     struct BarButton{

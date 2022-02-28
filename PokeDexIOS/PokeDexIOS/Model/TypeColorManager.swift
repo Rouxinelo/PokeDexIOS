@@ -13,7 +13,6 @@ struct TypeColorManager{
     var cons = 255.0
     var type: String?
     func getColorForType() -> UIColor{
-        print(type!)
         switch type{
         case "bug":
             return UIColor(displayP3Red: 221.0/cons, green: 255.0/cons, blue: 0, alpha: 1)
