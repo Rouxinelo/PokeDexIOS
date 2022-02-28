@@ -134,13 +134,15 @@ class PokedexViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         
-        checkButton()
-        
         searchForPokemonUrls.countPokemon()
         
+        checkButton()
+
         searchForPokemonUrls.requestURL = searchForPokemonUrls.requestURL + String(maxPokemon!) + K.URLS.searchOffSet
         
-        searchForPokemonUrls.fetchData()
+        DispatchQueue.main.async {
+            self.searchForPokemonUrls.fetchData()
+        }
     }
 }
 
