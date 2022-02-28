@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class PokemonStatsViewController: UIViewController {
-
+    
     // IBOutlets
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBOutlet weak var pokemonNumber: UILabel!
@@ -46,7 +46,7 @@ class PokemonStatsViewController: UIViewController {
     
     // Context for Core Data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     // Bar Button OnClickActions
     @IBAction func InformationClicked(_ sender: Any) {
@@ -54,6 +54,11 @@ class PokemonStatsViewController: UIViewController {
     }
     
     @IBAction func favButtonClicked(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "", message:
+                                                    "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        alertController.message = chosenPokemon!.name
+        
         switch sender.image{
         case K.BarButton.notFav:
             sender.image = K.BarButton.fav
@@ -63,6 +68,9 @@ class PokemonStatsViewController: UIViewController {
             favPokemon.name = chosenPokemon?.name
             savePokemon()
             
+            alertController.title = "Favourite Added:"
+            self.present(alertController, animated: true, completion: nil)
+            
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
             
@@ -70,9 +78,11 @@ class PokemonStatsViewController: UIViewController {
                 if pokemon.name == chosenPokemon?.name{
                     deletePokemon(toDelete: pokemon)
                 }
-                    
             }
-
+            
+            alertController.title = "Favourite Removed:"
+            self.present(alertController, animated: true, completion: nil)
+            
         default:
             return
         }
@@ -105,25 +115,25 @@ class PokemonStatsViewController: UIViewController {
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {
-            if sender.state == .ended {
-                if let pokemon = chosenPokemon{
-                    switch displayedImage{
-                    case "Regular":
-                        pokemonImage.load(url: URL(string: pokemon.sprites.front_shiny)!)
-                        imageTextLabel.text = "Shiny"
-                        displayedImage = "Shiny"
-                        break
-                    case "Shiny":
-                        pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
-                        imageTextLabel.text = "Regular"
-                        displayedImage = "Regular"
-                        break
-                    default:
-                        print("Error")
+        if sender.state == .ended {
+            if let pokemon = chosenPokemon{
+                switch displayedImage{
+                case "Regular":
+                    pokemonImage.load(url: URL(string: pokemon.sprites.front_shiny)!)
+                    imageTextLabel.text = "Shiny"
+                    displayedImage = "Shiny"
+                    break
+                case "Shiny":
+                    pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+                    imageTextLabel.text = "Regular"
+                    displayedImage = "Regular"
+                    break
+                default:
+                    print("Error")
                 }
-
-                }
+                
             }
+        }
     }
     
     override func viewDidLoad() {
@@ -168,8 +178,8 @@ class PokemonStatsViewController: UIViewController {
                 type2Label.text = pokemon.types.last?.type.name
                 type2Label.textColor = type2FontColor
                 type2Label.backgroundColor  = type2Color
-
-            // Pokemon only has 1 type
+                
+                // Pokemon only has 1 type
             } else {
                 type2Label.isHidden = true
             }
