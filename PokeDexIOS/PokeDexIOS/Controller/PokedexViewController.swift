@@ -39,6 +39,7 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var prevPageButton: UIButton!
     @IBOutlet weak var firstPageButton: UIButton!
     @IBOutlet weak var lastPageButton: UIButton!
+    @IBOutlet weak var favouritesBarButton: UIBarButtonItem!
     
     // Text Label Outlets
     @IBOutlet weak var pageLabel: UILabel!
@@ -57,20 +58,30 @@ class PokedexViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
     }
     
+    func loadFavArray(){
+        URLFavArray.removeAll()
+        
+        loadFavPokemon()
+        
+        for item in favPokemon{
+            URLFavArray.append(K.baseSinglePokemonURL + item.name!)
+        }
+        
+    }
+    override func didMove(toParent parent: UIViewController?){
+        if favouritesBarButton.title == "Favourites"{
+            loadFavArray()
+            searchPokemons(filter: "FAV")
+        }
+    }
+    
     @IBAction func favouritesButtonClicked(_ sender: UIBarButtonItem) {
         switch sender.title{
         case "All":
-            URLFavArray.removeAll()
-            
             sender.title = "Favourites"
             buttonStackView.isHidden = true
             
-            loadFavPokemon()
-            
-            for item in favPokemon{
-                URLFavArray.append(K.baseSinglePokemonURL + item.name!)
-                print(K.baseSinglePokemonURL + item.name!)
-            }
+            loadFavArray()
             
             searchPokemons(filter: "FAV")
             
@@ -268,7 +279,7 @@ extension PokedexViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedPokemon = PokemonArray[indexPath.row]
-        
+
         performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }

@@ -393,6 +393,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buttonStackView" destination="owM-bI-NgP" id="waE-a3-CPo"/>
+                        <outlet property="favouritesBarButton" destination="h0A-Z5-b11" id="y9E-Z9-J5P"/>
                         <outlet property="firstPageButton" destination="yql-Z3-fUS" id="Dsm-Ma-caD"/>
                         <outlet property="lastPageButton" destination="1W8-h4-n8T" id="vZU-Rn-iEL"/>
                         <outlet property="nextPageButton" destination="iDF-I5-0Cu" id="wU6-WA-kie"/>
