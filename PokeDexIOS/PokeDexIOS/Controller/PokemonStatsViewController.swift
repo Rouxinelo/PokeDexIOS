@@ -119,9 +119,11 @@ class PokemonStatsViewController: UIViewController {
             if let pokemon = chosenPokemon{
                 switch displayedImage{
                 case "Regular":
-                    pokemonImage.load(url: URL(string: pokemon.sprites.front_shiny)!)
-                    imageTextLabel.text = "Shiny"
-                    displayedImage = "Shiny"
+                    if let shiny = pokemon.sprites.front_shiny {
+                        pokemonImage.load(url: URL(string: shiny)!)
+                        imageTextLabel.text = "Shiny"
+                        displayedImage = "Shiny"
+                    }
                     break
                 case "Shiny":
                     pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)

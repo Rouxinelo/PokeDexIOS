@@ -9,26 +9,19 @@ import Foundation
 
 protocol PokeRequestDelegate{
     func recievedPokeList(data: pokeData)
-    
     func recievedPokeCount(count: Int)
-}
+    }
 
 struct PokeRequest{
     
     var delegate: PokeRequestDelegate?
     
-    var previousURL: String?
-    
-    let pokemonCountLink: String = K.URLS.pokemonCountLink
-    
-    var requestURL: String? = "https://pokeapi.co/api/v2/pokemon?limit=7&offset=0"
-    
-    let firstPageURL: String = K.URLS.firstPageUrl
-    
-    let lastPageURL: String = K.URLS.lastPageUrl
+    var requestURL: String = K.URLS.searchUrl
+    var requestOffSet: String = K.URLS.searchOffSet
+    let countURL: String = K.URLS.searchCount
     
     func fetchData(){
-        if let url = URL(string: requestURL!){
+        if let url = URL(string: requestURL){
         let session = URLSession(configuration: .default)
         let sem = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -50,8 +43,8 @@ struct PokeRequest{
         }
     }
     
-    func fetchPokeNumber(){
-        if let url = URL(string: pokemonCountLink){
+    func countPokemon(){
+        if let url = URL(string: countURL){
         let session = URLSession(configuration: .default)
         let sem = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: url) { (data, response, error) in

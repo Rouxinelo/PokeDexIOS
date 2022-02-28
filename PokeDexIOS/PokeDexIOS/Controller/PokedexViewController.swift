@@ -8,11 +8,14 @@
 import UIKit
 
 class PokedexViewController: UIViewController {
-        
+    
     var selectedPokemon: pokemon? =  nil
     
-    let pokemonPerPage = 7
+    let pokemonPerPage = K.TableCells.pokemonPerPage
+    
+    var maxPokemon: Int? = 0
     var maxPages: Int? = 0
+    var currentPage: Int = 0
     
     var URLarray = [String]()
     
@@ -45,30 +48,49 @@ class PokedexViewController: UIViewController {
     
     // Navigation Button OnClickActions
     @IBAction func prevPageClicked(_ sender: UIButton) {
-        if sender == prevPageButton{
-            if let prev = searchForPokemonUrls.previousURL{
-                searchForPokemonUrls.requestURL = prev
-            }
-        } else if sender == firstPageButton{
-            searchForPokemonUrls.requestURL = searchForPokemonUrls.firstPageURL
-        }
-        searchForPokemonUrls.fetchData()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        //        if sender == prevPageButton{
+        //            if let prev = searchForPokemonUrls.previousURL{
+        //                searchForPokemonUrls.requestURL = prev
+        //            }
+        //        } else if sender == firstPageButton{
+        //            searchForPokemonUrls.requestURL = searchForPokemonUrls.firstPageURL
+        //        }
+        //        searchForPokemonUrls.fetchData()
+        //        DispatchQueue.main.async {
+        //            self.tableView.reloadData()
+        //        }
     }
     
     @IBAction func nextPageClicked(_ sender: UIButton) {
-        if(sender == lastPageButton){
-            searchForPokemonUrls.requestURL = searchForPokemonUrls.lastPageURL
-            searchForPokemonUrls.fetchData()
-        } else if sender == nextPageButton {
-            searchForPokemonUrls.fetchData()
+        //        if(sender == lastPageButton){
+        //            searchForPokemonUrls.requestURL = searchForPokemonUrls.lastPageURL
+        //            searchForPokemonUrls.fetchData()
+        //        } else if sender == nextPageButton {
+        //            searchForPokemonUrls.fetchData()
+        //        }
+        //        DispatchQueue.main.async {
+        //            self.tableView.reloadData()
+        //        }
+        
+    }
+    
+    func searchPokemons(){
+        
+        PokemonArray.removeAll()
+        
+        let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
+        
+        for i in indices[0]...indices[1]{
+            if i==URLarray.count{
+                break
+            }
+            self.searchForPokemonStats.requestURL = URLarray[i]
+            self.searchForPokemonStats.fetchData()
         }
+        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
     }
     
     override func viewDidLoad() {
@@ -83,9 +105,11 @@ class PokedexViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         
-        searchForPokemonUrls.fetchPokeNumber()
-        
         checkButton()
+        
+        searchForPokemonUrls.countPokemon()
+        
+        searchForPokemonUrls.requestURL = searchForPokemonUrls.requestURL + String(maxPokemon!) + searchForPokemonUrls.requestOffSet
         
         searchForPokemonUrls.fetchData()
     }
@@ -95,6 +119,10 @@ class PokedexViewController: UIViewController {
 
 extension PokedexViewController{
     
+    func getIndicesOfPage(elementsPerPage: Int) -> [Int]{
+        return [(currentPage-1)*elementsPerPage, elementsPerPage*(currentPage-1) + (elementsPerPage-1)]
+    }
+    
     func buttonVisibility(prev: Bool, next: Bool){
         nextPageButton.isHidden = next
         lastPageButton.isHidden = next
@@ -103,9 +131,9 @@ extension PokedexViewController{
     }
     
     func checkButton(){
-        if pageLabel.text == "1" {
+        if currentPage == 1 {
             buttonVisibility(prev: true, next: false)
-        } else if pageLabel.text == String(maxPages!) {
+        } else if currentPage == maxPages {
             buttonVisibility(prev: false, next: true)
         } else {
             buttonVisibility(prev: false, next: false)
@@ -115,16 +143,24 @@ extension PokedexViewController{
     @IBAction func pageButtonPressed(_ sender: UIButton) {
         if sender == prevPageButton{
             pageLabel.text = String(Int(pageLabel.text!)! - 1)
+            currentPage -= 1
             checkButton()
+            searchPokemons()
         } else if sender == nextPageButton {
             pageLabel.text = String(Int(pageLabel.text!)! + 1)
+            currentPage+=1
             checkButton()
+            searchPokemons()
         } else if sender == firstPageButton{
             pageLabel.text = "1"
+            currentPage = 1
             checkButton()
+            searchPokemons()
         } else if sender == lastPageButton{
             pageLabel.text = String(maxPages!)
+            currentPage = maxPages!
             checkButton()
+            searchPokemons()
         }
     }
 }
@@ -136,20 +172,18 @@ extension PokedexViewController: PokeRequestDelegate{
     func recievedPokeList(data: pokeData) {
         PokemonArray.removeAll()
         
-        searchForPokemonUrls.requestURL = data.next
-        
-        searchForPokemonUrls.previousURL = data.previous
-        
         for res in data.results{
             URLarray.append(res.url)
         }
         
-        for urlStr in self.URLarray{
-            self.searchForPokemonStats.requestURL = urlStr
+        currentPage += 1
+        
+        let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
+        
+        for i in indices[0]...indices[1]{
+            self.searchForPokemonStats.requestURL = URLarray[i]
             self.searchForPokemonStats.fetchData()
         }
-        
-        URLarray.removeAll()
         
         DispatchQueue.main.async {
             self.checkButton()
@@ -157,14 +191,13 @@ extension PokedexViewController: PokeRequestDelegate{
     }
     
     func recievedPokeCount(count: Int) {
-        print(count % self.pokemonPerPage)
-        print(count/self.pokemonPerPage)
+        maxPokemon = count
+        
         if count % self.pokemonPerPage == 0 {
             self.maxPages = (count/self.pokemonPerPage)
         } else {
             self.maxPages = (count/self.pokemonPerPage) + 1
         }
-        
     }
 }
 
