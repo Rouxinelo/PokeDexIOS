@@ -272,6 +272,9 @@ extension PokedexViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if(indexPath.row > PokemonArray.count-1){
+            return UITableViewCell()
+          }
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.pokeDexCellIdentifier, for: indexPath) as! PokemonCell
         
         cell.loadPokeInfo(pokemon: PokemonArray[indexPath.row])
