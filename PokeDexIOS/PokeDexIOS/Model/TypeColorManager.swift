@@ -57,7 +57,7 @@ struct TypeColorManager{
     
     func getTextFontColor() -> UIColor{
         switch type{
-        case "poison", "fire", "fighting", "steel", "ghost", "dark", "ground", "normal", "grass", "water", "psychic":
+        case "poison", "fire", "fighting", "steel", "ghost", "dark", "ground", "normal", "grass", "water", "psychic", "rock":
             return .white
             default:
             return .black
