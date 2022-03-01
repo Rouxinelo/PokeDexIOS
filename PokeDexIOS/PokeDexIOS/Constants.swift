@@ -21,6 +21,13 @@ struct K {
         static let pokeStatstoMoves: String = "toMoves"
     }
     
+    struct StatsScreen{
+        static let borderRadius: CGFloat = 15.0
+        static let strokeWidth: CGFloat = 1.0
+        static let spriteRadius: CGFloat = 50
+        static let spriteStrokeWidth: CGFloat = 3.0
+    }
+    
     struct TableCells{
         static let pokeDexCellNibName: String = "PokemonCell"
         static let pokeDexCellIdentifier: String = "ReusableCell"

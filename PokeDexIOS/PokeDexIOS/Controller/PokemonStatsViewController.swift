@@ -158,8 +158,8 @@ class PokemonStatsViewController: UIViewController {
             pokemonNumber.text = String(pokemon.id)
             
             pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
-            pokemonImage.layer.cornerRadius = 50
-            pokemonImage.layer.borderWidth = 3.0
+            pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
+            pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
             
             imageTextLabel.text = "Regular"
             displayedImage = "Regular"
@@ -169,8 +169,8 @@ class PokemonStatsViewController: UIViewController {
             pokemonHeight.text = String(pokemon.height)
             baseEXP.text = String(pokemon.base_experience)
             
-            type1Label.layer.borderWidth = 1.0
-            type1Label.layer.cornerRadius = 15.0
+            type1Label.layer.borderWidth = K.StatsScreen.strokeWidth
+            type1Label.layer.cornerRadius = K.StatsScreen.borderRadius
             type1Label.layer.masksToBounds = true
             type1Label.text = pokemon.types.first?.type.name
             type1Label.textColor = type1FontColor
@@ -179,8 +179,8 @@ class PokemonStatsViewController: UIViewController {
             // In case the pokemon has two types
             if pokemon.types.count > 1{
                 type2Label.layer.masksToBounds = true
-                type2Label.layer.borderWidth = 1.0
-                type2Label.layer.cornerRadius = 15.0
+                type2Label.layer.borderWidth = K.StatsScreen.strokeWidth
+                type2Label.layer.cornerRadius = K.StatsScreen.borderRadius
                 type2Label.isHidden = false
                 
                 type2Label.text = pokemon.types.last?.type.name
