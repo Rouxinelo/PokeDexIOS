@@ -13,6 +13,11 @@ struct K {
     static let pokemonPerPage: Int = 7
     static let baseSinglePokemonURL: String = "https://pokeapi.co/api/v2/pokemon/"
     
+    struct audioPlayer{
+        static let favouriteSoundExtension: String = "mp3"
+        static let favouriteSoundName: String = "caughtSound"
+    }
+    
     struct Segues{
         static let pokeDexToAboutMe: String = "toAboutMe"
         static let pokeDexToPokeStats: String = "toPokeStats"

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class PokemonStatsViewController: UIViewController {
     
@@ -29,6 +30,9 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var spDefLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     
+    // Music player
+    var player: AVAudioPlayer!
+
     // Pokemon to be displayed
     var chosenPokemon: pokemon? = nil
     
@@ -69,6 +73,8 @@ class PokemonStatsViewController: UIViewController {
             favPokemon.id = Int64((chosenPokemon?.id)!)
             savePokemon()
             
+            playSound(soundName: K.audioPlayer.favouriteSoundName)
+            
             alertController.title = "Favourite Added:"
             self.present(alertController, animated: true, completion: nil)
             
@@ -87,6 +93,12 @@ class PokemonStatsViewController: UIViewController {
         default:
             return
         }
+    }
+    
+    func playSound(soundName: String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: K.audioPlayer.favouriteSoundExtension)
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
     }
     
     func loadPokemon(){
