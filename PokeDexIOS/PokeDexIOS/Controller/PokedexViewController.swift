@@ -276,6 +276,8 @@ extension PokedexViewController: UITableViewDataSource{
         
         cell.loadPokeInfo(pokemon: PokemonArray[indexPath.row])
         
+        cell.layoutIfNeeded()
+        
         return cell
     }
 }
