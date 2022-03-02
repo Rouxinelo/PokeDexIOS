@@ -33,14 +33,14 @@ class PokemonStatsViewController: UIViewController {
     // Music player
     var player: AVAudioPlayer!
 
+    // Handles the POST request to the Webhook
+    var webhookHandler = WebhookRequest()
+    
     // Pokemon to be displayed
     var chosenPokemon: pokemon? = nil
     
     // Array of pokemons marked as favourite
     var favPokemon = [FavPokemon]()
-    
-    // Image that is displayed (normal or shiny)
-    var displayedImage: String? = nil
     
     // Colors
     var type1FontColor: UIColor = .black
@@ -69,11 +69,22 @@ class PokemonStatsViewController: UIViewController {
             
             playSound(soundName: K.audioPlayer.favouriteSoundName)
             
-            let newFavPokemon = FavPokemon(context: context)
-            newFavPokemon.name = chosenPokemon?.name
-            newFavPokemon.id = Int64((chosenPokemon?.id)!)
-            favPokemon.append(newFavPokemon)
-            
+            if let pokemon = chosenPokemon{
+
+                let newFavPokemon = FavPokemon(context: context)
+                newFavPokemon.name = pokemon.name
+                newFavPokemon.id = Int64((pokemon.id))
+                favPokemon.append(newFavPokemon)
+                
+                var favWebhookRequest = WebhookData()
+                favWebhookRequest.name = pokemon.name
+                favWebhookRequest.id = pokemon.id
+                favWebhookRequest.op = "ADD"
+                
+                webhookHandler.webhookData = favWebhookRequest
+                webhookHandler.sendData()
+            }
+
             savePokemon()
             
             alertController.title = "Favourite Added:"
@@ -85,6 +96,15 @@ class PokemonStatsViewController: UIViewController {
             for pokemon in favPokemon{
                 if pokemon.name == chosenPokemon?.name{
                     deletePokemon(toDelete: pokemon)
+                    
+                    var favWebhookRequest = WebhookData()
+                    favWebhookRequest.name = chosenPokemon?.name
+                    favWebhookRequest.id = chosenPokemon?.id
+                    favWebhookRequest.op = "REMOVE"
+                    
+                    webhookHandler.webhookData = favWebhookRequest
+                    
+                    webhookHandler.sendData()
                 }
             }
             alertController.title = "Favourite Removed:"
@@ -135,18 +155,16 @@ class PokemonStatsViewController: UIViewController {
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             if let pokemon = chosenPokemon{
-                switch displayedImage{
+                switch imageTextLabel.text{
                 case "Regular":
                     if let shiny = pokemon.sprites.front_shiny {
                         pokemonImage.load(url: URL(string: shiny)!)
                         imageTextLabel.text = "Shiny"
-                        displayedImage = "Shiny"
                     }
                     break
                 case "Shiny":
                     pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
                     imageTextLabel.text = "Regular"
-                    displayedImage = "Regular"
                     break
                 default:
                     print("Error")
@@ -196,7 +214,7 @@ class PokemonStatsViewController: UIViewController {
                 type2Label.textColor = type2FontColor
                 type2Label.backgroundColor  = type2Color
                 
-                // Pokemon only has 1 type
+            // Pokemon only has 1 type
             } else {
                 type2Label.isHidden = true
             }
