@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Delegate Protocol
 protocol PokeRequestDelegate{
     func recievedPokeList(data: pokeData)
     func recievedPokeCount(count: Int)
@@ -14,36 +15,23 @@ protocol PokeRequestDelegate{
 
 struct PokeRequest{
     
-    var delegate: PokeRequestDelegate?
+    // MARK: - Local Variables
     
+    var delegate: PokeRequestDelegate?
     var requestURL: String = K.URLS.searchUrl
     let countURL: String = K.URLS.searchCount
     
-    func fetchData(){
-        if let url = URL(string: requestURL){
-        let session = URLSession(configuration: .default)
-        let sem = DispatchSemaphore(value: 0)
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if error == nil {
-                let decoder = JSONDecoder()
-                if let safeData = data {
-                    do {
-                        let results = try decoder.decode(pokeData.self, from: safeData)
-                        delegate?.recievedPokeList(data: results)
-                    } catch{
-                        print(error)
-                    }
-                    }
-            }
-            sem.signal()
-            }
-            task.resume()
-            sem.wait()
+    // MARK: - GET Request functions
+
+    // gets pokemon URLS and count
+    func fetchData(op: String){
+        var urlToUse = ""
+        if op == "LIST"{
+            urlToUse = requestURL
+        } else if op == "COUNT" {
+            urlToUse = countURL
         }
-    }
-    
-    func countPokemon(){
-        if let url = URL(string: countURL){
+        if let url = URL(string: urlToUse){
         let session = URLSession(configuration: .default)
         let sem = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -52,7 +40,11 @@ struct PokeRequest{
                 if let safeData = data {
                     do {
                         let results = try decoder.decode(pokeData.self, from: safeData)
-                        delegate?.recievedPokeCount(count: results.count)
+                        if op == "LIST"{
+                            delegate?.recievedPokeList(data: results)
+                        } else if op == "COUNT" {
+                            delegate?.recievedPokeCount(count: results.count)
+                        }
                     } catch{
                         print(error)
                     }

@@ -7,18 +7,21 @@
 
 import Foundation
 
+// MARK: - Delegate Protocol
 protocol PokemonStatsDelegate{
     func recievedPokeInfo(data: pokemon, single: Bool)
-    
     func pokemonNotFound()
 }
 
 struct PokemonStats{
     
-    var delegate: PokemonStatsDelegate?
+    // MARK: - Local Variables
     
+    var delegate: PokemonStatsDelegate?
     var requestURL: String = "https://pokeapi.co/api/v2/pokemon/1/"
     let requestURLSingle: String = "https://pokeapi.co/api/v2/pokemon/"
+    
+    // MARK: - GET Request functions
     
     func fetchData(){
         if let url = URL(string: requestURL){
@@ -43,6 +46,7 @@ struct PokemonStats{
         }
     }
     
+    // Requests made from searchbar
     func fetchPokemonSearch(urlString: String){
         if let url = URL(string: urlString){
         let session = URLSession(configuration: .default)

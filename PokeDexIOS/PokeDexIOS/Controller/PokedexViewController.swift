@@ -202,14 +202,14 @@ class PokedexViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        searchForPokemonUrls.countPokemon()
+        searchForPokemonUrls.fetchData(op: "COUNT")
         
         checkButton()
         
         searchForPokemonUrls.requestURL = searchForPokemonUrls.requestURL + String(maxPokemon) + K.URLS.searchOffSet
         
         DispatchQueue.main.async {
-            self.searchForPokemonUrls.fetchData()
+            self.searchForPokemonUrls.fetchData(op: "LIST")
         }
     }
 }

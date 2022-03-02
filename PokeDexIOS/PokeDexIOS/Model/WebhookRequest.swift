@@ -13,7 +13,6 @@ struct WebhookRequest{
     var webhookData: WebhookData? = nil
     
     func sendData(){
-        
         guard let url = URL(string: webhookURL)
         else {
             return
