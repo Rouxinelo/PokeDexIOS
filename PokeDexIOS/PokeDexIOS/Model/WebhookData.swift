@@ -10,4 +10,5 @@ import Foundation
 struct WebhookData: Codable{
     var name: String?
     var id: Int?
+    var op: String?
 }

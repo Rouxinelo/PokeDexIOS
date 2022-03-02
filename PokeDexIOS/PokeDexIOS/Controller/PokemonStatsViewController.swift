@@ -42,9 +42,6 @@ class PokemonStatsViewController: UIViewController {
     // Array of pokemons marked as favourite
     var favPokemon = [FavPokemon]()
     
-    // Image that is displayed (normal or shiny)
-    var displayedImage: String? = nil
-    
     // Colors
     var type1FontColor: UIColor = .black
     var type1Color: UIColor = .white
@@ -82,15 +79,13 @@ class PokemonStatsViewController: UIViewController {
                 var favWebhookRequest = WebhookData()
                 favWebhookRequest.name = pokemon.name
                 favWebhookRequest.id = pokemon.id
+                favWebhookRequest.op = "ADD"
                 
                 webhookHandler.webhookData = favWebhookRequest
+                webhookHandler.sendData()
             }
 
-            
             savePokemon()
-            
-            webhookHandler.sendData()
-
             
             alertController.title = "Favourite Added:"
             self.present(alertController, animated: true, completion: nil)
@@ -101,6 +96,15 @@ class PokemonStatsViewController: UIViewController {
             for pokemon in favPokemon{
                 if pokemon.name == chosenPokemon?.name{
                     deletePokemon(toDelete: pokemon)
+                    
+                    var favWebhookRequest = WebhookData()
+                    favWebhookRequest.name = chosenPokemon?.name
+                    favWebhookRequest.id = chosenPokemon?.id
+                    favWebhookRequest.op = "REMOVE"
+                    
+                    webhookHandler.webhookData = favWebhookRequest
+                    
+                    webhookHandler.sendData()
                 }
             }
             alertController.title = "Favourite Removed:"
@@ -151,18 +155,16 @@ class PokemonStatsViewController: UIViewController {
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             if let pokemon = chosenPokemon{
-                switch displayedImage{
+                switch imageTextLabel.text{
                 case "Regular":
                     if let shiny = pokemon.sprites.front_shiny {
                         pokemonImage.load(url: URL(string: shiny)!)
                         imageTextLabel.text = "Shiny"
-                        displayedImage = "Shiny"
                     }
                     break
                 case "Shiny":
                     pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
                     imageTextLabel.text = "Regular"
-                    displayedImage = "Regular"
                     break
                 default:
                     print("Error")
@@ -212,7 +214,7 @@ class PokemonStatsViewController: UIViewController {
                 type2Label.textColor = type2FontColor
                 type2Label.backgroundColor  = type2Color
                 
-                // Pokemon only has 1 type
+            // Pokemon only has 1 type
             } else {
                 type2Label.isHidden = true
             }
