@@ -1,5 +1,5 @@
 //
-//  WebhookRequest.swift
+//  WebHookRequest.swift
 //  PokeDexIOS
 //
 //  Created by Joao Rouxinol on 02/03/2022.
@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct WebhookRequest: Codable{
-    let name: String
-    let id: Int
-    let deviceID: Int
+struct WebhookRequest{
+    
+    let webhookURL: String = K.webhookURL
+    let webhookData: WebhookData?
+    
+    func sendData(){
+        
+    }
 }
