@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF3DCF9F27CAD2CC00104758 /* AbilitiesMovesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3DCF9E27CAD2CC00104758 /* AbilitiesMovesViewController.swift */; };
 		AF5DC89C27CFA1410015BDB2 /* WebhookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */; };
 		AF5DC89E27CFA1A80015BDB2 /* WebhookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */; };
 		AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60232E27C809FD008FE236 /* AppDelegate.swift */; };
@@ -52,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AF3DCF9E27CAD2CC00104758 /* AbilitiesMovesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesMovesViewController.swift; sourceTree = "<group>"; };
 		AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebhookData.swift; sourceTree = "<group>"; };
 		AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookRequest.swift; sourceTree = "<group>"; };
 		AF60232B27C809FD008FE236 /* PokeDexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +191,6 @@
 				AF62215C27C840EC009D3B1B /* PokemonCell.swift */,
 				AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */,
 				AFF654A827C91F0100903A58 /* AboutMeViewController.swift */,
-				AF3DCF9E27CAD2CC00104758 /* AbilitiesMovesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 				AF6C87A527C80EF700B1DEE6 /* PokeRequest.swift in Sources */,
 				AFF654A727C91ABE00903A58 /* PokemonStatsViewController.swift in Sources */,
 				AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */,
-				AF3DCF9F27CAD2CC00104758 /* AbilitiesMovesViewController.swift in Sources */,
 				AF60236227C80B44008FE236 /* PokeData.swift in Sources */,
 				AF5DC89E27CFA1A80015BDB2 /* WebhookRequest.swift in Sources */,
 				AF62215E27C840EC009D3B1B /* PokemonCell.swift in Sources */,
