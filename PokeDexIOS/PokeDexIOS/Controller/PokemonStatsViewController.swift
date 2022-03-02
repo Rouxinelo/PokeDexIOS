@@ -67,14 +67,14 @@ class PokemonStatsViewController: UIViewController {
         case K.BarButton.notFav:
             sender.image = K.BarButton.fav
             
+            playSound(soundName: K.audioPlayer.favouriteSoundName)
+            
             let newFavPokemon = FavPokemon(context: context)
             newFavPokemon.name = chosenPokemon?.name
             newFavPokemon.id = Int64((chosenPokemon?.id)!)
             favPokemon.append(newFavPokemon)
             
             savePokemon()
-            
-            playSound(soundName: K.audioPlayer.favouriteSoundName)
             
             alertController.title = "Favourite Added:"
             self.present(alertController, animated: true, completion: nil)
@@ -87,7 +87,6 @@ class PokemonStatsViewController: UIViewController {
                     deletePokemon(toDelete: pokemon)
                 }
             }
-            
             alertController.title = "Favourite Removed:"
             self.present(alertController, animated: true, completion: nil)
             
@@ -152,7 +151,6 @@ class PokemonStatsViewController: UIViewController {
                 default:
                     print("Error")
                 }
-                
             }
         }
     }
@@ -173,9 +171,7 @@ class PokemonStatsViewController: UIViewController {
             pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
             pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
             pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
-            
-            imageTextLabel.text = "Regular"
-            displayedImage = "Regular"
+
             imageTextLabel.textColor = type1FontColor
             
             pokemonWeight.text = String(pokemon.weight)
@@ -224,7 +220,6 @@ class PokemonStatsViewController: UIViewController {
                     favButton.image = K.BarButton.fav
                 }
             }
-            
         }
     }
     

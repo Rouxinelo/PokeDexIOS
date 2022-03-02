@@ -315,7 +315,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="31"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.left.to.line.alt" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.left.to.line.compact" catalog="system"/>
                                                         <connections>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJi-Cl-ExO"/>
                                                         </connections>
@@ -353,7 +353,7 @@
                                                         <rect key="frame" x="53.5" y="0.0" width="45.5" height="31"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.right.to.line.alt" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.right.to.line.compact" catalog="system"/>
                                                         <connections>
                                                             <action selector="pageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HB1-dl-Jer"/>
                                                         </connections>
@@ -752,8 +752,8 @@
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.forward" catalog="system" width="128" height="98"/>
-        <image name="arrow.left.to.line.alt" catalog="system" width="128" height="101"/>
-        <image name="arrow.right.to.line.alt" catalog="system" width="128" height="101"/>
+        <image name="arrow.left.to.line.compact" catalog="system" width="128" height="101"/>
+        <image name="arrow.right.to.line.compact" catalog="system" width="128" height="101"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="myPicture" width="823" height="768"/>
