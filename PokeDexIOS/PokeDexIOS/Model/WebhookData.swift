@@ -8,7 +8,6 @@
 import Foundation
 
 struct WebhookData: Codable{
-    let name: String
-    let id: Int
-    let deviceID: Int
+    var name: String?
+    var id: Int?
 }

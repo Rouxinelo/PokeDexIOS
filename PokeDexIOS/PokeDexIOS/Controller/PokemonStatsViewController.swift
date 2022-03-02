@@ -72,12 +72,25 @@ class PokemonStatsViewController: UIViewController {
             
             playSound(soundName: K.audioPlayer.favouriteSoundName)
             
-            let newFavPokemon = FavPokemon(context: context)
-            newFavPokemon.name = chosenPokemon?.name
-            newFavPokemon.id = Int64((chosenPokemon?.id)!)
-            favPokemon.append(newFavPokemon)
+            if let pokemon = chosenPokemon{
+
+                let newFavPokemon = FavPokemon(context: context)
+                newFavPokemon.name = pokemon.name
+                newFavPokemon.id = Int64((pokemon.id))
+                favPokemon.append(newFavPokemon)
+                
+                var favWebhookRequest = WebhookData()
+                favWebhookRequest.name = pokemon.name
+                favWebhookRequest.id = pokemon.id
+                
+                webhookHandler.webhookData = favWebhookRequest
+            }
+
             
             savePokemon()
+            
+            webhookHandler.sendData()
+
             
             alertController.title = "Favourite Added:"
             self.present(alertController, animated: true, completion: nil)

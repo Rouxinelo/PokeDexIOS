@@ -10,10 +10,15 @@ import Foundation
 struct WebhookRequest{
     
     let webhookURL: String = K.webhookURL
-    let webhookData: WebhookData? = nil
+    var webhookData: WebhookData? = nil
     
     func sendData(){
-        guard let url = URL(string: webhookURL) else { return }
+        guard let url = URL(string: webhookURL)
+        else {
+            print("erro")
+            return
+            
+        }
         let encoder = JSONEncoder()
         
         var request = URLRequest(url: url)
@@ -23,6 +28,7 @@ struct WebhookRequest{
                 let messageJSON = try encoder.encode(data)
                 request.httpMethod = "POST"
                 request.addValue("application/json", forHTTPHeaderField: "content-type")
+                print(String(data: messageJSON, encoding: .utf8))
                 request.httpBody = messageJSON
                 let task = URLSession.shared.dataTask(with: request)
                 task.resume()
