@@ -67,10 +67,11 @@ class PokemonStatsViewController: UIViewController {
         case K.BarButton.notFav:
             sender.image = K.BarButton.fav
             
-            //Save in DB
-            let favPokemon = FavPokemon(context: context)
-            favPokemon.name = chosenPokemon?.name
-            favPokemon.id = Int64((chosenPokemon?.id)!)
+            let newFavPokemon = FavPokemon(context: context)
+            newFavPokemon.name = chosenPokemon?.name
+            newFavPokemon.id = Int64((chosenPokemon?.id)!)
+            favPokemon.append(newFavPokemon)
+            
             savePokemon()
             
             playSound(soundName: K.audioPlayer.favouriteSoundName)
@@ -80,7 +81,7 @@ class PokemonStatsViewController: UIViewController {
             
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
-            
+
             for pokemon in favPokemon{
                 if pokemon.name == chosenPokemon?.name{
                     deletePokemon(toDelete: pokemon)
