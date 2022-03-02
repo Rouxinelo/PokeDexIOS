@@ -27,7 +27,7 @@ struct WebhookRequest{
             if let data = webhookData{
                 let messageJSON = try encoder.encode(data)
                 request.httpMethod = "POST"
-                request.addValue("application/json", forHTTPHeaderField: "content-type")
+                request.addValue("application/json", forHTTPHeaderField: Bundle.main.bundleIdentifier!)
                 request.httpBody = messageJSON
                 let task = URLSession.shared.dataTask(with: request)
                 task.resume()

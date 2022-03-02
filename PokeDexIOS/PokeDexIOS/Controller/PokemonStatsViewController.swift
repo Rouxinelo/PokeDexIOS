@@ -11,7 +11,8 @@ import AVFoundation
 
 class PokemonStatsViewController: UIViewController {
     
-    // IBOutlets
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
@@ -30,6 +31,8 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var spDefLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     
+    // MARK: - Local variables
+    
     // Music player
     var player: AVAudioPlayer!
 
@@ -42,68 +45,105 @@ class PokemonStatsViewController: UIViewController {
     // Array of pokemons marked as favourite
     var favPokemon = [FavPokemon]()
     
-    // Colors
-    var type1FontColor: UIColor = .black
-    var type1Color: UIColor = .white
-    var type2FontColor: UIColor = .black
-    var type2Color: UIColor = .white
+    // Color Picker for types
+    var colorPicker = TypeColorManager()
     
     // Context for Core Data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    // Bar Button OnClickActions
+    // MARK: - Core data functions
+    
+    // Load the list of favourites
+    func loadPokemon(){
+        let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
+        do {
+            let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+            let sortDescriptors = [sortDescriptor]
+            request.sortDescriptors = sortDescriptors
+            favPokemon = try context.fetch(request)
+        } catch {
+            print ("error loading")
+        }
+    }
+    
+    // Saves a new favourite
+    func savePokemon(){
+        do{
+            try context.save()
+        } catch {
+            print("error saving")
+        }
+    }
+    
+    // Deletes the pokemon from the favourites list
+    func deletePokemon(toDelete: FavPokemon){
+        do{
+            context.delete(toDelete)
+            try context.save()
+        } catch {
+            print("error deleting")
+        }
+    }
+    
+    // MARK: - Button OnClickActions
+    
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
     }
     
     @IBAction func favButtonClicked(_ sender: UIBarButtonItem) {
+        // Alert to be shown
         let alertController = UIAlertController(title: "", message:
                                                     "", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         alertController.message = chosenPokemon!.name
         
         switch sender.image{
+        
+        // Pokemon was not a favourite yet
         case K.BarButton.notFav:
-            sender.image = K.BarButton.fav
             
             playSound(soundName: K.audioPlayer.favouriteSoundName)
             
+            sender.image = K.BarButton.fav
+            
             if let pokemon = chosenPokemon{
-
+                
+                // Save the favourite on CoreData
                 let newFavPokemon = FavPokemon(context: context)
                 newFavPokemon.name = pokemon.name
                 newFavPokemon.id = Int64((pokemon.id))
                 favPokemon.append(newFavPokemon)
+                savePokemon()
                 
+                // Send the POST request to the Webhook
                 var favWebhookRequest = WebhookData()
                 favWebhookRequest.name = pokemon.name
                 favWebhookRequest.id = pokemon.id
                 favWebhookRequest.op = "ADD"
-                
                 webhookHandler.webhookData = favWebhookRequest
                 webhookHandler.sendData()
+                
             }
-
-            savePokemon()
             
             alertController.title = "Favourite Added:"
             self.present(alertController, animated: true, completion: nil)
             
+        // Pokemon was marked as favourite
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
 
             for pokemon in favPokemon{
                 if pokemon.name == chosenPokemon?.name{
+                    // Remove pokemon fro CoreData
                     deletePokemon(toDelete: pokemon)
                     
+                    // Send the POST request to the Webhook
                     var favWebhookRequest = WebhookData()
                     favWebhookRequest.name = chosenPokemon?.name
                     favWebhookRequest.id = chosenPokemon?.id
                     favWebhookRequest.op = "REMOVE"
-                    
                     webhookHandler.webhookData = favWebhookRequest
-                    
                     webhookHandler.sendData()
                 }
             }
@@ -115,43 +155,9 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
-    func playSound(soundName: String) {
-        let url = Bundle.main.url(forResource: soundName, withExtension: K.audioPlayer.favouriteSoundExtension)
-        player = try! AVAudioPlayer(contentsOf: url!)
-        player.play()
-    }
+    // MARK: - Pokemon Sprite TapGestureRecognizer
     
-    func loadPokemon(){
-        let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
-        do {
-            
-            let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
-            let sortDescriptors = [sortDescriptor]
-            request.sortDescriptors = sortDescriptors
-            
-            favPokemon = try context.fetch(request)
-        } catch {
-            print ("error loading")
-        }
-    }
-    
-    func savePokemon(){
-        do{
-            try context.save()
-        } catch {
-            print("error saving")
-        }
-    }
-    
-    func deletePokemon(toDelete: FavPokemon){
-        do{
-            context.delete(toDelete)
-            try context.save()
-        } catch {
-            print("error deleting")
-        }
-    }
-    
+    // Tapped on the Pokemon Sprite, change from regular to shiny
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             if let pokemon = chosenPokemon{
@@ -173,50 +179,59 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
+    // MARK: - Other functions
+    
+    // Plays an .mp3 sound passed as argument
+    func playSound(soundName: String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: K.audioPlayer.favouriteSoundExtension)
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+    }
+    
+    // Adds style to a type label
+    func styleTypeLabel(label: UILabel, fontColor: UIColor, backgroundColor: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat, text: String){
+        label.textColor = fontColor
+        label.backgroundColor  = backgroundColor
+        label.layer.borderWidth = borderWidth
+        label.layer.cornerRadius = cornerRadius
+        label.text = text
+        label.layer.masksToBounds = true
+    }
+    
+    // MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let pokemon = chosenPokemon{
+            colorPicker.type = pokemon.types.first?.type.name
             pokemonColor
-                .backgroundColor = type1Color
+                .backgroundColor = colorPicker.getColorForType()
             
-            pokemonName.textColor = type1FontColor
+            pokemonName.textColor = colorPicker.getTextFontColor()
             pokemonName.text = pokemon.name
             
-            pokemonNumber.textColor = type1FontColor
+            pokemonNumber.textColor = colorPicker.getTextFontColor()
             pokemonNumber.text = String(pokemon.id)
             
             pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
             pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
             pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
 
-            imageTextLabel.textColor = type1FontColor
+            imageTextLabel.textColor = colorPicker.getTextFontColor()
             
             pokemonWeight.text = String(pokemon.weight)
             pokemonHeight.text = String(pokemon.height)
             baseEXP.text = String(pokemon.base_experience)
             
-            type1Label.layer.borderWidth = K.StatsScreen.strokeWidth
-            type1Label.layer.cornerRadius = K.StatsScreen.borderRadius
-            type1Label.layer.masksToBounds = true
-            type1Label.text = pokemon.types.first?.type.name
-            type1Label.textColor = type1FontColor
-            type1Label.backgroundColor  = type1Color
+            colorPicker.type = pokemon.types.first?.type.name
+            styleTypeLabel(label: type1Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.first?.type.name)!)
             
             // In case the pokemon has two types
             if pokemon.types.count > 1{
-                type2Label.layer.masksToBounds = true
-                type2Label.layer.borderWidth = K.StatsScreen.strokeWidth
-                type2Label.layer.cornerRadius = K.StatsScreen.borderRadius
                 type2Label.isHidden = false
-                
-                type2Label.text = pokemon.types.last?.type.name
-                type2Label.textColor = type2FontColor
-                type2Label.backgroundColor  = type2Color
-                
-            // Pokemon only has 1 type
-            } else {
-                type2Label.isHidden = true
+                colorPicker.type = pokemon.types.last?.type.name
+                styleTypeLabel(label: type2Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.last?.type.name)!)
             }
             
             hpLabel.text = String(pokemon.stats[0].base_stat)
@@ -236,6 +251,7 @@ class PokemonStatsViewController: UIViewController {
             for fav in favPokemon{
                 if fav.name == chosenPokemon?.name{
                     favButton.image = K.BarButton.fav
+                    break
                 }
             }
         }

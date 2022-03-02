@@ -11,7 +11,6 @@ import UIKit
 struct K {
     
     static let webhookURL: String = "https://webhook.site/1f06d0d2-e48f-4135-90e3-e78a8e5b894f"
-    
     static let pokemonPerPage: Int = 7
     static let baseSinglePokemonURL: String = "https://pokeapi.co/api/v2/pokemon/"
     
