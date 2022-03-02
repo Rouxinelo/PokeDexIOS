@@ -9,7 +9,7 @@ import UIKit
 
 class PokemonCell: UITableViewCell {
     
-    // Outlets
+    // MARK: - IBOutlets
     @IBOutlet weak var pokemonSprite: UIImageView!
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonNumber: UILabel!
@@ -19,9 +19,12 @@ class PokemonCell: UITableViewCell {
     
     @IBOutlet weak var stackView: UIStackView!
     
+    // MARK: - Local Variables
     var colorPicker = TypeColorManager()
     
     var displayPokemon: pokemon?
+    
+    // MARK: - Other functions
     
     func loadPokeInfo(pokemon: pokemon){
         pokemonNumber.text = String(pokemon.id)
@@ -42,6 +45,8 @@ class PokemonCell: UITableViewCell {
         type1Label.backgroundColor = colorPicker.getColorForType()
         type1Label.textColor = colorPicker.getTextFontColor()
     }
+    
+    // MARK: - awakeFromNib
     
     override func awakeFromNib() {
         super.awakeFromNib()
