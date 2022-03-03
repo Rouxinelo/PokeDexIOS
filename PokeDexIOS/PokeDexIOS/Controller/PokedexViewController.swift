@@ -344,3 +344,11 @@ extension UIImageView {
         }
     }
 }
+
+// MARK: - Uppercase first letter of a String
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+}

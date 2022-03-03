@@ -13,7 +13,7 @@ struct pokemon: Codable{
     let types: [atype]
     let height: Int
     let weight: Int
-    let name: String
+    var name: String
     let sprites: sprite
     let base_experience: Int
     let stats: [possibleStat]

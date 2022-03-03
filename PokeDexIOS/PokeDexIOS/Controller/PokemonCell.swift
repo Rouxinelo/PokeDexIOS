@@ -28,7 +28,7 @@ class PokemonCell: UITableViewCell {
     
     func loadPokeInfo(pokemon: pokemon){
         pokemonNumber.text = String(pokemon.id)
-        pokemonName.text = pokemon.name
+        pokemonName.text = pokemon.name.capitalizingFirstLetter()
         pokemonSprite.load(url: URL(string: pokemon.sprites.front_default)!)
         if pokemon.types.count == 2 {
             type2Label.text = pokemon.types.last?.type.name

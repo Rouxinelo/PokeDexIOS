@@ -96,7 +96,7 @@ class PokemonStatsViewController: UIViewController {
         let alertController = UIAlertController(title: "", message:
                                                     "", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-        alertController.message = chosenPokemon!.name
+        alertController.message = chosenPokemon!.name.capitalizingFirstLetter()
         
         switch sender.image{
         
@@ -209,7 +209,7 @@ class PokemonStatsViewController: UIViewController {
                 .backgroundColor = colorPicker.getColorForType()
             
             pokemonName.textColor = colorPicker.getTextFontColor()
-            pokemonName.text = pokemon.name
+            pokemonName.text = pokemon.name.capitalizingFirstLetter()
             
             pokemonNumber.textColor = colorPicker.getTextFontColor()
             pokemonNumber.text = String(pokemon.id)
