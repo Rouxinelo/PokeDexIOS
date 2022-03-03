@@ -31,6 +31,10 @@ class PokedexViewController: UIViewController {
     // Buttons Stack View
     @IBOutlet weak var buttonStackView: UIStackView!
     
+    // Slider outlet
+    @IBOutlet weak var pokemonPerPageSlider: UISlider!
+    @IBOutlet weak var pokemonPerPageLabel: UILabel!
+    
     // MARK: - Local variables
     
     // Context for Core Data
@@ -196,12 +200,13 @@ class PokedexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pokemonPerPageSlider.setThumbImage(UIImage(named: "pokeballSlider"), for: .normal)
+        
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
         pokemonSearchBar.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
-        
         searchForPokemonUrls.fetchData(op: "COUNT")
         
         checkButton()
