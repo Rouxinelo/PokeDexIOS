@@ -311,6 +311,9 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="3R5-VH-ekV">
                                                 <rect key="frame" x="-2" y="0.0" width="1028" height="32"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="pokemonPerPageValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Mgz-AW-YZD"/>
+                                                </connections>
                                             </slider>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HjQ-Ec-9L5">
                                                 <rect key="frame" x="0.0" y="33" width="1024" height="31"/>

@@ -84,6 +84,12 @@ class PokedexViewController: UIViewController {
         }
     }
     
+    // MARK: - Slider onclick action
+    
+    @IBAction func pokemonPerPageValueChanged(_ sender: UISlider) {
+        pokemonPerPageLabel.text = String(Int(pokemonPerPageSlider.value))
+    }
+    
     // MARK: - Pagination
 
     func getIndicesOfPage(elementsPerPage: Int) -> [Int]{
