@@ -364,7 +364,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fpx-h6-pRQ">
                                                         <rect key="frame" x="106.5" y="0.0" width="107" height="50"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page:1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0Z-9T-tVm">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0Z-9T-tVm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="107" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -441,12 +441,12 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="buttonStackView" destination="owM-bI-NgP" id="waE-a3-CPo"/>
                         <outlet property="favouritesBarButton" destination="h0A-Z5-b11" id="y9E-Z9-J5P"/>
                         <outlet property="firstPageButton" destination="yql-Z3-fUS" id="Dsm-Ma-caD"/>
                         <outlet property="lastPageButton" destination="1W8-h4-n8T" id="vZU-Rn-iEL"/>
                         <outlet property="nextPageButton" destination="iDF-I5-0Cu" id="wU6-WA-kie"/>
                         <outlet property="pageLabel" destination="p0Z-9T-tVm" id="ulM-he-SzV"/>
+                        <outlet property="paginationStackView" destination="yYw-Ut-Dkr" id="SoK-bb-XOS"/>
                         <outlet property="pokemonPerPageLabel" destination="wMr-7o-h9f" id="YRG-fu-W4j"/>
                         <outlet property="pokemonPerPageSlider" destination="3R5-VH-ekV" id="KNq-Md-O5F"/>
                         <outlet property="pokemonSearchBar" destination="UgS-fc-Rwy" id="alL-c5-IkC"/>

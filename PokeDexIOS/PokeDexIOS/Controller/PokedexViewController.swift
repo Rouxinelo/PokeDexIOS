@@ -29,7 +29,7 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var pokemonSearchBar: UISearchBar!
     
     // Buttons Stack View
-    @IBOutlet weak var buttonStackView: UIStackView!
+    @IBOutlet weak var paginationStackView: UIStackView!
     
     // Slider outlet
     @IBOutlet weak var pokemonPerPageSlider: UISlider!
@@ -41,7 +41,7 @@ class PokedexViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var selectedPokemon: pokemon? =  nil
-    let pokemonPerPage = K.pokemonPerPage
+    var pokemonPerPage = K.pokemonPerPage
     
     // Array of pokemons marked as favourite
     var favPokemon = [FavPokemon]()
@@ -49,7 +49,7 @@ class PokedexViewController: UIViewController {
     // Variables used for pagination
     var maxPokemon: Int = 0
     var maxPages: Int = 0
-    var currentPage: Int = 0
+    var currentPage: Int = 1
     
     var URLarray = [String]()
     var URLFavArray = [String]()
@@ -68,7 +68,7 @@ class PokedexViewController: UIViewController {
         switch sender.title{
         case "All":
             sender.title = "Favourites"
-            buttonStackView.isHidden = true
+            paginationStackView.isHidden = true
             
             loadFavArray()
             
@@ -76,7 +76,7 @@ class PokedexViewController: UIViewController {
             
         case "Favourites":
             sender.title = "All"
-            buttonStackView.isHidden = false
+            paginationStackView.isHidden = false
             
             searchPokemons(filter: "ALL")
         default:
@@ -87,7 +87,16 @@ class PokedexViewController: UIViewController {
     // MARK: - Slider onclick action
     
     @IBAction func pokemonPerPageValueChanged(_ sender: UISlider) {
-        pokemonPerPageLabel.text = String(Int(pokemonPerPageSlider.value))
+        if Int(pokemonPerPageSlider.value) != Int(pokemonPerPageLabel.text!){
+            pokemonPerPageLabel.text = String(Int(pokemonPerPageSlider.value))
+            pokemonPerPage = Int(pokemonPerPageSlider.value)
+            currentPage = 1
+            pageLabel.text = String(currentPage)
+            checkButton()
+            recievedPokeCount(count: maxPokemon)
+            searchPokemons(filter: "ALL")
+        }
+
     }
     
     // MARK: - Pagination
@@ -236,7 +245,6 @@ extension PokedexViewController: PokeRequestDelegate{
             URLarray.append(res.url)
         }
         
-        currentPage += 1
         searchPokemons(filter: "ALL")
         
         DispatchQueue.main.async {
