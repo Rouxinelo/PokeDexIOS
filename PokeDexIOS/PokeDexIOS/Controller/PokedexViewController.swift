@@ -51,15 +51,16 @@ class PokedexViewController: UIViewController {
     var maxPages: Int = 0
     var currentPage: Int = 1
     
+    // Arrays that store pokemon data
     var URLarray = [String]()
     var URLFavArray = [String]()
     var PokemonArray = [pokemon]()
-        
+    
     var searchForPokemonUrls = PokeRequest()
     var searchForPokemonStats = PokemonStats()
     
     // MARK: - Button Onclick Actions
-
+    
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
     }
@@ -87,20 +88,18 @@ class PokedexViewController: UIViewController {
     // MARK: - Slider onclick action
     
     @IBAction func pokemonPerPageValueChanged(_ sender: UISlider) {
-        if Int(pokemonPerPageSlider.value) != Int(pokemonPerPageLabel.text!){
+        if Int(pokemonPerPageSlider.value) != pokemonPerPage {
             pokemonPerPageLabel.text = String(Int(pokemonPerPageSlider.value))
             pokemonPerPage = Int(pokemonPerPageSlider.value)
-            currentPage = 1
-            pageLabel.text = String(currentPage)
-            checkButton()
             recievedPokeCount(count: maxPokemon)
+            pageLabel.text = String(currentPage)
             searchPokemons(filter: "ALL")
+            checkButton()
         }
-
     }
     
     // MARK: - Pagination
-
+    
     func getIndicesOfPage(elementsPerPage: Int) -> [Int]{
         return [(currentPage-1)*elementsPerPage, elementsPerPage*(currentPage-1) + (elementsPerPage-1)]
     }
@@ -254,7 +253,7 @@ extension PokedexViewController: PokeRequestDelegate{
     
     func recievedPokeCount(count: Int) {
         maxPokemon = count
-        
+        currentPage = 1
         if count % self.pokemonPerPage == 0 {
             self.maxPages = (count/self.pokemonPerPage)
         } else {
@@ -295,7 +294,7 @@ extension PokedexViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.row > PokemonArray.count-1){
             return UITableViewCell()
-          }
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.pokeDexCellIdentifier, for: indexPath) as! PokemonCell
         
         cell.loadPokeInfo(pokemon: PokemonArray[indexPath.row])
