@@ -115,26 +115,23 @@ class PokedexViewController: UIViewController {
     
     @IBAction func pageButtonPressed(_ sender: UIButton) {
         if sender == prevPageButton{
-            pageLabel.text = String(Int(pageLabel.text!)! - 1)
             currentPage -= 1
             checkButton()
             searchPokemons(filter: "ALL")
         } else if sender == nextPageButton {
-            pageLabel.text = String(Int(pageLabel.text!)! + 1)
             currentPage+=1
             checkButton()
             searchPokemons(filter: "ALL")
         } else if sender == firstPageButton{
-            pageLabel.text = "1"
             currentPage = 1
             checkButton()
             searchPokemons(filter: "ALL")
         } else if sender == lastPageButton{
-            pageLabel.text = String(maxPages)
             currentPage = maxPages
             checkButton()
             searchPokemons(filter: "ALL")
         }
+        pageLabel.text = String(currentPage)
     }
     
     // MARK: - Function that requests for pokemon stats data
@@ -201,12 +198,18 @@ class PokedexViewController: UIViewController {
         }
     }
     
+    func setSliderData(Pagevalue: Int, thumbImageName: String){
+        pokemonPerPageSlider.value = Float(Pagevalue)
+        pokemonPerPageSlider.setThumbImage(UIImage(named: thumbImageName), for: .normal)
+        pokemonPerPageLabel.text = String(Pagevalue)
+    }
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pokemonPerPageSlider.setThumbImage(UIImage(named: "pokeballSlider"), for: .normal)
+        setSliderData(Pagevalue: K.pokemonPerPage, thumbImageName: K.sliderImage)
         
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
