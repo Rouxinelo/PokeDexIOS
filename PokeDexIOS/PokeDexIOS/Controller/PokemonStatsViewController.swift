@@ -30,6 +30,7 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var spAtkLabel: UILabel!
     @IBOutlet weak var spDefLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     // MARK: - Local variables
     
@@ -86,6 +87,10 @@ class PokemonStatsViewController: UIViewController {
     }
     
     // MARK: - Button OnClickActions
+    
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        returnToPreviousScreen()
+    }
     
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
@@ -179,14 +184,32 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
-    // MARK: - Other functions
+
+    // MARK: - Gesture handlers
     
-    // Plays an .mp3 sound passed as argument
-    func playSound(soundName: String) {
-        let url = Bundle.main.url(forResource: soundName, withExtension: K.audioPlayer.favouriteSoundExtension)
-        player = try! AVAudioPlayer(contentsOf: url!)
-        player.play()
+    func defineImageTapGesture(){
+        let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        
+        pokemonImage.addGestureRecognizer(tapPokemonImage)
+        pokemonImage.isUserInteractionEnabled = true
     }
+    
+    
+    func defineSwipeGesture(){
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+        if gesture.direction == .right {
+            returnToPreviousScreen()
+        }
+    }
+    
+    
+    // MARK: - Styling the view with the pokemon stats
     
     // Adds style to a type label
     func styleTypeLabel(label: UILabel, fontColor: UIColor, backgroundColor: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat, text: String){
@@ -198,63 +221,93 @@ class PokemonStatsViewController: UIViewController {
         label.layer.masksToBounds = true
     }
     
+    func setStatLabels(pokemonStat:[possibleStat]){
+        hpLabel.text = String(pokemonStat[0].base_stat)
+        atkLabel.text = String(pokemonStat[1].base_stat)
+        defLabel.text = String(pokemonStat[2].base_stat)
+        spAtkLabel.text = String(pokemonStat[3].base_stat)
+        spDefLabel.text = String(pokemonStat[4].base_stat)
+        speedLabel.text = String(pokemonStat[5].base_stat)
+    }
+    
+    func setPageHeader(pokemon: pokemon){
+        
+        colorPicker.type = pokemon.types.first?.type.name
+
+        pokemonColor
+            .backgroundColor = colorPicker.getColorForType()
+        
+        pokemonName.textColor = colorPicker.getTextFontColor()
+        pokemonName.text = pokemon.name.capitalizingFirstLetter()
+        
+        pokemonNumber.textColor = colorPicker.getTextFontColor()
+        pokemonNumber.text = String(pokemon.id)
+        
+        pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+        pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
+        pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
+
+        imageTextLabel.textColor = colorPicker.getTextFontColor()
+    }
+    
+    func setPageFooter(pokemon: pokemon){
+            
+        pokemonWeight.text = String(pokemon.weight)
+        pokemonHeight.text = String(pokemon.height)
+        baseEXP.text = String(pokemon.base_experience)
+        
+        colorPicker.type = pokemon.types.first?.type.name
+        styleTypeLabel(label: type1Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.first?.type.name)!)
+        
+        if pokemon.types.count > 1{
+            type2Label.isHidden = false
+            colorPicker.type = pokemon.types.last?.type.name
+            styleTypeLabel(label: type2Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.last?.type.name)!)
+        }
+        
+        setStatLabels(pokemonStat: pokemon.stats)
+    }
+    
+    func setFavouriteButton(pokemon: pokemon){
+        
+        loadPokemon()
+        
+        for fav in favPokemon{
+            if fav.name == chosenPokemon?.name{
+                favButton.image = K.BarButton.fav
+                break
+            }
+        }
+    }
+    
+    // MARK: - Other functions
+    
+    // Plays an .mp3 sound passed as argument
+    func playSound(soundName: String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: K.audioPlayer.favouriteSoundExtension)
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+    }
+    
+    func returnToPreviousScreen(){
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let pokemon = chosenPokemon{
-            colorPicker.type = pokemon.types.first?.type.name
-            pokemonColor
-                .backgroundColor = colorPicker.getColorForType()
-            
-            pokemonName.textColor = colorPicker.getTextFontColor()
-            pokemonName.text = pokemon.name.capitalizingFirstLetter()
-            
-            pokemonNumber.textColor = colorPicker.getTextFontColor()
-            pokemonNumber.text = String(pokemon.id)
-            
-            pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
-            pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
-            pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
-
-            imageTextLabel.textColor = colorPicker.getTextFontColor()
-            
-            pokemonWeight.text = String(pokemon.weight)
-            pokemonHeight.text = String(pokemon.height)
-            baseEXP.text = String(pokemon.base_experience)
-            
-            colorPicker.type = pokemon.types.first?.type.name
-            styleTypeLabel(label: type1Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.first?.type.name)!)
-            
-            // In case the pokemon has two types
-            if pokemon.types.count > 1{
-                type2Label.isHidden = false
-                colorPicker.type = pokemon.types.last?.type.name
-                styleTypeLabel(label: type2Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.last?.type.name)!)
-            }
-            
-            hpLabel.text = String(pokemon.stats[0].base_stat)
-            atkLabel.text = String(pokemon.stats[1].base_stat)
-            defLabel.text = String(pokemon.stats[2].base_stat)
-            spAtkLabel.text = String(pokemon.stats[3].base_stat)
-            spDefLabel.text = String(pokemon.stats[4].base_stat)
-            speedLabel.text = String(pokemon.stats[5].base_stat)
-            
-            let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-            
-            pokemonImage.addGestureRecognizer(tapPokemonImage)
-            pokemonImage.isUserInteractionEnabled = true
-            
-            loadPokemon()
-            
-            for fav in favPokemon{
-                if fav.name == chosenPokemon?.name{
-                    favButton.image = K.BarButton.fav
-                    break
-                }
-            }
+            setPageHeader(pokemon: pokemon)
+            setPageFooter(pokemon: pokemon)
+            setFavouriteButton(pokemon: pokemon)
         }
+
+        defineImageTapGesture()
+        
+        defineSwipeGesture()
+
     }
     
 }
