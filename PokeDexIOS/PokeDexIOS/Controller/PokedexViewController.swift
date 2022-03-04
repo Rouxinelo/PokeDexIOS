@@ -55,9 +55,9 @@ class PokedexViewController: UIViewController {
     var currentPage: Int = 1
     
     // Arrays that store pokemon data
-    var URLarray = [String]()
-    var URLFavArray = [String]()
-    var PokemonArray = [pokemon]()
+    var urlArray = [String]()
+    var urlFavArray = [String]()
+    var pokemonArray = [pokemon]()
     
     var searchForPokemonUrls = PokeRequest()
     var searchForPokemonStats = PokemonStats()
@@ -149,22 +149,22 @@ class PokedexViewController: UIViewController {
     
     func searchPokemons(filter: String){
         
-        PokemonArray.removeAll()
+        pokemonArray.removeAll()
         
         if filter == "ALL" {
             
             let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
             
             for i in indices[0]...indices[1]{
-                if i==URLarray.count{
+                if i==urlArray.count{
                     break
                 }
-                self.searchForPokemonStats.requestURL = URLarray[i]
+                self.searchForPokemonStats.requestURL = urlArray[i]
                 self.searchForPokemonStats.fetchData()
             }
             
         } else if filter == "FAV" {
-            for pokemon in URLFavArray{
+            for pokemon in urlFavArray{
                 self.searchForPokemonStats.requestURL = pokemon
                 self.searchForPokemonStats.fetchData()
             }
@@ -178,11 +178,11 @@ class PokedexViewController: UIViewController {
     // MARK: - Core data functions
     
     func loadFavArray(){
-        URLFavArray.removeAll()
+        urlFavArray.removeAll()
         
         loadFavPokemon()
         for item in favPokemon{
-            URLFavArray.append(K.baseSinglePokemonURL + item.name!)
+            urlFavArray.append(K.baseSinglePokemonURL + item.name!)
         }
     }
     
@@ -246,7 +246,7 @@ class PokedexViewController: UIViewController {
 extension PokedexViewController: PokeRequestDelegate{
     func recievedPokeList(data: pokeData) {
         for res in data.results{
-            URLarray.append(res.url)
+            urlArray.append(res.url)
         }
         
         searchPokemons(filter: "ALL")
@@ -277,7 +277,7 @@ extension PokedexViewController: PokemonStatsDelegate{
                 self.performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
             }
         } else {
-            PokemonArray.append(data)
+            pokemonArray.append(data)
         }
     }
     
@@ -293,16 +293,16 @@ extension PokedexViewController: PokemonStatsDelegate{
 
 extension PokedexViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PokemonArray.count
+        return pokemonArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(indexPath.row > PokemonArray.count-1){
+        if(indexPath.row > pokemonArray.count-1){
             return UITableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.pokeDexCellIdentifier, for: indexPath) as! PokemonCell
         
-        cell.loadPokeInfo(pokemon: PokemonArray[indexPath.row])
+        cell.loadPokeInfo(pokemon: pokemonArray[indexPath.row])
         
         cell.layoutIfNeeded()
         
@@ -316,7 +316,7 @@ extension PokedexViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedPokemon = PokemonArray[indexPath.row]
+        selectedPokemon = pokemonArray[indexPath.row]
         
         performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
