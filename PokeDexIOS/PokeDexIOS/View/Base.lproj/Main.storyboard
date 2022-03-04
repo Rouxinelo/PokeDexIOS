@@ -469,6 +469,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeballBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="c75-aT-5lz">
+                                <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4mR-LJ-BLy">
                                 <rect key="frame" x="0.0" y="44" width="320" height="387"/>
                                 <subviews>
@@ -476,23 +479,23 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="193.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-vK-ow7">
-                                                <rect key="frame" x="100" y="0.0" width="120" height="20.5"/>
+                                                <rect key="frame" x="100" y="0.0" width="120" height="26.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HbQ-jb-LVw">
-                                                <rect key="frame" x="102" y="30.5" width="116" height="131.5"/>
+                                                <rect key="frame" x="107.5" y="36.5" width="105" height="114"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-ii-TW6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
+                                                        <rect key="frame" x="5.5" y="0.0" width="94" height="94.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="WCZ-ii-TW6" secondAttribute="height" multiplier="1:1" id="MQ3-tI-w74"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Am-RK-mLa">
-                                                        <rect key="frame" x="5.5" y="116" width="105" height="15.5"/>
+                                                        <rect key="frame" x="0.0" y="94.5" width="105" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -500,7 +503,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-iz-7Ij">
-                                                <rect key="frame" x="120" y="172" width="80" height="21.5"/>
+                                                <rect key="frame" x="120" y="160.5" width="80" height="33"/>
                                                 <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -703,8 +706,12 @@
                         <viewLayoutGuide key="safeArea" id="bmE-1a-00n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="c75-aT-5lz" firstAttribute="leading" secondItem="bmE-1a-00n" secondAttribute="leading" id="GUL-kn-EUo"/>
+                            <constraint firstItem="bmE-1a-00n" firstAttribute="trailing" secondItem="c75-aT-5lz" secondAttribute="trailing" id="Jc8-75-Fbq"/>
                             <constraint firstItem="bmE-1a-00n" firstAttribute="trailing" secondItem="4mR-LJ-BLy" secondAttribute="trailing" id="K91-x2-ePa"/>
                             <constraint firstItem="4mR-LJ-BLy" firstAttribute="bottom" secondItem="bmE-1a-00n" secondAttribute="bottom" id="NMb-8Z-1Yh"/>
+                            <constraint firstItem="c75-aT-5lz" firstAttribute="top" secondItem="bmE-1a-00n" secondAttribute="top" id="U8r-3E-stG"/>
+                            <constraint firstItem="bmE-1a-00n" firstAttribute="bottom" secondItem="c75-aT-5lz" secondAttribute="bottom" id="UGh-i1-dc0"/>
                             <constraint firstItem="4mR-LJ-BLy" firstAttribute="top" secondItem="bmE-1a-00n" secondAttribute="top" id="gO3-l4-0KQ"/>
                             <constraint firstItem="4mR-LJ-BLy" firstAttribute="leading" secondItem="bmE-1a-00n" secondAttribute="leading" id="zcE-eN-AfC"/>
                         </constraints>
@@ -754,7 +761,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yjx-eM-lgw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IV9-bU-eeg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -787,7 +794,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ooM-cO-ybC"/>
+        <segue reference="Cah-tK-uTs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -798,6 +805,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="myPicture" width="823" height="768"/>
+        <image name="pokeballBackGround" width="736" height="1304"/>
         <image name="pokemonLogo" width="1000" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
