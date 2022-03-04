@@ -53,8 +53,9 @@ class PokemonCell: UITableViewCell {
         // Initialization code
         
         stackView.layer.borderWidth = K.TableCells.strokeWidth
-        
-        pokemonSprite.layer.borderWidth = K.TableCells.strokeWidth
+        stackView.layer.cornerRadius = K.TableCells.borderRadius
+        stackView.layer.cornerCurve = .continuous
+
         
         type1Label.layer.borderWidth = K.TableCells.strokeWidth
         type1Label.layer.cornerRadius = K.TableCells.borderRadius

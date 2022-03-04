@@ -19,6 +19,9 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var lastPageButton: UIButton!
     @IBOutlet weak var favouritesBarButton: UIBarButtonItem!
     
+    // Content Stack View
+    @IBOutlet weak var contentStackView: UIStackView!
+    
     // Text Label Outlets
     @IBOutlet weak var pageLabel: UILabel!
     
@@ -217,6 +220,8 @@ class PokedexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contentStackView.layer.cornerRadius = K.TableCells.borderRadius
+
         setSliderData(Pagevalue: K.pokemonPerPage, thumbImageName: K.sliderImage)
         
         searchForPokemonUrls.delegate = self
