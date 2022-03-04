@@ -184,18 +184,30 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
-    // MARK: - Other functions
+
+    // MARK: - Gesture handlers
     
-    // Plays an .mp3 sound passed as argument
-    func playSound(soundName: String) {
-        let url = Bundle.main.url(forResource: soundName, withExtension: K.audioPlayer.favouriteSoundExtension)
-        player = try! AVAudioPlayer(contentsOf: url!)
-        player.play()
+    func defineImageTapGesture(){
+        let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        
+        pokemonImage.addGestureRecognizer(tapPokemonImage)
+        pokemonImage.isUserInteractionEnabled = true
     }
     
-    func returnToPreviousScreen(){
-        navigationController?.popViewController(animated: true)
+    
+    func defineSwipeGesture(){
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+        if gesture.direction == .right {
+            returnToPreviousScreen()
+        }
+    }
+    
     
     // MARK: - Styling the view with the pokemon stats
     
@@ -268,6 +280,19 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
+    // MARK: - Other functions
+    
+    // Plays an .mp3 sound passed as argument
+    func playSound(soundName: String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: K.audioPlayer.favouriteSoundExtension)
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+    }
+    
+    func returnToPreviousScreen(){
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -278,11 +303,10 @@ class PokemonStatsViewController: UIViewController {
             setPageFooter(pokemon: pokemon)
             setFavouriteButton(pokemon: pokemon)
         }
+
+        defineImageTapGesture()
         
-        let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-        
-        pokemonImage.addGestureRecognizer(tapPokemonImage)
-        pokemonImage.isUserInteractionEnabled = true
+        defineSwipeGesture()
 
     }
     
