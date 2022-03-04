@@ -215,20 +215,16 @@ class PokedexViewController: UIViewController {
         pokemonPerPageLabel.text = String(Pagevalue)
     }
     
-    // MARK: - viewDidLoad
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func setStyle(){
         
         contentStackView.layer.cornerRadius = K.TableCells.borderRadius
 
         setSliderData(Pagevalue: K.pokemonPerPage, thumbImageName: K.sliderImage)
         
-        searchForPokemonUrls.delegate = self
-        searchForPokemonStats.delegate = self
-        pokemonSearchBar.delegate = self
-        tableView.dataSource = self
-        tableView.delegate = self
+    }
+    
+    func firstRequest(){
+        
         searchForPokemonUrls.fetchData(op: "COUNT")
         
         checkButton()
@@ -238,6 +234,22 @@ class PokedexViewController: UIViewController {
         DispatchQueue.main.async {
             self.searchForPokemonUrls.fetchData(op: "LIST")
         }
+    }
+    
+    // MARK: - viewDidLoad
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        searchForPokemonUrls.delegate = self
+        searchForPokemonStats.delegate = self
+        pokemonSearchBar.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        setStyle()()
+        
+        firstRequest()
     }
 }
 
