@@ -46,11 +46,8 @@ class PokemonCell: UITableViewCell {
         type1Label.textColor = colorPicker.getTextFontColor()
     }
     
-    // MARK: - awakeFromNib
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setStyle(){
         
         stackView.layer.borderWidth = K.TableCells.strokeWidth
         stackView.layer.cornerRadius = K.TableCells.borderRadius
@@ -61,6 +58,15 @@ class PokemonCell: UITableViewCell {
         type1Label.layer.cornerRadius = K.TableCells.borderRadius
         type2Label.layer.borderWidth = K.TableCells.strokeWidth
         type2Label.layer.cornerRadius = K.TableCells.borderRadius
+        
+    }
+    
+    // MARK: - awakeFromNib
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setStyle()
     }
     
 }

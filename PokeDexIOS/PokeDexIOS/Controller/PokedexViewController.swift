@@ -247,7 +247,7 @@ class PokedexViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        setStyle()()
+        setStyle()
         
         firstRequest()
     }
