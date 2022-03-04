@@ -132,19 +132,19 @@
                                         <rect key="frame" x="0.0" y="362.5" width="414" height="362.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-Hi-2yS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="90.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDexIOS is an IOS App made for Pokemon enjoyers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-14-uGV">
-                                                <rect key="frame" x="21.5" y="45.5" width="371" height="90.5"/>
+                                                <rect key="frame" x="21.5" y="90.5" width="371" height="91"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll through the hundreds of Pokemons, look at their stats and save your favourites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-dR-pp8">
-                                                <rect key="frame" x="0.5" y="136" width="413" height="136"/>
+                                                <rect key="frame" x="0.5" y="181.5" width="413" height="90.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -182,7 +182,17 @@
                             <constraint firstItem="3oe-uT-FbR" firstAttribute="top" secondItem="fk3-mF-Mvp" secondAttribute="top" id="fmy-OH-jTi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7uJ-Pb-KMC"/>
+                    <navigationItem key="navigationItem" id="7uJ-Pb-KMC">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="FfP-pl-ok7">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="ZIK-xf-tnO" id="Muz-c1-BbI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="FfP-pl-ok7" id="b0T-6k-Pjl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZoN-LH-QrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -710,6 +720,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vnS-NS-eN3">
+                        <barButtonItem key="backBarButtonItem" title=" " id="SMv-iT-Une"/>
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="fQr-Nt-UsT">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="ZGe-D1-D4y" id="ecx-WJ-rRL"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="info.circle.fill" catalog="system" id="R4b-EY-y3t">
                                 <connections>
@@ -725,6 +742,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="atkLabel" destination="qYl-Im-nXn" id="j4N-P9-avY"/>
+                        <outlet property="backButton" destination="fQr-Nt-UsT" id="xZh-Eo-93T"/>
                         <outlet property="baseEXP" destination="VUB-UZ-8bQ" id="GsU-2c-GxE"/>
                         <outlet property="defLabel" destination="8kt-qJ-Ncu" id="Had-uh-pZx"/>
                         <outlet property="favButton" destination="gTk-2s-uqZ" id="lP2-ut-zuw"/>
@@ -763,25 +781,6 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBA-BX-eSq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="80" id="S5z-mx-KsX">
-                    <rect key="frame" x="0.0" y="0.0" width="231" height="60.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BfX-tX-9BY">
-                            <rect key="frame" x="0.0" y="0.0" width="45" height="60.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="João Rouxinol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="vOP-cd-xy9">
-                            <rect key="frame" x="125" y="0.0" width="106" height="60.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <viewLayoutGuide key="safeArea" id="Fbs-N4-tgG"/>
-                </stackView>
             </objects>
             <point key="canvasLocation" x="1839.1304347826087" y="65.625"/>
         </scene>
@@ -795,6 +794,7 @@
         <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="arrow.left.to.line.compact" catalog="system" width="128" height="101"/>
         <image name="arrow.right.to.line.compact" catalog="system" width="128" height="101"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="myPicture" width="823" height="768"/>

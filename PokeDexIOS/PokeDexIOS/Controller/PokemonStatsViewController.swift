@@ -30,6 +30,7 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var spAtkLabel: UILabel!
     @IBOutlet weak var spDefLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     // MARK: - Local variables
     
@@ -86,6 +87,10 @@ class PokemonStatsViewController: UIViewController {
     }
     
     // MARK: - Button OnClickActions
+    
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        returnToPreviousScreen()
+    }
     
     @IBAction func InformationClicked(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
@@ -188,6 +193,10 @@ class PokemonStatsViewController: UIViewController {
         player.play()
     }
     
+    func returnToPreviousScreen(){
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Styling the view with the pokemon stats
     
     // Adds style to a type label
@@ -245,7 +254,6 @@ class PokemonStatsViewController: UIViewController {
         }
         
         setStatLabels(pokemonStat: pokemon.stats)
-
     }
     
     func setFavouriteButton(pokemon: pokemon){
@@ -275,7 +283,7 @@ class PokemonStatsViewController: UIViewController {
         
         pokemonImage.addGestureRecognizer(tapPokemonImage)
         pokemonImage.isUserInteractionEnabled = true
-        
+
     }
     
 }
