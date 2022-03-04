@@ -12,6 +12,9 @@ class PokedexViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    // Navigation Bar
+    @IBOutlet weak var navigationBar: UINavigationItem!
+    
     // Button Outlets
     @IBOutlet weak var nextPageButton: UIButton!
     @IBOutlet weak var prevPageButton: UIButton!
@@ -72,16 +75,16 @@ class PokedexViewController: UIViewController {
         switch sender.title{
         case "All":
             sender.title = "Favourites"
+            sender.image = K.BarButton.fav
             paginationStackView.isHidden = true
-            
             loadFavArray()
             
             searchPokemons(filter: "FAV")
             
         case "Favourites":
             sender.title = "All"
+            sender.image = K.BarButton.notFav
             paginationStackView.isHidden = false
-            
             searchPokemons(filter: "ALL")
         default:
             print("error")
@@ -223,6 +226,29 @@ class PokedexViewController: UIViewController {
         
     }
     
+    func setNavigationBar(){
+        
+        let navController = navigationController!
+
+        let appearance = UINavigationBarAppearance()
+               appearance.backgroundColor = .purple
+        navigationController?.navigationBar.tintColor = .blue
+
+        let image = UIImage(named: "pokemonLogo")
+        let imageView = UIImageView(image:image)
+        
+        let Width = navController.navigationBar.frame.size.width
+        let Height = navController.navigationBar.frame.size.height
+
+        let X = Width / 2 - (image?.size.width)! / 2
+        let Y = Height / 2 - (image?.size.height)! / 2
+
+        imageView.frame = CGRect(x: X, y: Y, width: Width, height: Height)
+        imageView.contentMode = .scaleAspectFit
+        
+        self.navigationItem.titleView = imageView
+    }
+    
     func firstRequest(){
         
         searchForPokemonUrls.fetchData(op: "COUNT")
@@ -240,6 +266,8 @@ class PokedexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNavigationBar()
         
         searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self

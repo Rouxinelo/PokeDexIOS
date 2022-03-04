@@ -199,7 +199,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-fB-gN2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalCompressionResistancePriority="749" image="pokemonLogo" translatesAutoresizingMaskIntoConstraints="NO" id="k2E-gf-s7J">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="k2E-gf-s7J">
                                         <rect key="frame" x="157" y="0.0" width="100" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="qHN-A0-kdt"/>
@@ -208,9 +208,8 @@
                                     </imageView>
                                     <searchBar contentMode="redraw" placeholder="Search: Pokemon Name/ID" translatesAutoresizingMaskIntoConstraints="NO" id="UgS-fc-Rwy">
                                         <rect key="frame" x="0.0" y="42" width="414" height="51"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="51" id="iUA-ZJ-Nfr"/>
-                                        </constraints>
+                                        <color key="backgroundColor" red="0.8078432083" green="0.39607840779999998" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.8078432083" green="0.39607840779999998" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nbz-CI-EBR">
@@ -408,7 +407,6 @@
                                 <constraints>
                                     <constraint firstItem="yYw-Ut-Dkr" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="38W-fe-hTx"/>
                                     <constraint firstAttribute="trailing" secondItem="UgS-fc-Rwy" secondAttribute="trailing" id="CLz-Sp-N4U"/>
-                                    <constraint firstItem="UgS-fc-Rwy" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="Fdy-KU-zkf"/>
                                     <constraint firstAttribute="trailing" secondItem="Nbz-CI-EBR" secondAttribute="trailing" id="K4Z-Ep-Iqs"/>
                                     <constraint firstAttribute="trailing" secondItem="yYw-Ut-Dkr" secondAttribute="trailing" id="TEW-50-OR9"/>
                                     <constraint firstItem="Nbz-CI-EBR" firstAttribute="leading" secondItem="iZI-fB-gN2" secondAttribute="leading" id="XEf-eH-ouW"/>
@@ -428,12 +426,14 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RwI-tD-fi7">
-                        <barButtonItem key="leftBarButtonItem" title="All" width="50" id="h0A-Z5-b11">
+                        <barButtonItem key="leftBarButtonItem" title="All" image="heart" catalog="system" width="50" id="h0A-Z5-b11">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="favouritesButtonClicked:" destination="BYZ-38-t0r" id="Zm5-nW-WfE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="wdv-ND-mha">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="InformationClicked:" destination="BYZ-38-t0r" id="Nos-ho-QBA"/>
                             </connections>
@@ -575,7 +575,7 @@
                                                 <rect key="frame" x="98" y="181.5" width="218" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base Exp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Set-9s-NQy">
-                                                        <rect key="frame" x="0.0" y="22.5" width="135" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
                                                         <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -587,6 +587,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Set-9s-NQy" secondAttribute="bottom" id="8en-m4-Sle"/>
+                                                    <constraint firstItem="Set-9s-NQy" firstAttribute="top" secondItem="xbN-Yk-8lm" secondAttribute="top" id="h3a-cB-fWe"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZuI-Ps-6BK">
                                                 <rect key="frame" x="0.0" y="241.5" width="414" height="60.5"/>
@@ -806,7 +810,6 @@
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="myPicture" width="823" height="768"/>
         <image name="pokeBallBackGround" width="736" height="1308"/>
-        <image name="pokemonLogo" width="1000" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
