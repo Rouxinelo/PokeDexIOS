@@ -9,6 +9,12 @@ import UIKit
 import CoreData
 import AVFoundation
 
+    // MARK: - Delegate Protocol
+
+protocol PokemonStatsViewControllerDelegate{
+    func didRemoveFromFavourites(pokemon: pokemon)
+}
+
 class PokemonStatsViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -33,6 +39,8 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     // MARK: - Local variables
+    
+    var delegate: PokemonStatsViewControllerDelegate?
     
     // Music player
     var player: AVAudioPlayer!
@@ -290,6 +298,10 @@ class PokemonStatsViewController: UIViewController {
     }
     
     func returnToPreviousScreen(){
+        if favButton.image == K.BarButton.notFav{
+            delegate?.didRemoveFromFavourites(pokemon: chosenPokemon!)
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     
