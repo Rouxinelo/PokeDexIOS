@@ -204,25 +204,6 @@ class PokedexViewController: UIViewController {
     
     // MARK: - Other functions
     
-    override func didMove(toParent parent: UIViewController?){
-        if favouritesBarButton.title == "Favourites"{
-            loadFavPokemon()
-            if favPokemon.count != pokemonArray.count{
-                for i in 0..<pokemonArray.count{
-                    if i == favPokemon.count{
-                        pokemonArray.remove(at: i)
-                        break
-                    }
-                    if favPokemon[i].name != pokemonArray[i].name{
-                        pokemonArray.remove(at: i)
-                        break
-                    }
-                }
-                tableView.reloadData()
-            }
-        }
-    }
-    
     func setSliderData(Pagevalue: Int, thumbImageName: String){
         pokemonPerPageSlider.value = Float(Pagevalue)
         pokemonPerPageSlider.setThumbImage(UIImage(named: thumbImageName), for: .normal)
@@ -370,10 +351,28 @@ extension PokedexViewController: UISearchBarDelegate{
 extension PokedexViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.pokeDexToPokeStats {
+            
             if let VC = segue.destination as? PokemonStatsViewController{
-                
+                VC.delegate = self
                 if let pokemonChosen = selectedPokemon{
                     VC.chosenPokemon = pokemonChosen
+                }
+            }
+        }
+    }
+}
+
+// MARK: - PokemonStatsViewControllerDelegate
+
+extension PokedexViewController: PokemonStatsViewControllerDelegate{
+    
+    func didRemoveFromFavourites(pokemon: pokemon) {
+        if favouritesBarButton.title == "Favourites"{
+            for i in 0..<pokemonArray.count{
+                if pokemon.name == pokemonArray[i].name{
+                    pokemonArray.remove(at: i)
+                    tableView.reloadData()
+                    break
                 }
             }
         }
