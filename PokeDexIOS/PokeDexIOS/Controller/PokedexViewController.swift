@@ -208,7 +208,21 @@ class PokedexViewController: UIViewController {
     override func didMove(toParent parent: UIViewController?){
         if favouritesBarButton.title == "Favourites"{
             loadFavArray()
-            searchPokemons(filter: "FAV")
+            print(favPokemon.count)
+            print(pokemonArray.count)
+            if favPokemon.count != pokemonArray.count{
+                    for i in 0..<pokemonArray.count{
+                        if i == favPokemon.count{
+                            pokemonArray.remove(at: i)
+                            break
+                        }
+                        if favPokemon[i].name != pokemonArray[i].name{
+                            pokemonArray.remove(at: i)
+                            break
+                        }
+                    }
+                tableView.reloadData()
+            }
         }
     }
     
