@@ -208,8 +208,6 @@ class PokedexViewController: UIViewController {
     override func didMove(toParent parent: UIViewController?){
         if favouritesBarButton.title == "Favourites"{
             loadFavArray()
-            print(favPokemon.count)
-            print(pokemonArray.count)
             if favPokemon.count != pokemonArray.count{
                     for i in 0..<pokemonArray.count{
                         if i == favPokemon.count{
