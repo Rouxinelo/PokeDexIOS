@@ -192,7 +192,6 @@ class PokedexViewController: UIViewController {
     func loadFavPokemon(){
         let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
         do {
-            
             let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
             let sortDescriptors = [sortDescriptor]
             request.sortDescriptors = sortDescriptors
@@ -207,8 +206,20 @@ class PokedexViewController: UIViewController {
     
     override func didMove(toParent parent: UIViewController?){
         if favouritesBarButton.title == "Favourites"{
-            loadFavArray()
-            searchPokemons(filter: "FAV")
+            loadFavPokemon()
+            if favPokemon.count != pokemonArray.count{
+                for i in 0..<pokemonArray.count{
+                    if i == favPokemon.count{
+                        pokemonArray.remove(at: i)
+                        break
+                    }
+                    if favPokemon[i].name != pokemonArray[i].name{
+                        pokemonArray.remove(at: i)
+                        break
+                    }
+                }
+                tableView.reloadData()
+            }
         }
     }
     
@@ -221,11 +232,10 @@ class PokedexViewController: UIViewController {
     func setStyle(){
         
         contentStackView.layer.cornerRadius = K.TableCells.borderRadius
-
+        
         setSliderData(Pagevalue: K.pokemonPerPage, thumbImageName: K.sliderImage)
         
     }
-
     
     func firstRequest(){
         
