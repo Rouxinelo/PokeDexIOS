@@ -29,6 +29,7 @@
 		AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */; };
 		AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8E14327C8250600C96FBE /* PokemonStats.swift */; };
 		AFE5BDAB27CC338E008BB274 /* PokemonDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFE5BDA927CC338E008BB274 /* PokemonDataModel.xcdatamodeld */; };
+		AFF636DB27D8BE6C00B94CAA /* TypeColorManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */; };
 		AFF654A727C91ABE00903A58 /* PokemonStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */; };
 		AFF654A927C91F0100903A58 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF654A827C91F0100903A58 /* AboutMeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManager.swift; sourceTree = "<group>"; };
 		AFC8E14327C8250600C96FBE /* PokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokemonStats.swift; path = PokeDexIOS/Model/PokemonStats.swift; sourceTree = SOURCE_ROOT; };
 		AFE5BDAA27CC338E008BB274 /* PokemonDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokemonDataModel.xcdatamodel; sourceTree = "<group>"; };
+		AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManagerTests.swift; sourceTree = "<group>"; };
 		AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewController.swift; sourceTree = "<group>"; };
 		AFF654A827C91F0100903A58 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +149,7 @@
 		AF60234427C809FE008FE236 /* PokeDexIOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */,
 				AF60234527C809FE008FE236 /* PokeDexIOSTests.swift */,
 			);
 			path = PokeDexIOSTests;
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF60234627C809FE008FE236 /* PokeDexIOSTests.swift in Sources */,
+				AFF636DB27D8BE6C00B94CAA /* TypeColorManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
