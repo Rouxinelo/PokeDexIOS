@@ -51,16 +51,16 @@ struct TypeColorManager{
         case "water":
             return UIColor(displayP3Red: 0, green: 145.0/cons, blue: 255.0/cons, alpha: 1)
         default:
-            return .black
+            return UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
         }
     }
     
     func getTextFontColor() -> UIColor{
         switch type{
-        case "poison", "fire", "fighting", "steel", "ghost", "dark", "ground", "normal", "grass", "water", "psychic", "rock":
-            return .white
+        case "poison", "fire", "fighting", "steel", "ghost", "dark", "ground", "normal", "grass", "water", "psychic", "rock", "dragon":
+            return UIColor(displayP3Red: 255.0/cons, green: 255.0/cons, blue: 255.0/cons, alpha: 1)
             default:
-            return .black
+            return UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
         }
     }
 }

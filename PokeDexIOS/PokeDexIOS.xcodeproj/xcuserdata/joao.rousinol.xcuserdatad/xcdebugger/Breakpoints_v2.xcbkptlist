@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C1817C7C-EECB-44AD-A04D-8ED8C9DCA94B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokeDexIOS/Controller/PokedexViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "didMove(toParent:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "16495F17-B337-4FE1-8483-C8D4292C2955"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -71,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DC06DF7D-391C-485F-8B98-BEB8E613B94A"
+            uuid = "81012F8A-AB1B-43C4-AFC8-9E168F89E1BE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PokeDexIOS/Controller/PokedexViewController.swift"
+            filePath = "PokeDexIOSTests/TypeColorManagerTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "didMove(toParent:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "testGetColorForTypeElectricPasses()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
