@@ -207,9 +207,9 @@ class PokemonStatsViewController: UIViewController {
     func defineSwipeGesture(){
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeRight.direction = .right
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeRight.direction = .left
+        swipeRight.direction = .right
+        swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeRight)
         self.view.addGestureRecognizer(swipeLeft)
     }

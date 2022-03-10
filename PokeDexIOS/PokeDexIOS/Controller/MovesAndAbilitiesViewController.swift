@@ -13,10 +13,10 @@ class MovesAndAbilitiesViewController: UIViewController {
 
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
-    @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var moveTableCell: UITableView!
     @IBOutlet weak var pokemonColor: UIStackView!
-    @IBOutlet weak var imageTextLabel: UILabel!
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var howLabel: UILabel!
     
     // MARK: - Local Variables
     
@@ -32,40 +32,7 @@ class MovesAndAbilitiesViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    
-    // MARK: - Pokemon Sprite TapGestureRecognizer
-    
-    // Tapped on the Pokemon Sprite, change from regular to shiny
-    @objc func imageTapped(sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            if let pokemon = chosenPokemon{
-                switch imageTextLabel.text{
-                case "Regular":
-                    if let shiny = pokemon.sprites.front_shiny {
-                        pokemonImage.load(url: URL(string: shiny)!)
-                        imageTextLabel.text = "Shiny"
-                    }
-                    break
-                case "Shiny":
-                    pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
-                    imageTextLabel.text = "Regular"
-                    break
-                default:
-                    print("Error")
-                }
-            }
-        }
-    }
-    
-    
     // MARK: - Gesture Handlers
-    
-    func defineImageTapGesture(){
-        let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-        
-        pokemonImage.addGestureRecognizer(tapPokemonImage)
-        pokemonImage.isUserInteractionEnabled = true
-    }
     
     func defineSwipeGesture(){
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -95,11 +62,9 @@ class MovesAndAbilitiesViewController: UIViewController {
             pokemonNumber.text = String(pokemon.id)
             pokemonNumber.textColor = colorPicker.getTextFontColor()
             
-            pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
-            pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
-            pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
+            movesLabel.textColor = colorPicker.getTextFontColor()
+            howLabel.textColor = colorPicker.getTextFontColor()
             
-            imageTextLabel.textColor = colorPicker.getTextFontColor()
         }
     }
     
@@ -112,8 +77,6 @@ class MovesAndAbilitiesViewController: UIViewController {
         
         defineSwipeGesture()
         
-        defineImageTapGesture()
-
     }
     
 }
@@ -121,6 +84,7 @@ class MovesAndAbilitiesViewController: UIViewController {
 // MARK: - Table View Data Source
 
 extension MovesAndAbilitiesViewController: UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moveArray.count
     }
@@ -133,3 +97,4 @@ extension MovesAndAbilitiesViewController: UITableViewDataSource{
         return cell
     }
 }
+
