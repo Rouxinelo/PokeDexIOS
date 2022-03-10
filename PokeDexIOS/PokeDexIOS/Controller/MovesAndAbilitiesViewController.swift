@@ -9,13 +9,11 @@ import UIKit
 
 class MovesAndAbilitiesViewController: UIViewController {
 
+    @IBOutlet weak var ability1Label: UILabel!
+    @IBOutlet weak var ability2Label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("CHEGUEI AQUi ")
-        // Do any additional setup after loading the view.
     }
     
-
-
 }
