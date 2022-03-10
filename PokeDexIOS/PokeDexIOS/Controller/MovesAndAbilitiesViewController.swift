@@ -9,14 +9,23 @@ import UIKit
 
 class MovesAndAbilitiesViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var ability1Label: UILabel!
     @IBOutlet weak var ability2Label: UILabel!
-    
     @IBOutlet weak var moveTableCell: UITableView!
+    
+    // MARK: - Local Variables
+    
+    let test: [String] = ["Abc", "Bcd", "Def"]
+
+    // MARK: - Navigation functions
     
     func returnToPreviousScreen(){
         navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: - Gesture Handlers
     
     func defineSwipeGesture(){
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -31,7 +40,6 @@ class MovesAndAbilitiesViewController: UIViewController {
         }
     }
     
-    let test: [String] = ["Abc", "Bcd", "Def"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +49,8 @@ class MovesAndAbilitiesViewController: UIViewController {
     }
     
 }
+
+// MARK: - Table View Data Source
 
 extension MovesAndAbilitiesViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
