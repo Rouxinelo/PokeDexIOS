@@ -17,8 +17,9 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     // MARK: - Local Variables
     
-    let test: [String] = ["Abc", "Bcd", "Def"]
+    var chosenPokemon: pokemon?
 
+    var moveArray =  [Any]()
     // MARK: - Navigation functions
     
     func returnToPreviousScreen(){
@@ -54,7 +55,7 @@ class MovesAndAbilitiesViewController: UIViewController {
 
 extension MovesAndAbilitiesViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test.count
+        return moveArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

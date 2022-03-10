@@ -295,7 +295,7 @@ class PokemonStatsViewController: UIViewController {
             }
         }
     }
-    
+
     // MARK: - Other functions
     
     // Plays an .mp3 sound passed as argument
@@ -331,3 +331,20 @@ class PokemonStatsViewController: UIViewController {
     }
     
 }
+
+// MARK: - Prepare for Segue to MovesAndAbilities
+
+extension PokemonStatsViewController{
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.pokeStatsToMovesAndAbilities {
+            
+            if let VC = segue.destination as? MovesAndAbilitiesViewController{
+                if let pokemon = chosenPokemon{
+                    VC.moveArray = pokemon.moves
+                }
+            }
+        }
+    }
+}
+

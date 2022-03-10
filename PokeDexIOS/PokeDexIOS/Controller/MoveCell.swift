@@ -9,6 +9,9 @@ import UIKit
 
 class MoveCell: UITableViewCell {
 
+    @IBOutlet weak var moveNameLabel: UILabel!
+    @IBOutlet weak var whenLearnedLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
