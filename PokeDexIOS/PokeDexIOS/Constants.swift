@@ -39,6 +39,8 @@ struct K {
         static let pokeDexCellIdentifier: String = "ReusableCell"
         static let borderRadius: CGFloat = 15.0
         static let strokeWidth: CGFloat = 1.0
+        static let moveCellNibName: String = "MoveCell"
+        static let moveCellIdentifier: String = "MoveCell"
     }
     
     struct SearchBar{
