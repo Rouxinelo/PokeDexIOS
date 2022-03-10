@@ -12,15 +12,18 @@ class MoveCell: UITableViewCell {
     @IBOutlet weak var moveNameLabel: UILabel!
     @IBOutlet weak var whenLearnedLabel: UILabel!
     
+    func loadMove(move: possibleMove){
+        moveNameLabel.text = move.move.name
+        whenLearnedLabel.text = String(move.version_group_details.first!.level_learned_at)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

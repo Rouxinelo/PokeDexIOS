@@ -19,7 +19,7 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     var chosenPokemon: pokemon?
 
-    var moveArray =  [Any]()
+    var moveArray =  [possibleMove]()
     // MARK: - Navigation functions
     
     func returnToPreviousScreen(){
@@ -59,7 +59,10 @@ extension MovesAndAbilitiesViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.moveCellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.moveCellIdentifier, for: indexPath) as! MoveCell
+        
+        cell.loadMove(move: moveArray[indexPath.row])
+        
         return cell
     }
 }
