@@ -342,6 +342,7 @@ extension PokemonStatsViewController{
             if let VC = segue.destination as? MovesAndAbilitiesViewController{
                 if let pokemon = chosenPokemon{
                     VC.moveArray = pokemon.moves
+                    VC.chosenPokemon = pokemon
                 }
             }
         }

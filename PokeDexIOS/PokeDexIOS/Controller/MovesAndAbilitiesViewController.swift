@@ -10,16 +10,22 @@ import UIKit
 class MovesAndAbilitiesViewController: UIViewController {
 
     // MARK: - IBOutlets
-    
-    @IBOutlet weak var ability1Label: UILabel!
-    @IBOutlet weak var ability2Label: UILabel!
+
+    @IBOutlet weak var pokemonNumber: UILabel!
+    @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var moveTableCell: UITableView!
+    @IBOutlet weak var pokemonColor: UIStackView!
+    @IBOutlet weak var imageTextLabel: UILabel!
     
     // MARK: - Local Variables
     
     var chosenPokemon: pokemon?
 
     var moveArray =  [possibleMove]()
+    
+    var colorPicker = TypeColorManager()
+    
     // MARK: - Navigation functions
     
     func returnToPreviousScreen(){
@@ -41,10 +47,35 @@ class MovesAndAbilitiesViewController: UIViewController {
         }
     }
     
+    // MARK: - Load Pokemon Info
+    
+    func loadPokemon(){
+        if let pokemon = chosenPokemon {
+            
+            colorPicker.type = pokemon.types.first?.type.name
+            
+            pokemonColor.backgroundColor = colorPicker.getColorForType()
+            
+            pokemonName.text = pokemon.name.capitalizingFirstLetter()
+            pokemonName.textColor = colorPicker.getTextFontColor()
+            
+            pokemonNumber.text = String(pokemon.id)
+            pokemonNumber.textColor = colorPicker.getTextFontColor()
+            
+            pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+            pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
+            pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
+            
+            imageTextLabel.textColor = colorPicker.getTextFontColor()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         moveTableCell.dataSource = self
+        
+        loadPokemon()
         
         defineSwipeGesture()
     }
