@@ -37,6 +37,7 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var spDefLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var movesAndAbilitiesButton: UIBarButtonItem!
     
     // MARK: - Local variables
     
@@ -100,9 +101,14 @@ class PokemonStatsViewController: UIViewController {
         returnToPreviousScreen()
     }
     
-    @IBAction func InformationClicked(_ sender: Any) {
+    @IBAction func InformationClicked(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
     }
+    
+    @IBAction func movesAndAbilitiesClicked(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: sender)
+    }
+    
     
     @IBAction func favButtonClicked(_ sender: UIBarButtonItem) {
         // Alert to be shown

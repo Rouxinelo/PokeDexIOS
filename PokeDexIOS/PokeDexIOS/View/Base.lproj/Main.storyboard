@@ -745,16 +745,21 @@
                                     <action selector="favButtonClicked:" destination="ZGe-D1-D4y" id="UeH-sP-Myh"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem image="plus" catalog="system" id="gmr-iT-wnC">
+                                <connections>
+                                    <action selector="movesAndAbilitiesClicked:" destination="ZGe-D1-D4y" id="cQG-7v-oQi"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="atkLabel" destination="qYl-Im-nXn" id="j4N-P9-avY"/>
-                        <outlet property="backButton" destination="fQr-Nt-UsT" id="xZh-Eo-93T"/>
                         <outlet property="baseEXP" destination="VUB-UZ-8bQ" id="GsU-2c-GxE"/>
                         <outlet property="defLabel" destination="8kt-qJ-Ncu" id="Had-uh-pZx"/>
                         <outlet property="favButton" destination="gTk-2s-uqZ" id="lP2-ut-zuw"/>
                         <outlet property="hpLabel" destination="DSh-72-aKW" id="4Li-6h-OsH"/>
                         <outlet property="imageTextLabel" destination="8Am-RK-mLa" id="auB-qO-z1r"/>
+                        <outlet property="movesAndAbilitiesButton" destination="gmr-iT-wnC" id="RIA-Yu-vmE"/>
                         <outlet property="pokemonColor" destination="1JI-Wj-FWn" id="qEu-uv-7hQ"/>
                         <outlet property="pokemonHeight" destination="WND-X1-hdG" id="dNl-tv-i6W"/>
                         <outlet property="pokemonImage" destination="WCZ-ii-TW6" id="XLi-cS-w5K"/>
@@ -767,11 +772,28 @@
                         <outlet property="type1Label" destination="Ilj-iI-7v1" id="fY5-ii-KHA"/>
                         <outlet property="type2Label" destination="V95-bj-sV2" id="EFF-Y3-lfh"/>
                         <segue destination="ZIK-xf-tnO" kind="show" identifier="toAboutMe" id="Cah-tK-uTs"/>
+                        <segue destination="hpk-80-fxJ" kind="show" identifier="toMovesAndAbilities" id="o3t-VR-gtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-hf-Bdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3871.0144927536235" y="65.625"/>
+        </scene>
+        <!--Moves And Abilities View Controller-->
+        <scene sceneID="R9W-Qm-U36">
+            <objects>
+                <viewController id="hpk-80-fxJ" customClass="MovesAndAbilitiesViewController" customModule="PokeDexIOS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ZJ-K3-enQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Vfb-xu-eMk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FxS-JC-7ea"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKi-60-fDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4929" y="65"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aa2-EL-iGT">
@@ -805,6 +827,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="myPicture" width="823" height="768"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="pokeBallBackGround" width="736" height="1308"/>
         <image name="pokemonLogo" width="999" height="374"/>
         <systemColor name="systemBackgroundColor">
