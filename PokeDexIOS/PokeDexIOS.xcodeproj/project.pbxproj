@@ -30,6 +30,7 @@
 		AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */; };
 		AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8E14327C8250600C96FBE /* PokemonStats.swift */; };
 		AFCAFBBB27DA158B00616DB5 /* AboutMeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */; };
+		AFCAFBBD27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */; };
 		AFE5BDAB27CC338E008BB274 /* PokemonDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFE5BDA927CC338E008BB274 /* PokemonDataModel.xcdatamodeld */; };
 		AFF636DB27D8BE6C00B94CAA /* TypeColorManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */; };
 		AFF654A727C91ABE00903A58 /* PokemonStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */; };
@@ -81,6 +82,7 @@
 		AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManager.swift; sourceTree = "<group>"; };
 		AFC8E14327C8250600C96FBE /* PokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokemonStats.swift; path = PokeDexIOS/Model/PokemonStats.swift; sourceTree = SOURCE_ROOT; };
 		AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewControllerUITests.swift; sourceTree = "<group>"; };
+		AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewControllerUITests.swift; sourceTree = "<group>"; };
 		AFE5BDAA27CC338E008BB274 /* PokemonDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokemonDataModel.xcdatamodel; sourceTree = "<group>"; };
 		AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManagerTests.swift; sourceTree = "<group>"; };
 		AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		AF60234E27C809FE008FE236 /* PokeDexIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */,
 				AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */,
 				AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */,
 				AF60234F27C809FE008FE236 /* PokeDexIOSUITests.swift */,
@@ -390,6 +393,7 @@
 				AF60235227C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift in Sources */,
 				AFCAFBBB27DA158B00616DB5 /* AboutMeViewControllerUITests.swift in Sources */,
 				AF2FCCD027DA070A001A4597 /* PokedexViewControllerUITests.swift in Sources */,
+				AFCAFBBD27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
