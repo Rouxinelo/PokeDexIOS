@@ -198,7 +198,6 @@ class PokedexViewController: UIViewController {
             
             favPokemon = try context.fetch(request)
         } catch {
-            print ("error loading")
         }
     }
     
