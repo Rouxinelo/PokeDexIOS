@@ -10,6 +10,7 @@
 		AF0F08D127D261B80024FBC0 /* Pokemon GB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6927D26120005D0EF0 /* Pokemon GB.ttf */; };
 		AF0F08D227D261BB0024FBC0 /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6827D26120005D0EF0 /* Pokemon Solid.ttf */; };
 		AF20FA6727D260DC005D0EF0 /* caughtSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6627D260DC005D0EF0 /* caughtSound.mp3 */; };
+		AF2FCCD027DA070A001A4597 /* PokedexViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */; };
 		AF5DC89C27CFA1410015BDB2 /* WebhookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */; };
 		AF5DC89E27CFA1A80015BDB2 /* WebhookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */; };
 		AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60232E27C809FD008FE236 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		AF20FA6627D260DC005D0EF0 /* caughtSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = caughtSound.mp3; sourceTree = "<group>"; };
 		AF20FA6827D26120005D0EF0 /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
 		AF20FA6927D26120005D0EF0 /* Pokemon GB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon GB.ttf"; sourceTree = "<group>"; };
+		AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewControllerUITests.swift; sourceTree = "<group>"; };
 		AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebhookData.swift; sourceTree = "<group>"; };
 		AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookRequest.swift; sourceTree = "<group>"; };
 		AF60232B27C809FD008FE236 /* PokeDexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 		AF60234E27C809FE008FE236 /* PokeDexIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */,
 				AF60234F27C809FE008FE236 /* PokeDexIOSUITests.swift */,
 				AF60235127C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift */,
 			);
@@ -382,6 +385,7 @@
 			files = (
 				AF60235027C809FE008FE236 /* PokeDexIOSUITests.swift in Sources */,
 				AF60235227C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift in Sources */,
+				AF2FCCD027DA070A001A4597 /* PokedexViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
