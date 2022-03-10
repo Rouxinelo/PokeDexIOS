@@ -37,7 +37,6 @@ class PokemonStatsViewController: UIViewController {
     @IBOutlet weak var spDefLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var movesAndAbilitiesButton: UIBarButtonItem!
     
     // MARK: - Local variables
     
@@ -103,10 +102,6 @@ class PokemonStatsViewController: UIViewController {
     
     @IBAction func InformationClicked(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
-    }
-    
-    @IBAction func movesAndAbilitiesClicked(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: sender)
     }
     
     
@@ -213,12 +208,19 @@ class PokemonStatsViewController: UIViewController {
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .left
         self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer){
         if gesture.direction == .right {
             returnToPreviousScreen()
+        }
+        
+        if gesture.direction == .left {
+            performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: self)
         }
     }
     

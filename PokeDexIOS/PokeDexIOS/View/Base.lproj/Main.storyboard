@@ -132,19 +132,19 @@
                                         <rect key="frame" x="0.0" y="321.66666666666674" width="414" height="321.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-Hi-2yS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="80.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDexIOS is an IOS App made for Pokemon enjoyers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-14-uGV">
-                                                <rect key="frame" x="21.666666666666657" y="80.333333333333314" width="371" height="80.333333333333314"/>
+                                                <rect key="frame" x="21.666666666666657" y="39.999999999999993" width="371" height="80.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll through the hundreds of Pokemons, look at their stats and save your favourites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-dR-pp8">
-                                                <rect key="frame" x="0.66666666666665719" y="160.66666666666669" width="413" height="80.333333333333314"/>
+                                                <rect key="frame" x="0.66666666666665719" y="120.33333333333331" width="413" height="120.66666666666669"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -745,11 +745,6 @@
                                     <action selector="favButtonClicked:" destination="ZGe-D1-D4y" id="UeH-sP-Myh"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="plus" catalog="system" id="gmr-iT-wnC">
-                                <connections>
-                                    <action selector="movesAndAbilitiesClicked:" destination="ZGe-D1-D4y" id="cQG-7v-oQi"/>
-                                </connections>
-                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -759,7 +754,6 @@
                         <outlet property="favButton" destination="gTk-2s-uqZ" id="lP2-ut-zuw"/>
                         <outlet property="hpLabel" destination="DSh-72-aKW" id="4Li-6h-OsH"/>
                         <outlet property="imageTextLabel" destination="8Am-RK-mLa" id="auB-qO-z1r"/>
-                        <outlet property="movesAndAbilitiesButton" destination="gmr-iT-wnC" id="RIA-Yu-vmE"/>
                         <outlet property="pokemonColor" destination="1JI-Wj-FWn" id="qEu-uv-7hQ"/>
                         <outlet property="pokemonHeight" destination="WND-X1-hdG" id="dNl-tv-i6W"/>
                         <outlet property="pokemonImage" destination="WCZ-ii-TW6" id="XLi-cS-w5K"/>
@@ -948,7 +942,6 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="myPicture" width="823" height="768"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="pokeBallBackGround" width="736" height="1308"/>
         <image name="pokemonLogo" width="999" height="374"/>
         <systemColor name="systemBackgroundColor">
