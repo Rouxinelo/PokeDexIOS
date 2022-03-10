@@ -16,7 +16,6 @@ class MovesAndAbilitiesViewController: UIViewController {
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var moveTableCell: UITableView!
     @IBOutlet weak var pokemonColor: UIStackView!
-    @IBOutlet weak var imageTextLabel: UILabel!
     
     // MARK: - Local Variables
     
@@ -66,7 +65,6 @@ class MovesAndAbilitiesViewController: UIViewController {
             pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
             pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
             
-            imageTextLabel.textColor = colorPicker.getTextFontColor()
         }
     }
     
