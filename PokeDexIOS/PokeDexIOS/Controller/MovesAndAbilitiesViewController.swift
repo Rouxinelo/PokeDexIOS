@@ -14,12 +14,30 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     @IBOutlet weak var moveTableCell: UITableView!
     
+    func returnToPreviousScreen(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func defineSwipeGesture(){
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+        if gesture.direction == .right {
+            returnToPreviousScreen()
+        }
+    }
+    
     let test: [String] = ["Abc", "Bcd", "Def"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
         moveTableCell.dataSource = self
         
+        defineSwipeGesture()
     }
     
 }
