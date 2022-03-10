@@ -16,6 +16,7 @@ class MovesAndAbilitiesViewController: UIViewController {
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var moveTableCell: UITableView!
     @IBOutlet weak var pokemonColor: UIStackView!
+    @IBOutlet weak var imageTextLabel: UILabel!
     
     // MARK: - Local Variables
     
@@ -31,7 +32,40 @@ class MovesAndAbilitiesViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    // MARK: - Pokemon Sprite TapGestureRecognizer
+    
+    // Tapped on the Pokemon Sprite, change from regular to shiny
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            if let pokemon = chosenPokemon{
+                switch imageTextLabel.text{
+                case "Regular":
+                    if let shiny = pokemon.sprites.front_shiny {
+                        pokemonImage.load(url: URL(string: shiny)!)
+                        imageTextLabel.text = "Shiny"
+                    }
+                    break
+                case "Shiny":
+                    pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+                    imageTextLabel.text = "Regular"
+                    break
+                default:
+                    print("Error")
+                }
+            }
+        }
+    }
+    
+    
     // MARK: - Gesture Handlers
+    
+    func defineImageTapGesture(){
+        let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        
+        pokemonImage.addGestureRecognizer(tapPokemonImage)
+        pokemonImage.isUserInteractionEnabled = true
+    }
     
     func defineSwipeGesture(){
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -65,6 +99,7 @@ class MovesAndAbilitiesViewController: UIViewController {
             pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
             pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
             
+            imageTextLabel.textColor = colorPicker.getTextFontColor()
         }
     }
     
@@ -76,6 +111,9 @@ class MovesAndAbilitiesViewController: UIViewController {
         loadPokemon()
         
         defineSwipeGesture()
+        
+        defineImageTapGesture()
+
     }
     
 }
