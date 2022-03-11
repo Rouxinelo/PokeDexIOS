@@ -17,6 +17,7 @@ struct pokemon: Codable{
     let sprites: sprite
     let base_experience: Int
     let stats: [possibleStat]
+    let moves: [possibleMove]
 }
 
 struct atype: Codable{
@@ -39,5 +40,24 @@ struct possibleStat: Codable{
 }
 
 struct stat: Codable{
+    let name: String
+}
+
+struct possibleMove: Codable{
+    let move: move
+    let version_group_details: [details]
+}
+
+struct move: Codable{
+    let name: String
+    let url: String
+}
+
+struct details: Codable{
+    let level_learned_at: Int
+    let move_learn_method: move_learn_method
+}
+
+struct move_learn_method: Codable{
     let name: String
 }

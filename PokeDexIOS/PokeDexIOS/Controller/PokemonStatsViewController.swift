@@ -100,9 +100,10 @@ class PokemonStatsViewController: UIViewController {
         returnToPreviousScreen()
     }
     
-    @IBAction func InformationClicked(_ sender: Any) {
+    @IBAction func InformationClicked(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
     }
+    
     
     @IBAction func favButtonClicked(_ sender: UIBarButtonItem) {
         // Alert to be shown
@@ -206,13 +207,20 @@ class PokemonStatsViewController: UIViewController {
     func defineSwipeGesture(){
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
+        swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer){
         if gesture.direction == .right {
             returnToPreviousScreen()
+        }
+        
+        if gesture.direction == .left {
+            performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: self)
         }
     }
     
@@ -244,6 +252,11 @@ class PokemonStatsViewController: UIViewController {
 
         pokemonColor
             .backgroundColor = colorPicker.getColorForType()
+        
+        
+        pokemonColor.clipsToBounds = true
+        pokemonColor.layer.cornerRadius = 28
+        pokemonColor.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         pokemonName.textColor = colorPicker.getTextFontColor()
         pokemonName.text = pokemon.name.capitalizingFirstLetter()
@@ -287,7 +300,7 @@ class PokemonStatsViewController: UIViewController {
             }
         }
     }
-    
+
     // MARK: - Other functions
     
     // Plays an .mp3 sound passed as argument
@@ -323,3 +336,21 @@ class PokemonStatsViewController: UIViewController {
     }
     
 }
+
+// MARK: - Prepare for Segue to MovesAndAbilities
+
+extension PokemonStatsViewController{
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.pokeStatsToMovesAndAbilities {
+            
+            if let VC = segue.destination as? MovesAndAbilitiesViewController{
+                if let pokemon = chosenPokemon{
+                    VC.moveArray = pokemon.moves
+                    VC.chosenPokemon = pokemon
+                }
+            }
+        }
+    }
+}
+

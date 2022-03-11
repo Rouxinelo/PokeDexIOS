@@ -10,7 +10,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Pokemon GB.ttf">
-            <string>PokemonGB</string>
+            <string>Pokemon-Classic</string>
         </array>
         <array key="Pokemon Solid.ttf">
             <string>PokemonSolidNormal</string>
@@ -217,13 +217,13 @@
                                         </constraints>
                                     </imageView>
                                     <searchBar contentMode="redraw" placeholder="Search: Pokemon Name/ID" translatesAutoresizingMaskIntoConstraints="NO" id="UgS-fc-Rwy">
-                                        <rect key="frame" x="0.0" y="42" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="42" width="414" height="264"/>
                                         <color key="backgroundColor" red="0.8078432083" green="0.39607840779999998" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" red="0.8078432083" green="0.39607840779999998" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nbz-CI-EBR">
-                                        <rect key="frame" x="0.0" y="95" width="414" height="445"/>
+                                        <rect key="frame" x="0.0" y="308" width="414" height="179"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" rowHeight="80" id="slS-Kv-Xw6" customClass="PokemonCell" customModule="PokeDexIOS" customModuleProvider="target">
@@ -248,7 +248,7 @@
                                                                                 <constraint firstAttribute="height" constant="40" id="Cmf-nw-h1E"/>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="cmR-Hu-fV9"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                                            <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ErZ-0s-QOE">
@@ -257,7 +257,7 @@
                                                                                 <constraint firstAttribute="height" constant="40" id="DMW-Tu-Wnw"/>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="uBl-RM-fgL"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                                            <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -272,7 +272,7 @@
                                                                                 <constraint firstAttribute="height" constant="40" id="PHz-c3-V5t"/>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="mfv-bn-ZTm"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                                            <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="85r-zx-RbL">
@@ -281,7 +281,7 @@
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="8Nw-Y6-95d"/>
                                                                                 <constraint firstAttribute="height" constant="40" id="j7l-fn-RYO"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                                            <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -315,20 +315,20 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="yYw-Ut-Dkr">
-                                        <rect key="frame" x="0.0" y="542" width="414" height="101"/>
+                                        <rect key="frame" x="0.0" y="489" width="414" height="154"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HjQ-Ec-9L5">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="32.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Pokemon Per Page:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtB-uV-3Qd">
-                                                        <rect key="frame" x="0.0" y="7.3333333333333712" width="207" height="18"/>
+                                                        <rect key="frame" x="0.0" y="16" width="207" height="18"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMr-7o-h9f">
-                                                        <rect key="frame" x="207" y="0.0" width="207" height="32.333333333333336"/>
+                                                        <rect key="frame" x="207" y="0.0" width="207" height="50"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -337,7 +337,7 @@
                                                 </subviews>
                                             </stackView>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="3R5-VH-ekV">
-                                                <rect key="frame" x="-2" y="34.333333333333371" width="418" height="33.333333333333343"/>
+                                                <rect key="frame" x="-2" y="52" width="418" height="51"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -345,13 +345,13 @@
                                                 </connections>
                                             </slider>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="owM-bI-NgP">
-                                                <rect key="frame" x="0.0" y="68.666666666666629" width="414" height="32.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="104" width="414" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WzO-0S-0Yi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="32.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yql-Z3-fUS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="32.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="50"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.left.to.line.compact" catalog="system"/>
@@ -360,7 +360,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slM-ls-0Qk">
-                                                                <rect key="frame" x="73" y="0.0" width="65" height="32.333333333333336"/>
+                                                                <rect key="frame" x="73" y="0.0" width="65" height="50"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system"/>
@@ -371,10 +371,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fpx-h6-pRQ">
-                                                        <rect key="frame" x="138" y="0.0" width="138" height="32.333333333333336"/>
+                                                        <rect key="frame" x="138" y="0.0" width="138" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0Z-9T-tVm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="32.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -382,10 +382,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q6c-nM-b79">
-                                                        <rect key="frame" x="276" y="0.0" width="138" height="32.333333333333336"/>
+                                                        <rect key="frame" x="276" y="0.0" width="138" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDF-I5-0Cu">
-                                                                <rect key="frame" x="0.0" y="0.0" width="45.333333333333336" height="32.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="45.333333333333336" height="50"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.forward" catalog="system"/>
@@ -394,7 +394,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-h4-n8T">
-                                                                <rect key="frame" x="53.333333333333321" y="0.0" width="84.666666666666686" height="32.333333333333336"/>
+                                                                <rect key="frame" x="53.333333333333321" y="0.0" width="84.666666666666686" height="50"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.right.to.line.compact" catalog="system"/>
@@ -489,39 +489,34 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeBallBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="c75-aT-5lz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4mR-LJ-BLy">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4mR-LJ-BLy">
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1JI-Wj-FWn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="319"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="321.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-vK-ow7">
-                                                <rect key="frame" x="147" y="0.0" width="120" height="20"/>
-                                                <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="20"/>
+                                                <rect key="frame" x="145.66666666666666" y="0.0" width="122.66666666666666" height="32.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-ii-TW6">
-                                                <rect key="frame" x="82.666666666666686" y="25" width="249" height="249"/>
+                                                <rect key="frame" x="97" y="37.666666666666671" width="220" height="219.66666666666663"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="WCZ-ii-TW6" secondAttribute="height" multiplier="1:1" id="4kV-cN-Arg"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HbQ-jb-LVw">
-                                                <rect key="frame" x="154.66666666666666" y="279" width="104.99999999999997" height="15"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regular" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Am-RK-mLa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="105" height="15"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regular" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Am-RK-mLa">
+                                                <rect key="frame" x="165.66666666666666" y="262.33333333333331" width="83" height="21.333333333333314"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-iz-7Ij">
-                                                <rect key="frame" x="167" y="299" width="80" height="20"/>
-                                                <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="20"/>
+                                                <rect key="frame" x="164.66666666666666" y="288.66666666666669" width="85" height="33"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -531,78 +526,78 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GLs-V2-UHE">
-                                        <rect key="frame" x="0.0" y="324" width="414" height="319"/>
+                                        <rect key="frame" x="0.0" y="321.66666666666674" width="414" height="321.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjV-dS-pRQ">
-                                                <rect key="frame" x="113" y="0.0" width="188" height="53.333333333333336"/>
+                                                <rect key="frame" x="126" y="0.0" width="162" height="53.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="rrT-rG-guE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="105" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="53.333333333333336"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="WND-X1-hdG">
-                                                        <rect key="frame" x="113" y="0.0" width="75" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="94.333333333333343" y="0.0" width="67.666666666666657" height="53.333333333333336"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iBX-oL-DgP">
-                                                <rect key="frame" x="113" y="53.333333333333314" width="188" height="53"/>
+                                                <rect key="frame" x="126" y="53.333333333333314" width="162" height="53.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WDf-6U-vGW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="105" height="53"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="53.666666666666664"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="uue-zL-StJ">
-                                                        <rect key="frame" x="113" y="0.0" width="75" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="94.333333333333343" y="0.0" width="67.666666666666657" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-i3-XUK">
-                                                <rect key="frame" x="113" y="106.3333333333333" width="188" height="53.333333333333329"/>
+                                                <rect key="frame" x="120.33333333333333" y="107.00000000000001" width="173.33333333333337" height="53.666666666666671"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Types:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="HXP-aJ-31y">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ilj-iI-7v1">
-                                                        <rect key="frame" x="98" y="0.0" width="90" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="90.666666666666657" y="0.0" width="82.666666666666657" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="V95-bj-sV2">
-                                                        <rect key="frame" x="188" y="0.0" width="0.0" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="173.33333333333337" y="0.0" width="0.0" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbN-Yk-8lm">
-                                                <rect key="frame" x="98" y="159.66666666666663" width="218" height="53"/>
+                                                <rect key="frame" x="107.33333333333333" y="160.66666666666669" width="199.66666666666669" height="53.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base Exp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Set-9s-NQy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="VUB-UZ-8bQ">
-                                                        <rect key="frame" x="143" y="19" width="75" height="15"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="15"/>
+                                                        <rect key="frame" x="132" y="14.333333333333259" width="67.666666666666686" height="24.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -613,82 +608,82 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZuI-Ps-6BK">
-                                                <rect key="frame" x="16" y="212.66666666666663" width="382" height="53.333333333333314"/>
+                                                <rect key="frame" x="16" y="214.33333333333331" width="382" height="53.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hp   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="xg1-BB-M2r">
                                                         <rect key="frame" x="0.0" y="0.0" width="57" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atk  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="p9v-ZX-2CB">
                                                         <rect key="frame" x="65" y="0.0" width="57" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Def  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="ig7-g6-SYP">
                                                         <rect key="frame" x="130" y="0.0" width="57" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpAtk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-5s-tn1">
                                                         <rect key="frame" x="195" y="0.0" width="57" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpDef" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="JvF-53-VL1">
                                                         <rect key="frame" x="260" y="0.0" width="57" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-Q2-DRH">
                                                         <rect key="frame" x="325" y="0.0" width="57" height="53.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tmV-rP-WJ7">
-                                                <rect key="frame" x="16" y="266" width="382" height="53"/>
+                                                <rect key="frame" x="16" y="267.66666666666669" width="382" height="53.666666666666686"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="DSh-72-aKW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="qYl-Im-nXn">
-                                                        <rect key="frame" x="65" y="0.0" width="57" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <rect key="frame" x="65" y="0.0" width="57" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="8kt-qJ-Ncu">
-                                                        <rect key="frame" x="130" y="0.0" width="57" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <rect key="frame" x="130" y="0.0" width="57" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Z9L-Mc-QL6">
-                                                        <rect key="frame" x="195" y="0.0" width="57" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <rect key="frame" x="195" y="0.0" width="57" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="MtX-JI-SqR">
-                                                        <rect key="frame" x="260" y="0.0" width="57" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <rect key="frame" x="260" y="0.0" width="57" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="269-E9-cnb">
-                                                        <rect key="frame" x="325" y="0.0" width="57" height="53"/>
-                                                        <fontDescription key="fontDescription" name="PokemonGB" family="Pokemon GB" pointSize="12"/>
+                                                        <rect key="frame" x="325" y="0.0" width="57" height="53.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -749,7 +744,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="atkLabel" destination="qYl-Im-nXn" id="j4N-P9-avY"/>
-                        <outlet property="backButton" destination="fQr-Nt-UsT" id="xZh-Eo-93T"/>
                         <outlet property="baseEXP" destination="VUB-UZ-8bQ" id="GsU-2c-GxE"/>
                         <outlet property="defLabel" destination="8kt-qJ-Ncu" id="Had-uh-pZx"/>
                         <outlet property="favButton" destination="gTk-2s-uqZ" id="lP2-ut-zuw"/>
@@ -767,11 +761,155 @@
                         <outlet property="type1Label" destination="Ilj-iI-7v1" id="fY5-ii-KHA"/>
                         <outlet property="type2Label" destination="V95-bj-sV2" id="EFF-Y3-lfh"/>
                         <segue destination="ZIK-xf-tnO" kind="show" identifier="toAboutMe" id="Cah-tK-uTs"/>
+                        <segue destination="hpk-80-fxJ" kind="show" identifier="toMovesAndAbilities" id="o3t-VR-gtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-hf-Bdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3871.0144927536235" y="65.625"/>
+        </scene>
+        <!--Moves And Abilities View Controller-->
+        <scene sceneID="R9W-Qm-U36">
+            <objects>
+                <viewController id="hpk-80-fxJ" customClass="MovesAndAbilitiesViewController" customModule="PokeDexIOS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ZJ-K3-enQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="in0-2Y-Twq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lak-Np-wFO">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BnN-Xf-sU0">
+                                                <rect key="frame" x="145.66666666666666" y="0.0" width="122.66666666666666" height="32.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="tzp-AD-gPL">
+                                                <rect key="frame" x="164.66666666666666" y="47.666666666666671" width="85" height="32.666666666666671"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="PZB-4L-Hza">
+                                                <rect key="frame" x="16" y="95.333333333333343" width="382" height="32.666666666666657"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0m-4G-hx2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="183.66666666666666" height="32.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Method" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPW-gQ-6j4">
+                                                        <rect key="frame" x="198.66666666666663" y="0.0" width="183.33333333333337" height="32.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="PZB-4L-Hza" firstAttribute="leading" secondItem="lak-Np-wFO" secondAttribute="leading" constant="16" id="BdG-bR-Aw2"/>
+                                            <constraint firstAttribute="trailing" secondItem="PZB-4L-Hza" secondAttribute="trailing" constant="16" id="hgj-fP-oHH"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y3Y-Fb-NkP">
+                                        <rect key="frame" x="0.0" y="136" width="414" height="507"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IuF-jY-AaW">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="507"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5CN-4j-LsT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="507"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCell" id="2nO-5H-6Kh" customClass="MoveCell" customModule="PokeDexIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2nO-5H-6Kh" id="HWo-kP-ACL">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MJB-IG-eeY">
+                                                                            <rect key="frame" x="20" y="11.000000000000002" width="374" height="21.666666666666671"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-Xh-TMI">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="21.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBs-0u-Kp6">
+                                                                                    <rect key="frame" x="187" y="0.0" width="187" height="21.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" red="0.79607844350000001" green="0.8392156959" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailingMargin" secondItem="MJB-IG-eeY" secondAttribute="trailing" id="4sP-YD-qYQ"/>
+                                                                        <constraint firstItem="MJB-IG-eeY" firstAttribute="top" secondItem="HWo-kP-ACL" secondAttribute="topMargin" id="DB0-H3-Iv4"/>
+                                                                        <constraint firstItem="MJB-IG-eeY" firstAttribute="leading" secondItem="HWo-kP-ACL" secondAttribute="leadingMargin" id="bHq-co-oyY"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="MJB-IG-eeY" secondAttribute="bottom" id="heE-0c-aGU"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="cellView" destination="HWo-kP-ACL" id="u9O-Z8-3H2"/>
+                                                                    <outlet property="moveNameLabel" destination="3c9-Xh-TMI" id="hVp-5V-OZy"/>
+                                                                    <outlet property="whenLearnedLabel" destination="mBs-0u-Kp6" id="qu5-AK-462"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="IuF-jY-AaW" firstAttribute="leading" secondItem="Y3Y-Fb-NkP" secondAttribute="leading" id="Jeg-vW-XHi"/>
+                                            <constraint firstAttribute="trailing" secondItem="IuF-jY-AaW" secondAttribute="trailing" id="u02-ZA-BuB"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vfb-xu-eMk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vfb-xu-eMk" firstAttribute="bottom" secondItem="in0-2Y-Twq" secondAttribute="bottom" id="1yY-ti-9Fh"/>
+                            <constraint firstItem="in0-2Y-Twq" firstAttribute="top" secondItem="Vfb-xu-eMk" secondAttribute="top" id="826-fK-qgE"/>
+                            <constraint firstItem="Vfb-xu-eMk" firstAttribute="trailing" secondItem="in0-2Y-Twq" secondAttribute="trailing" id="hZa-bv-ai4"/>
+                            <constraint firstItem="in0-2Y-Twq" firstAttribute="leading" secondItem="Vfb-xu-eMk" secondAttribute="leading" id="qZn-Vj-fNj"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem image="chevron.backward" catalog="system" id="CM6-bs-Voj">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="ZGe-D1-D4y" id="opL-SB-3J4"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="FxS-JC-7ea"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="howLabel" destination="GPW-gQ-6j4" id="Uqx-8a-GsD"/>
+                        <outlet property="moveTableCell" destination="5CN-4j-LsT" id="tml-SU-XZU"/>
+                        <outlet property="movesLabel" destination="Y0m-4G-hx2" id="P3E-on-gRm"/>
+                        <outlet property="pokemonColor" destination="lak-Np-wFO" id="HtA-33-UMi"/>
+                        <outlet property="pokemonName" destination="tzp-AD-gPL" id="nMH-Qg-ijT"/>
+                        <outlet property="pokemonNumber" destination="BnN-Xf-sU0" id="NBy-hw-gKi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKi-60-fDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4928.985507246377" y="64.402173913043484"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aa2-EL-iGT">
@@ -793,7 +931,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cah-tK-uTs"/>
+        <segue reference="ooM-cO-ybC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

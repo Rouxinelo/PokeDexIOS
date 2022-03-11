@@ -24,8 +24,7 @@ struct K {
         static let pokeDexToAboutMe: String = "toAboutMe"
         static let pokeDexToPokeStats: String = "toPokeStats"
         static let pokeStatsToAboutMe: String = "toAboutMe"
-        static let pokeStatsToAbilities: String = "toAbilities"
-        static let pokeStatstoMoves: String = "toMoves"
+        static let pokeStatsToMovesAndAbilities: String = "toMovesAndAbilities"
     }
     
     struct StatsScreen{
@@ -40,6 +39,8 @@ struct K {
         static let pokeDexCellIdentifier: String = "ReusableCell"
         static let borderRadius: CGFloat = 15.0
         static let strokeWidth: CGFloat = 1.0
+        static let moveCellNibName: String = "MoveCell"
+        static let moveCellIdentifier: String = "MoveCell"
     }
     
     struct SearchBar{
