@@ -9,10 +9,14 @@ import UIKit
 
 class MoveStatsViewController: UIViewController {
 
+    var chosenMove: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let chosenMove = chosenMove {
+            print(chosenMove)
+        }
     }
 
 }

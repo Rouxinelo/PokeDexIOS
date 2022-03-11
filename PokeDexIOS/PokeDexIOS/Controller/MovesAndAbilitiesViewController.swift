@@ -8,9 +8,9 @@
 import UIKit
 
 class MovesAndAbilitiesViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
-
+    
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var moveTableCell: UITableView!
@@ -21,8 +21,8 @@ class MovesAndAbilitiesViewController: UIViewController {
     // MARK: - Local Variables
     
     var chosenPokemon: pokemon?
-
-    var moveArray =  [possibleMove]()
+    
+    var chosenMove: String?
     
     var colorPicker = TypeColorManager()
     
@@ -92,13 +92,17 @@ class MovesAndAbilitiesViewController: UIViewController {
 extension MovesAndAbilitiesViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moveArray.count
+        if let pokemon = chosenPokemon{
+            return pokemon.moves.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.moveCellIdentifier, for: indexPath) as! MoveCell
-        
-        cell.loadMove(move: moveArray[indexPath.row])
+        if let pokemon = chosenPokemon{
+            cell.loadMove(move: pokemon.moves[indexPath.row])
+        }
         
         return cell
     }
@@ -109,7 +113,24 @@ extension MovesAndAbilitiesViewController: UITableViewDataSource{
 extension MovesAndAbilitiesViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let pokemon = chosenPokemon{
+            chosenMove = pokemon.moves[indexPath.row].move.url
+        }
         performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
-        
+    }
+}
+
+// MARK: - Prepare For Segue
+
+extension MovesAndAbilitiesViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.movesAndAbilitiesToMoveStats{
+            
+            if let VC = segue.destination as? MoveStatsViewController{
+                if let move = chosenMove{
+                    VC.chosenMove = move
+                }
+            }
+        }
     }
 }
