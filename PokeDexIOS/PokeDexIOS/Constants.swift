@@ -36,12 +36,11 @@ struct K {
     }
     
     struct TableCells{
-        static let pokeDexCellNibName: String = "PokemonCell"
         static let pokeDexCellIdentifier: String = "ReusableCell"
         static let borderRadius: CGFloat = 15.0
         static let strokeWidth: CGFloat = 1.0
-        static let moveCellNibName: String = "MoveCell"
         static let moveCellIdentifier: String = "MoveCell"
+        static let learnerCellIdentifier: String = "LearnerCell"
     }
     
     struct SearchBar{
