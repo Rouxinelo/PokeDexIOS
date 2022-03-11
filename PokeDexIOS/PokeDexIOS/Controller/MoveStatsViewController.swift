@@ -60,8 +60,6 @@ class MoveStatsViewController: UIViewController {
             moveRequest.requestURL = chosenMove
             moveRequest.fetchData()
         }
-        
-        
     }
 }
 

@@ -79,8 +79,18 @@ class MovesAndAbilitiesViewController: UIViewController {
         }
     }
     
+    // MARK: - Other Functions
+    
+    func sortArray(array: [possibleMove]) -> [possibleMove] {
+        return array.sorted { $0.move.name < $1.move.name }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let pokemon = chosenPokemon {
+            chosenPokemon!.moves = sortArray(array: pokemon.moves)
+        }
         
         moveTableCell.dataSource = self
         moveTableCell.delegate = self
@@ -88,7 +98,7 @@ class MovesAndAbilitiesViewController: UIViewController {
         loadPokemon()
         
         defineSwipeGesture()
-        
+
     }
     
 }

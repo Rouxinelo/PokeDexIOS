@@ -955,26 +955,26 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="learnerCell" id="Sb4-aa-5iu" customClass="LearnerCell" customModule="PokeDexIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="42"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="42.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sb4-aa-5iu" id="qbd-KN-75B">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="42.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-uQ-Lca">
-                                                    <rect key="frame" x="166" y="10.5" width="42" height="21"/>
+                                                    <rect key="frame" x="166" y="10.5" width="42" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.78523892159999997" green="0.84106075759999999" blue="0.89469844099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="8Q2-uQ-Lca" firstAttribute="centerY" secondItem="qbd-KN-75B" secondAttribute="centerY" id="2yv-lO-Ahf"/>
                                                 <constraint firstItem="8Q2-uQ-Lca" firstAttribute="centerX" secondItem="qbd-KN-75B" secondAttribute="centerX" id="9SZ-xS-4zS"/>
                                                 <constraint firstItem="8Q2-uQ-Lca" firstAttribute="top" secondItem="qbd-KN-75B" secondAttribute="topMargin" constant="-0.5" id="ZcX-Zy-6WW"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.78523892159999997" green="0.84106075759999999" blue="0.89469844099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="cellView" destination="qbd-KN-75B" id="yJu-AR-U7M"/>
                                             <outlet property="learnerNameLabel" destination="8Q2-uQ-Lca" id="soo-kg-FaU"/>
@@ -1005,7 +1005,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPK-yw-gU8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5973.913043478261" y="63.586956521739133"/>
+            <point key="canvasLocation" x="5973.913043478261" y="62.946428571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aa2-EL-iGT">
