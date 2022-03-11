@@ -47,11 +47,19 @@ class MoveStatsViewController: UIViewController {
 
         defineSwipeGesture()
 
+        moveRequest.delegate = self
+        
         if let chosenMove = chosenMove {
             moveRequest.requestURL = chosenMove.url
             moveRequest.fetchData()
         }
         
+        
     }
+}
 
+extension MoveStatsViewController: MoveRequestDelegate {
+    func recievedMoveInfo(data: PokemonMove) {
+        print(data.type.name)
+    }
 }
