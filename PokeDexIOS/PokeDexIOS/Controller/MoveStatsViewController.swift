@@ -12,11 +12,14 @@ class MoveStatsViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var learnersTableView: UITableView!
+    @IBOutlet weak var moveNameLabel: UILabel!
+    @IBOutlet weak var moveDescriptionLabel: UILabel!
     
     // MARK: - Local Variables
     
     var chosenMove: String?
-    
+    var moveName: String?
+
     var moveRequest = MoveRequest()
     
     var moveInfo: PokemonMove?
@@ -48,18 +51,34 @@ class MoveStatsViewController: UIViewController {
         }
     }
     
+    // MARK: - Other functions
+    
+    func searchForEnglishDescription(entries: [flavor_text_entries]) -> String {
+        for entry in entries {
+            if entry.language.name == "en" {
+                return entry.flavor_text
+            }
+        }
+        return "No description available"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         moveRequest.delegate = self
         learnersTableView.dataSource = self
         
-        defineSwipeGesture()
+        //moveNameLabel.text = moveName
         
+        defineSwipeGesture()
+    
         if let chosenMove = chosenMove {
             moveRequest.requestURL = chosenMove
             moveRequest.fetchData()
         }
+        
+        moveNameLabel.text = moveName
+        moveDescriptionLabel.text = searchForEnglishDescription(entries: moveInfo!.flavor_text_entries)
     }
 }
 
