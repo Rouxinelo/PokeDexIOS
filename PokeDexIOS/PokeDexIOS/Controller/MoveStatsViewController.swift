@@ -11,7 +11,9 @@ class MoveStatsViewController: UIViewController {
 
     // MARK: - Local Variables
     
-    var chosenMove: String?
+    var chosenMove: move?
+    
+    var moveRequest = MoveRequest()
     
     // MARK: - Button Onclick Actions
     
@@ -46,8 +48,10 @@ class MoveStatsViewController: UIViewController {
         defineSwipeGesture()
 
         if let chosenMove = chosenMove {
-            print(chosenMove)
+            moveRequest.requestURL = chosenMove.url
+            moveRequest.fetchData()
         }
+        
     }
 
 }

@@ -22,7 +22,7 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     var chosenPokemon: pokemon?
     
-    var chosenMove: String?
+    var chosenMove: move?
     
     var colorPicker = TypeColorManager()
     
@@ -120,7 +120,7 @@ extension MovesAndAbilitiesViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let pokemon = chosenPokemon{
-            chosenMove = pokemon.moves[indexPath.row].move.url
+            chosenMove = pokemon.moves[indexPath.row].move
         }
         performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
     }

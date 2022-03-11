@@ -8,12 +8,12 @@
 import Foundation
 
 struct PokemonMove: Codable {
-    let accuracy: Int
-    let power: Int
-    let pp: Int
+    let accuracy: Int?
+    let power: Int?
+    let pp: Int?
     let type: types
     let flavor_text_entries: [flavor_text_entries]
-    let learned_by_pokemon: learner
+    let learned_by_pokemon: [learner]
 }
 
 struct types: Codable {
