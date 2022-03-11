@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF01348627DB7AFD00337C36 /* MoveStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348527DB7AFD00337C36 /* MoveStatsViewController.swift */; };
+		AF01348827DB940500337C36 /* PokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348727DB940500337C36 /* PokemonMove.swift */; };
 		AF0F08D227D261BB0024FBC0 /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6827D26120005D0EF0 /* Pokemon Solid.ttf */; };
 		AF20FA6727D260DC005D0EF0 /* caughtSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6627D260DC005D0EF0 /* caughtSound.mp3 */; };
 		AF2FCCD027DA070A001A4597 /* PokedexViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		AF01348527DB7AFD00337C36 /* MoveStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveStatsViewController.swift; sourceTree = "<group>"; };
+		AF01348727DB940500337C36 /* PokemonMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMove.swift; sourceTree = "<group>"; };
 		AF20FA6627D260DC005D0EF0 /* caughtSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = caughtSound.mp3; sourceTree = "<group>"; };
 		AF20FA6827D26120005D0EF0 /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
 		AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewControllerUITests.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				AF60236327C80C96008FE236 /* Pokemon.swift */,
 				AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */,
 				AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */,
+				AF01348727DB940500337C36 /* PokemonMove.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				AF60233127C809FD008FE236 /* SceneDelegate.swift in Sources */,
 				AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */,
 				AF5DC89C27CFA1410015BDB2 /* WebhookData.swift in Sources */,
+				AF01348827DB940500337C36 /* PokemonMove.swift in Sources */,
 				AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */,
 				AFE5BDAB27CC338E008BB274 /* PokemonDataModel.xcdatamodeld in Sources */,
 				AFBA654527DA4262007A54F9 /* MoveCell.swift in Sources */,
