@@ -9,11 +9,17 @@ import UIKit
 
 class MoveStatsViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var learnersTableView: UITableView!
+    
     // MARK: - Local Variables
     
-    var chosenMove: move?
+    var chosenMove: String?
     
     var moveRequest = MoveRequest()
+    
+    var moveInfo: PokemonMove?
     
     // MARK: - Button Onclick Actions
     
@@ -45,12 +51,13 @@ class MoveStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        defineSwipeGesture()
-
         moveRequest.delegate = self
+        learnersTableView.dataSource = self
+        
+        defineSwipeGesture()
         
         if let chosenMove = chosenMove {
-            moveRequest.requestURL = chosenMove.url
+            moveRequest.requestURL = chosenMove
             moveRequest.fetchData()
         }
         
@@ -60,6 +67,24 @@ class MoveStatsViewController: UIViewController {
 
 extension MoveStatsViewController: MoveRequestDelegate {
     func recievedMoveInfo(data: PokemonMove) {
-        print(data.type.name)
+        moveInfo = data
+    }
+}
+
+extension MoveStatsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let move = moveInfo {
+            return move.learned_by_pokemon.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "learnerCell", for: indexPath) as! LearnerCell
+        if let move = moveInfo{
+            cell.learnerNameLabel.text = move.learned_by_pokemon[indexPath.row].name
+        }
+        cell.layer.masksToBounds = true
+        return cell
     }
 }
