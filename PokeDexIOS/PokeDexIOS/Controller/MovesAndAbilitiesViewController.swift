@@ -77,6 +77,7 @@ class MovesAndAbilitiesViewController: UIViewController {
         super.viewDidLoad()
         
         moveTableCell.dataSource = self
+        moveTableCell.delegate = self
         
         loadPokemon()
         
@@ -103,3 +104,12 @@ extension MovesAndAbilitiesViewController: UITableViewDataSource{
     }
 }
 
+// MARK: - Table View Delegate
+
+extension MovesAndAbilitiesViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
+        
+    }
+}
