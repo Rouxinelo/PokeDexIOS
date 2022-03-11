@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yjx-eM-lgw">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -493,7 +492,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeBallBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="c75-aT-5lz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeBallBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="c75-aT-5lz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4mR-LJ-BLy">
@@ -775,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-hf-Bdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3871.0144927536235" y="65.625"/>
+            <point key="canvasLocation" x="3871.0144927536235" y="65.217391304347828"/>
         </scene>
         <!--Moves And Abilities View Controller-->
         <scene sceneID="R9W-Qm-U36">
@@ -834,7 +833,7 @@
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5CN-4j-LsT">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="507"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="darkModeBackgrounds"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCell" id="2nO-5H-6Kh" customClass="MoveCell" customModule="PokeDexIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
@@ -863,6 +862,7 @@
                                                                         </stackView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.79607844350000001" green="0.8392156959" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <color key="tintColor" name="darkModeBackgrounds"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailingMargin" secondItem="MJB-IG-eeY" secondAttribute="trailing" id="4sP-YD-qYQ"/>
                                                                         <constraint firstItem="MJB-IG-eeY" firstAttribute="top" secondItem="HWo-kP-ACL" secondAttribute="topMargin" id="DB0-H3-Iv4"/>
@@ -870,6 +870,7 @@
                                                                         <constraint firstAttribute="bottomMargin" secondItem="MJB-IG-eeY" secondAttribute="bottom" id="heE-0c-aGU"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <color key="backgroundColor" name="darkModeBackgrounds"/>
                                                                 <connections>
                                                                     <outlet property="cellView" destination="HWo-kP-ACL" id="u9O-Z8-3H2"/>
                                                                     <outlet property="moveNameLabel" destination="3c9-Xh-TMI" id="hVp-5V-OZy"/>
@@ -961,8 +962,5 @@
         <namedColor name="darkModeSetNavBar">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
