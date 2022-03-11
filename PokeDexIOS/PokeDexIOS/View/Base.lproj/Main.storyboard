@@ -849,16 +849,17 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-Xh-TMI">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="187" height="21.666666666666668"/>
                                                                                     <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBs-0u-Kp6">
                                                                                     <rect key="frame" x="187" y="0.0" width="187" height="21.666666666666668"/>
                                                                                     <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
+                                                                            <color key="tintColor" name="darkModeSetNavBar"/>
                                                                         </stackView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.79607844350000001" green="0.8392156959" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -889,7 +890,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vfb-xu-eMk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="darkModeBackgrounds"/>
                         <constraints>
                             <constraint firstItem="Vfb-xu-eMk" firstAttribute="bottom" secondItem="in0-2Y-Twq" secondAttribute="bottom" id="1yY-ti-9Fh"/>
                             <constraint firstItem="in0-2Y-Twq" firstAttribute="top" secondItem="Vfb-xu-eMk" secondAttribute="top" id="826-fK-qgE"/>
