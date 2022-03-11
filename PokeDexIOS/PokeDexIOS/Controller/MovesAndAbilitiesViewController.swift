@@ -56,6 +56,11 @@ class MovesAndAbilitiesViewController: UIViewController {
             
             pokemonColor.backgroundColor = colorPicker.getColorForType()
             
+            
+            pokemonColor.clipsToBounds = true
+            pokemonColor.layer.cornerRadius = 28
+            pokemonColor.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            
             pokemonName.text = pokemon.name.capitalizingFirstLetter()
             pokemonName.textColor = colorPicker.getTextFontColor()
             

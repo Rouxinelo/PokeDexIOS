@@ -253,6 +253,11 @@ class PokemonStatsViewController: UIViewController {
         pokemonColor
             .backgroundColor = colorPicker.getColorForType()
         
+        
+        pokemonColor.clipsToBounds = true
+        pokemonColor.layer.cornerRadius = 28
+        pokemonColor.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
         pokemonName.textColor = colorPicker.getTextFontColor()
         pokemonName.text = pokemon.name.capitalizingFirstLetter()
         
