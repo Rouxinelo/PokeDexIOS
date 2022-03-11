@@ -8,17 +8,37 @@
 import UIKit
 
 class MoveCell: UITableViewCell {
-
+    
     @IBOutlet weak var moveNameLabel: UILabel!
     @IBOutlet weak var whenLearnedLabel: UILabel!
     @IBOutlet weak var cellView: UIView!
     
+    // MARK: - Other functions
+    
+    func getMethod(text: String) -> String {
+        switch text{
+        case "machine":
+            return "Hm/Tm"
+        default:
+            return text.capitalizingFirstLetter()
+        }
+    }
+    
+    func getLvl(lvl: Int) -> String {
+        switch lvl{
+            case 1...9:
+                return "Lvl 0" + String(lvl)
+            default:
+                return "Lvl " + String(lvl)
+        }
+    }
+    
     func loadMove(move: possibleMove){
         moveNameLabel.text = move.move.name.capitalizingFirstLetter()
         if move.version_group_details.first!.level_learned_at == 0 {
-            whenLearnedLabel.text = move.version_group_details.first?.move_learn_method.name.capitalizingFirstLetter()
+            whenLearnedLabel.text = getMethod(text: (move.version_group_details.first?.move_learn_method.name)!)
         } else {
-            whenLearnedLabel.text = "Lvl " +  String(move.version_group_details.first!.level_learned_at)
+            whenLearnedLabel.text =   getLvl(lvl: move.version_group_details.first!.level_learned_at)
         }
     }
     
@@ -31,10 +51,10 @@ class MoveCell: UITableViewCell {
         super.awakeFromNib()
         styleCell()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
-
+    
 }
