@@ -95,9 +95,13 @@ class PokemonStatsViewController: UIViewController {
     }
     
     // MARK: - Button OnClickActions
-    
+
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         returnToPreviousScreen()
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: self)
     }
     
     @IBAction func InformationClicked(_ sender: UIBarButtonItem) {

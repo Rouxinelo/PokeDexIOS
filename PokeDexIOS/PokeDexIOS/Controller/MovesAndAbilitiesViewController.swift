@@ -26,6 +26,12 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     var colorPicker = TypeColorManager()
     
+    // MARK: - Button Onclick Actions
+    
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        returnToPreviousScreen()
+    }
+    
     // MARK: - Navigation functions
     
     func returnToPreviousScreen(){
