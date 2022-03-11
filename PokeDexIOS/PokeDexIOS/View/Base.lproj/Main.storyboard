@@ -3,6 +3,7 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -52,14 +53,14 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="133.33333333333334" height="40.333333333333336"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="darkModeBackgrounds"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="João Rouxinol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="B7m-n3-KZg">
                                                                 <rect key="frame" x="213.33333333333331" y="0.0" width="133.33333333333331" height="40.333333333333336"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="darkModeBackgrounds"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -70,13 +71,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="SqQ-O7-N9F">
                                                                 <rect key="frame" x="0.0" y="0.0" width="133.33333333333334" height="40"/>
                                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="darkModeBackgrounds"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rxL-BE-zvJ">
                                                                 <rect key="frame" x="213.33333333333331" y="0.0" width="133.33333333333331" height="40"/>
                                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="darkModeBackgrounds"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -93,7 +94,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coruche" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Rts-aY-o8b">
                                                                 <rect key="frame" x="213.33333333333331" y="0.0" width="133.33333333333331" height="40.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="darkModeBackgrounds"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -104,7 +105,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hobbies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sNz-P9-J1c">
                                                                 <rect key="frame" x="0.0" y="0.0" width="133.33333333333334" height="40.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="darkModeBackgrounds"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏋️‍♀️🏄‍♂️🎸🛹" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="B6O-6E-CGk">
@@ -174,7 +175,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fk3-mF-Mvp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="darkModeBackgrounds"/>
                         <constraints>
                             <constraint firstItem="3oe-uT-FbR" firstAttribute="leading" secondItem="eMu-5a-Wpw" secondAttribute="leading" id="Egu-l6-XQv"/>
                             <constraint firstAttribute="trailing" secondItem="3oe-uT-FbR" secondAttribute="trailing" id="Hes-DY-bHL"/>
@@ -184,7 +185,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7uJ-Pb-KMC">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="FfP-pl-ok7">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="darkModeSetNavBar"/>
                             <connections>
                                 <action selector="backButtonPressed:" destination="ZIK-xf-tnO" id="Muz-c1-BbI"/>
                             </connections>
@@ -218,13 +219,15 @@
                                     </imageView>
                                     <searchBar contentMode="redraw" placeholder="Search: Pokemon Name/ID" translatesAutoresizingMaskIntoConstraints="NO" id="UgS-fc-Rwy">
                                         <rect key="frame" x="0.0" y="42" width="414" height="264"/>
-                                        <color key="backgroundColor" red="0.8078432083" green="0.39607840779999998" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="tintColor" red="0.8078432083" green="0.39607840779999998" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="darkModeSetNavBar"/>
+                                        <color key="tintColor" name="darkModeSetNavBar"/>
+                                        <color key="barTintColor" name="darkModeBackgrounds"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nbz-CI-EBR">
                                         <rect key="frame" x="0.0" y="308" width="414" height="179"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="darkModeBackgrounds"/>
+                                        <color key="tintColor" name="darkModeBackgrounds"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" rowHeight="80" id="slS-Kv-Xw6" customClass="PokemonCell" customModule="PokeDexIOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="80"/>
@@ -303,6 +306,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="s71-Dh-Cnk" secondAttribute="trailing" id="yJg-Fc-QAy"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" name="darkModeBackgrounds"/>
                                                 <connections>
                                                     <outlet property="pokemonName" destination="txY-eD-wWY" id="qSd-4T-gdy"/>
                                                     <outlet property="pokemonNumber" destination="ErZ-0s-QOE" id="U1r-Ok-Mtg"/>
@@ -322,16 +326,16 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Pokemon Per Page:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtB-uV-3Qd">
                                                         <rect key="frame" x="0.0" y="16" width="207" height="18"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" name="darkModeBackgrounds"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" name="darkModeBackgrounds"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMr-7o-h9f">
                                                         <rect key="frame" x="207" y="0.0" width="207" height="50"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" name="darkModeBackgrounds"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -339,7 +343,8 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="3R5-VH-ekV">
                                                 <rect key="frame" x="-2" y="52" width="418" height="51"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="minimumTrackTintColor" name="darkModeBackgrounds"/>
+                                                <color key="maximumTrackTintColor" name="darkModeSetNavBar"/>
                                                 <connections>
                                                     <action selector="pokemonPerPageValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Mgz-AW-YZD"/>
                                                 </connections>
@@ -352,7 +357,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yql-Z3-fUS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="50"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" name="darkModeBackgrounds"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.left.to.line.compact" catalog="system"/>
                                                                 <connections>
@@ -361,7 +366,7 @@
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slM-ls-0Qk">
                                                                 <rect key="frame" x="73" y="0.0" width="65" height="50"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" name="darkModeBackgrounds"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system"/>
                                                                 <connections>
@@ -375,8 +380,9 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0Z-9T-tVm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                                                                <color key="tintColor" name="darkModeBackgrounds"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="darkModeBackgrounds"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -386,7 +392,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDF-I5-0Cu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="45.333333333333336" height="50"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" name="darkModeBackgrounds"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.forward" catalog="system"/>
                                                                 <connections>
@@ -395,7 +401,7 @@
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-h4-n8T">
                                                                 <rect key="frame" x="53.333333333333321" y="0.0" width="84.666666666666686" height="50"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" name="darkModeBackgrounds"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.right.to.line.compact" catalog="system"/>
                                                                 <connections>
@@ -433,7 +439,8 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="darkModeBackgrounds"/>
+                        <color key="tintColor" name="darkModeBackgrounds"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iZI-fB-gN2" secondAttribute="bottom" id="Umz-YL-2IY"/>
                             <constraint firstItem="iZI-fB-gN2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h4p-8Y-GE4"/>
@@ -444,13 +451,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RwI-tD-fi7">
                         <barButtonItem key="leftBarButtonItem" title="All" image="heart" catalog="system" width="50" id="h0A-Z5-b11">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="darkModeSetNavBar"/>
                             <connections>
                                 <action selector="favouritesButtonClicked:" destination="BYZ-38-t0r" id="Zm5-nW-WfE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="wdv-ND-mha">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="darkModeSetNavBar"/>
                             <connections>
                                 <action selector="InformationClicked:" destination="BYZ-38-t0r" id="Nos-ho-QBA"/>
                             </connections>
@@ -709,7 +716,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bmE-1a-00n"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="darkModeBackgrounds"/>
                         <constraints>
                             <constraint firstItem="c75-aT-5lz" firstAttribute="leading" secondItem="bmE-1a-00n" secondAttribute="leading" id="GUL-kn-EUo"/>
                             <constraint firstItem="bmE-1a-00n" firstAttribute="trailing" secondItem="c75-aT-5lz" secondAttribute="trailing" id="Jc8-75-Fbq"/>
@@ -724,18 +731,20 @@
                     <navigationItem key="navigationItem" id="vnS-NS-eN3">
                         <barButtonItem key="backBarButtonItem" title=" " id="SMv-iT-Une"/>
                         <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="fQr-Nt-UsT">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="darkModeSetNavBar"/>
                             <connections>
                                 <action selector="backButtonPressed:" destination="ZGe-D1-D4y" id="ecx-WJ-rRL"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="info.circle.fill" catalog="system" id="R4b-EY-y3t">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
                                 <connections>
                                     <action selector="InformationClicked:" destination="ZGe-D1-D4y" id="0AL-hr-JCH"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="heart" catalog="system" id="gTk-2s-uqZ">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
                                 <connections>
                                     <action selector="favButtonClicked:" destination="ZGe-D1-D4y" id="UeH-sP-Myh"/>
                                 </connections>
@@ -840,16 +849,17 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-Xh-TMI">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="187" height="21.666666666666668"/>
                                                                                     <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBs-0u-Kp6">
                                                                                     <rect key="frame" x="187" y="0.0" width="187" height="21.666666666666668"/>
                                                                                     <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
+                                                                            <color key="tintColor" name="darkModeSetNavBar"/>
                                                                         </stackView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.79607844350000001" green="0.8392156959" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -880,7 +890,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vfb-xu-eMk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="darkModeBackgrounds"/>
                         <constraints>
                             <constraint firstItem="Vfb-xu-eMk" firstAttribute="bottom" secondItem="in0-2Y-Twq" secondAttribute="bottom" id="1yY-ti-9Fh"/>
                             <constraint firstItem="in0-2Y-Twq" firstAttribute="top" secondItem="Vfb-xu-eMk" secondAttribute="top" id="826-fK-qgE"/>
@@ -931,7 +941,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ooM-cO-ybC"/>
+        <segue reference="Cah-tK-uTs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -945,6 +955,12 @@
         <image name="myPicture" width="823" height="768"/>
         <image name="pokeBallBackGround" width="736" height="1308"/>
         <image name="pokemonLogo" width="999" height="374"/>
+        <namedColor name="darkModeBackgrounds">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="darkModeSetNavBar">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
