@@ -15,7 +15,7 @@
 		AF20FA6727D260DC005D0EF0 /* caughtSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6627D260DC005D0EF0 /* caughtSound.mp3 */; };
 		AF2FCCD027DA070A001A4597 /* PokedexViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */; };
 		AF4AE7C927DA9A1100BD09C0 /* Pokemon GB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF4AE7C727DA99FD00BD09C0 /* Pokemon GB.ttf */; };
-		AF5855FF27DC2770004D0648 /* MoveStatsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5855FE27DC2770004D0648 /* MoveStatsViewControllerUITests.swift */; };
+		AF58560127DC27F7004D0648 /* MoveStatsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */; };
 		AF5DC89C27CFA1410015BDB2 /* WebhookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */; };
 		AF5DC89E27CFA1A80015BDB2 /* WebhookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */; };
 		AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60232E27C809FD008FE236 /* AppDelegate.swift */; };
@@ -70,7 +70,7 @@
 		AF20FA6827D26120005D0EF0 /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
 		AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewControllerUITests.swift; sourceTree = "<group>"; };
 		AF4AE7C727DA99FD00BD09C0 /* Pokemon GB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon GB.ttf"; sourceTree = "<group>"; };
-		AF5855FE27DC2770004D0648 /* MoveStatsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoveStatsViewControllerUITests.swift; path = PokeDexIOSUITests/MoveStatsViewControllerUITests.swift; sourceTree = SOURCE_ROOT; };
+		AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveStatsViewControllerUITests.swift; sourceTree = "<group>"; };
 		AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebhookData.swift; sourceTree = "<group>"; };
 		AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookRequest.swift; sourceTree = "<group>"; };
 		AF60232B27C809FD008FE236 /* PokeDexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,7 +223,6 @@
 		AF60234427C809FE008FE236 /* PokeDexIOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				AF5855FE27DC2770004D0648 /* MoveStatsViewControllerUITests.swift */,
 				AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */,
 				AF60234527C809FE008FE236 /* PokeDexIOSTests.swift */,
 			);
@@ -233,6 +232,7 @@
 		AF60234E27C809FE008FE236 /* PokeDexIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */,
 				AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */,
 				AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */,
 				AF2FCCCF27DA070A001A4597 /* PokedexViewControllerUITests.swift */,
@@ -457,7 +457,6 @@
 			files = (
 				AF60234627C809FE008FE236 /* PokeDexIOSTests.swift in Sources */,
 				AFF636DB27D8BE6C00B94CAA /* TypeColorManagerTests.swift in Sources */,
-				AF5855FF27DC2770004D0648 /* MoveStatsViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +469,7 @@
 				AFCAFBBB27DA158B00616DB5 /* AboutMeViewControllerUITests.swift in Sources */,
 				AF2FCCD027DA070A001A4597 /* PokedexViewControllerUITests.swift in Sources */,
 				AFCAFBBD27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift in Sources */,
+				AF58560127DC27F7004D0648 /* MoveStatsViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
