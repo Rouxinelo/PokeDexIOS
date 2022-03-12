@@ -17,7 +17,7 @@ struct pokemon: Codable{
     let sprites: sprite
     let base_experience: Int
     let stats: [possibleStat]
-    let moves: [possibleMove]
+    var moves: [possibleMove]
 }
 
 struct atype: Codable{

@@ -8,9 +8,9 @@
 import UIKit
 
 class MovesAndAbilitiesViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
-
+    
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var moveTableCell: UITableView!
@@ -21,10 +21,17 @@ class MovesAndAbilitiesViewController: UIViewController {
     // MARK: - Local Variables
     
     var chosenPokemon: pokemon?
-
-    var moveArray =  [possibleMove]()
+    
+    var chosenMove: String?
+    var chosenMoveName: String?
     
     var colorPicker = TypeColorManager()
+    
+    // MARK: - Button Onclick Actions
+    
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        returnToPreviousScreen()
+    }
     
     // MARK: - Navigation functions
     
@@ -73,15 +80,26 @@ class MovesAndAbilitiesViewController: UIViewController {
         }
     }
     
+    // MARK: - Other Functions
+    
+    func sortArray(array: [possibleMove]) -> [possibleMove] {
+        return array.sorted { $0.move.name < $1.move.name }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let pokemon = chosenPokemon {
+            chosenPokemon!.moves = sortArray(array: pokemon.moves)
+        }
+        
         moveTableCell.dataSource = self
+        moveTableCell.delegate = self
         
         loadPokemon()
         
         defineSwipeGesture()
-        
+
     }
     
 }
@@ -91,15 +109,49 @@ class MovesAndAbilitiesViewController: UIViewController {
 extension MovesAndAbilitiesViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moveArray.count
+        if let pokemon = chosenPokemon{
+            return pokemon.moves.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.moveCellIdentifier, for: indexPath) as! MoveCell
-        
-        cell.loadMove(move: moveArray[indexPath.row])
+        if let pokemon = chosenPokemon{
+            cell.loadMove(move: pokemon.moves[indexPath.row])
+        }
         
         return cell
     }
 }
 
+// MARK: - Table View Delegate
+
+extension MovesAndAbilitiesViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let pokemon = chosenPokemon{
+            chosenMove = pokemon.moves[indexPath.row].move.url
+            chosenMoveName = pokemon.moves[indexPath.row].move.name
+        }
+        performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+// MARK: - Prepare For Segue
+
+extension MovesAndAbilitiesViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.movesAndAbilitiesToMoveStats{
+            
+            if let VC = segue.destination as? MoveStatsViewController{
+                if let move = chosenMove{
+                    
+                    VC.chosenMove = move
+                    VC.moveName = chosenMoveName
+                }
+            }
+        }
+    }
+}
