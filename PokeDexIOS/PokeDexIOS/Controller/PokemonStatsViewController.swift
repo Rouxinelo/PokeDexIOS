@@ -197,7 +197,6 @@ class PokemonStatsViewController: UIViewController {
         }
     }
     
-
     // MARK: - Gesture handlers
     
     func defineImageTapGesture(){
@@ -227,7 +226,6 @@ class PokemonStatsViewController: UIViewController {
             performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: self)
         }
     }
-    
     
     // MARK: - Styling the view with the pokemon stats
     
