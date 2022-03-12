@@ -105,8 +105,6 @@ class MoveStatsViewController: UIViewController {
         moveRequest.delegate = self
         learnersTableView.dataSource = self
         
-        //moveNameLabel.text = moveName
-        
         defineSwipeGesture()
     
         if let chosenMove = chosenMove {
@@ -116,7 +114,6 @@ class MoveStatsViewController: UIViewController {
         
         if let move = moveInfo {
             styleHeader(move: move)
-            
         }
     }
 }
