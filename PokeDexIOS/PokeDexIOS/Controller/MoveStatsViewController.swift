@@ -14,15 +14,24 @@ class MoveStatsViewController: UIViewController {
     @IBOutlet weak var learnersTableView: UITableView!
     @IBOutlet weak var moveNameLabel: UILabel!
     @IBOutlet weak var moveDescriptionLabel: UILabel!
+    @IBOutlet weak var powerText: UILabel!
+    @IBOutlet weak var powerLabel: UILabel!
+    @IBOutlet weak var accuracyText: UILabel!
+    @IBOutlet weak var accuracyLabel: UILabel!
+    @IBOutlet weak var ppText: UILabel!
+    @IBOutlet weak var ppLabel: UILabel!
+    @IBOutlet weak var headerStackView: UIStackView!
+    @IBOutlet weak var footerView: UIView!
     
     // MARK: - Local Variables
     
     var chosenMove: String?
     var moveName: String?
 
-    var moveRequest = MoveRequest()
-    
     var moveInfo: PokemonMove?
+    
+    var moveRequest = MoveRequest()
+    var colorPicker = TypeColorManager()
     
     // MARK: - Button Onclick Actions
     
@@ -51,6 +60,34 @@ class MoveStatsViewController: UIViewController {
         }
     }
     
+    // MARK: - Set page style
+    
+    func styleHeader(move: PokemonMove){
+        
+        colorPicker.type = move.type.name
+        
+        headerStackView.backgroundColor = colorPicker.getColorForType()
+        headerStackView.layer.borderWidth = K.TableCells.strokeWidth
+        headerStackView.layer.cornerRadius = K.TableCells.borderRadius
+        
+        powerLabel.text = String(move.power ?? 0)
+        powerLabel.textColor = colorPicker.getTextFontColor()
+        powerText.textColor = colorPicker.getTextFontColor()
+        
+        accuracyLabel.text = String(move.accuracy ?? 0)
+        accuracyLabel.textColor = colorPicker.getTextFontColor()
+        accuracyText.textColor = colorPicker.getTextFontColor()
+        
+        ppLabel.text = String(move.pp ?? 0)
+        ppLabel.textColor = colorPicker.getTextFontColor()
+        ppText.textColor = colorPicker.getTextFontColor()
+        
+        moveNameLabel.text = moveName?.capitalizingFirstLetter()
+        moveNameLabel.textColor = colorPicker.getTextFontColor()
+        
+        moveDescriptionLabel.text = searchForEnglishDescription(entries: move.flavor_text_entries)
+    }
+    
     // MARK: - Other functions
     
     func searchForEnglishDescription(entries: [flavor_text_entries]) -> String {
@@ -77,16 +114,22 @@ class MoveStatsViewController: UIViewController {
             moveRequest.fetchData()
         }
         
-        moveNameLabel.text = moveName
-        moveDescriptionLabel.text = searchForEnglishDescription(entries: moveInfo!.flavor_text_entries)
+        if let move = moveInfo {
+            styleHeader(move: move)
+            
+        }
     }
 }
+
+// MARK: - Move Request Delegate
 
 extension MoveStatsViewController: MoveRequestDelegate {
     func recievedMoveInfo(data: PokemonMove) {
         moveInfo = data
     }
 }
+
+// MARK: - Table View Delegate
 
 extension MoveStatsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
