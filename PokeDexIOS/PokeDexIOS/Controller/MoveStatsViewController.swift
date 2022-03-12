@@ -142,9 +142,8 @@ extension MoveStatsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.learnerCellIdentifier, for: indexPath) as! LearnerCell
         if let move = moveInfo{
-            cell.learnerNameLabel.text = move.learned_by_pokemon[indexPath.row].name.capitalizingFirstLetter()
+            cell.loadCell(pokemonName: move.learned_by_pokemon[indexPath.row].name)
         }
-        cell.layer.masksToBounds = true
         return cell
     }
 }
