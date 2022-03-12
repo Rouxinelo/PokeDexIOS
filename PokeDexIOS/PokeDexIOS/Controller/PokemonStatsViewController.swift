@@ -276,9 +276,9 @@ class PokemonStatsViewController: UIViewController {
     }
     
     func setPageFooter(pokemon: pokemon){
-            
-        pokemonWeight.text = String(pokemon.weight)
-        pokemonHeight.text = String(pokemon.height)
+        
+        pokemonWeight.text = getStatWithUnits(stat: "wt", value: pokemon.weight)
+        pokemonHeight.text = getStatWithUnits(stat: "ht", value: pokemon.height)
         baseEXP.text = String(pokemon.base_experience)
         
         colorPicker.type = pokemon.types.first?.type.name
@@ -306,6 +306,16 @@ class PokemonStatsViewController: UIViewController {
     }
 
     // MARK: - Other functions
+    
+    func getStatWithUnits(stat: String, value: Int) -> String {
+        let toReturn = (Float(value) / 10.0)
+        if stat == "ht" {
+            return String(toReturn) + " m"
+        } else if stat == "wt" {
+            return String(toReturn) + " kg"
+        }
+        return "???"
+    }
     
     // Plays an .mp3 sound passed as argument
     func playSound(soundName: String) {
