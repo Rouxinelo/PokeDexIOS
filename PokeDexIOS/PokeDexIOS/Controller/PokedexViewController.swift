@@ -250,7 +250,7 @@ class PokedexViewController: UIViewController {
 // MARK: - PokeRequestDelegate
 
 extension PokedexViewController: PokeRequestDelegate{
-    func recievedPokeList(data: pokeData) {
+    func recievedPokeList(data: PokeData) {
         for res in data.results{
             urlArray.append(res.url)
         }

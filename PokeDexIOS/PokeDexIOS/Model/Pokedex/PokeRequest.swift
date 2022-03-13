@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Delegate Protocol
 protocol PokeRequestDelegate{
-    func recievedPokeList(data: pokeData)
+    func recievedPokeList(data: PokeData)
     func recievedPokeCount(count: Int)
     }
 
@@ -39,7 +39,7 @@ struct PokeRequest{
                 let decoder = JSONDecoder()
                 if let safeData = data {
                     do {
-                        let results = try decoder.decode(pokeData.self, from: safeData)
+                        let results = try decoder.decode(PokeData.self, from: safeData)
                         if op == "LIST"{
                             delegate?.recievedPokeList(data: results)
                         } else if op == "COUNT" {

@@ -58,6 +58,6 @@ struct Details: Codable {
     let move_learn_method: MoveLearnMethod
 }
 
-struct MoveLearnMethod: Codable{
+struct MoveLearnMethod: Codable {
     let name: String
 }
