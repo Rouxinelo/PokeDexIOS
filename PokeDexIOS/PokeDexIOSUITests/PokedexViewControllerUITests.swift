@@ -30,7 +30,6 @@ class PokedexViewControllerUITests: XCTestCase {
     }
     
     func testPageButtonPressed() throws {
-        let app = XCUIApplication()
         app.buttons["arrow.forward"].tap()
         app.buttons["tab"].tap()
         app.buttons["arrow.backward"].tap()
@@ -39,7 +38,6 @@ class PokedexViewControllerUITests: XCTestCase {
     
     func testPokemonPerPageValueChanged() throws {
         
-        let app = XCUIApplication()
         let slider = app.sliders["67%"]
 
         slider.adjust(toNormalizedSliderPosition: 0.9)
@@ -54,7 +52,6 @@ class PokedexViewControllerUITests: XCTestCase {
     }
     
     func testSearchBarSearchButtonClickedSucess() throws {
-        let app = XCUIApplication()
         app.searchFields["Search: Pokemon Name/ID"].tap()
         app.searchFields["Search: Pokemon Name/ID"].typeText("pikachu")
         app.searchFields["Search: Pokemon Name/ID"].tap()
@@ -62,7 +59,6 @@ class PokedexViewControllerUITests: XCTestCase {
     }
     
     func testSearchBarSearchButtonClickedFailed() throws {
-        let app = XCUIApplication()
         app.searchFields["Search: Pokemon Name/ID"].tap()
         app.searchFields["Search: Pokemon Name/ID"].typeText("abcdef")
         app.searchFields["Search: Pokemon Name/ID"].tap()

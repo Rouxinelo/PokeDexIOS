@@ -78,10 +78,10 @@
             filePath = "PokeDexIOSUITests/PokedexViewControllerUITests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "PokedexViewControllerUITests"
-            landmarkType = "3">
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "testSearchBarSearchButtonClickedSucess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

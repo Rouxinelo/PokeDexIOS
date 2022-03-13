@@ -20,9 +20,11 @@ class AboutMeViewControllerUITests: XCTestCase {
     }
     
     func testBackButtonPressed() throws {
+        
         let app = XCUIApplication()
         app.navigationBars["PokeDexIOS.PokedexView"].buttons["Item"].tap()
         app.navigationBars["PokeDexIOS.AboutMeView"].buttons["Item"].tap()
+
     }
     
     func testSwipeRightGestureHandler() throws {
