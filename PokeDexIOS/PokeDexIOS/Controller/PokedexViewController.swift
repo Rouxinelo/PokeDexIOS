@@ -46,7 +46,7 @@ class PokedexViewController: UIViewController {
     // Context for Core Data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var selectedPokemon: pokemon? =  nil
+    var selectedPokemon: Pokemon? =  nil
     var pokemonPerPage = K.pokemonPerPage
     
     // Array of pokemons marked as favourite
@@ -60,7 +60,7 @@ class PokedexViewController: UIViewController {
     // Arrays that store pokemon data
     var urlArray = [String]()
     var urlFavArray = [String]()
-    var pokemonArray = [pokemon]()
+    var pokemonArray = [Pokemon]()
     
     var searchForPokemonUrls = PokeRequest()
     var searchForPokemonStats = PokemonStats()
@@ -276,7 +276,7 @@ extension PokedexViewController: PokeRequestDelegate{
 // MARK: - PokemonStatsDelegate
 
 extension PokedexViewController: PokemonStatsDelegate{
-    func recievedPokeInfo(data: pokemon, single: Bool) {
+    func recievedPokeInfo(data: Pokemon, single: Bool) {
         if single{
             selectedPokemon = data
             DispatchQueue.main.async {
@@ -365,7 +365,7 @@ extension PokedexViewController {
 
 extension PokedexViewController: PokemonStatsViewControllerDelegate{
     
-    func didRemoveFromFavourites(pokemon: pokemon) {
+    func didRemoveFromFavourites(pokemon: Pokemon) {
         if favouritesBarButton.title == "Favourites"{
             for i in 0..<pokemonArray.count{
                 if pokemon.name == pokemonArray[i].name{

@@ -20,7 +20,7 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     // MARK: - Local Variables
     
-    var chosenPokemon: pokemon?
+    var chosenPokemon: Pokemon?
     
     var chosenMove: String?
     var chosenMoveName: String?
@@ -82,7 +82,7 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     // MARK: - Other Functions
     
-    func sortArray(array: [possibleMove]) -> [possibleMove] {
+    func sortArray(array: [PossibleMove]) -> [PossibleMove] {
         return array.sorted { $0.move.name < $1.move.name }
     }
     
