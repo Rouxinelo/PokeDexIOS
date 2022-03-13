@@ -377,28 +377,3 @@ extension PokedexViewController: PokemonStatsViewControllerDelegate{
         }
     }
 }
-
-// MARK: - Load Image From URL
-
-extension UIImageView {
-    func load(url: URL) {
-        
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
-
-// MARK: - Uppercase first letter of a String
-
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-}
