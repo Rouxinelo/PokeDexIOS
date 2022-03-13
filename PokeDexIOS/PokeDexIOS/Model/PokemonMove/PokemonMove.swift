@@ -11,25 +11,25 @@ struct PokemonMove: Codable {
     let accuracy: Int?
     let power: Int?
     let pp: Int?
-    let type: types
-    let flavor_text_entries: [flavor_text_entries]
-    let learned_by_pokemon: [learner]
+    let type: Types
+    let flavor_text_entries: [FlavorTextEntries]
+    let learned_by_pokemon: [Learner]
 }
 
-struct types: Codable {
+struct Types: Codable {
     let name: String
 }
 
-struct flavor_text_entries: Codable{
+struct FlavorTextEntries: Codable {
     let flavor_text: String
-    let language: language
+    let language: Language
 }
 
-struct language: Codable{
+struct Language: Codable {
     let name: String
 }
 
-struct learner: Codable{
+struct Learner: Codable {
     let name: String
 }
 

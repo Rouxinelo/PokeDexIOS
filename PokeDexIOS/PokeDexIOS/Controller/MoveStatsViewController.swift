@@ -90,7 +90,7 @@ class MoveStatsViewController: UIViewController {
     
     // MARK: - Other functions
     
-    func searchForEnglishDescription(entries: [flavor_text_entries]) -> String {
+    func searchForEnglishDescription(entries: [FlavorTextEntries]) -> String {
         for entry in entries {
             if entry.language.name == "en" {
                 return entry.flavor_text
