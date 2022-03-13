@@ -18,8 +18,8 @@ protocol TargetType {
 
 enum API {
     case GetPokedex(String, String)
-    case GetSpecies(String)
     case GetPokemonInfo(String)
+    case GetWebhook
 }
 
 extension API: TargetType {
@@ -35,12 +35,11 @@ extension API: TargetType {
             let offset = "offset=" + offset
             let limit = "&limit=" + pageSize
             return "\(baseURL)" + query + offset + limit
-        case .GetSpecies(let dexId):
-            let query = "pokemon-species/"
-            return "\(baseURL)" + query + dexId
         case .GetPokemonInfo(let dexId):
             let query = "pokemon/"
             return "\(baseURL)" + query + dexId
+        case .GetWebhook:
+            return WebhookPath
         }
     }
 
@@ -48,10 +47,10 @@ extension API: TargetType {
         switch self {
         case .GetPokedex:
             return "GET"
-        case .GetSpecies:
-            return "GET"
         case .GetPokemonInfo:
             return "GET"
+        case .GetWebhook:
+            return "POST"
         }
     }
 }

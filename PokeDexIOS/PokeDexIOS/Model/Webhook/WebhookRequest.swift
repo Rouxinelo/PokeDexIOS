@@ -9,7 +9,7 @@ import Foundation
 
 struct WebhookRequest {
     
-    let webhookURL: String = K.webhookURL
+    let webhookURL: String = API.GetWebhook.path
     var webhookData: WebhookData? = nil
     
     func sendData() {
@@ -25,7 +25,7 @@ struct WebhookRequest {
         do {
             if let data = webhookData {
                 let messageJSON = try encoder.encode(data)
-                request.httpMethod = "POST"
+                request.httpMethod = API.GetWebhook.method
                 request.addValue("application/json", forHTTPHeaderField: Bundle.main.bundleIdentifier!)
                 request.httpBody = messageJSON
                 let task = URLSession.shared.dataTask(with: request)
