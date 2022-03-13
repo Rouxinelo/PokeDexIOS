@@ -79,13 +79,13 @@ class PokedexViewController: UIViewController {
             paginationStackView.isHidden = true
             loadFavArray()
             
-            searchPokemons(filter: "FAV")
+            searchPokemons(filter: Filter.favourites.rawValue)
             
         case "Favourites":
             sender.title = "All"
             sender.image = K.BarButton.notFav
             paginationStackView.isHidden = false
-            searchPokemons(filter: "ALL")
+            searchPokemons(filter: Filter.all.rawValue)
         default:
             print("error")
         }
@@ -99,7 +99,7 @@ class PokedexViewController: UIViewController {
             pokemonPerPage = Int(pokemonPerPageSlider.value)
             recievedPokeCount(count: maxPokemon)
             pageLabel.text = String(currentPage)
-            searchPokemons(filter: "ALL")
+            searchPokemons(filter: Filter.all.rawValue)
             checkButton()
         }
     }
@@ -131,19 +131,19 @@ class PokedexViewController: UIViewController {
         if sender == prevPageButton{
             currentPage -= 1
             checkButton()
-            searchPokemons(filter: "ALL")
+            searchPokemons(filter: Filter.all.rawValue)
         } else if sender == nextPageButton {
             currentPage+=1
             checkButton()
-            searchPokemons(filter: "ALL")
+            searchPokemons(filter: Filter.all.rawValue)
         } else if sender == firstPageButton{
             currentPage = 1
             checkButton()
-            searchPokemons(filter: "ALL")
+            searchPokemons(filter: Filter.all.rawValue)
         } else if sender == lastPageButton{
             currentPage = maxPages
             checkButton()
-            searchPokemons(filter: "ALL")
+            searchPokemons(filter: Filter.all.rawValue)
         }
         pageLabel.text = String(currentPage)
     }
@@ -154,7 +154,7 @@ class PokedexViewController: UIViewController {
         
         pokemonArray.removeAll()
         
-        if filter == "ALL" {
+        if filter == Filter.all.rawValue {
             
             let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
             
@@ -166,7 +166,7 @@ class PokedexViewController: UIViewController {
                 self.searchForPokemonStats.fetchData()
             }
             
-        } else if filter == "FAV" {
+        } else if filter == Filter.favourites.rawValue {
             for pokemon in urlFavArray{
                 self.searchForPokemonStats.requestURL = pokemon
                 self.searchForPokemonStats.fetchData()
@@ -255,7 +255,7 @@ extension PokedexViewController: PokeRequestDelegate{
             urlArray.append(res.url)
         }
         
-        searchPokemons(filter: "ALL")
+        searchPokemons(filter: Filter.all.rawValue)
         
         DispatchQueue.main.async {
             self.checkButton()
