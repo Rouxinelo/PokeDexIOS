@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Delegate Protocol
 protocol PokemonStatsDelegate{
-    func recievedPokeInfo(data: pokemon, single: Bool)
+    func recievedPokeInfo(data: Pokemon, single: Bool)
     func pokemonNotFound()
 }
 
@@ -32,7 +32,7 @@ struct PokemonStats{
                 let decoder = JSONDecoder()
                 if let safeData = data {
                     do {
-                        let results = try decoder.decode(pokemon.self, from: safeData)
+                        let results = try decoder.decode(Pokemon.self, from: safeData)
                         delegate?.recievedPokeInfo(data: results, single: false)
                     } catch{
                         print(error)
@@ -56,7 +56,7 @@ struct PokemonStats{
                 let decoder = JSONDecoder()
                 if let safeData = data {
                     do {
-                        let results = try decoder.decode(pokemon.self, from: safeData)
+                        let results = try decoder.decode(Pokemon.self, from: safeData)
                         delegate?.recievedPokeInfo(data: results, single: true)
                     } catch{
                         print(error)

@@ -12,7 +12,7 @@ import AVFoundation
     // MARK: - Delegate Protocol
 
 protocol PokemonStatsViewControllerDelegate{
-    func didRemoveFromFavourites(pokemon: pokemon)
+    func didRemoveFromFavourites(pokemon: Pokemon)
 }
 
 class PokemonStatsViewController: UIViewController {
@@ -49,7 +49,7 @@ class PokemonStatsViewController: UIViewController {
     var webhookHandler = WebhookRequest()
     
     // Pokemon to be displayed
-    var chosenPokemon: pokemon? = nil
+    var chosenPokemon: Pokemon? = nil
     
     // Array of pokemons marked as favourite
     var favPokemon = [FavPokemon]()
@@ -239,7 +239,7 @@ class PokemonStatsViewController: UIViewController {
         label.layer.masksToBounds = true
     }
     
-    func setStatLabels(pokemonStat:[possibleStat]){
+    func setStatLabels(pokemonStat:[PossibleStat]){
         hpLabel.text = String(pokemonStat[0].base_stat)
         atkLabel.text = String(pokemonStat[1].base_stat)
         defLabel.text = String(pokemonStat[2].base_stat)
@@ -248,7 +248,7 @@ class PokemonStatsViewController: UIViewController {
         speedLabel.text = String(pokemonStat[5].base_stat)
     }
     
-    func setPageHeader(pokemon: pokemon){
+    func setPageHeader(pokemon: Pokemon){
         
         colorPicker.type = pokemon.types.first?.type.name
 
@@ -273,7 +273,7 @@ class PokemonStatsViewController: UIViewController {
         imageTextLabel.textColor = colorPicker.getTextFontColor()
     }
     
-    func setPageFooter(pokemon: pokemon){
+    func setPageFooter(pokemon: Pokemon){
         
         pokemonWeight.text = getStatWithUnits(stat: "wt", value: pokemon.weight)
         pokemonHeight.text = getStatWithUnits(stat: "ht", value: pokemon.height)
@@ -291,7 +291,7 @@ class PokemonStatsViewController: UIViewController {
         setStatLabels(pokemonStat: pokemon.stats)
     }
     
-    func setFavouriteButton(pokemon: pokemon){
+    func setFavouriteButton(pokemon: Pokemon){
         
         loadPokemon()
         

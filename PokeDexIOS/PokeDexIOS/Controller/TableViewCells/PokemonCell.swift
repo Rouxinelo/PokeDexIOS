@@ -22,11 +22,11 @@ class PokemonCell: UITableViewCell {
     // MARK: - Local Variables
     var colorPicker = TypeColorManager()
     
-    var displayPokemon: pokemon?
+    var displayPokemon: Pokemon?
     
     // MARK: - Other functions
     
-    func loadPokeInfo(pokemon: pokemon){
+    func loadPokeInfo(pokemon: Pokemon){
         pokemonNumber.text = String(pokemon.id)
         pokemonName.text = pokemon.name.capitalizingFirstLetter()
         pokemonSprite.load(url: URL(string: pokemon.sprites.front_default)!)

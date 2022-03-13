@@ -33,7 +33,7 @@ class MoveCell: UITableViewCell {
         }
     }
     
-    func loadMove(move: possibleMove){
+    func loadMove(move: PossibleMove){
         moveNameLabel.text = move.move.name.capitalizingFirstLetter()
         if move.version_group_details.first!.level_learned_at == 0 {
             whenLearnedLabel.text = getMethod(text: (move.version_group_details.first?.move_learn_method.name)!)

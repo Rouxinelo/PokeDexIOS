@@ -7,57 +7,57 @@
 
 import Foundation
 
-struct pokemon: Codable{
+struct Pokemon: Codable {
     
     let id: Int
-    let types: [atype]
+    let types: [Atype]
     let height: Int
     let weight: Int
     var name: String
-    let sprites: sprite
+    let sprites: Sprite
     let base_experience: Int
-    let stats: [possibleStat]
-    var moves: [possibleMove]
+    let stats: [PossibleStat]
+    var moves: [PossibleMove]
 }
 
-struct atype: Codable{
+struct Atype: Codable {
     let slot: Int
-    let type: type
+    let type: Type
 }
 //
-struct type: Codable{
+struct Type: Codable {
     let name: String
 }
 
-struct sprite: Codable{
+struct Sprite: Codable {
     let front_default: String
     let front_shiny: String?
 }
 
-struct possibleStat: Codable{
+struct PossibleStat: Codable {
     let base_stat: Int
-    let stat: stat
+    let stat: Stat
 }
 
-struct stat: Codable{
+struct Stat: Codable {
     let name: String
 }
 
-struct possibleMove: Codable{
-    let move: move
-    let version_group_details: [details]
+struct PossibleMove: Codable {
+    let move: Move
+    let version_group_details: [Details]
 }
 
-struct move: Codable{
+struct Move: Codable {
     let name: String
     let url: String
 }
 
-struct details: Codable{
+struct Details: Codable {
     let level_learned_at: Int
-    let move_learn_method: move_learn_method
+    let move_learn_method: MoveLearnMethod
 }
 
-struct move_learn_method: Codable{
+struct MoveLearnMethod: Codable {
     let name: String
 }

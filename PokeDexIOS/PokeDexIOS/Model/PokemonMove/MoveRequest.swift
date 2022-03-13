@@ -8,11 +8,11 @@
 import Foundation
 
 // MARK: - Delegate Protocol
-protocol MoveRequestDelegate{
+protocol MoveRequestDelegate {
     func recievedMoveInfo(data: PokemonMove)
 }
 
-struct MoveRequest{
+struct MoveRequest {
     
     // MARK: - Local Variables
     
