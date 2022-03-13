@@ -18,7 +18,7 @@ struct MoveRequest {
     
     var delegate: MoveRequestDelegate?
 
-    var requestURL: String = "https://pokeapi.co/api/v2/move/1/"
+    var requestURL: String = ""
     
     // MARK: - GET Request functions
     

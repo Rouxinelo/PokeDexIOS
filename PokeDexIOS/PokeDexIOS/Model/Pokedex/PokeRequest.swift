@@ -18,8 +18,8 @@ struct PokeRequest {
     // MARK: - Local Variables
     
     var delegate: PokeRequestDelegate?
-    var requestURL: String = K.URLS.searchUrl
-    let countURL: String = K.URLS.searchCount
+    var requestURL: String = API.GetPokedex("0", "0").path
+    let countURL: String = API.GetPokedex("0", "0").path
     
     // MARK: - GET Request functions
 

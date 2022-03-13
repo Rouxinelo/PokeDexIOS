@@ -36,6 +36,7 @@
 		AF6BFDAE27DE35A000BCCAA8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6BFDAD27DE35A000BCCAA8 /* Filter.swift */; };
 		AF6BFDB027DE375800BCCAA8 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6BFDAF27DE375800BCCAA8 /* Operation.swift */; };
 		AF6BFDB227DE39E700BCCAA8 /* WebhookOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6BFDB127DE39E700BCCAA8 /* WebhookOperation.swift */; };
+		AF6BFDB427DE61A500BCCAA8 /* ApiPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6BFDB327DE61A500BCCAA8 /* ApiPath.swift */; };
 		AF6C87A527C80EF700B1DEE6 /* PokeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */; };
 		AF95386227CA6F420050FDA5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95386127CA6F420050FDA5 /* Constants.swift */; };
 		AF99F60F27DA2575005223CB /* MovesAndAbilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF99F60E27DA2575005223CB /* MovesAndAbilitiesViewController.swift */; };
@@ -101,6 +102,7 @@
 		AF6BFDAD27DE35A000BCCAA8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		AF6BFDAF27DE375800BCCAA8 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		AF6BFDB127DE39E700BCCAA8 /* WebhookOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookOperation.swift; sourceTree = "<group>"; };
+		AF6BFDB327DE61A500BCCAA8 /* ApiPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPath.swift; sourceTree = "<group>"; };
 		AF6C87A427C80EF700B1DEE6 /* PokeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeRequest.swift; sourceTree = "<group>"; };
 		AF95386127CA6F420050FDA5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AF99F60E27DA2575005223CB /* MovesAndAbilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesAndAbilitiesViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				AF60233C27C809FE008FE236 /* Info.plist */,
 				AFE5BDA927CC338E008BB274 /* PokemonDataModel.xcdatamodeld */,
+				AF6BFDB327DE61A500BCCAA8 /* ApiPath.swift */,
 				AF95386127CA6F420050FDA5 /* Constants.swift */,
 				AF60233727C809FE008FE236 /* Assets.xcassets */,
 				AF6BFDAC27DE358900BCCAA8 /* Enums */,
@@ -482,6 +485,7 @@
 				AF01348827DB940500337C36 /* PokemonMove.swift in Sources */,
 				AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */,
 				AF2E525627DE1B1F0094D9F0 /* UIImageViewExtensions.swift in Sources */,
+				AF6BFDB427DE61A500BCCAA8 /* ApiPath.swift in Sources */,
 				AF01349427DBBA1900337C36 /* LearnerCell.swift in Sources */,
 				AFE5BDAB27CC338E008BB274 /* PokemonDataModel.xcdatamodeld in Sources */,
 				AFBA654527DA4262007A54F9 /* MoveCell.swift in Sources */,
