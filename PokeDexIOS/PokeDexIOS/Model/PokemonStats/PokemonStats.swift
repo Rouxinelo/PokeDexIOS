@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Delegate Protocol
+
 protocol PokemonStatsDelegate {
     func recievedPokeInfo(data: Pokemon, single: Bool)
     func pokemonNotFound()
@@ -18,8 +19,7 @@ struct PokemonStats {
     // MARK: - Local Variables
     
     var delegate: PokemonStatsDelegate?
-    var requestURL: String = "https://pokeapi.co/api/v2/pokemon/1/"
-    let requestURLSingle: String = "https://pokeapi.co/api/v2/pokemon/"
+    var requestURL: String = ""
     
     // MARK: - GET Request functions
     

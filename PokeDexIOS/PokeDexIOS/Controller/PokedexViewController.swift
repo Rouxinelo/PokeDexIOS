@@ -185,7 +185,7 @@ class PokedexViewController: UIViewController {
         
         loadFavPokemon()
         for item in favPokemon {
-            urlFavArray.append(K.baseSinglePokemonURL + item.name!)
+            urlFavArray.append(API.GetPokemonInfo(item.name!).path)
         }
     }
     
@@ -223,7 +223,7 @@ class PokedexViewController: UIViewController {
         
         checkButton()
         
-        searchForPokemonUrls.requestURL = searchForPokemonUrls.requestURL + String(maxPokemon) + K.URLS.searchOffSet
+        searchForPokemonUrls.requestURL = API.GetPokedex("0", String(maxPokemon)).path
         
         DispatchQueue.main.async {
             self.searchForPokemonUrls.fetchData(op: Operation.list.rawValue)
@@ -336,7 +336,7 @@ extension PokedexViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = searchBar.text {
             let pokemonToSearch = search.lowercased()
-            searchForPokemonStats.fetchPokemonSearch(urlString: searchForPokemonStats.requestURLSingle + pokemonToSearch + "/")
+            searchForPokemonStats.fetchPokemonSearch(urlString: API.GetPokemonInfo(pokemonToSearch).path)
         }
     }
     

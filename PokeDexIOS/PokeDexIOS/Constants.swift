@@ -10,9 +10,8 @@ import UIKit
 
 struct K {
     
-    static let webhookURL: String = "https://webhook.site/1f06d0d2-e48f-4135-90e3-e78a8e5b894f"
-    static let pokemonPerPage: Int = 4
-    static let baseSinglePokemonURL: String = "https://pokeapi.co/api/v2/pokemon/"
+    static let pokemonPerPage: Int = 1
+    
     static let sliderImage = "pokeballSlider"
     
     struct audioPlayer{
@@ -46,12 +45,6 @@ struct K {
     struct SearchBar{
         static let initialPlaceHolder: String = "Search: Pokemon Name/ID"
         static let errorPlaceHolder: String = "Error, Pokemon not found"
-    }
-    
-    struct URLS{
-        static let searchUrl: String = "https://pokeapi.co/api/v2/pokemon?limit="
-        static let searchOffSet: String = "&offset=0"
-        static let searchCount: String = "https://pokeapi.co/api/v2/pokemon?limit=1&offset=0"
     }
     
     struct BarButton{
