@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-struct TypeColorManager{
+struct TypeColorManager {
     
     var cons = 255.0
     var type: String?
-    func getColorForType() -> UIColor{
-        switch type{
+    func getColorForType() -> UIColor {
+        switch type {
         case "bug":
             return UIColor(displayP3Red: 221.0/cons, green: 255.0/cons, blue: 0, alpha: 1)
         case "electric":
@@ -55,7 +55,7 @@ struct TypeColorManager{
         }
     }
     
-    func getTextFontColor() -> UIColor{
+    func getTextFontColor() -> UIColor {
         switch type{
         case "poison", "fire", "fighting", "steel", "ghost", "dark", "ground", "normal", "grass", "water", "psychic", "rock", "dragon":
             return UIColor(displayP3Red: 255.0/cons, green: 255.0/cons, blue: 255.0/cons, alpha: 1)

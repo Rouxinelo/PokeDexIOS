@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct WebhookRequest{
+struct WebhookRequest {
     
     let webhookURL: String = K.webhookURL
     var webhookData: WebhookData? = nil
     
-    func sendData(){
+    func sendData() {
         guard let url = URL(string: webhookURL)
         else {
             return
@@ -22,8 +22,8 @@ struct WebhookRequest{
         
         var request = URLRequest(url: url)
 
-        do{
-            if let data = webhookData{
+        do {
+            if let data = webhookData {
                 let messageJSON = try encoder.encode(data)
                 request.httpMethod = "POST"
                 request.addValue("application/json", forHTTPHeaderField: Bundle.main.bundleIdentifier!)
@@ -31,7 +31,7 @@ struct WebhookRequest{
                 let task = URLSession.shared.dataTask(with: request)
                 task.resume()
             }
-        }catch{
+        } catch {
             print("error")
         }
     }

@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - Delegate Protocol
-protocol PokemonStatsDelegate{
+protocol PokemonStatsDelegate {
     func recievedPokeInfo(data: Pokemon, single: Bool)
     func pokemonNotFound()
 }
 
-struct PokemonStats{
+struct PokemonStats {
     
     // MARK: - Local Variables
     
@@ -23,8 +23,8 @@ struct PokemonStats{
     
     // MARK: - GET Request functions
     
-    func fetchData(){
-        if let url = URL(string: requestURL){
+    func fetchData() {
+        if let url = URL(string: requestURL) {
         let session = URLSession(configuration: .default)
         let sem = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -34,7 +34,7 @@ struct PokemonStats{
                     do {
                         let results = try decoder.decode(Pokemon.self, from: safeData)
                         delegate?.recievedPokeInfo(data: results, single: false)
-                    } catch{
+                    } catch {
                         print(error)
                     }
                     }
@@ -47,8 +47,8 @@ struct PokemonStats{
     }
     
     // Requests made from searchbar
-    func fetchPokemonSearch(urlString: String){
-        if let url = URL(string: urlString){
+    func fetchPokemonSearch(urlString: String) {
+        if let url = URL(string: urlString) {
         let session = URLSession(configuration: .default)
         let sem = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -58,7 +58,7 @@ struct PokemonStats{
                     do {
                         let results = try decoder.decode(Pokemon.self, from: safeData)
                         delegate?.recievedPokeInfo(data: results, single: true)
-                    } catch{
+                    } catch {
                         print(error)
                         delegate?.pokemonNotFound()
                     }
