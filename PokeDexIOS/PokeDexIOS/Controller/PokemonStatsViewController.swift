@@ -138,7 +138,7 @@ class PokemonStatsViewController: UIViewController {
                 var favWebhookRequest = WebhookData()
                 favWebhookRequest.name = pokemon.name
                 favWebhookRequest.id = pokemon.id
-                favWebhookRequest.op = "ADD"
+                favWebhookRequest.op = WebhookOperation.add.rawValue
                 webhookHandler.webhookData = favWebhookRequest
                 webhookHandler.sendData()
                 
@@ -160,7 +160,7 @@ class PokemonStatsViewController: UIViewController {
                     var favWebhookRequest = WebhookData()
                     favWebhookRequest.name = chosenPokemon?.name
                     favWebhookRequest.id = chosenPokemon?.id
-                    favWebhookRequest.op = "REMOVE"
+                    favWebhookRequest.op = WebhookOperation.remove.rawValue
                     webhookHandler.webhookData = favWebhookRequest
                     webhookHandler.sendData()
                 }
