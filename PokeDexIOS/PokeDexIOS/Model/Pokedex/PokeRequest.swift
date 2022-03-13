@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - Delegate Protocol
-protocol PokeRequestDelegate{
+protocol PokeRequestDelegate {
     func recievedPokeList(data: PokeData)
     func recievedPokeCount(count: Int)
     }
 
-struct PokeRequest{
+struct PokeRequest {
     
     // MARK: - Local Variables
     
@@ -24,11 +24,11 @@ struct PokeRequest{
     // MARK: - GET Request functions
 
     // gets pokemon URLS and count
-    func fetchData(op: String){
+    func fetchData(op: String) {
         var urlToUse = ""
-        if op == "LIST"{
+        if op == Operation.list.rawValue {
             urlToUse = requestURL
-        } else if op == "COUNT" {
+        } else if op == Operation.count.rawValue {
             urlToUse = countURL
         }
         if let url = URL(string: urlToUse){
@@ -40,9 +40,9 @@ struct PokeRequest{
                 if let safeData = data {
                     do {
                         let results = try decoder.decode(PokeData.self, from: safeData)
-                        if op == "LIST"{
+                        if op == Operation.list.rawValue {
                             delegate?.recievedPokeList(data: results)
-                        } else if op == "COUNT" {
+                        } else if op == Operation.count.rawValue {
                             delegate?.recievedPokeCount(count: results.count)
                         }
                     } catch{

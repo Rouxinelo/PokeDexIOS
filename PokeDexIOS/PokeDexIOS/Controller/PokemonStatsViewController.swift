@@ -11,7 +11,7 @@ import AVFoundation
 
     // MARK: - Delegate Protocol
 
-protocol PokemonStatsViewControllerDelegate{
+protocol PokemonStatsViewControllerDelegate {
     func didRemoveFromFavourites(pokemon: Pokemon)
 }
 
@@ -63,7 +63,7 @@ class PokemonStatsViewController: UIViewController {
     // MARK: - Core data functions
     
     // Load the list of favourites
-    func loadPokemon(){
+    func loadPokemon() {
         let request: NSFetchRequest<FavPokemon> = FavPokemon.fetchRequest()
         do {
             let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
@@ -76,8 +76,8 @@ class PokemonStatsViewController: UIViewController {
     }
     
     // Saves a new favourite
-    func savePokemon(){
-        do{
+    func savePokemon() {
+        do {
             try context.save()
         } catch {
             print("error saving")
@@ -85,8 +85,8 @@ class PokemonStatsViewController: UIViewController {
     }
     
     // Deletes the pokemon from the favourites list
-    func deletePokemon(toDelete: FavPokemon){
-        do{
+    func deletePokemon(toDelete: FavPokemon) {
+        do {
             context.delete(toDelete)
             try context.save()
         } catch {
@@ -116,7 +116,7 @@ class PokemonStatsViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         alertController.message = chosenPokemon!.name.capitalizingFirstLetter()
         
-        switch sender.image{
+        switch sender.image {
         
         // Pokemon was not a favourite yet
         case K.BarButton.notFav:
@@ -125,7 +125,7 @@ class PokemonStatsViewController: UIViewController {
             
             sender.image = K.BarButton.fav
             
-            if let pokemon = chosenPokemon{
+            if let pokemon = chosenPokemon {
                 
                 // Save the favourite on CoreData
                 let newFavPokemon = FavPokemon(context: context)
@@ -138,7 +138,7 @@ class PokemonStatsViewController: UIViewController {
                 var favWebhookRequest = WebhookData()
                 favWebhookRequest.name = pokemon.name
                 favWebhookRequest.id = pokemon.id
-                favWebhookRequest.op = "ADD"
+                favWebhookRequest.op = WebhookOperation.add.rawValue
                 webhookHandler.webhookData = favWebhookRequest
                 webhookHandler.sendData()
                 
@@ -151,8 +151,8 @@ class PokemonStatsViewController: UIViewController {
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
 
-            for pokemon in favPokemon{
-                if pokemon.name == chosenPokemon?.name{
+            for pokemon in favPokemon {
+                if pokemon.name == chosenPokemon?.name {
                     // Remove pokemon fro CoreData
                     deletePokemon(toDelete: pokemon)
                     
@@ -160,7 +160,7 @@ class PokemonStatsViewController: UIViewController {
                     var favWebhookRequest = WebhookData()
                     favWebhookRequest.name = chosenPokemon?.name
                     favWebhookRequest.id = chosenPokemon?.id
-                    favWebhookRequest.op = "REMOVE"
+                    favWebhookRequest.op = WebhookOperation.remove.rawValue
                     webhookHandler.webhookData = favWebhookRequest
                     webhookHandler.sendData()
                 }
@@ -199,7 +199,7 @@ class PokemonStatsViewController: UIViewController {
     
     // MARK: - Gesture handlers
     
-    func defineImageTapGesture(){
+    func defineImageTapGesture() {
         let tapPokemonImage = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         
         pokemonImage.addGestureRecognizer(tapPokemonImage)
@@ -207,7 +207,7 @@ class PokemonStatsViewController: UIViewController {
     }
     
     
-    func defineSwipeGesture(){
+    func defineSwipeGesture() {
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
@@ -217,7 +217,7 @@ class PokemonStatsViewController: UIViewController {
         self.view.addGestureRecognizer(swipeLeft)
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .right {
             returnToPreviousScreen()
         }
@@ -230,7 +230,7 @@ class PokemonStatsViewController: UIViewController {
     // MARK: - Styling the view with the pokemon stats
     
     // Adds style to a type label
-    func styleTypeLabel(label: UILabel, fontColor: UIColor, backgroundColor: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat, text: String){
+    func styleTypeLabel(label: UILabel, fontColor: UIColor, backgroundColor: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat, text: String) {
         label.textColor = fontColor
         label.backgroundColor  = backgroundColor
         label.layer.borderWidth = borderWidth
@@ -239,7 +239,7 @@ class PokemonStatsViewController: UIViewController {
         label.layer.masksToBounds = true
     }
     
-    func setStatLabels(pokemonStat:[PossibleStat]){
+    func setStatLabels(pokemonStat:[PossibleStat]) {
         hpLabel.text = String(pokemonStat[0].base_stat)
         atkLabel.text = String(pokemonStat[1].base_stat)
         defLabel.text = String(pokemonStat[2].base_stat)
@@ -248,7 +248,7 @@ class PokemonStatsViewController: UIViewController {
         speedLabel.text = String(pokemonStat[5].base_stat)
     }
     
-    func setPageHeader(pokemon: Pokemon){
+    func setPageHeader(pokemon: Pokemon) {
         
         colorPicker.type = pokemon.types.first?.type.name
 
@@ -273,7 +273,7 @@ class PokemonStatsViewController: UIViewController {
         imageTextLabel.textColor = colorPicker.getTextFontColor()
     }
     
-    func setPageFooter(pokemon: Pokemon){
+    func setPageFooter(pokemon: Pokemon) {
         
         pokemonWeight.text = getStatWithUnits(stat: "wt", value: pokemon.weight)
         pokemonHeight.text = getStatWithUnits(stat: "ht", value: pokemon.height)
@@ -282,7 +282,7 @@ class PokemonStatsViewController: UIViewController {
         colorPicker.type = pokemon.types.first?.type.name
         styleTypeLabel(label: type1Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.first?.type.name)!)
         
-        if pokemon.types.count > 1{
+        if pokemon.types.count > 1 {
             type2Label.isHidden = false
             colorPicker.type = pokemon.types.last?.type.name
             styleTypeLabel(label: type2Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.last?.type.name)!)
@@ -291,12 +291,12 @@ class PokemonStatsViewController: UIViewController {
         setStatLabels(pokemonStat: pokemon.stats)
     }
     
-    func setFavouriteButton(pokemon: Pokemon){
+    func setFavouriteButton(pokemon: Pokemon) {
         
         loadPokemon()
         
-        for fav in favPokemon{
-            if fav.name == chosenPokemon?.name{
+        for fav in favPokemon {
+            if fav.name == chosenPokemon?.name {
                 favButton.image = K.BarButton.fav
                 break
             }
@@ -322,8 +322,8 @@ class PokemonStatsViewController: UIViewController {
         player.play()
     }
     
-    func returnToPreviousScreen(){
-        if favButton.image == K.BarButton.notFav{
+    func returnToPreviousScreen() {
+        if favButton.image == K.BarButton.notFav {
             delegate?.didRemoveFromFavourites(pokemon: chosenPokemon!)
         }
         
@@ -335,7 +335,7 @@ class PokemonStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let pokemon = chosenPokemon{
+        if let pokemon = chosenPokemon {
             setPageHeader(pokemon: pokemon)
             setPageFooter(pokemon: pokemon)
             setFavouriteButton(pokemon: pokemon)
@@ -351,13 +351,13 @@ class PokemonStatsViewController: UIViewController {
 
 // MARK: - Prepare for Segue to MovesAndAbilities
 
-extension PokemonStatsViewController{
+extension PokemonStatsViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.pokeStatsToMovesAndAbilities {
             
-            if let VC = segue.destination as? MovesAndAbilitiesViewController{
-                if let pokemon = chosenPokemon{
+            if let VC = segue.destination as? MovesAndAbilitiesViewController {
+                if let pokemon = chosenPokemon {
                     VC.chosenPokemon = pokemon
                 }
             }
