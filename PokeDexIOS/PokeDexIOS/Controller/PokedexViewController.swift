@@ -42,8 +42,9 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var pokemonPerPageLabel: UILabel!
     
     // MARK: - Local variables
-    let requestGroup = DispatchGroup()
-    let sem = DispatchSemaphore(value: 0)
+    let searchGroup = DispatchGroup()
+
+    let searchSemaphore = DispatchSemaphore(value: 0)
 
     let networkLayer = NetworkLayer()
     let parser = ParseData()
@@ -145,7 +146,6 @@ class PokedexViewController: UIViewController {
     }
     
     @IBAction func pageButtonPressed(_ sender: UIButton) {
-
         if sender == prevPageButton {
             currentPage -= 1
             self.checkButton()
@@ -176,6 +176,7 @@ class PokedexViewController: UIViewController {
     
     func requestPokemon(name: String) {
         
+        
         self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -186,7 +187,7 @@ class PokedexViewController: UIViewController {
                     if let pokemon = pokemon{
                         self.pokemonArray.append(pokemon)
                     }
-                    self.requestGroup.leave()
+                    self.searchGroup.leave()
                 }
                 
             case .error(let error):
@@ -199,7 +200,6 @@ class PokedexViewController: UIViewController {
     
     func searchPokemons(filter: String) {
         pokemonArray.removeAll()
-        
         if filter == Filter.all.rawValue {
             
             let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
@@ -208,13 +208,13 @@ class PokedexViewController: UIViewController {
                 if i==urlArray.count {
                     break
                 }
-                    sem.signal()
-                    self.requestGroup.enter()
+                    searchSemaphore.signal()
+                    self.searchGroup.enter()
                     self.requestPokemon(name: self.pokeNameArray[i])
             }
-            requestGroup.notify(queue: .main) {
+            searchGroup.notify(queue: .main) {
                 self.pokemonArray = self.sortArray(array: self.pokemonArray)
-                self.sem.wait()
+                self.searchSemaphore.wait()
                 self.tableView.reloadData()
             }
             
@@ -314,9 +314,7 @@ class PokedexViewController: UIViewController {
                         self.pokeNameArray.append(pokemon.name)
                         self.urlArray.append(pokemon.url)
                     }
-                    
                     self.searchPokemons(filter: Filter.all.rawValue)
-                    
                 }
                 
             case .error(let error):
