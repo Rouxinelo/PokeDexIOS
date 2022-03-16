@@ -351,28 +351,6 @@ class PokedexViewController: UIViewController {
     }
 }
 
-// MARK: - PokemonStatsDelegate
-
-extension PokedexViewController{
-    func recievedPokeInfo(data: Pokemon, single: Bool) {
-        if single {
-            selectedPokemon = data
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
-            }
-        } else {
-            pokemonArray.append(data)
-        }
-    }
-    
-    func pokemonNotFound() {
-        DispatchQueue.main.async {
-            self.pokemonSearchBar.placeholder = K.SearchBar.errorPlaceHolder
-            self.pokemonSearchBar.text = ""
-        }
-    }
-}
-
 // MARK: - TableViewDataSource
 
 extension PokedexViewController: UITableViewDataSource {
