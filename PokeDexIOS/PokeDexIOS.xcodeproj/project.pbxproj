@@ -250,13 +250,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		AF468B6127E1E00700F13852 /* NetWork */ = {
+		AF468B6127E1E00700F13852 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				AF468B6227E1E01300F13852 /* NetworkLayer.swift */,
 				AF468B6427E1E07D00F13852 /* ParseData.swift */,
 			);
-			path = NetWork;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		AF60232227C809FD008FE236 = {
@@ -327,7 +327,7 @@
 		AF60235E27C80A31008FE236 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AF468B6127E1E00700F13852 /* NetWork */,
+				AF468B6127E1E00700F13852 /* Networking */,
 				AF01348C27DB95B100337C36 /* PokemonMove */,
 				AF01348B27DB959C00337C36 /* PokemonStats */,
 				AF01348A27DB958A00337C36 /* Pokedex */,

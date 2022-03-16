@@ -23,6 +23,7 @@ struct ParseData {
     }
     
     func parsePokemon(Data: Data) -> Pokemon? {
+        
         do {
             let data = try decoder.decode(Pokemon.self, from: Data)
             return data
