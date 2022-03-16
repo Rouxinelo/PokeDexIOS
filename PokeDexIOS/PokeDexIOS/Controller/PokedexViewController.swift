@@ -145,28 +145,32 @@ class PokedexViewController: UIViewController {
         }
     }
     
+    func buttonsEnabler(enabler: Bool){
+        nextPageButton.isEnabled = enabler
+        lastPageButton.isEnabled = enabler
+        prevPageButton.isEnabled = enabler
+        firstPageButton.isEnabled = enabler
+    }
+    
     @IBAction func pageButtonPressed(_ sender: UIButton) {
+        buttonsEnabler(enabler: false)
         if sender == prevPageButton {
             currentPage -= 1
-            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
 
         } else if sender == nextPageButton {
             currentPage+=1
-            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
 
         } else if sender == firstPageButton {
             currentPage = 1
-            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
             
         } else if sender == lastPageButton {
             currentPage = maxPages
-            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
         }
-        
+        checkButton()
         
 
         pageLabel.text = String(currentPage)
@@ -216,6 +220,7 @@ class PokedexViewController: UIViewController {
                 self.pokemonArray = self.sortArray(array: self.pokemonArray)
                 self.searchSemaphore.wait()
                 self.tableView.reloadData()
+                self.buttonsEnabler(enabler: true)
             }
             
         } else if filter == Filter.favourites.rawValue {
