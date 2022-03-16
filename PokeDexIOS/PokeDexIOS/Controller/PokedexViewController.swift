@@ -70,9 +70,7 @@ class PokedexViewController: UIViewController {
     var urlArray = [String]()
     var urlFavArray = [String]()
     var pokemonArray = [Pokemon]()
-    
-    var searchForPokemonStats = PokemonStats()
-    
+        
     // MARK: - Button Onclick Actions
     
     @IBAction func InformationClicked(_ sender: Any) {
@@ -179,7 +177,6 @@ class PokedexViewController: UIViewController {
     // MARK: - Function that requests for pokemon stats data
     
     func requestPokemon(name: String) {
-        
         
         self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
             guard let self = self else { return }
@@ -346,7 +343,6 @@ class PokedexViewController: UIViewController {
         
         getCount()
         
-        searchForPokemonStats.delegate = self
         pokemonSearchBar.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
@@ -357,7 +353,7 @@ class PokedexViewController: UIViewController {
 
 // MARK: - PokemonStatsDelegate
 
-extension PokedexViewController: PokemonStatsDelegate {
+extension PokedexViewController{
     func recievedPokeInfo(data: Pokemon, single: Bool) {
         if single {
             selectedPokemon = data
@@ -418,12 +414,36 @@ extension PokedexViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let search = searchBar.text {
             let pokemonToSearch = search.lowercased()
-            searchForPokemonStats.fetchPokemonSearch(urlString: API.GetPokemonInfo(pokemonToSearch).path)
+            searchSinglePokemon(name: pokemonToSearch)
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.placeholder = K.SearchBar.initialPlaceHolder
+    }
+    
+    func searchSinglePokemon(name: String){
+        
+        self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let results):
+                if let results = results {
+                    
+                    let pokemon = self.parser.parsePokemon(Data: results)
+                    if let pokemon = pokemon{
+                        self.selectedPokemon = pokemon
+                        self.performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
+                    }
+                }
+                
+            case .error(let error):
+                self.pokemonSearchBar.text = ""
+                self.pokemonSearchBar.placeholder = K.SearchBar.errorPlaceHolder
+                print(error)
+            }
+        })
+        
     }
 }
 

@@ -47,7 +47,6 @@
 		AF99F60F27DA2575005223CB /* MovesAndAbilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF99F60E27DA2575005223CB /* MovesAndAbilitiesViewController.swift */; };
 		AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */; };
 		AFBA654527DA4262007A54F9 /* MoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBA654427DA4262007A54F9 /* MoveCell.swift */; };
-		AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8E14327C8250600C96FBE /* PokemonStats.swift */; };
 		AFCAFBBB27DA158B00616DB5 /* AboutMeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */; };
 		AFCAFBBD27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */; };
 		AFE5BDAB27CC338E008BB274 /* PokemonDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFE5BDA927CC338E008BB274 /* PokemonDataModel.xcdatamodeld */; };
@@ -120,7 +119,6 @@
 		AF99F60E27DA2575005223CB /* MovesAndAbilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesAndAbilitiesViewController.swift; sourceTree = "<group>"; };
 		AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManager.swift; sourceTree = "<group>"; };
 		AFBA654427DA4262007A54F9 /* MoveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCell.swift; sourceTree = "<group>"; };
-		AFC8E14327C8250600C96FBE /* PokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokemonStats.swift; path = PokeDexIOS/Model/PokemonStats/PokemonStats.swift; sourceTree = SOURCE_ROOT; };
 		AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewControllerUITests.swift; sourceTree = "<group>"; };
 		AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewControllerUITests.swift; sourceTree = "<group>"; };
 		AFE5BDAA27CC338E008BB274 /* PokemonDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokemonDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				AF60236327C80C96008FE236 /* Pokemon.swift */,
-				AFC8E14327C8250600C96FBE /* PokemonStats.swift */,
 			);
 			path = PokemonStats;
 			sourceTree = "<group>";
@@ -644,7 +641,6 @@
 				AF6BFDB227DE39E700BCCAA8 /* WebhookOperation.swift in Sources */,
 				AF6BFDB027DE375800BCCAA8 /* Operation.swift in Sources */,
 				AF6BFDAE27DE35A000BCCAA8 /* Filter.swift in Sources */,
-				AFC8E14427C8250600C96FBE /* PokemonStats.swift in Sources */,
 				AF5DC89C27CFA1410015BDB2 /* WebhookData.swift in Sources */,
 				AF01348827DB940500337C36 /* PokemonMove.swift in Sources */,
 				AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */,
