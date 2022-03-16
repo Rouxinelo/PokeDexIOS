@@ -61,11 +61,11 @@ class PokedexViewController: UIViewController {
     var currentPage: Int = 1
     
     // Arrays that store pokemon data
+    var pokeNameArray = [String]()
     var urlArray = [String]()
     var urlFavArray = [String]()
     var pokemonArray = [Pokemon]()
     
-    var searchForPokemonUrls = PokeRequest()
     var searchForPokemonStats = PokemonStats()
     
     // MARK: - Button Onclick Actions
@@ -227,18 +227,19 @@ class PokedexViewController: UIViewController {
             switch result {
             case .success(let results):
                 if let results = results {
-                    let toPrint = self.parser.parsePokeData(Data: results)
-                    self.maxPokemon =  toPrint!.count
-                    self.currentPage = 1
-                    if toPrint!.count % self.pokemonPerPage == 0 {
-                        self.maxPages = (toPrint!.count/self.pokemonPerPage)
-                    } else {
-                        self.maxPages = (toPrint!.count/self.pokemonPerPage) + 1
-                    }
+                    
+                    let pokedex = self.parser.parsePokeData(Data: results)
+
+                    self.recievedPokeCount(count: pokedex!.count)
+                    
+                    self.checkButton()
                     
                     self.getUrls()
+                    
                 }
+                
             case .error(let error):
+
                 print(error)
             }
             })
@@ -247,13 +248,27 @@ class PokedexViewController: UIViewController {
     
     func getUrls() {
 
-        checkButton()
-        
-        searchForPokemonUrls.requestURL = API.GetPokedex("0", String(maxPokemon)).path
-        
-        DispatchQueue.main.async {
-            self.searchForPokemonUrls.fetchData(op: Operation.list.rawValue)
-        }
+        networkLayer.requestAPI(api: API.GetPokedex("0", String(maxPokemon)), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let results):
+                if let results = results {
+                    
+                    let pokedex = self.parser.parsePokeData(Data: results)
+
+                    for pokemon in pokedex!.results {
+                        self.pokeNameArray.append(pokemon.name)
+                        self.urlArray.append(pokemon.url)
+                    }
+                    
+                    self.searchPokemons(filter: Filter.all.rawValue)
+                    
+                }
+                
+            case .error(let error):
+                print(error)
+            }
+            })
     }
     
     // MARK: - viewDidLoad
@@ -261,7 +276,6 @@ class PokedexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchForPokemonUrls.delegate = self
         searchForPokemonStats.delegate = self
         pokemonSearchBar.delegate = self
         tableView.dataSource = self
@@ -277,18 +291,7 @@ class PokedexViewController: UIViewController {
 
 // MARK: - PokeRequestDelegate
 
-extension PokedexViewController: PokeRequestDelegate {
-    func recievedPokeList(data: PokeData) {
-        for res in data.results {
-            urlArray.append(res.url)
-        }
-        
-        searchPokemons(filter: Filter.all.rawValue)
-        
-        DispatchQueue.main.async {
-            self.checkButton()
-        }
-    }
+extension PokedexViewController{
     
     func recievedPokeCount(count: Int) {
         maxPokemon = count
