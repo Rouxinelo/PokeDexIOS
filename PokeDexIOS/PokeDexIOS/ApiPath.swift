@@ -20,6 +20,7 @@ enum API {
     case GetPokedex(String, String)
     case GetPokemonInfo(String)
     case GetWebhook
+    case GetMove(String)
 }
 
 extension API: TargetType {
@@ -38,6 +39,8 @@ extension API: TargetType {
         case .GetPokemonInfo(let dexId):
             let query = "pokemon/"
             return "\(baseURL)" + query + dexId
+        case .GetMove(let url):
+            return url
         case .GetWebhook:
             return WebhookPath
         }
@@ -49,8 +52,11 @@ extension API: TargetType {
             return "GET"
         case .GetPokemonInfo:
             return "GET"
+        case .GetMove:
+            return "GET"
         case .GetWebhook:
             return "POST"
+
         }
     }
 }
