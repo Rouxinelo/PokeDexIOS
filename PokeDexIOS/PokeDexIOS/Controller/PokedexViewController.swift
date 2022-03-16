@@ -224,9 +224,17 @@ class PokedexViewController: UIViewController {
             }
             
         } else if filter == Filter.favourites.rawValue {
-            for pokemon in urlFavArray {
-                self.searchForPokemonStats.requestURL = pokemon
-                self.searchForPokemonStats.fetchData()
+            for pokemon in favPokeNameArray {
+                print(pokemon)
+                searchSemaphore.signal()
+                self.searchGroup.enter()
+                requestPokemon(name: pokemon)
+                
+                searchGroup.notify(queue: .main) {
+                    self.pokemonArray = self.sortArray(array: self.pokemonArray)
+                    self.searchSemaphore.wait()
+                    self.tableView.reloadData()
+                }
             }
         }
         
@@ -239,10 +247,12 @@ class PokedexViewController: UIViewController {
     
     func loadFavArray() {
         urlFavArray.removeAll()
+        favPokeNameArray.removeAll()
         
         loadFavPokemon()
         for item in favPokemon {
             urlFavArray.append(API.GetPokemonInfo(item.name!).path)
+            favPokeNameArray.append(item.name!)
         }
     }
     
