@@ -47,9 +47,6 @@ class PokemonStatsViewController: UIViewController {
     
     // Music player
     var player: AVAudioPlayer!
-
-    // Handles the POST request to the Webhook
-    var webhookHandler = WebhookRequest()
     
     // Pokemon to be displayed
     var chosenPokemon: Pokemon? = nil

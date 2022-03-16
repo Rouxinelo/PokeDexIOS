@@ -25,8 +25,6 @@
 		AF468B6527E1E07D00F13852 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF468B6427E1E07D00F13852 /* ParseData.swift */; };
 		AF4AE7C927DA9A1100BD09C0 /* Pokemon GB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF4AE7C727DA99FD00BD09C0 /* Pokemon GB.ttf */; };
 		AF58560127DC27F7004D0648 /* MoveStatsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */; };
-		AF5DC89C27CFA1410015BDB2 /* WebhookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */; };
-		AF5DC89E27CFA1A80015BDB2 /* WebhookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */; };
 		AF60232F27C809FD008FE236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60232E27C809FD008FE236 /* AppDelegate.swift */; };
 		AF60233127C809FD008FE236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60233027C809FD008FE236 /* SceneDelegate.swift */; };
 		AF60233327C809FD008FE236 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60233227C809FD008FE236 /* PokedexViewController.swift */; };
@@ -93,8 +91,6 @@
 		AF468B6427E1E07D00F13852 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
 		AF4AE7C727DA99FD00BD09C0 /* Pokemon GB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon GB.ttf"; sourceTree = "<group>"; };
 		AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveStatsViewControllerUITests.swift; sourceTree = "<group>"; };
-		AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebhookData.swift; sourceTree = "<group>"; };
-		AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookRequest.swift; sourceTree = "<group>"; };
 		AF60232B27C809FD008FE236 /* PokeDexIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDexIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF60232E27C809FD008FE236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF60233027C809FD008FE236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,15 +176,6 @@
 				4B45F04ADD002D582AAB87C3 /* Pods_PokeDexIOSTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AF01348927DB956E00337C36 /* Webhook */ = {
-			isa = PBXGroup;
-			children = (
-				AF5DC89B27CFA1410015BDB2 /* WebhookData.swift */,
-				AF5DC89D27CFA1A80015BDB2 /* WebhookRequest.swift */,
-			);
-			path = Webhook;
 			sourceTree = "<group>";
 		};
 		AF01348A27DB958A00337C36 /* Pokedex */ = {
@@ -325,7 +312,6 @@
 				AF01348C27DB95B100337C36 /* PokemonMove */,
 				AF01348B27DB959C00337C36 /* PokemonStats */,
 				AF01348A27DB958A00337C36 /* Pokedex */,
-				AF01348927DB956E00337C36 /* Webhook */,
 				AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */,
 			);
 			path = Model;
@@ -635,13 +621,11 @@
 				AF468B6327E1E01300F13852 /* NetworkLayer.swift in Sources */,
 				AF468B6027E1DFAE00F13852 /* ResultResponse.swift in Sources */,
 				AF01348F27DB95FD00337C36 /* MoveRequest.swift in Sources */,
-				AF5DC89E27CFA1A80015BDB2 /* WebhookRequest.swift in Sources */,
 				AF62215E27C840EC009D3B1B /* PokemonCell.swift in Sources */,
 				AF60233127C809FD008FE236 /* SceneDelegate.swift in Sources */,
 				AF6BFDB227DE39E700BCCAA8 /* WebhookOperation.swift in Sources */,
 				AF6BFDB027DE375800BCCAA8 /* Operation.swift in Sources */,
 				AF6BFDAE27DE35A000BCCAA8 /* Filter.swift in Sources */,
-				AF5DC89C27CFA1410015BDB2 /* WebhookData.swift in Sources */,
 				AF01348827DB940500337C36 /* PokemonMove.swift in Sources */,
 				AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */,
 				AF2E525627DE1B1F0094D9F0 /* UIImageViewExtensions.swift in Sources */,
