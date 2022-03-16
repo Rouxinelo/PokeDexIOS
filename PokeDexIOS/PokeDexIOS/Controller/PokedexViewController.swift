@@ -42,8 +42,8 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var pokemonPerPageLabel: UILabel!
     
     // MARK: - Local variables
+    
     let searchGroup = DispatchGroup()
-
     let searchSemaphore = DispatchSemaphore(value: 0)
 
     let networkLayer = NetworkLayer()
@@ -214,10 +214,7 @@ class PokedexViewController: UIViewController {
                     self.requestPokemon(name: self.pokeNameArray[i])
             }
             searchGroup.notify(queue: .main) {
-                self.pokemonArray = self.sortArray(array: self.pokemonArray)
-                self.searchSemaphore.wait()
-                self.tableView.reloadData()
-                self.buttonsEnabler(enabler: true)
+                self.setupPageAfterRequest()
             }
             
         } else if filter == Filter.favourites.rawValue {
@@ -228,9 +225,7 @@ class PokedexViewController: UIViewController {
                 requestPokemon(name: pokemon)
                 
                 searchGroup.notify(queue: .main) {
-                    self.pokemonArray = self.sortArray(array: self.pokemonArray)
-                    self.searchSemaphore.wait()
-                    self.tableView.reloadData()
+                    self.setupPageAfterRequest()
                 }
             }
         }
@@ -266,6 +261,13 @@ class PokedexViewController: UIViewController {
     }
     
     // MARK: - Other functions
+    
+    func setupPageAfterRequest(){
+        self.pokemonArray = self.sortArray(array: self.pokemonArray)
+        self.searchSemaphore.wait()
+        self.tableView.reloadData()
+        self.buttonsEnabler(enabler: true)
+    }
     
     func sortArray(array: [Pokemon]) -> [Pokemon] {
         return array.sorted { $0.id < $1.id }
