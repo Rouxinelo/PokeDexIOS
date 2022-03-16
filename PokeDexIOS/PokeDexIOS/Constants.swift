@@ -10,7 +10,7 @@ import UIKit
 
 struct K {
     
-    static let pokemonPerPage: Int = 1
+    static let pokemonPerPage: Int = 5
     
     static let sliderImage = "pokeballSlider"
     

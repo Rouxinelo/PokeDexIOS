@@ -44,6 +44,7 @@ class PokedexViewController: UIViewController {
     // MARK: - Local variables
     
     let networkLayer = NetworkLayer()
+    let parser = ParseData()
     
     // Context for Core Data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -219,10 +220,33 @@ class PokedexViewController: UIViewController {
         
     }
     
-    func firstRequest() {
+    func getCount() {
         
-        searchForPokemonUrls.fetchData(op: Operation.count.rawValue)
+        networkLayer.requestAPI(api: API.GetPokedex("0", "1"), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let results):
+                if let results = results {
+                    let toPrint = self.parser.parsePokeData(Data: results)
+                    self.maxPokemon =  toPrint!.count
+                    self.currentPage = 1
+                    if toPrint!.count % self.pokemonPerPage == 0 {
+                        self.maxPages = (toPrint!.count/self.pokemonPerPage)
+                    } else {
+                        self.maxPages = (toPrint!.count/self.pokemonPerPage) + 1
+                    }
+                    
+                    self.getUrls()
+                }
+            case .error(let error):
+                print(error)
+            }
+            })
         
+    }
+    
+    func getUrls() {
+
         checkButton()
         
         searchForPokemonUrls.requestURL = API.GetPokedex("0", String(maxPokemon)).path
@@ -245,7 +269,9 @@ class PokedexViewController: UIViewController {
         
         setStyle()
         
-        firstRequest()
+        getCount()
+
+        
     }
 }
 

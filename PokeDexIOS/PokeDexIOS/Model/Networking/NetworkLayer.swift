@@ -61,7 +61,7 @@ class NetworkLayer: NSObject {
         self.parameters = parameters
         self.headers = headers
         
-        
+
         start?()
         AF.request(api.path,
                    method: getMethod(api: api),
