@@ -100,7 +100,7 @@ class PokedexViewController: UIViewController {
         if Int(pokemonPerPageSlider.value) != pokemonPerPage {
             pokemonPerPageLabel.text = String(Int(pokemonPerPageSlider.value))
             pokemonPerPage = Int(pokemonPerPageSlider.value)
-            recievedPokeCount(count: maxPokemon)
+            checkMaxPokemonAndPages(count: maxPokemon)
             pageLabel.text = String(currentPage)
             searchPokemons(filter: Filter.all.rawValue)
             checkButton()
@@ -108,6 +108,16 @@ class PokedexViewController: UIViewController {
     }
     
     // MARK: - Pagination
+    
+    func checkMaxPokemonAndPages(count: Int) {
+        maxPokemon = count
+        currentPage = 1
+        if count % self.pokemonPerPage == 0 {
+            self.maxPages = (count/self.pokemonPerPage)
+        } else {
+            self.maxPages = (count/self.pokemonPerPage) + 1
+        }
+    }
     
     func getIndicesOfPage(elementsPerPage: Int) -> [Int] {
         return [(currentPage-1)*elementsPerPage, elementsPerPage*(currentPage-1) + (elementsPerPage-1)]
@@ -230,7 +240,7 @@ class PokedexViewController: UIViewController {
                     
                     let pokedex = self.parser.parsePokeData(Data: results)
 
-                    self.recievedPokeCount(count: pokedex!.count)
+                    self.checkMaxPokemonAndPages(count: pokedex!.count)
                     
                     self.checkButton()
                     
@@ -286,21 +296,6 @@ class PokedexViewController: UIViewController {
         getCount()
 
         
-    }
-}
-
-// MARK: - PokeRequestDelegate
-
-extension PokedexViewController{
-    
-    func recievedPokeCount(count: Int) {
-        maxPokemon = count
-        currentPage = 1
-        if count % self.pokemonPerPage == 0 {
-            self.maxPages = (count/self.pokemonPerPage)
-        } else {
-            self.maxPages = (count/self.pokemonPerPage) + 1
-        }
     }
 }
 
