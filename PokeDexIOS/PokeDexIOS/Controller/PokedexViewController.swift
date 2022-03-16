@@ -42,7 +42,9 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var pokemonPerPageLabel: UILabel!
     
     // MARK: - Local variables
-    
+    let requestGroup = DispatchGroup()
+    let sem = DispatchSemaphore(value: 0)
+
     let networkLayer = NetworkLayer()
     let parser = ParseData()
     
@@ -62,6 +64,8 @@ class PokedexViewController: UIViewController {
     
     // Arrays that store pokemon data
     var pokeNameArray = [String]()
+    var favPokeNameArray = [String]()
+    
     var urlArray = [String]()
     var urlFavArray = [String]()
     var pokemonArray = [Pokemon]()
@@ -141,30 +145,59 @@ class PokedexViewController: UIViewController {
     }
     
     @IBAction func pageButtonPressed(_ sender: UIButton) {
+
         if sender == prevPageButton {
             currentPage -= 1
-            checkButton()
+            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
+
         } else if sender == nextPageButton {
             currentPage+=1
-            checkButton()
+            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
+
         } else if sender == firstPageButton {
             currentPage = 1
-            checkButton()
+            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
+            
         } else if sender == lastPageButton {
             currentPage = maxPages
-            checkButton()
+            self.checkButton()
             searchPokemons(filter: Filter.all.rawValue)
         }
+        
+        
+
         pageLabel.text = String(currentPage)
     }
     
     // MARK: - Function that requests for pokemon stats data
     
-    func searchPokemons(filter: String) {
+    func requestPokemon(name: String) {
         
+        self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let results):
+                if let results = results {
+                    
+                    let pokemon = self.parser.parsePokemon(Data: results)
+                    if let pokemon = pokemon{
+                        self.pokemonArray.append(pokemon)
+                    }
+                    self.requestGroup.leave()
+                }
+                
+            case .error(let error):
+                
+                print(error)
+            }
+        })
+        
+    }
+    
+    func searchPokemons(filter: String) {
         pokemonArray.removeAll()
         
         if filter == Filter.all.rawValue {
@@ -175,8 +208,14 @@ class PokedexViewController: UIViewController {
                 if i==urlArray.count {
                     break
                 }
-                self.searchForPokemonStats.requestURL = urlArray[i]
-                self.searchForPokemonStats.fetchData()
+                    sem.signal()
+                    self.requestGroup.enter()
+                    self.requestPokemon(name: self.pokeNameArray[i])
+            }
+            requestGroup.notify(queue: .main) {
+                self.pokemonArray = self.sortArray(array: self.pokemonArray)
+                self.sem.wait()
+                self.tableView.reloadData()
             }
             
         } else if filter == Filter.favourites.rawValue {
@@ -216,7 +255,12 @@ class PokedexViewController: UIViewController {
     
     // MARK: - Other functions
     
+    func sortArray(array: [Pokemon]) -> [Pokemon] {
+        return array.sorted { $0.id < $1.id }
+    }
+    
     func setSliderData(Pagevalue: Int, thumbImageName: String) {
+        pokemonPerPageSlider.isContinuous = false
         pokemonPerPageSlider.value = Float(Pagevalue)
         pokemonPerPageSlider.setThumbImage(UIImage(named: thumbImageName), for: .normal)
         pokemonPerPageLabel.text = String(Pagevalue)
@@ -239,7 +283,7 @@ class PokedexViewController: UIViewController {
                 if let results = results {
                     
                     let pokedex = self.parser.parsePokeData(Data: results)
-
+                    
                     self.checkMaxPokemonAndPages(count: pokedex!.count)
                     
                     self.checkButton()
@@ -249,15 +293,15 @@ class PokedexViewController: UIViewController {
                 }
                 
             case .error(let error):
-
+                
                 print(error)
             }
-            })
+        })
         
     }
     
     func getUrls() {
-
+        
         networkLayer.requestAPI(api: API.GetPokedex("0", String(maxPokemon)), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -265,7 +309,7 @@ class PokedexViewController: UIViewController {
                 if let results = results {
                     
                     let pokedex = self.parser.parsePokeData(Data: results)
-
+                    
                     for pokemon in pokedex!.results {
                         self.pokeNameArray.append(pokemon.name)
                         self.urlArray.append(pokemon.url)
@@ -278,7 +322,7 @@ class PokedexViewController: UIViewController {
             case .error(let error):
                 print(error)
             }
-            })
+        })
     }
     
     // MARK: - viewDidLoad
@@ -286,16 +330,15 @@ class PokedexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        getCount()
+        
         searchForPokemonStats.delegate = self
         pokemonSearchBar.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
         
         setStyle()
-        
-        getCount()
-
-        
     }
 }
 
@@ -401,5 +444,6 @@ extension PokedexViewController: PokemonStatsViewControllerDelegate {
                 }
             }
         }
+        tableView.reloadData()
     }
 }
