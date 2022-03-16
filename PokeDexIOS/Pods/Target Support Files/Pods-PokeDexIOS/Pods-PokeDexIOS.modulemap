@@ -1,0 +1,6 @@
+framework module Pods_PokeDexIOS {
+  umbrella header "Pods-PokeDexIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

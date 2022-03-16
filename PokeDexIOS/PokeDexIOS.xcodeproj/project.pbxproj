@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0580883D28B7500D11CCDABD /* Pods_PokeDexIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B45F04ADD002D582AAB87C3 /* Pods_PokeDexIOSTests.framework */; };
+		0632F1981431F7916C84228A /* Pods_PokeDexIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704FB16277BC0B8E4FAD3FEE /* Pods_PokeDexIOS.framework */; };
+		28E4BA281F71B7186BE9FE89 /* Pods_PokeDexIOS_PokeDexIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8D8F0D134B167C0EDB1232 /* Pods_PokeDexIOS_PokeDexIOSUITests.framework */; };
 		AF01348627DB7AFD00337C36 /* MoveStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348527DB7AFD00337C36 /* MoveStatsViewController.swift */; };
 		AF01348827DB940500337C36 /* PokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348727DB940500337C36 /* PokemonMove.swift */; };
 		AF01348F27DB95FD00337C36 /* MoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348E27DB95FD00337C36 /* MoveRequest.swift */; };
@@ -69,6 +72,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2404D33729AF18B745104A9C /* Pods-PokeDexIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOSTests.release.xcconfig"; path = "Target Support Files/Pods-PokeDexIOSTests/Pods-PokeDexIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4B45F04ADD002D582AAB87C3 /* Pods_PokeDexIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeDexIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		582243A3756534359CFC10F4 /* Pods-PokeDexIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOS.release.xcconfig"; path = "Target Support Files/Pods-PokeDexIOS/Pods-PokeDexIOS.release.xcconfig"; sourceTree = "<group>"; };
+		5F8D8F0D134B167C0EDB1232 /* Pods_PokeDexIOS_PokeDexIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeDexIOS_PokeDexIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		704FB16277BC0B8E4FAD3FEE /* Pods_PokeDexIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeDexIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF01348527DB7AFD00337C36 /* MoveStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveStatsViewController.swift; sourceTree = "<group>"; };
 		AF01348727DB940500337C36 /* PokemonMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMove.swift; sourceTree = "<group>"; };
 		AF01348E27DB95FD00337C36 /* MoveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveRequest.swift; sourceTree = "<group>"; };
@@ -115,6 +123,10 @@
 		AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManagerTests.swift; sourceTree = "<group>"; };
 		AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewController.swift; sourceTree = "<group>"; };
 		AFF654A827C91F0100903A58 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		C087EBD42D336D56AA425682 /* Pods-PokeDexIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-PokeDexIOSTests/Pods-PokeDexIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D10993C5E1164A9A07CB2BE2 /* Pods-PokeDexIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOS.debug.xcconfig"; path = "Target Support Files/Pods-PokeDexIOS/Pods-PokeDexIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D135F94287873FE82D3C5CEF /* Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-PokeDexIOS-PokeDexIOSUITests/Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EE368CE18FE8DFD636040E17 /* Pods-PokeDexIOS-PokeDexIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOS-PokeDexIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeDexIOS-PokeDexIOSUITests/Pods-PokeDexIOS-PokeDexIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0632F1981431F7916C84228A /* Pods_PokeDexIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0580883D28B7500D11CCDABD /* Pods_PokeDexIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,12 +150,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E4BA281F71B7186BE9FE89 /* Pods_PokeDexIOS_PokeDexIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53A44C036446F7086E87DDE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D10993C5E1164A9A07CB2BE2 /* Pods-PokeDexIOS.debug.xcconfig */,
+				582243A3756534359CFC10F4 /* Pods-PokeDexIOS.release.xcconfig */,
+				EE368CE18FE8DFD636040E17 /* Pods-PokeDexIOS-PokeDexIOSUITests.debug.xcconfig */,
+				D135F94287873FE82D3C5CEF /* Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig */,
+				C087EBD42D336D56AA425682 /* Pods-PokeDexIOSTests.debug.xcconfig */,
+				2404D33729AF18B745104A9C /* Pods-PokeDexIOSTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5597659B7B0E4F57CC84A311 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				704FB16277BC0B8E4FAD3FEE /* Pods_PokeDexIOS.framework */,
+				5F8D8F0D134B167C0EDB1232 /* Pods_PokeDexIOS_PokeDexIOSUITests.framework */,
+				4B45F04ADD002D582AAB87C3 /* Pods_PokeDexIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AF01348927DB956E00337C36 /* Webhook */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +252,8 @@
 				AF60234427C809FE008FE236 /* PokeDexIOSTests */,
 				AF60234E27C809FE008FE236 /* PokeDexIOSUITests */,
 				AF60232C27C809FD008FE236 /* Products */,
+				53A44C036446F7086E87DDE4 /* Pods */,
+				5597659B7B0E4F57CC84A311 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -337,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF60235527C809FE008FE236 /* Build configuration list for PBXNativeTarget "PokeDexIOS" */;
 			buildPhases = (
+				407C8D95A8F93F2AA0723FD1 /* [CP] Check Pods Manifest.lock */,
 				AF60232727C809FD008FE236 /* Sources */,
 				AF60232827C809FD008FE236 /* Frameworks */,
 				AF60232927C809FD008FE236 /* Resources */,
+				2E4CAB1FFAD67F191B304C2B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +397,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF60235827C809FE008FE236 /* Build configuration list for PBXNativeTarget "PokeDexIOSTests" */;
 			buildPhases = (
+				A991B07061CE3DB47F62A30E /* [CP] Check Pods Manifest.lock */,
 				AF60233D27C809FE008FE236 /* Sources */,
 				AF60233E27C809FE008FE236 /* Frameworks */,
 				AF60233F27C809FE008FE236 /* Resources */,
@@ -372,9 +416,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF60235B27C809FE008FE236 /* Build configuration list for PBXNativeTarget "PokeDexIOSUITests" */;
 			buildPhases = (
+				3F6E11E39B4B04B6E8F92BE4 /* [CP] Check Pods Manifest.lock */,
 				AF60234727C809FE008FE236 /* Sources */,
 				AF60234827C809FE008FE236 /* Frameworks */,
 				AF60234927C809FE008FE236 /* Resources */,
+				A068590B42CDA5C5B67B9444 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -458,6 +504,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E4CAB1FFAD67F191B304C2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeDexIOS/Pods-PokeDexIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeDexIOS/Pods-PokeDexIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokeDexIOS/Pods-PokeDexIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F6E11E39B4B04B6E8F92BE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeDexIOS-PokeDexIOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		407C8D95A8F93F2AA0723FD1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeDexIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A068590B42CDA5C5B67B9444 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeDexIOS-PokeDexIOSUITests/Pods-PokeDexIOS-PokeDexIOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeDexIOS-PokeDexIOSUITests/Pods-PokeDexIOS-PokeDexIOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokeDexIOS-PokeDexIOSUITests/Pods-PokeDexIOS-PokeDexIOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A991B07061CE3DB47F62A30E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeDexIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF60232727C809FD008FE236 /* Sources */ = {
@@ -670,6 +819,7 @@
 		};
 		AF60235627C809FE008FE236 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D10993C5E1164A9A07CB2BE2 /* Pods-PokeDexIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -698,6 +848,7 @@
 		};
 		AF60235727C809FE008FE236 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 582243A3756534359CFC10F4 /* Pods-PokeDexIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -726,6 +877,7 @@
 		};
 		AF60235927C809FE008FE236 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C087EBD42D336D56AA425682 /* Pods-PokeDexIOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -746,6 +898,7 @@
 		};
 		AF60235A27C809FE008FE236 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2404D33729AF18B745104A9C /* Pods-PokeDexIOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -766,6 +919,7 @@
 		};
 		AF60235C27C809FE008FE236 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE368CE18FE8DFD636040E17 /* Pods-PokeDexIOS-PokeDexIOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -784,6 +938,7 @@
 		};
 		AF60235D27C809FE008FE236 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D135F94287873FE82D3C5CEF /* Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
