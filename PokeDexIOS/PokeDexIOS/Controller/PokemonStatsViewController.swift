@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import AVFoundation
+import Alamofire
 
     // MARK: - Delegate Protocol
 
@@ -40,6 +41,8 @@ class PokemonStatsViewController: UIViewController {
     
     // MARK: - Local variables
     
+    let networkLayer = NetworkLayer()
+
     var delegate: PokemonStatsViewControllerDelegate?
     
     // Music player
@@ -134,13 +137,7 @@ class PokemonStatsViewController: UIViewController {
                 favPokemon.append(newFavPokemon)
                 savePokemon()
                 
-                // Send the POST request to the Webhook
-                var favWebhookRequest = WebhookData()
-                favWebhookRequest.name = pokemon.name
-                favWebhookRequest.id = pokemon.id
-                favWebhookRequest.op = WebhookOperation.add.rawValue
-                webhookHandler.webhookData = favWebhookRequest
-                webhookHandler.sendData()
+                webhookRequest(id: pokemon.id, name: pokemon.name, op: WebhookOperation.add.rawValue)
                 
             }
             
@@ -156,13 +153,8 @@ class PokemonStatsViewController: UIViewController {
                     // Remove pokemon fro CoreData
                     deletePokemon(toDelete: pokemon)
                     
-                    // Send the POST request to the Webhook
-                    var favWebhookRequest = WebhookData()
-                    favWebhookRequest.name = chosenPokemon?.name
-                    favWebhookRequest.id = chosenPokemon?.id
-                    favWebhookRequest.op = WebhookOperation.remove.rawValue
-                    webhookHandler.webhookData = favWebhookRequest
-                    webhookHandler.sendData()
+                    webhookRequest(id: chosenPokemon!.id, name: chosenPokemon!.name, op: WebhookOperation.remove.rawValue)
+
                 }
             }
             alertController.title = "Favourite Removed:"
@@ -328,6 +320,16 @@ class PokemonStatsViewController: UIViewController {
         }
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    func webhookRequest(id: Int, name: String, op: String) {
+        
+        let params = ["name": name, "id": id, "op":op] as [String:AnyObject]
+        
+        self.networkLayer.requestAPI(api: API.GetWebhook, parameters: params, headers: K.headers.webHook, completion: { [weak self] result in
+            guard self != nil else { return }
+        })
+        
     }
     
     // MARK: - viewDidLoad
