@@ -43,6 +43,8 @@ class PokedexViewController: UIViewController {
     
     // MARK: - Local variables
     
+    let networkLayer = NetworkLayer()
+    
     // Context for Core Data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     

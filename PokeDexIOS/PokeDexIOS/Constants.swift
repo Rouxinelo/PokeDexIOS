@@ -14,6 +14,11 @@ struct K {
     
     static let sliderImage = "pokeballSlider"
     
+    struct headers{
+        static let pokeApi = ["Content-Type": "application/json", "accept": "application/json"]
+        static let webHook = ["AppIP": Bundle.main.bundleIdentifier!]
+    }
+    
     struct audioPlayer{
         static let favouriteSoundExtension: String = "mp3"
         static let favouriteSoundName: String = "caughtSound"
