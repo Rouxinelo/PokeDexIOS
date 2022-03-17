@@ -30,7 +30,7 @@ struct Type: Codable {
 }
 
 struct Sprite: Codable {
-    let front_default: String
+    let front_default: String?
     let front_shiny: String?
 }
 
