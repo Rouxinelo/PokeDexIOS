@@ -59,4 +59,18 @@ extension API: TargetType {
 
         }
     }
+    
+    public var header: [String: String] {
+        switch self {
+        case .GetPokedex:
+            return ["Content-Type": "application/json", "accept": "application/json"]
+        case .GetPokemonInfo:
+            return ["Content-Type": "application/json", "accept": "application/json"]
+        case .GetMove:
+            return ["Content-Type": "application/json", "accept": "application/json"]
+        case .GetWebhook:
+            return ["AppID": Bundle.main.bundleIdentifier!]
+
+        }
+    }
 }

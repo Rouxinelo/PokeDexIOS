@@ -177,7 +177,7 @@ class PokedexViewController: UIViewController {
     
     func requestPokemon(name: String) {
         
-        self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+        self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: API.GetPokemonInfo(name).header, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let results):
@@ -286,7 +286,7 @@ class PokedexViewController: UIViewController {
     
     func getCount() {
         
-        networkLayer.requestAPI(api: API.GetPokedex("0", "1"), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+        networkLayer.requestAPI(api: API.GetPokedex("0", "1"), parameters: nil, headers: API.GetPokedex("0", "1").header, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let results):
@@ -312,7 +312,7 @@ class PokedexViewController: UIViewController {
     
     func getUrls() {
         
-        networkLayer.requestAPI(api: API.GetPokedex("0", String(maxPokemon)), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+        networkLayer.requestAPI(api: API.GetPokedex("0", String(maxPokemon)), parameters: nil, headers: API.GetPokedex("0", String(maxPokemon)).header, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let results):
@@ -399,7 +399,7 @@ extension PokedexViewController: UISearchBarDelegate {
     
     func searchSinglePokemon(name: String) {
         
-        self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+        self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: API.GetPokemonInfo(name).header, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let results):
