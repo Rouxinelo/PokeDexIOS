@@ -176,11 +176,15 @@ class PokemonStatsViewController: UIViewController {
                     }
                     break
                 case "Shiny":
-                    pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+                    if let image = pokemon.sprites.front_default {
+                        pokemonImage.load(url: URL(string: image)!)
+                    } else {
+                        pokemonImage.image = UIImage(named: "noSprite")
+                    }
                     imageTextLabel.text = "Regular"
                     break
                 default:
-                    print("Error")
+                    break
                 }
             }
         }
@@ -255,7 +259,12 @@ class PokemonStatsViewController: UIViewController {
         pokemonNumber.textColor = colorPicker.getTextFontColor()
         pokemonNumber.text = String(pokemon.id)
         
-        pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
+        if let image = pokemon.sprites.front_default {
+            pokemonImage.load(url: URL(string: image)!)
+        } else {
+            pokemonImage.image = UIImage(named: "noSprite")
+            imageTextLabel.text = "No Image"
+        }
         pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
         pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
         

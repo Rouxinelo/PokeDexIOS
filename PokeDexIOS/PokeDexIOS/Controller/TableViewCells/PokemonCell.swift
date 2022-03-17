@@ -29,7 +29,12 @@ class PokemonCell: UITableViewCell {
     func loadPokeInfo(pokemon: Pokemon){
         pokemonNumber.text = String(pokemon.id)
         pokemonName.text = pokemon.name.capitalizingFirstLetter()
-        pokemonSprite.load(url: URL(string: pokemon.sprites.front_default)!)
+        if let image = pokemon.sprites.front_default {
+            pokemonSprite.load(url: URL(string: image)!)
+        } else {
+            pokemonSprite.image = UIImage(named: "noSprite")
+        }
+        
         if pokemon.types.count == 2 {
             type2Label.text = pokemon.types.last?.type.name
             colorPicker.type = pokemon.types.last?.type.name
