@@ -56,6 +56,23 @@ class MovesAndAbilitiesViewController: UIViewController {
             returnToPreviousScreen()
         }
     }
+    // MARK: - Pokemon has no moves
+    
+    func noMoves() {
+        
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.light))
+        blurEffectView.frame = view.bounds
+        view.addSubview(blurEffectView)
+        
+        let alertController = UIAlertController(title: "Oh No!", message:
+                                                    "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Return", style: .default, handler:  { action -> Void in
+            self.returnToPreviousScreen()
+       }))
+        alertController.message = chosenPokemon!.name.capitalizingFirstLetter() + " does not know any moves."
+
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     // MARK: - Request move Info
     
@@ -115,6 +132,10 @@ class MovesAndAbilitiesViewController: UIViewController {
         super.viewDidLoad()
         
         if let pokemon = chosenPokemon {
+            
+            if pokemon.moves.count == 0 {
+                noMoves()
+            }
             chosenPokemon!.moves = sortArray(array: pokemon.moves)
         }
         

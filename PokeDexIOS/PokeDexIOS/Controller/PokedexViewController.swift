@@ -218,7 +218,6 @@ class PokedexViewController: UIViewController {
             
         } else if filter == Filter.favourites.rawValue {
             for pokemon in favPokeNameArray {
-                print(pokemon)
                 searchSemaphore.signal()
                 self.searchGroup.enter()
                 requestPokemon(name: pokemon)
