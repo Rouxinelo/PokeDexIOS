@@ -28,7 +28,6 @@ class MoveStatsViewController: UIViewController {
     var chosenMove: PokemonMove?
     var moveName: String?
     
-    var moveRequest = MoveRequest()
     var colorPicker = TypeColorManager()
     
     // MARK: - Button Onclick Actions

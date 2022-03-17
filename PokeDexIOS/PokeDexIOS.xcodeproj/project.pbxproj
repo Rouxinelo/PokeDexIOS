@@ -12,7 +12,6 @@
 		28E4BA281F71B7186BE9FE89 /* Pods_PokeDexIOS_PokeDexIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8D8F0D134B167C0EDB1232 /* Pods_PokeDexIOS_PokeDexIOSUITests.framework */; };
 		AF01348627DB7AFD00337C36 /* MoveStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348527DB7AFD00337C36 /* MoveStatsViewController.swift */; };
 		AF01348827DB940500337C36 /* PokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348727DB940500337C36 /* PokemonMove.swift */; };
-		AF01348F27DB95FD00337C36 /* MoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01348E27DB95FD00337C36 /* MoveRequest.swift */; };
 		AF01349427DBBA1900337C36 /* LearnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF01349327DBBA1900337C36 /* LearnerCell.swift */; };
 		AF0F08D227D261BB0024FBC0 /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6827D26120005D0EF0 /* Pokemon Solid.ttf */; };
 		AF20FA6727D260DC005D0EF0 /* caughtSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AF20FA6627D260DC005D0EF0 /* caughtSound.mp3 */; };
@@ -78,7 +77,6 @@
 		704FB16277BC0B8E4FAD3FEE /* Pods_PokeDexIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeDexIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF01348527DB7AFD00337C36 /* MoveStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveStatsViewController.swift; sourceTree = "<group>"; };
 		AF01348727DB940500337C36 /* PokemonMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMove.swift; sourceTree = "<group>"; };
-		AF01348E27DB95FD00337C36 /* MoveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveRequest.swift; sourceTree = "<group>"; };
 		AF01349327DBBA1900337C36 /* LearnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerCell.swift; sourceTree = "<group>"; };
 		AF20FA6627D260DC005D0EF0 /* caughtSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = caughtSound.mp3; sourceTree = "<group>"; };
 		AF20FA6827D26120005D0EF0 /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				AF01348727DB940500337C36 /* PokemonMove.swift */,
-				AF01348E27DB95FD00337C36 /* MoveRequest.swift */,
 			);
 			path = PokemonMove;
 			sourceTree = "<group>";
@@ -620,7 +617,6 @@
 				AF01348627DB7AFD00337C36 /* MoveStatsViewController.swift in Sources */,
 				AF468B6327E1E01300F13852 /* NetworkLayer.swift in Sources */,
 				AF468B6027E1DFAE00F13852 /* ResultResponse.swift in Sources */,
-				AF01348F27DB95FD00337C36 /* MoveRequest.swift in Sources */,
 				AF62215E27C840EC009D3B1B /* PokemonCell.swift in Sources */,
 				AF60233127C809FD008FE236 /* SceneDelegate.swift in Sources */,
 				AF6BFDB227DE39E700BCCAA8 /* WebhookOperation.swift in Sources */,
