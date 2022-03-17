@@ -19,7 +19,7 @@ protocol TargetType {
 enum API {
     case GetPokedex(String, String)
     case GetPokemonInfo(String)
-    case GetWebhook
+    case GetWebhook(String, Int, String)
     case GetMove(String)
 }
 
@@ -70,7 +70,19 @@ extension API: TargetType {
             return ["Content-Type": "application/json", "accept": "application/json"]
         case .GetWebhook:
             return ["AppID": Bundle.main.bundleIdentifier!]
-
+        }
+    }
+    
+    public var params: [String: AnyObject]? {
+        switch self {
+        case .GetPokedex:
+            return nil
+        case .GetPokemonInfo:
+            return nil
+        case .GetMove:
+            return nil
+        case .GetWebhook(let name, let id, let op):
+            return ["name": name, "id": id, "op":op] as [String:AnyObject]
         }
     }
 }

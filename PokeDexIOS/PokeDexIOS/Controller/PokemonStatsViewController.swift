@@ -330,9 +330,8 @@ class PokemonStatsViewController: UIViewController {
     
     func webhookRequest(id: Int, name: String, op: String) {
         
-        let params = ["name": name, "id": id, "op":op] as [String:AnyObject]
         
-        self.networkLayer.requestAPI(api: API.GetWebhook, parameters: params, headers: API.GetWebhook.header, completion: { [weak self] result in
+        self.networkLayer.requestAPI(api: API.GetWebhook(name, id, op), parameters: API.GetWebhook(name, id, op).params, headers: API.GetWebhook(name, id, op).header, completion: { [weak self] result in
             guard self != nil else { return }
         })
         

@@ -77,7 +77,7 @@ class MovesAndAbilitiesViewController: UIViewController {
     // MARK: - Request move Info
     
     func requestMove(moveURL: String) {
-        self.networkLayer.requestAPI(api: API.GetMove(moveURL), parameters: nil, headers: API.GetMove(moveURL).header, completion: { [weak self] result in
+        self.networkLayer.requestAPI(api: API.GetMove(moveURL), parameters: API.GetMove(moveURL).params, headers: API.GetMove(moveURL).header, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let results):
