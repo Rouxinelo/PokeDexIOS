@@ -16,7 +16,7 @@ struct K {
     
     struct headers{
         static let pokeApi = ["Content-Type": "application/json", "accept": "application/json"]
-        static let webHook = ["AppIP": Bundle.main.bundleIdentifier!]
+        static let webHook = ["AppID": Bundle.main.bundleIdentifier!]
     }
     
     struct audioPlayer{
