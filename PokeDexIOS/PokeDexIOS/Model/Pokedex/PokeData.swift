@@ -16,4 +16,5 @@ struct PokeData: Codable {
 
 struct Result: Codable {
     let url: String
+    let name: String
 }

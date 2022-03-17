@@ -20,9 +20,12 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     // MARK: - Local Variables
     
+    let networkLayer = NetworkLayer()
+    let parser = ParseData()
+
     var chosenPokemon: Pokemon?
     
-    var chosenMove: String?
+    var chosenMove: PokemonMove?
     var chosenMoveName: String?
     
     var colorPicker = TypeColorManager()
@@ -53,6 +56,28 @@ class MovesAndAbilitiesViewController: UIViewController {
             returnToPreviousScreen()
         }
     }
+    
+    // MARK: - Request move Info
+    
+    func requestMove(moveURL: String) {
+        self.networkLayer.requestAPI(api: API.GetMove(moveURL), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let results):
+                if let results = results {
+                    
+                    let pokemonMove = self.parser.parsePokemonMove(Data: results)
+                    if let pokemonMove = pokemonMove {
+                        self.chosenMove = pokemonMove
+                        self.performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
+                    }
+                }
+            case .error(let error):
+                print(error)
+            }
+        })
+    }
+    
     
     // MARK: - Load Pokemon Info
     
@@ -99,7 +124,7 @@ class MovesAndAbilitiesViewController: UIViewController {
         loadPokemon()
         
         defineSwipeGesture()
-
+        
     }
     
 }
@@ -131,10 +156,9 @@ extension MovesAndAbilitiesViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let pokemon = chosenPokemon{
-            chosenMove = pokemon.moves[indexPath.row].move.url
+            requestMove(moveURL: pokemon.moves[indexPath.row].move.url)
             chosenMoveName = pokemon.moves[indexPath.row].move.name
         }
-        performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -147,7 +171,6 @@ extension MovesAndAbilitiesViewController {
             
             if let VC = segue.destination as? MoveStatsViewController{
                 if let move = chosenMove{
-                    
                     VC.chosenMove = move
                     VC.moveName = chosenMoveName
                 }

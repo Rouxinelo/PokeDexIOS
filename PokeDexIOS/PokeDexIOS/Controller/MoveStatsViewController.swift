@@ -25,10 +25,8 @@ class MoveStatsViewController: UIViewController {
     
     // MARK: - Local Variables
     
-    var chosenMove: String?
+    var chosenMove: PokemonMove?
     var moveName: String?
-
-    var moveInfo: PokemonMove?
     
     var moveRequest = MoveRequest()
     var colorPicker = TypeColorManager()
@@ -102,27 +100,14 @@ class MoveStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        moveRequest.delegate = self
         learnersTableView.dataSource = self
         
         defineSwipeGesture()
     
         if let chosenMove = chosenMove {
-            moveRequest.requestURL = chosenMove
-            moveRequest.fetchData()
-        }
-        
-        if let move = moveInfo {
-            styleHeader(move: move)
-        }
-    }
-}
+            styleHeader(move: chosenMove)
 
-// MARK: - Move Request Delegate
-
-extension MoveStatsViewController: MoveRequestDelegate {
-    func recievedMoveInfo(data: PokemonMove) {
-        moveInfo = data
+        }
     }
 }
 
@@ -130,7 +115,7 @@ extension MoveStatsViewController: MoveRequestDelegate {
 
 extension MoveStatsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let move = moveInfo {
+        if let move = chosenMove {
             return move.learned_by_pokemon.count
         }
         return 0
@@ -138,7 +123,7 @@ extension MoveStatsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.learnerCellIdentifier, for: indexPath) as! LearnerCell
-        if let move = moveInfo{
+        if let move = chosenMove {
             cell.loadCell(pokemonName: move.learned_by_pokemon[indexPath.row].name)
         }
         return cell

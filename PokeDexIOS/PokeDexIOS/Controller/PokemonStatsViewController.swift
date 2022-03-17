@@ -8,8 +8,9 @@
 import UIKit
 import CoreData
 import AVFoundation
+import Alamofire
 
-    // MARK: - Delegate Protocol
+// MARK: - Delegate Protocol
 
 protocol PokemonStatsViewControllerDelegate {
     func didRemoveFromFavourites(pokemon: Pokemon)
@@ -40,13 +41,12 @@ class PokemonStatsViewController: UIViewController {
     
     // MARK: - Local variables
     
+    let networkLayer = NetworkLayer()
+    
     var delegate: PokemonStatsViewControllerDelegate?
     
     // Music player
     var player: AVAudioPlayer!
-
-    // Handles the POST request to the Webhook
-    var webhookHandler = WebhookRequest()
     
     // Pokemon to be displayed
     var chosenPokemon: Pokemon? = nil
@@ -95,7 +95,7 @@ class PokemonStatsViewController: UIViewController {
     }
     
     // MARK: - Button OnClickActions
-
+    
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         returnToPreviousScreen()
     }
@@ -117,8 +117,8 @@ class PokemonStatsViewController: UIViewController {
         alertController.message = chosenPokemon!.name.capitalizingFirstLetter()
         
         switch sender.image {
-        
-        // Pokemon was not a favourite yet
+            
+            // Pokemon was not a favourite yet
         case K.BarButton.notFav:
             
             playSound(soundName: K.audioPlayer.favouriteSoundName)
@@ -134,35 +134,24 @@ class PokemonStatsViewController: UIViewController {
                 favPokemon.append(newFavPokemon)
                 savePokemon()
                 
-                // Send the POST request to the Webhook
-                var favWebhookRequest = WebhookData()
-                favWebhookRequest.name = pokemon.name
-                favWebhookRequest.id = pokemon.id
-                favWebhookRequest.op = WebhookOperation.add.rawValue
-                webhookHandler.webhookData = favWebhookRequest
-                webhookHandler.sendData()
+                webhookRequest(id: pokemon.id, name: pokemon.name, op: WebhookOperation.add.rawValue)
                 
             }
             
             alertController.title = "Favourite Added:"
             self.present(alertController, animated: true, completion: nil)
             
-        // Pokemon was marked as favourite
+            // Pokemon was marked as favourite
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
-
+            
             for pokemon in favPokemon {
                 if pokemon.name == chosenPokemon?.name {
                     // Remove pokemon fro CoreData
                     deletePokemon(toDelete: pokemon)
                     
-                    // Send the POST request to the Webhook
-                    var favWebhookRequest = WebhookData()
-                    favWebhookRequest.name = chosenPokemon?.name
-                    favWebhookRequest.id = chosenPokemon?.id
-                    favWebhookRequest.op = WebhookOperation.remove.rawValue
-                    webhookHandler.webhookData = favWebhookRequest
-                    webhookHandler.sendData()
+                    webhookRequest(id: chosenPokemon!.id, name: chosenPokemon!.name, op: WebhookOperation.remove.rawValue)
+                    
                 }
             }
             alertController.title = "Favourite Removed:"
@@ -251,7 +240,7 @@ class PokemonStatsViewController: UIViewController {
     func setPageHeader(pokemon: Pokemon) {
         
         colorPicker.type = pokemon.types.first?.type.name
-
+        
         pokemonColor
             .backgroundColor = colorPicker.getColorForType()
         
@@ -269,7 +258,7 @@ class PokemonStatsViewController: UIViewController {
         pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
         pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
         pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
-
+        
         imageTextLabel.textColor = colorPicker.getTextFontColor()
     }
     
@@ -302,7 +291,7 @@ class PokemonStatsViewController: UIViewController {
             }
         }
     }
-
+    
     // MARK: - Other functions
     
     func getStatWithUnits(stat: String, value: Int) -> String {
@@ -330,6 +319,16 @@ class PokemonStatsViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func webhookRequest(id: Int, name: String, op: String) {
+        
+        let params = ["name": name, "id": id, "op":op] as [String:AnyObject]
+        
+        self.networkLayer.requestAPI(api: API.GetWebhook, parameters: params, headers: K.headers.webHook, completion: { [weak self] result in
+            guard self != nil else { return }
+        })
+        
+    }
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -340,11 +339,11 @@ class PokemonStatsViewController: UIViewController {
             setPageFooter(pokemon: pokemon)
             setFavouriteButton(pokemon: pokemon)
         }
-
+        
         defineImageTapGesture()
         
         defineSwipeGesture()
-
+        
     }
     
 }
