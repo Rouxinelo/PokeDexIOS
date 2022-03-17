@@ -20,14 +20,14 @@ class AboutMeViewController: UIViewController {
     
     // MARK: - Swipe Gesture handlers
     
-    func defineGesture(){
+    func defineGesture() {
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .right {
             returnToPreviousScreen()
         }
@@ -36,7 +36,7 @@ class AboutMeViewController: UIViewController {
     
     // MARK: - Other functions
     
-    func returnToPreviousScreen(){
+    func returnToPreviousScreen() {
         navigationController?.popViewController(animated: true)
     }
     

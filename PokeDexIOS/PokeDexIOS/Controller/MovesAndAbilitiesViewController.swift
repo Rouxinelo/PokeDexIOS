@@ -44,14 +44,14 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     // MARK: - Gesture Handlers
     
-    func defineSwipeGesture(){
+    func defineSwipeGesture() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         
         self.view.addGestureRecognizer(swipeRight)
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .right {
             returnToPreviousScreen()
         }
@@ -131,10 +131,10 @@ class MovesAndAbilitiesViewController: UIViewController {
 
 // MARK: - Table View Data Source
 
-extension MovesAndAbilitiesViewController: UITableViewDataSource{
+extension MovesAndAbilitiesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let pokemon = chosenPokemon{
+        if let pokemon = chosenPokemon {
             return pokemon.moves.count
         }
         return 0
@@ -142,20 +142,19 @@ extension MovesAndAbilitiesViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.moveCellIdentifier, for: indexPath) as! MoveCell
-        if let pokemon = chosenPokemon{
+        if let pokemon = chosenPokemon {
             cell.loadMove(move: pokemon.moves[indexPath.row])
         }
-        
         return cell
     }
 }
 
 // MARK: - Table View Delegate
 
-extension MovesAndAbilitiesViewController: UITableViewDelegate{
+extension MovesAndAbilitiesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let pokemon = chosenPokemon{
+        if let pokemon = chosenPokemon {
             requestMove(moveURL: pokemon.moves[indexPath.row].move.url)
             chosenMoveName = pokemon.moves[indexPath.row].move.name
         }
@@ -167,10 +166,10 @@ extension MovesAndAbilitiesViewController: UITableViewDelegate{
 
 extension MovesAndAbilitiesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.Segues.movesAndAbilitiesToMoveStats{
+        if segue.identifier == K.Segues.movesAndAbilitiesToMoveStats {
             
-            if let VC = segue.destination as? MoveStatsViewController{
-                if let move = chosenMove{
+            if let VC = segue.destination as? MoveStatsViewController {
+                if let move = chosenMove {
                     VC.chosenMove = move
                     VC.moveName = chosenMoveName
                 }

@@ -38,20 +38,20 @@ class MoveStatsViewController: UIViewController {
     
     // MARK: - Navigation functions
     
-    func returnToPreviousScreen(){
+    func returnToPreviousScreen() {
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Gesture Handlers
     
-    func defineSwipeGesture(){
+    func defineSwipeGesture() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         
         self.view.addGestureRecognizer(swipeRight)
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .right {
             returnToPreviousScreen()
         }
@@ -59,7 +59,7 @@ class MoveStatsViewController: UIViewController {
     
     // MARK: - Set page style
     
-    func styleHeader(move: PokemonMove){
+    func styleHeader(move: PokemonMove) {
         
         colorPicker.type = move.type.name
         

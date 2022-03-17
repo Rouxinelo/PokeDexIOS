@@ -176,30 +176,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AF01348A27DB958A00337C36 /* Pokedex */ = {
-			isa = PBXGroup;
-			children = (
-				AF60236127C80B44008FE236 /* PokeData.swift */,
-			);
-			path = Pokedex;
-			sourceTree = "<group>";
-		};
-		AF01348B27DB959C00337C36 /* PokemonStats */ = {
-			isa = PBXGroup;
-			children = (
-				AF60236327C80C96008FE236 /* Pokemon.swift */,
-			);
-			path = PokemonStats;
-			sourceTree = "<group>";
-		};
-		AF01348C27DB95B100337C36 /* PokemonMove */ = {
-			isa = PBXGroup;
-			children = (
-				AF01348727DB940500337C36 /* PokemonMove.swift */,
-			);
-			path = PokemonMove;
-			sourceTree = "<group>";
-		};
 		AF01348D27DB95DD00337C36 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +207,7 @@
 		AF468B6127E1E00700F13852 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				AF6BFDB327DE61A500BCCAA8 /* ApiPath.swift */,
 				AF468B6227E1E01300F13852 /* NetworkLayer.swift */,
 				AF468B6427E1E07D00F13852 /* ParseData.swift */,
 			);
@@ -264,8 +241,8 @@
 			children = (
 				AF60233C27C809FE008FE236 /* Info.plist */,
 				AFE5BDA927CC338E008BB274 /* PokemonDataModel.xcdatamodeld */,
-				AF6BFDB327DE61A500BCCAA8 /* ApiPath.swift */,
 				AF95386127CA6F420050FDA5 /* Constants.swift */,
+				AF468B6127E1E00700F13852 /* Networking */,
 				AF60233727C809FE008FE236 /* Assets.xcassets */,
 				AF6BFDAC27DE358900BCCAA8 /* Enums */,
 				AF2E525227DE1A940094D9F0 /* Extensions */,
@@ -305,10 +282,9 @@
 		AF60235E27C80A31008FE236 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AF468B6127E1E00700F13852 /* Networking */,
-				AF01348C27DB95B100337C36 /* PokemonMove */,
-				AF01348B27DB959C00337C36 /* PokemonStats */,
-				AF01348A27DB958A00337C36 /* Pokedex */,
+				AF01348727DB940500337C36 /* PokemonMove.swift */,
+				AF60236327C80C96008FE236 /* Pokemon.swift */,
+				AF60236127C80B44008FE236 /* PokeData.swift */,
 				AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */,
 			);
 			path = Model;

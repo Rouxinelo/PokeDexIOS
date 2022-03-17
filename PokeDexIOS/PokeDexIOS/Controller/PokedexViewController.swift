@@ -45,7 +45,7 @@ class PokedexViewController: UIViewController {
     
     let searchGroup = DispatchGroup()
     let searchSemaphore = DispatchSemaphore(value: 0)
-
+    
     let networkLayer = NetworkLayer()
     let parser = ParseData()
     
@@ -67,10 +67,8 @@ class PokedexViewController: UIViewController {
     var pokeNameArray = [String]()
     var favPokeNameArray = [String]()
     
-    var urlArray = [String]()
-    var urlFavArray = [String]()
     var pokemonArray = [Pokemon]()
-        
+    
     // MARK: - Button Onclick Actions
     
     @IBAction func InformationClicked(_ sender: Any) {
@@ -143,7 +141,7 @@ class PokedexViewController: UIViewController {
         }
     }
     
-    func buttonsEnabler(enabler: Bool){
+    func buttonsEnabler(enabler: Bool) {
         nextPageButton.isEnabled = enabler
         lastPageButton.isEnabled = enabler
         prevPageButton.isEnabled = enabler
@@ -156,11 +154,11 @@ class PokedexViewController: UIViewController {
         if sender == prevPageButton {
             currentPage -= 1
             searchPokemons(filter: Filter.all.rawValue)
-
+            
         } else if sender == nextPageButton {
             currentPage+=1
             searchPokemons(filter: Filter.all.rawValue)
-
+            
         } else if sender == firstPageButton {
             currentPage = 1
             searchPokemons(filter: Filter.all.rawValue)
@@ -171,7 +169,7 @@ class PokedexViewController: UIViewController {
         }
         checkButton()
         
-
+        
         pageLabel.text = String(currentPage)
     }
     
@@ -207,12 +205,12 @@ class PokedexViewController: UIViewController {
             let indices = getIndicesOfPage(elementsPerPage: pokemonPerPage)
             
             for i in indices[0]...indices[1]{
-                if i==urlArray.count {
+                if i==pokeNameArray.count {
                     break
                 }
-                    searchSemaphore.signal()
-                    self.searchGroup.enter()
-                    self.requestPokemon(name: self.pokeNameArray[i])
+                searchSemaphore.signal()
+                self.searchGroup.enter()
+                self.requestPokemon(name: self.pokeNameArray[i])
             }
             searchGroup.notify(queue: .main) {
                 self.setupPageAfterRequest()
@@ -239,12 +237,10 @@ class PokedexViewController: UIViewController {
     // MARK: - Core data functions
     
     func loadFavArray() {
-        urlFavArray.removeAll()
         favPokeNameArray.removeAll()
         
         loadFavPokemon()
         for item in favPokemon {
-            urlFavArray.append(API.GetPokemonInfo(item.name!).path)
             favPokeNameArray.append(item.name!)
         }
     }
@@ -263,7 +259,7 @@ class PokedexViewController: UIViewController {
     
     // MARK: - Other functions
     
-    func setupPageAfterRequest(){
+    func setupPageAfterRequest() {
         self.pokemonArray = self.sortArray(array: self.pokemonArray)
         self.searchSemaphore.wait()
         self.tableView.reloadData()
@@ -327,7 +323,6 @@ class PokedexViewController: UIViewController {
                     
                     for pokemon in pokedex!.results {
                         self.pokeNameArray.append(pokemon.name)
-                        self.urlArray.append(pokemon.url)
                     }
                     self.searchPokemons(filter: Filter.all.rawValue)
                 }
@@ -403,7 +398,7 @@ extension PokedexViewController: UISearchBarDelegate {
         searchBar.placeholder = K.SearchBar.initialPlaceHolder
     }
     
-    func searchSinglePokemon(name: String){
+    func searchSinglePokemon(name: String) {
         
         self.networkLayer.requestAPI(api: API.GetPokemonInfo(name), parameters: nil, headers: K.headers.pokeApi, completion: { [weak self] result in
             guard let self = self else { return }
@@ -436,7 +431,7 @@ extension PokedexViewController {
             
             if let VC = segue.destination as? PokemonStatsViewController {
                 VC.delegate = self
-                if let pokemonChosen = selectedPokemon{
+                if let pokemonChosen = selectedPokemon {
                     VC.chosenPokemon = pokemonChosen
                 }
             }
@@ -451,7 +446,7 @@ extension PokedexViewController: PokemonStatsViewControllerDelegate {
     func didRemoveFromFavourites(pokemon: Pokemon) {
         if favouritesBarButton.title == "Favourites" {
             for i in 0..<pokemonArray.count{
-                if pokemon.name == pokemonArray[i].name{
+                if pokemon.name == pokemonArray[i].name {
                     pokemonArray.remove(at: i)
                     tableView.reloadData()
                     break

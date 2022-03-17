@@ -16,12 +16,12 @@ class LearnerCell: UITableViewCell {
     
     // MARK: - Style the cell
     
-    func styleCell(){
+    func styleCell() {
         cellView.layer.cornerRadius = K.TableCells.borderRadius
         cellView.layer.borderWidth = K.TableCells.strokeWidth
     }
     
-    func loadCell(pokemonName: String){
+    func loadCell(pokemonName: String) {
         learnerNameLabel.text = pokemonName.capitalizingFirstLetter()
     }
     

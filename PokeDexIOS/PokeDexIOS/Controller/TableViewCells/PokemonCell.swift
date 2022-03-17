@@ -13,10 +13,8 @@ class PokemonCell: UITableViewCell {
     @IBOutlet weak var pokemonSprite: UIImageView!
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonNumber: UILabel!
-    
     @IBOutlet weak var type1Label: UILabel!
     @IBOutlet weak var type2Label: UILabel!
-    
     @IBOutlet weak var stackView: UIStackView!
     
     // MARK: - Local Variables
@@ -26,7 +24,7 @@ class PokemonCell: UITableViewCell {
     
     // MARK: - Other functions
     
-    func loadPokeInfo(pokemon: Pokemon){
+    func loadPokeInfo(pokemon: Pokemon) {
         pokemonNumber.text = String(pokemon.id)
         pokemonName.text = pokemon.name.capitalizingFirstLetter()
         if let image = pokemon.sprites.front_default {
@@ -52,13 +50,12 @@ class PokemonCell: UITableViewCell {
     }
     
     
-    func setStyle(){
+    func setStyle() {
         
         stackView.layer.borderWidth = K.TableCells.strokeWidth
         stackView.layer.cornerRadius = K.TableCells.borderRadius
         stackView.layer.cornerCurve = .continuous
 
-        
         type1Label.layer.borderWidth = K.TableCells.strokeWidth
         type1Label.layer.cornerRadius = K.TableCells.borderRadius
         type2Label.layer.borderWidth = K.TableCells.strokeWidth

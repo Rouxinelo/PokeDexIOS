@@ -167,7 +167,7 @@ class PokemonStatsViewController: UIViewController {
     // Tapped on the Pokemon Sprite, change from regular to shiny
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            if let pokemon = chosenPokemon{
+            if let pokemon = chosenPokemon {
                 switch imageTextLabel.text{
                 case "Regular":
                     if let shiny = pokemon.sprites.front_shiny {

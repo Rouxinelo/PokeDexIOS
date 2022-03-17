@@ -33,7 +33,7 @@ class MoveCell: UITableViewCell {
         }
     }
     
-    func loadMove(move: PossibleMove){
+    func loadMove(move: PossibleMove) {
         moveNameLabel.text = move.move.name.capitalizingFirstLetter()
         if move.version_group_details.first!.level_learned_at == 0 {
             whenLearnedLabel.text = getMethod(text: (move.version_group_details.first?.move_learn_method.name)!)
@@ -42,7 +42,7 @@ class MoveCell: UITableViewCell {
         }
     }
     
-    func styleCell(){
+    func styleCell() {
         cellView.layer.cornerRadius = K.TableCells.borderRadius
         cellView.layer.borderWidth = K.TableCells.strokeWidth
     }
@@ -54,7 +54,6 @@ class MoveCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
     
 }
