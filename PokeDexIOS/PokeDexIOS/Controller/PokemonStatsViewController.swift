@@ -10,7 +10,7 @@ import CoreData
 import AVFoundation
 import Alamofire
 
-    // MARK: - Delegate Protocol
+// MARK: - Delegate Protocol
 
 protocol PokemonStatsViewControllerDelegate {
     func didRemoveFromFavourites(pokemon: Pokemon)
@@ -42,7 +42,7 @@ class PokemonStatsViewController: UIViewController {
     // MARK: - Local variables
     
     let networkLayer = NetworkLayer()
-
+    
     var delegate: PokemonStatsViewControllerDelegate?
     
     // Music player
@@ -95,7 +95,7 @@ class PokemonStatsViewController: UIViewController {
     }
     
     // MARK: - Button OnClickActions
-
+    
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         returnToPreviousScreen()
     }
@@ -117,8 +117,8 @@ class PokemonStatsViewController: UIViewController {
         alertController.message = chosenPokemon!.name.capitalizingFirstLetter()
         
         switch sender.image {
-        
-        // Pokemon was not a favourite yet
+            
+            // Pokemon was not a favourite yet
         case K.BarButton.notFav:
             
             playSound(soundName: K.audioPlayer.favouriteSoundName)
@@ -141,17 +141,17 @@ class PokemonStatsViewController: UIViewController {
             alertController.title = "Favourite Added:"
             self.present(alertController, animated: true, completion: nil)
             
-        // Pokemon was marked as favourite
+            // Pokemon was marked as favourite
         case K.BarButton.fav:
             sender.image = K.BarButton.notFav
-
+            
             for pokemon in favPokemon {
                 if pokemon.name == chosenPokemon?.name {
                     // Remove pokemon fro CoreData
                     deletePokemon(toDelete: pokemon)
                     
                     webhookRequest(id: chosenPokemon!.id, name: chosenPokemon!.name, op: WebhookOperation.remove.rawValue)
-
+                    
                 }
             }
             alertController.title = "Favourite Removed:"
@@ -240,7 +240,7 @@ class PokemonStatsViewController: UIViewController {
     func setPageHeader(pokemon: Pokemon) {
         
         colorPicker.type = pokemon.types.first?.type.name
-
+        
         pokemonColor
             .backgroundColor = colorPicker.getColorForType()
         
@@ -258,7 +258,7 @@ class PokemonStatsViewController: UIViewController {
         pokemonImage.load(url: URL(string: pokemon.sprites.front_default)!)
         pokemonImage.layer.cornerRadius = K.StatsScreen.spriteRadius
         pokemonImage.layer.borderWidth = K.StatsScreen.spriteStrokeWidth
-
+        
         imageTextLabel.textColor = colorPicker.getTextFontColor()
     }
     
@@ -291,7 +291,7 @@ class PokemonStatsViewController: UIViewController {
             }
         }
     }
-
+    
     // MARK: - Other functions
     
     func getStatWithUnits(stat: String, value: Int) -> String {
@@ -339,11 +339,11 @@ class PokemonStatsViewController: UIViewController {
             setPageFooter(pokemon: pokemon)
             setFavouriteButton(pokemon: pokemon)
         }
-
+        
         defineImageTapGesture()
         
         defineSwipeGesture()
-
+        
     }
     
 }

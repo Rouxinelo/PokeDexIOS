@@ -148,6 +148,7 @@ class PokedexViewController: UIViewController {
         lastPageButton.isEnabled = enabler
         prevPageButton.isEnabled = enabler
         firstPageButton.isEnabled = enabler
+        favouritesBarButton.isEnabled = enabler
     }
     
     @IBAction func pageButtonPressed(_ sender: UIButton) {
