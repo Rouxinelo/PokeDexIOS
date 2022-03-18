@@ -11,10 +11,24 @@ class MainMenuViewController: UIViewController {
 
     // MARK: - IBOutlets
     
+    @IBOutlet weak var songStackView: UIStackView!
+    @IBOutlet weak var playButton: UIButton!
+    
+    @IBOutlet weak var appearanceStackView: UIStackView!
     @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var modeSwitch: UISwitch!
     
     // MARK: - IBActions
+   
+    @IBAction func playButtonClicked(_ sender: UIButton) {
+        switch sender.currentImage {
+        case UIImage(systemName: "play.fill"):
+            sender.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            default:
+            sender.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        }
+        
+    }
     
     @IBAction func switchPressed(_ sender: UISwitch) {
         switch sender.isOn {
@@ -37,7 +51,12 @@ class MainMenuViewController: UIViewController {
     
     // MARK: - Other functions
     
-    func setSwitch(){
+    func setMode(mode : UIUserInterfaceStyle) {
+        let window = UIApplication.shared.windows[0]
+        window.overrideUserInterfaceStyle = mode
+    }
+    
+    func setSwitch() {
         switch UIScreen.main.traitCollection.userInterfaceStyle.rawValue {
         case 1:
             modeLabel.text = "Light"
@@ -51,15 +70,19 @@ class MainMenuViewController: UIViewController {
         }
     }
     
+    func styleHeader() {
+        appearanceStackView.layer.cornerRadius = 30
+        songStackView.layer.cornerRadius = 30
+        playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+    }
+    
     // MARK: - View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setSwitch()
+        styleHeader()
     }
     
-    func setMode(mode : UIUserInterfaceStyle) {
-        let window = UIApplication.shared.windows[0]
-        window.overrideUserInterfaceStyle = mode
-    }
+
 }
