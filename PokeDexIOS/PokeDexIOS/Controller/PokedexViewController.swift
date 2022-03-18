@@ -358,9 +358,6 @@ class PokedexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadingIndicator()
-        
         getCount()
         
         pokemonSearchBar.delegate = self
