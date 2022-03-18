@@ -32,6 +32,10 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     // MARK: - Button Onclick Actions
     
+    @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         returnToPreviousScreen()
     }

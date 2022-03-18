@@ -71,7 +71,7 @@ class PokedexViewController: UIViewController {
     
     // MARK: - Button Onclick Actions
     
-    @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         navigationController?.popToRootViewController(animated: true)
     }
     
