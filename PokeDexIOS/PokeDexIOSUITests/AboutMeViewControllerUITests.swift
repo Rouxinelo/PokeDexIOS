@@ -20,18 +20,13 @@ class AboutMeViewControllerUITests: XCTestCase {
     }
     
     func testBackButtonPressed() throws {
-        
-        let app = XCUIApplication()
-        app.navigationBars["PokeDexIOS.PokedexView"].buttons["Item"].tap()
+        app.scrollViews.otherElements.buttons["App & Dev Info"].tap()
         app.navigationBars["PokeDexIOS.AboutMeView"].buttons["Item"].tap()
-
     }
     
     func testSwipeRightGestureHandler() throws {
-        
-        let app = XCUIApplication()
-        app.navigationBars["PokeDexIOS.PokedexView"].buttons["Item"].tap()
-        app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).swipeRight()
-        
+        app.scrollViews.otherElements.buttons["App & Dev Info"].tap()
+        app.staticTexts["Age"].swipeRight()
+    
     }
 }
