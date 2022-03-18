@@ -21,14 +21,12 @@ class MoveStatsViewControllerUITests: XCTestCase {
     }
 
     func testBackButtonPressed() throws {
-        
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["1"]/*[[".cells.staticTexts[\"1\"]",".staticTexts[\"1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Bulbasaur"]/*[[".cells.staticTexts[\"Bulbasaur\"]",".staticTexts[\"Bulbasaur\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.navigationBars["PokeDexIOS.PokemonStatsView"].children(matching: .button).matching(identifier: "Item").element(boundBy: 2).tap()
         tablesQuery.cells.containing(.staticText, identifier:"Amnesia").staticTexts["Egg"].tap()
         app.navigationBars["PokeDexIOS.MoveStatsView"].buttons["Item"].tap()
-        
     }
 
 }
