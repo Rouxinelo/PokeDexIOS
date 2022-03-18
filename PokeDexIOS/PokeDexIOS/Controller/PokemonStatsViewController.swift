@@ -8,7 +8,6 @@
 import UIKit
 import CoreData
 import AVFoundation
-import Alamofire
 
 // MARK: - Delegate Protocol
 
