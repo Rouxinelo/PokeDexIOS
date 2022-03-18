@@ -80,11 +80,12 @@ class MovesAndAbilitiesViewController: UIViewController {
             switch result {
             case .success(let results):
                 if let results = results {
-                    self.removeBlur()
                     let pokemonMove = self.parser.parsePokemonMove(Data: results)
                     if let pokemonMove = pokemonMove {
                         self.chosenMove = pokemonMove
-                        self.performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
+                        self.removeLoading()
+                        self.removeBlur()
+
                     }
                 }
             case .error(let error):
@@ -141,6 +142,24 @@ class MovesAndAbilitiesViewController: UIViewController {
         }
     }
     
+    func loadingIndicator(){
+        let alert = UIAlertController(title: nil, message: "Loading Move...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func removeLoading(){
+        dismiss(animated: false, completion: {
+            self.performSegue(withIdentifier: K.Segues.movesAndAbilitiesToMoveStats, sender: self)
+        })
+    }
+    
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,6 +210,7 @@ extension MovesAndAbilitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let pokemon = chosenPokemon {
             loadBlur()
+            loadingIndicator()
             requestMove(moveURL: pokemon.moves[indexPath.row].move.url)
             chosenMoveName = pokemon.moves[indexPath.row].move.name
         }
