@@ -59,6 +59,7 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func randomPokemonClicked(_ sender: UIButton) {
+        loadingIndicator()
         getSpecies()
     }
     
@@ -82,8 +83,6 @@ class MainMenuViewController: UIViewController {
                         self.specieCount = pokedex!.count
                         
                         let randomNum = Int.random(in: 1...pokedex!.count)
-                        print(randomNum)
-                        
                         self.getRandomPokemon(number: randomNum)
                     }
                 }
@@ -104,10 +103,9 @@ class MainMenuViewController: UIViewController {
                         
                         let pokemon = self.parser.parsePokemon(Data: results)
                         if let pokemon = pokemon{
-                            self.randomPokemon = pokemon
                             
-                            print(pokemon.name)
-                            self.performSegue(withIdentifier: K.Segues.mainMenuToPokemonStats, sender: self)
+                            self.randomPokemon = pokemon
+                            self.removeLoading()
                         }
                     }
                     
@@ -118,6 +116,24 @@ class MainMenuViewController: UIViewController {
     }
     
     // MARK: - Other functions
+    
+    func loadingIndicator(){
+        let alert = UIAlertController(title: nil, message: "Fetching Pokemon...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func removeLoading(){
+        dismiss(animated: false, completion: {
+            self.performSegue(withIdentifier: K.Segues.mainMenuToPokemonStats, sender: self)
+        })
+    }
     
     func setMode(mode : UIUserInterfaceStyle) {
         let window = UIApplication.shared.windows[0]
