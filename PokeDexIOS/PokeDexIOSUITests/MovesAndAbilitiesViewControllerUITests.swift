@@ -38,4 +38,13 @@ class MovesAndAbilitiesViewControllerUITests: XCTestCase {
         app.navigationBars["PokeDexIOS.PokemonStatsView"].children(matching: .button).matching(identifier: "Item").element(boundBy: 2).tap()
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Amnesia"]/*[[".cells.staticTexts[\"Amnesia\"]",".staticTexts[\"Amnesia\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
+    
+    func testPokemonHasNoMoves() throws {
+        app.searchFields["Search: Pokemon Name/ID"].tap()
+        app.searchFields["Search: Pokemon Name/ID"].typeText("10200")
+        app.searchFields["Search: Pokemon Name/ID"].tap()
+        XCUIApplication().keyboards.buttons["Search"].tap()
+        app.navigationBars["PokeDexIOS.PokemonStatsView"].children(matching: .button).matching(identifier: "Item").element(boundBy: 2).tap()
+        app.alerts["Oh No!"].scrollViews.otherElements.buttons["Return"].tap()
+    }
 }

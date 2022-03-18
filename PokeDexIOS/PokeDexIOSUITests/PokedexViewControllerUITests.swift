@@ -54,10 +54,6 @@ class PokedexViewControllerUITests: XCTestCase {
         app.sliders["11%"].adjust(toNormalizedSliderPosition: 0.9)
     }
     
-    func testPokemonNotFound() throws {
-        XCUIApplication().searchFields["Search: Pokemon Name/ID"].tap()
-    }
-    
     func testSelectTableViewRow() throws {
         XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["1"]/*[[".cells.staticTexts[\"1\"]",".staticTexts[\"1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
