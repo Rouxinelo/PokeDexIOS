@@ -761,7 +761,7 @@
                             <barButtonItem title="Item" image="house.fill" catalog="system" id="R4b-EY-y3t">
                                 <color key="tintColor" name="darkModeSetNavBar"/>
                                 <connections>
-                                    <action selector="InformationClicked:" destination="ZGe-D1-D4y" id="0AL-hr-JCH"/>
+                                    <action selector="homeButtonClicked:" destination="ZGe-D1-D4y" id="J2y-PJ-z4q"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="heart" catalog="system" id="gTk-2s-uqZ">
@@ -1189,7 +1189,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ooM-cO-ybC"/>
+        <segue reference="Cah-tK-uTs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

@@ -104,8 +104,8 @@ class PokemonStatsViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: self)
     }
     
-    @IBAction func InformationClicked(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
+    @IBAction func homeButtonClicked(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     
