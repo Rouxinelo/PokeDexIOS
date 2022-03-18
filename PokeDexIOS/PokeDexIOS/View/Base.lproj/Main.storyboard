@@ -207,22 +207,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tte-vN-J9U">
-                                <rect key="frame" x="163" y="300" width="89" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="POKEDEX"/>
-                                <connections>
-                                    <action selector="pokedexButtonClicked:" destination="aLL-oD-Ysn" eventType="touchUpInside" id="a7x-lI-8R4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F20-o7-ntl">
-                                <rect key="frame" x="159" y="462" width="98" height="31"/>
+                                <rect key="frame" x="158" y="654" width="98" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="ABOUTAPP"/>
                                 <connections>
                                     <action selector="aboutButtonClicked:" destination="aLL-oD-Ysn" eventType="touchUpInside" id="7D5-TP-3aR"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YEG-bz-a4Q">
+                                <rect key="frame" x="183" y="248" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="switchPressed:" destination="aLL-oD-Ysn" eventType="valueChanged" id="fG6-aF-auK"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-N4-0Dk">
+                                <rect key="frame" x="186" y="219" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tte-vN-J9U">
+                                <rect key="frame" x="163" y="494" width="89" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="POKEDEX"/>
+                                <connections>
+                                    <action selector="pokedexButtonClicked:" destination="aLL-oD-Ysn" eventType="touchUpInside" id="a7x-lI-8R4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -231,6 +246,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="7EI-Yw-q0R"/>
                     <connections>
+                        <outlet property="modeLabel" destination="Rlz-N4-0Dk" id="AdJ-Tc-82l"/>
+                        <outlet property="modeSwitch" destination="YEG-bz-a4Q" id="500-Su-Wrg"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toPokeDex" id="dxZ-rq-Nx4"/>
                         <segue destination="ZIK-xf-tnO" kind="show" identifier="toAboutMe" id="RPl-Qx-i86"/>
                     </connections>
@@ -544,26 +561,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="362.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-vK-ow7">
-                                                <rect key="frame" x="146" y="0.0" width="122.5" height="56"/>
+                                                <rect key="frame" x="146" y="0.0" width="122.5" height="35"/>
                                                 <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-ii-TW6">
-                                                <rect key="frame" x="113.5" y="61" width="187" height="187"/>
+                                                <rect key="frame" x="80.5" y="40" width="253" height="253"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="WCZ-ii-TW6" secondAttribute="height" multiplier="1:1" id="4kV-cN-Arg"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regular" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Am-RK-mLa">
-                                                <rect key="frame" x="165.5" y="253" width="83" height="37.5"/>
+                                                <rect key="frame" x="165.5" y="298" width="83" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-iz-7Ij">
-                                                <rect key="frame" x="164.5" y="295.5" width="85" height="67"/>
+                                                <rect key="frame" x="164.5" y="326.5" width="85" height="36"/>
                                                 <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
