@@ -8,7 +8,6 @@
 import UIKit
 import CoreData
 import AVFoundation
-import Alamofire
 
 // MARK: - Delegate Protocol
 
@@ -21,6 +20,7 @@ class PokemonStatsViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var favButton: UIBarButtonItem!
+    @IBOutlet weak var homeButton: UIBarButtonItem!
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var imageTextLabel: UILabel!
@@ -104,8 +104,8 @@ class PokemonStatsViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.pokeStatsToMovesAndAbilities, sender: self)
     }
     
-    @IBAction func InformationClicked(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: K.Segues.pokeStatsToAboutMe, sender: sender)
+    @IBAction func homeButtonClicked(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     

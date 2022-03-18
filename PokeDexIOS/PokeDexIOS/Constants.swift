@@ -17,12 +17,15 @@ struct K {
     struct audioPlayer{
         static let favouriteSoundExtension: String = "mp3"
         static let favouriteSoundName: String = "caughtSound"
+        static let themeSongExtension: String = "mp3"
+        static let themeSongName: String = "themeSong"
     }
     
     struct Segues{
-        static let pokeDexToAboutMe: String = "toAboutMe"
+        static let mainMenuToAboutMe: String = "toAboutMe"
+        static let mainMenuToPokedex: String = "toPokeDex"
+        static let mainMenuToPokemonStats: String = "randomSearch"
         static let pokeDexToPokeStats: String = "toPokeStats"
-        static let pokeStatsToAboutMe: String = "toAboutMe"
         static let pokeStatsToMovesAndAbilities: String = "toMovesAndAbilities"
         static let movesAndAbilitiesToMoveStats: String = "pokeMovesToMoveStats"
     }
