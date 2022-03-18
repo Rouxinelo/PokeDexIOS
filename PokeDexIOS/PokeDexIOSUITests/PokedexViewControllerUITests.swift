@@ -8,7 +8,7 @@
 import XCTest
 
 class PokedexViewControllerUITests: XCTestCase {
-
+    
     var app: XCUIApplication!
     
     override func setUpWithError() throws {
@@ -29,18 +29,29 @@ class PokedexViewControllerUITests: XCTestCase {
         pokedexiosPokedexviewNavigationBar.buttons["Favourites"].tap()
     }
     
-    func testPageButtonPressed() throws {
+    func testNextPageButtonPressed() throws {
+        XCUIApplication().buttons["arrow.forward"].tap()
+
+    }
+
+    func testLastPageButtonPressed() throws {
+        XCUIApplication().buttons["tab"].tap()
+    }
+    
+    func testPrevPageButtonPressed() throws {
         app.buttons["arrow.forward"].tap()
-        app.buttons["tab"].tap()
+        sleep(2)
         app.buttons["arrow.backward"].tap()
+    }
+    
+    func testFirstPageButtonPressed() throws {
+        app.buttons["tab"].tap()
+        sleep(2)
         app.buttons["arrow.left.to.line.compact"].tap()
     }
     
     func testPokemonPerPageValueChanged() throws {
-        
-        let slider = app.sliders["67%"]
-
-        slider.adjust(toNormalizedSliderPosition: 0.9)
+        app.sliders["11%"].adjust(toNormalizedSliderPosition: 0.9)
     }
     
     func testPokemonNotFound() throws {
