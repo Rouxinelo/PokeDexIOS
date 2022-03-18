@@ -84,8 +84,6 @@ class MovesAndAbilitiesViewController: UIViewController {
                     if let pokemonMove = pokemonMove {
                         self.chosenMove = pokemonMove
                         self.removeLoading()
-                        self.removeBlur()
-
                     }
                 }
             case .error(let error):
@@ -133,17 +131,8 @@ class MovesAndAbilitiesViewController: UIViewController {
         view.addSubview(blurEffectView)
     }
     
-    func removeBlur() {
-        
-        for subview in view.subviews {
-            if subview is UIVisualEffectView {
-                subview.removeFromSuperview()
-            }
-        }
-    }
-    
     func loadingIndicator(){
-        let alert = UIAlertController(title: nil, message: "Loading Move...", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "Loading Move Info...", preferredStyle: .alert)
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -209,7 +198,6 @@ extension MovesAndAbilitiesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let pokemon = chosenPokemon {
-            loadBlur()
             loadingIndicator()
             requestMove(moveURL: pokemon.moves[indexPath.row].move.url)
             chosenMoveName = pokemon.moves[indexPath.row].move.name
