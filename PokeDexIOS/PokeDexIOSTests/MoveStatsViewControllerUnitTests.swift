@@ -22,7 +22,7 @@ class MoveStatsViewControllerUnitTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testParsePokeDataFails() {
+    func testSearchForEnglishDescriptionFails() {
         let entries = [FlavorTextEntries]()
         let result = sut.searchForEnglishDescription(entries: entries)
         XCTAssertEqual(result, "No description available")
