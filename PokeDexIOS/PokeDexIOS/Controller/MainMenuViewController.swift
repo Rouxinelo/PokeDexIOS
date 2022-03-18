@@ -65,6 +65,10 @@ class MainMenuViewController: UIViewController {
     
     // MARK: - Network Requests
     
+    func getSpecies(){
+        
+    }
+    
     // MARK: - Other functions
     
     func setMode(mode : UIUserInterfaceStyle) {

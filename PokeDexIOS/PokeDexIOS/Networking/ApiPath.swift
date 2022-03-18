@@ -18,6 +18,7 @@ protocol TargetType {
 
 enum API {
     case GetPokedex(String, String)
+    case GetSpecies(String, String)
     case GetPokemonInfo(String)
     case GetWebhook(String, Int, String)
     case GetMove(String)
@@ -36,6 +37,11 @@ extension API: TargetType {
             let offset = "offset=" + offset
             let limit = "&limit=" + pageSize
             return "\(baseURL)" + query + offset + limit
+        case .GetSpecies(let offset, let pageSize):
+            let query = "pokemon-species?"
+            let offset = "offset=" + offset
+            let limit = "&limit=" + pageSize
+            return "\(baseURL)" + query + offset + limit
         case .GetPokemonInfo(let dexId):
             let query = "pokemon/"
             return "\(baseURL)" + query + dexId
@@ -49,6 +55,8 @@ extension API: TargetType {
     public var method: String {
         switch self {
         case .GetPokedex:
+            return "GET"
+        case .GetSpecies:
             return "GET"
         case .GetPokemonInfo:
             return "GET"
@@ -64,6 +72,8 @@ extension API: TargetType {
         switch self {
         case .GetPokedex:
             return ["Content-Type": "application/json", "accept": "application/json"]
+        case .GetSpecies:
+            return ["Content-Type": "application/json", "accept": "application/json"]
         case .GetPokemonInfo:
             return ["Content-Type": "application/json", "accept": "application/json"]
         case .GetMove:
@@ -76,6 +86,8 @@ extension API: TargetType {
     public var params: [String: AnyObject]? {
         switch self {
         case .GetPokedex:
+            return nil
+        case .GetSpecies:
             return nil
         case .GetPokemonInfo:
             return nil
