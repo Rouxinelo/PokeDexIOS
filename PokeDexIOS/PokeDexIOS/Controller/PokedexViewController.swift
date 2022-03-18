@@ -338,6 +338,21 @@ class PokedexViewController: UIViewController {
         })
     }
     
+    func loadBlur() {
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.prominent))
+        blurEffectView.frame = view.bounds
+        view.addSubview(blurEffectView)
+    }
+    
+    func removeBlur() {
+        
+        for subview in view.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
     func loadingIndicator(){
         let alert = UIAlertController(title: nil, message: "Loading Pokémon...", preferredStyle: .alert)
 
@@ -353,6 +368,7 @@ class PokedexViewController: UIViewController {
     func removeLoading(){
         dismiss(animated: false, completion: nil)
     }
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
