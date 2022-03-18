@@ -26,7 +26,10 @@ class MainMenuViewController: UIViewController {
     // MARK: - Local Variables
     
     let networkLayer = NetworkLayer()
-    let names = [String]()
+    let parser = ParseData()
+    
+    var specieCount: Int = 0
+    var randomPokemon: Pokemon?
     
     // MARK: - IBActions
    
@@ -56,7 +59,7 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func randomPokemonClicked(_ sender: UIButton) {
-        
+        getSpecies()
     }
     
     @IBAction func aboutButtonClicked(_ sender: UIButton) {
@@ -67,6 +70,51 @@ class MainMenuViewController: UIViewController {
     
     func getSpecies(){
         
+        networkLayer.requestAPI(api: API.GetSpecies("0", "1"), parameters: API.GetSpecies("0", "1").params, headers: API.GetSpecies("0", "1").header, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let results):
+                if let results = results {
+                    
+                    let pokedex = self.parser.parsePokeData(Data: results)
+                    
+                    if pokedex != nil {
+                        self.specieCount = pokedex!.count
+                        
+                        let randomNum = Int.random(in: 1...pokedex!.count)
+                        print(randomNum)
+                        
+                        self.getRandomPokemon(number: randomNum)
+                    }
+                }
+            case .error(let error):
+                print(error)
+            }
+        })
+        
+    }
+    
+    func getRandomPokemon(number: Int) {
+                    
+            self.networkLayer.requestAPI(api: API.GetPokemonInfo(String(number)), parameters: API.GetPokemonInfo(String(number)).params, headers: API.GetPokemonInfo(String(number)).header, completion: { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let results):
+                    if let results = results {
+                        
+                        let pokemon = self.parser.parsePokemon(Data: results)
+                        if let pokemon = pokemon{
+                            self.randomPokemon = pokemon
+                            
+                            print(pokemon.name)
+                            //self.performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
+                        }
+                    }
+                    
+                case .error(let error):
+                    print(error)
+                }
+            })
     }
     
     // MARK: - Other functions
