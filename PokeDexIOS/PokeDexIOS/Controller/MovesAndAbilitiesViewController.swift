@@ -22,7 +22,7 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     let networkLayer = NetworkLayer()
     let parser = ParseData()
-
+    
     var chosenPokemon: Pokemon?
     
     var chosenMove: PokemonMove?
@@ -60,17 +60,15 @@ class MovesAndAbilitiesViewController: UIViewController {
     
     func noMoves() {
         
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.light))
-        blurEffectView.frame = view.bounds
-        view.addSubview(blurEffectView)
+        loadBlur()
         
         let alertController = UIAlertController(title: "Oh No!", message:
                                                     "", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Return", style: .default, handler:  { action -> Void in
             self.returnToPreviousScreen()
-       }))
+        }))
         alertController.message = chosenPokemon!.name.capitalizingFirstLetter() + " does not know any moves."
-
+        
         self.present(alertController, animated: true, completion: nil)
     }
     
@@ -82,7 +80,7 @@ class MovesAndAbilitiesViewController: UIViewController {
             switch result {
             case .success(let results):
                 if let results = results {
-                    
+                    self.removeBlur()
                     let pokemonMove = self.parser.parsePokemonMove(Data: results)
                     if let pokemonMove = pokemonMove {
                         self.chosenMove = pokemonMove
@@ -128,6 +126,22 @@ class MovesAndAbilitiesViewController: UIViewController {
         return array.sorted { $0.move.name < $1.move.name }
     }
     
+    func loadBlur() {
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.prominent))
+        blurEffectView.frame = view.bounds
+        view.addSubview(blurEffectView)
+    }
+    
+    func removeBlur() {
+        
+        for subview in view.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -176,6 +190,7 @@ extension MovesAndAbilitiesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let pokemon = chosenPokemon {
+            loadBlur()
             requestMove(moveURL: pokemon.moves[indexPath.row].move.url)
             chosenMoveName = pokemon.moves[indexPath.row].move.name
         }
