@@ -17,6 +17,8 @@ struct K {
     struct audioPlayer{
         static let favouriteSoundExtension: String = "mp3"
         static let favouriteSoundName: String = "caughtSound"
+        static let themeSongExtension: String = "mp3"
+        static let themeSongName: String = "themeSong"
     }
     
     struct Segues{
