@@ -280,7 +280,6 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="5nK-fH-rcN" firstAttribute="top" secondItem="qBL-st-bGN" secondAttribute="top" id="5Al-su-S3G"/>
                                                     <constraint firstItem="5nK-fH-rcN" firstAttribute="leading" secondItem="qBL-st-bGN" secondAttribute="leading" id="Eih-4j-eSQ"/>
@@ -302,7 +301,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="tte-vN-J9U" firstAttribute="leading" secondItem="Lnb-Ud-vmy" secondAttribute="leading" id="L3b-eD-boU"/>
                                                     <constraint firstAttribute="trailing" secondItem="tte-vN-J9U" secondAttribute="trailing" id="bQf-GQ-Nv3"/>
@@ -324,7 +322,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="JcF-Em-iXQ" secondAttribute="bottom" constant="10" id="Cl2-d2-JIE"/>
                                                     <constraint firstItem="JcF-Em-iXQ" firstAttribute="leading" secondItem="wQy-pA-yL9" secondAttribute="leading" id="KIB-QJ-J3f"/>
@@ -346,7 +343,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="F20-o7-ntl" firstAttribute="top" secondItem="ave-c1-DHG" secondAttribute="top" constant="10" id="PqE-vb-eg5"/>
                                                     <constraint firstAttribute="bottom" secondItem="F20-o7-ntl" secondAttribute="bottom" constant="10" id="VFm-PV-6uX"/>
@@ -355,16 +351,19 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" red="0.87148499489999998" green="0.36488497260000002" blue="0.33994483949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="735" id="9O9-MU-CuY"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="qa7-ZJ-3Qc" firstAttribute="top" secondItem="4nO-B1-luA" secondAttribute="top" id="8fm-0W-ecP"/>
                                     <constraint firstItem="qa7-ZJ-3Qc" firstAttribute="leading" secondItem="4nO-B1-luA" secondAttribute="leading" constant="20" id="Alh-tl-MYD"/>
                                     <constraint firstItem="qa7-ZJ-3Qc" firstAttribute="top" secondItem="4nO-B1-luA" secondAttribute="top" id="QtE-FU-C9w"/>
                                     <constraint firstAttribute="trailing" secondItem="qa7-ZJ-3Qc" secondAttribute="trailing" constant="20" id="UyO-jw-qQz"/>
                                     <constraint firstItem="qa7-ZJ-3Qc" firstAttribute="centerX" secondItem="4nO-B1-luA" secondAttribute="centerX" id="eCu-P2-PsQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="qa7-ZJ-3Qc" secondAttribute="bottom" id="msL-lT-bNe"/>
                                     <constraint firstAttribute="bottom" secondItem="qa7-ZJ-3Qc" secondAttribute="bottom" id="nBu-PN-2q5"/>
                                 </constraints>
                             </scrollView>
@@ -382,6 +381,7 @@
                     <connections>
                         <outlet property="aboutButton" destination="F20-o7-ntl" id="jXE-tG-rYL"/>
                         <outlet property="appearanceStackView" destination="hxH-8W-kKP" id="1he-tC-Dda"/>
+                        <outlet property="contentStackView" destination="qa7-ZJ-3Qc" id="8YD-3T-3hG"/>
                         <outlet property="modeLabel" destination="Rlz-N4-0Dk" id="R7I-R6-HM1"/>
                         <outlet property="modeSwitch" destination="YEG-bz-a4Q" id="500-Su-Wrg"/>
                         <outlet property="playButton" destination="DUs-ot-q6K" id="CrI-sD-6UM"/>
@@ -496,6 +496,8 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <color key="backgroundColor" name="pokedexCell"/>
+                                                    <color key="tintColor" name="pokedexCell"/>
                                                     <constraints>
                                                         <constraint firstItem="s71-Dh-Cnk" firstAttribute="top" secondItem="eN2-9H-eU9" secondAttribute="top" id="1nt-P8-Oue"/>
                                                         <constraint firstItem="s71-Dh-Cnk" firstAttribute="leading" secondItem="eN2-9H-eU9" secondAttribute="leading" id="mtc-4x-3h8"/>
@@ -1401,6 +1403,9 @@
         </namedColor>
         <namedColor name="darkModeSetNavBar">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="pokedexCell">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

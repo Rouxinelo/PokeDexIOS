@@ -14,6 +14,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var songStackView: UIStackView!
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var contentStackView: UIStackView!
     @IBOutlet weak var appearanceStackView: UIStackView!
     @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var modeSwitch: UISwitch!
@@ -86,12 +87,23 @@ class MainMenuViewController: UIViewController {
     }
     
     func stylePage() {
+        
+        contentStackView.layer.cornerRadius = 30
+        
+        appearanceStackView.layer.borderWidth = 3.0
         appearanceStackView.layer.cornerRadius = 30
+
+        songStackView.layer.borderWidth = 3.0
         songStackView.layer.cornerRadius = 30
         playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         
+        pokedexButton.layer.borderWidth = 3.0
         pokedexButton.layer.cornerRadius = 30
+        
+        randomPokemonButton.layer.borderWidth = 3.0
         randomPokemonButton.layer.cornerRadius = 30
+        
+        aboutButton.layer.borderWidth = 3.0
         aboutButton.layer.cornerRadius = 30
     }
     
