@@ -52,6 +52,7 @@
 		AFF636DB27D8BE6C00B94CAA /* TypeColorManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */; };
 		AFF654A727C91ABE00903A58 /* PokemonStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */; };
 		AFF654A927C91F0100903A58 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF654A827C91F0100903A58 /* AboutMeViewController.swift */; };
+		AFF919D927E4F74A006DDB02 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF919D827E4F74A006DDB02 /* MainMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManagerTests.swift; sourceTree = "<group>"; };
 		AFF654A627C91ABE00903A58 /* PokemonStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewController.swift; sourceTree = "<group>"; };
 		AFF654A827C91F0100903A58 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		AFF919D827E4F74A006DDB02 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		C087EBD42D336D56AA425682 /* Pods-PokeDexIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-PokeDexIOSTests/Pods-PokeDexIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D10993C5E1164A9A07CB2BE2 /* Pods-PokeDexIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOS.debug.xcconfig"; path = "Target Support Files/Pods-PokeDexIOS/Pods-PokeDexIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D135F94287873FE82D3C5CEF /* Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-PokeDexIOS-PokeDexIOSUITests/Pods-PokeDexIOS-PokeDexIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				AFF654A827C91F0100903A58 /* AboutMeViewController.swift */,
 				AF99F60E27DA2575005223CB /* MovesAndAbilitiesViewController.swift */,
 				AF01348527DB7AFD00337C36 /* MoveStatsViewController.swift */,
+				AFF919D827E4F74A006DDB02 /* MainMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				AF6BFDB427DE61A500BCCAA8 /* ApiPath.swift in Sources */,
 				AF01349427DBBA1900337C36 /* LearnerCell.swift in Sources */,
 				AFE5BDAB27CC338E008BB274 /* PokemonDataModel.xcdatamodeld in Sources */,
+				AFF919D927E4F74A006DDB02 /* MainMenuViewController.swift in Sources */,
 				AFBA654527DA4262007A54F9 /* MoveCell.swift in Sources */,
 				AFF654A927C91F0100903A58 /* AboutMeViewController.swift in Sources */,
 				AF95386227CA6F420050FDA5 /* Constants.swift in Sources */,

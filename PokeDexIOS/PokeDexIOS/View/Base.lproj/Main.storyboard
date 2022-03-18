@@ -199,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="4225" y="986"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="v0O-Ft-gSW">
             <objects>
-                <viewController id="aLL-oD-Ysn" sceneMemberID="viewController">
+                <viewController id="aLL-oD-Ysn" customClass="MainMenuViewController" customModule="PokeDexIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jdh-Ef-iag">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
