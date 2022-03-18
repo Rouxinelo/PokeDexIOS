@@ -76,13 +76,15 @@ class PokedexViewController: UIViewController {
     }
     
     @IBAction func favouritesButtonClicked(_ sender: UIBarButtonItem) {
+        
+        loadingIndicator()
+        
         switch sender.title {
         case "All":
             sender.title = "Favourites"
             sender.image = K.BarButton.fav
             paginationStackView.isHidden = true
             loadFavArray()
-            
             searchPokemons(filter: Filter.favourites.rawValue)
             
         case "Favourites":
@@ -150,6 +152,9 @@ class PokedexViewController: UIViewController {
     }
     
     @IBAction func pageButtonPressed(_ sender: UIButton) {
+        
+        loadingIndicator()
+        
         buttonsEnabler(enabler: false)
         if sender == prevPageButton {
             currentPage -= 1
@@ -263,6 +268,7 @@ class PokedexViewController: UIViewController {
         self.searchSemaphore.wait()
         self.tableView.reloadData()
         self.buttonsEnabler(enabler: true)
+        removeLoading()
     }
     
     func sortArray(array: [Pokemon]) -> [Pokemon] {
@@ -332,11 +338,27 @@ class PokedexViewController: UIViewController {
         })
     }
     
+    func loadingIndicator(){
+        let alert = UIAlertController(title: nil, message: "Loading Pokémon...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func removeLoading(){
+        dismiss(animated: false, completion: nil)
+    }
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadingIndicator()
         
         getCount()
         
