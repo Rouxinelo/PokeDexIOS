@@ -21,6 +21,7 @@ class PokemonStatsViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var favButton: UIBarButtonItem!
+    @IBOutlet weak var homeButton: UIBarButtonItem!
     @IBOutlet weak var pokemonNumber: UILabel!
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var imageTextLabel: UILabel!

@@ -107,7 +107,7 @@ class MainMenuViewController: UIViewController {
                             self.randomPokemon = pokemon
                             
                             print(pokemon.name)
-                            //self.performSegue(withIdentifier: K.Segues.pokeDexToPokeStats, sender: self)
+                            self.performSegue(withIdentifier: K.Segues.mainMenuToPokemonStats, sender: self)
                         }
                     }
                     
@@ -166,6 +166,19 @@ class MainMenuViewController: UIViewController {
         setSwitch()
         stylePage()
     }
-    
 
+}
+
+// MARK: - Prepare for segue to Pokemon Stats
+
+extension MainMenuViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.mainMenuToPokemonStats {
+            let VC = segue.destination as! PokemonStatsViewController
+            if let pokemon = randomPokemon {
+                VC.chosenPokemon = pokemon
+            }
+        }
+    }
 }

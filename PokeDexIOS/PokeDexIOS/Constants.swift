@@ -22,6 +22,7 @@ struct K {
     struct Segues{
         static let mainMenuToAboutMe: String = "toAboutMe"
         static let mainMenuToPokedex: String = "toPokeDex"
+        static let mainMenuToPokemonStats: String = "randomSearch"
         static let pokeDexToPokeStats: String = "toPokeStats"
         static let pokeStatsToMovesAndAbilities: String = "toMovesAndAbilities"
         static let movesAndAbilitiesToMoveStats: String = "pokeMovesToMoveStats"
