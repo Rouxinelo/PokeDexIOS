@@ -71,8 +71,8 @@ class PokedexViewController: UIViewController {
     
     // MARK: - Button Onclick Actions
     
-    @IBAction func InformationClicked(_ sender: Any) {
-        performSegue(withIdentifier: K.Segues.pokeDexToAboutMe, sender: sender)
+    @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func favouritesButtonClicked(_ sender: UIBarButtonItem) {

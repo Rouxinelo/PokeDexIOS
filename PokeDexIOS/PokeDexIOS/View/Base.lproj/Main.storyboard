@@ -133,19 +133,19 @@
                                         <rect key="frame" x="0.0" y="362.5" width="414" height="362.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-Hi-2yS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="90.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDexIOS is an IOS App made for Pokemon enjoyers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-14-uGV">
-                                                <rect key="frame" x="21.5" y="45.5" width="371" height="90.5"/>
+                                                <rect key="frame" x="21.5" y="90.5" width="371" height="91"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll through the hundreds of Pokemons, look at their stats and save your favourites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-dR-pp8">
-                                                <rect key="frame" x="0.5" y="136" width="413" height="136"/>
+                                                <rect key="frame" x="0.5" y="181.5" width="413" height="90.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZoN-LH-QrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4225" y="986"/>
+            <point key="canvasLocation" x="3022" y="913"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="v0O-Ft-gSW">
@@ -471,10 +471,10 @@
                                 <action selector="favouritesButtonClicked:" destination="BYZ-38-t0r" id="Zm5-nW-WfE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="wdv-ND-mha">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="house.fill" catalog="system" id="wdv-ND-mha">
                             <color key="tintColor" name="darkModeSetNavBar"/>
                             <connections>
-                                <action selector="InformationClicked:" destination="BYZ-38-t0r" id="Nos-ho-QBA"/>
+                                <action selector="homeButtonPressed:" destination="BYZ-38-t0r" id="suG-Ez-CrJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -758,7 +758,7 @@
                                     <action selector="nextButtonPressed:" destination="ZGe-D1-D4y" id="TtR-wI-GAY"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="info.circle.fill" catalog="system" id="R4b-EY-y3t">
+                            <barButtonItem title="Item" image="house.fill" catalog="system" id="R4b-EY-y3t">
                                 <color key="tintColor" name="darkModeSetNavBar"/>
                                 <connections>
                                     <action selector="InformationClicked:" destination="ZGe-D1-D4y" id="0AL-hr-JCH"/>
@@ -1200,7 +1200,7 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="myPicture" width="823" height="768"/>
         <image name="pokeBallBackGround" width="736" height="1308"/>
         <image name="pokemonLogo" width="999" height="374"/>
