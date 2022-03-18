@@ -20,10 +20,13 @@ class MainMenuViewController: UIViewController {
         switch sender.isOn {
         case true:
             modeLabel.text = "Dark"
+            setMode(mode: .dark)
         default:
             modeLabel.text = "Light"
+            setMode(mode: .light)
         }
     }
+    
     @IBAction func pokedexButtonClicked(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.mainMenuToPokedex, sender: self)
     }
@@ -54,5 +57,9 @@ class MainMenuViewController: UIViewController {
         super.viewDidLoad()
         setSwitch()
     }
-
+    
+    func setMode(mode : UIUserInterfaceStyle) {
+        let window = UIApplication.shared.windows[0]
+        window.overrideUserInterfaceStyle = mode
+    }
 }
