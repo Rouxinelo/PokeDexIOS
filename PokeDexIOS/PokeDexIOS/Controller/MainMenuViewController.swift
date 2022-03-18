@@ -18,6 +18,15 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var modeSwitch: UISwitch!
     
+    @IBOutlet weak var pokedexButton: UIButton!
+    @IBOutlet weak var randomPokemonButton: UIButton!
+    @IBOutlet weak var aboutButton: UIButton!
+    
+    // MARK: - Local Variables
+    
+    let networkLayer = NetworkLayer()
+    let names = [String]()
+    
     // MARK: - IBActions
    
     @IBAction func playButtonClicked(_ sender: UIButton) {
@@ -45,9 +54,15 @@ class MainMenuViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.mainMenuToPokedex, sender: self)
     }
     
+    @IBAction func randomPokemonClicked(_ sender: UIButton) {
+        
+    }
+    
     @IBAction func aboutButtonClicked(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.mainMenuToAboutMe, sender: self)
     }
+    
+    // MARK: - Network Requests
     
     // MARK: - Other functions
     
@@ -70,10 +85,14 @@ class MainMenuViewController: UIViewController {
         }
     }
     
-    func styleHeader() {
+    func stylePage() {
         appearanceStackView.layer.cornerRadius = 30
         songStackView.layer.cornerRadius = 30
         playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        
+        pokedexButton.layer.cornerRadius = 30
+        randomPokemonButton.layer.cornerRadius = 30
+        aboutButton.layer.cornerRadius = 30
     }
     
     // MARK: - View Did Load
@@ -81,7 +100,7 @@ class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSwitch()
-        styleHeader()
+        stylePage()
     }
     
 
