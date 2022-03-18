@@ -494,10 +494,12 @@
                                                                     </constraints>
                                                                 </stackView>
                                                             </subviews>
+                                                            <color key="backgroundColor" name="pokedexCell"/>
+                                                            <color key="tintColor" name="pokedexCell"/>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="pokedexCell"/>
-                                                    <color key="tintColor" name="pokedexCell"/>
+                                                    <color key="backgroundColor" name="darkModeBackgrounds"/>
+                                                    <color key="tintColor" name="darkModeBackgrounds"/>
                                                     <constraints>
                                                         <constraint firstItem="s71-Dh-Cnk" firstAttribute="top" secondItem="eN2-9H-eU9" secondAttribute="top" id="1nt-P8-Oue"/>
                                                         <constraint firstItem="s71-Dh-Cnk" firstAttribute="leading" secondItem="eN2-9H-eU9" secondAttribute="leading" id="mtc-4x-3h8"/>
