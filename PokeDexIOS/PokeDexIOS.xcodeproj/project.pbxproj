@@ -37,6 +37,7 @@
 		AF60236227C80B44008FE236 /* PokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60236127C80B44008FE236 /* PokeData.swift */; };
 		AF60236427C80C96008FE236 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60236327C80C96008FE236 /* Pokemon.swift */; };
 		AF62215E27C840EC009D3B1B /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62215C27C840EC009D3B1B /* PokemonCell.swift */; };
+		AF69A0BD27E4CDED00B118E3 /* MoveStatsViewControllerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF69A0BC27E4CDED00B118E3 /* MoveStatsViewControllerUnitTests.swift */; };
 		AF6BFDAE27DE35A000BCCAA8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6BFDAD27DE35A000BCCAA8 /* Filter.swift */; };
 		AF6BFDB027DE375800BCCAA8 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6BFDAF27DE375800BCCAA8 /* Operation.swift */; };
 		AF6BFDB227DE39E700BCCAA8 /* WebhookOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6BFDB127DE39E700BCCAA8 /* WebhookOperation.swift */; };
@@ -107,6 +108,7 @@
 		AF60236127C80B44008FE236 /* PokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeData.swift; sourceTree = "<group>"; };
 		AF60236327C80C96008FE236 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		AF62215C27C840EC009D3B1B /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
+		AF69A0BC27E4CDED00B118E3 /* MoveStatsViewControllerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveStatsViewControllerUnitTests.swift; sourceTree = "<group>"; };
 		AF6BFDAD27DE35A000BCCAA8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		AF6BFDAF27DE375800BCCAA8 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		AF6BFDB127DE39E700BCCAA8 /* WebhookOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookOperation.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		AF60234427C809FE008FE236 /* PokeDexIOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				AF69A0BC27E4CDED00B118E3 /* MoveStatsViewControllerUnitTests.swift */,
 				AF52162827E4C91E000356CC /* ParseDataTests.swift */,
 				AFF636DA27D8BE6C00B94CAA /* TypeColorManagerTests.swift */,
 				AF60234527C809FE008FE236 /* PokeDexIOSTests.swift */,
@@ -618,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF60234627C809FE008FE236 /* PokeDexIOSTests.swift in Sources */,
+				AF69A0BD27E4CDED00B118E3 /* MoveStatsViewControllerUnitTests.swift in Sources */,
 				AFF636DB27D8BE6C00B94CAA /* TypeColorManagerTests.swift in Sources */,
 				AF52162927E4C91E000356CC /* ParseDataTests.swift in Sources */,
 			);
