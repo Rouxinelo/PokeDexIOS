@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yjx-eM-lgw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aLL-oD-Ysn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -196,7 +197,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZoN-LH-QrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747.826086956522" y="939.50892857142856"/>
+            <point key="canvasLocation" x="4225" y="986"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="v0O-Ft-gSW">
+            <objects>
+                <viewController id="aLL-oD-Ysn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jdh-Ef-iag">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3Fj-Ee-9Kb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4j8-g7-sRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3022" y="66"/>
         </scene>
         <!--Pokedex View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -482,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2749.275362318841" y="65.625"/>
+            <point key="canvasLocation" x="4225" y="66"/>
         </scene>
         <!--Pokemon Stats View Controller-->
         <scene sceneID="f2A-5Y-bI6">
@@ -781,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-hf-Bdz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3871.0144927536235" y="65.217391304347828"/>
+            <point key="canvasLocation" x="5677" y="66"/>
         </scene>
         <!--Moves And Abilities View Controller-->
         <scene sceneID="R9W-Qm-U36">
@@ -945,7 +961,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKi-60-fDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4928.985507246377" y="64.402173913043484"/>
+            <point key="canvasLocation" x="7026" y="66"/>
         </scene>
         <!--Move Stats View Controller-->
         <scene sceneID="m3P-ef-3vR">
@@ -1151,7 +1167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPK-yw-gU8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5973.913043478261" y="62.946428571428569"/>
+            <point key="canvasLocation" x="8159" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aa2-EL-iGT">
@@ -1173,7 +1189,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cah-tK-uTs"/>
+        <segue reference="ooM-cO-ybC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -1194,5 +1210,8 @@
         <namedColor name="darkModeSetNavBar">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
