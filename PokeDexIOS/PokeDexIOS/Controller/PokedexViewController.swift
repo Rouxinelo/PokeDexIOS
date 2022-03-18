@@ -69,6 +69,21 @@ class PokedexViewController: UIViewController {
     
     var pokemonArray = [Pokemon]()
     
+    // MARK: - Gesture Recognizers
+    
+    func defineSwipeGesture() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
+        if gesture.direction == .right {
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    
     // MARK: - Button Onclick Actions
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
@@ -358,6 +373,7 @@ class PokedexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         getCount()
         
         pokemonSearchBar.delegate = self
@@ -365,6 +381,9 @@ class PokedexViewController: UIViewController {
         tableView.delegate = self
         
         setStyle()
+        
+        defineSwipeGesture()
+        
     }
 }
 
