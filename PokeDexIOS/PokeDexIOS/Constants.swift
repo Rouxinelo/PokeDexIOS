@@ -20,9 +20,9 @@ struct K {
     }
     
     struct Segues{
-        static let pokeDexToAboutMe: String = "toAboutMe"
+        static let mainMenuToAboutMe: String = "toAboutMe"
+        static let mainMenuToPokedex: String = "toPokeDex"
         static let pokeDexToPokeStats: String = "toPokeStats"
-        static let pokeStatsToAboutMe: String = "toAboutMe"
         static let pokeStatsToMovesAndAbilities: String = "toMovesAndAbilities"
         static let movesAndAbilitiesToMoveStats: String = "pokeMovesToMoveStats"
     }
