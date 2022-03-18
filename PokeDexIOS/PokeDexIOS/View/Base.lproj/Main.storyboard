@@ -932,23 +932,25 @@
                     </view>
                     <navigationItem key="navigationItem" id="vnS-NS-eN3">
                         <barButtonItem key="backBarButtonItem" title=" " id="SMv-iT-Une"/>
-                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="fQr-Nt-UsT">
-                            <color key="tintColor" name="darkModeSetNavBar"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="ZGe-D1-D4y" id="ecx-WJ-rRL"/>
-                            </connections>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="chevron.right" catalog="system" id="VuZ-XS-ecN">
+                        <leftBarButtonItems>
+                            <barButtonItem image="chevron.backward" catalog="system" id="fQr-Nt-UsT">
                                 <color key="tintColor" name="darkModeSetNavBar"/>
                                 <connections>
-                                    <action selector="nextButtonPressed:" destination="ZGe-D1-D4y" id="TtR-wI-GAY"/>
+                                    <action selector="backButtonPressed:" destination="ZGe-D1-D4y" id="ecx-WJ-rRL"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="house.fill" catalog="system" id="R4b-EY-y3t">
                                 <color key="tintColor" name="darkModeSetNavBar"/>
                                 <connections>
                                     <action selector="homeButtonClicked:" destination="ZGe-D1-D4y" id="J2y-PJ-z4q"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="chevron.right" catalog="system" id="VuZ-XS-ecN">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="ZGe-D1-D4y" id="TtR-wI-GAY"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="heart" catalog="system" id="gTk-2s-uqZ">
@@ -1127,18 +1129,20 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="FxS-JC-7ea">
-                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="pYZ-Ej-S2C">
-                            <color key="tintColor" name="darkModeSetNavBar"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="hpk-80-fxJ" id="5vA-ZI-msI"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="house.fill" catalog="system" id="C6K-Re-VRM">
-                            <color key="tintColor" name="darkModeSetNavBar"/>
-                            <connections>
-                                <action selector="homeButtonPressed:" destination="hpk-80-fxJ" id="yCJ-vm-8Xk"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="chevron.backward" catalog="system" id="pYZ-Ej-S2C">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="hpk-80-fxJ" id="5vA-ZI-msI"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="house.fill" catalog="system" id="C6K-Re-VRM">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="hpk-80-fxJ" id="yCJ-vm-8Xk"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1336,18 +1340,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="twc-yg-PcP">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="7Ig-yQ-00m">
-                            <color key="tintColor" name="darkModeSetNavBar"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="A4t-Rb-NuW" id="5MN-lZ-4hb"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="house.fill" catalog="system" id="qLf-mP-rKh">
-                            <color key="tintColor" name="darkModeSetNavBar"/>
-                            <connections>
-                                <action selector="homeButtonPressed:" destination="A4t-Rb-NuW" id="gxm-kt-Tx6"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="chevron.backward" catalog="system" id="7Ig-yQ-00m">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="A4t-Rb-NuW" id="5MN-lZ-4hb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="house.fill" catalog="system" id="qLf-mP-rKh">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="A4t-Rb-NuW" id="gxm-kt-Tx6"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="accuracyLabel" destination="PML-D4-4ku" id="b5m-ge-eOy"/>
