@@ -142,8 +142,11 @@ class MainMenuViewController: UIViewController {
     }
     
     func stopSound() {
-        player.stop()
-        isPlaying = false
+        if player != nil {
+            player.stop()
+            isPlaying = false
+            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        }
     }
     
     func loadingIndicator(){
