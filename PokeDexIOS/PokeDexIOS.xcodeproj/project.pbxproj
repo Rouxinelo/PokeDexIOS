@@ -46,6 +46,7 @@
 		AF99F60F27DA2575005223CB /* MovesAndAbilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF99F60E27DA2575005223CB /* MovesAndAbilitiesViewController.swift */; };
 		AF9D81A327C8E42A00B6316D /* TypeColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */; };
 		AFBA654527DA4262007A54F9 /* MoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBA654427DA4262007A54F9 /* MoveCell.swift */; };
+		AFCAE23927E5529000BAD9EA /* MainMenuViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAE23827E5529000BAD9EA /* MainMenuViewControllerUITests.swift */; };
 		AFCAFBBB27DA158B00616DB5 /* AboutMeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */; };
 		AFCAFBBD27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */; };
 		AFD4F01527E5444900875C0F /* themeSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AFD4F01427E5444900875C0F /* themeSong.mp3 */; };
@@ -119,6 +120,7 @@
 		AF99F60E27DA2575005223CB /* MovesAndAbilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesAndAbilitiesViewController.swift; sourceTree = "<group>"; };
 		AF9D81A227C8E42A00B6316D /* TypeColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColorManager.swift; sourceTree = "<group>"; };
 		AFBA654427DA4262007A54F9 /* MoveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCell.swift; sourceTree = "<group>"; };
+		AFCAE23827E5529000BAD9EA /* MainMenuViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewControllerUITests.swift; sourceTree = "<group>"; };
 		AFCAFBBA27DA158B00616DB5 /* AboutMeViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewControllerUITests.swift; sourceTree = "<group>"; };
 		AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsViewControllerUITests.swift; sourceTree = "<group>"; };
 		AFD4F01427E5444900875C0F /* themeSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = themeSong.mp3; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		AF60234E27C809FE008FE236 /* PokeDexIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AFCAE23827E5529000BAD9EA /* MainMenuViewControllerUITests.swift */,
 				AF2E524E27DE116F0094D9F0 /* MovesAndAbilitiesViewControllerUITests.swift */,
 				AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */,
 				AFCAFBBC27DA170300616DB5 /* PokemonStatsViewControllerUITests.swift */,
@@ -639,6 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFCAE23927E5529000BAD9EA /* MainMenuViewControllerUITests.swift in Sources */,
 				AF60235027C809FE008FE236 /* PokeDexIOSUITests.swift in Sources */,
 				AF60235227C809FE008FE236 /* PokeDexIOSUITestsLaunchTests.swift in Sources */,
 				AFCAFBBB27DA158B00616DB5 /* AboutMeViewControllerUITests.swift in Sources */,
