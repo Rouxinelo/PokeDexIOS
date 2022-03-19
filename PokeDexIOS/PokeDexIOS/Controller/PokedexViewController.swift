@@ -310,6 +310,10 @@ class PokedexViewController: UIViewController {
         for item in favPokemon {
             favPokeNameArray.append(item.name!)
         }
+        
+        if favPokeNameArray.count == 0 {
+            removeLoading()
+        }
     }
     
     func loadFavPokemon() {
