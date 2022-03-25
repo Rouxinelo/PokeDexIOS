@@ -101,12 +101,14 @@ class PokedexViewController: UIViewController {
             paginationStackView.isHidden = true
             loadFavArray()
             searchPokemons(filter: Filter.favourites.rawValue)
+            self.navigationItem.title = "Favourites"
             
         case "Favourites":
             sender.title = "All"
             sender.image = K.BarButton.notFav
             paginationStackView.isHidden = false
             searchPokemons(filter: Filter.all.rawValue)
+            self.navigationItem.title = "Pokédex"
         default:
             print("error")
         }
