@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--About Me View Controller-->
+        <!--Info-->
         <scene sceneID="aRt-tr-5Db">
             <objects>
                 <viewController id="ZIK-xf-tnO" customClass="AboutMeViewController" customModule="PokeDexIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,7 +183,7 @@
                             <constraint firstItem="3oe-uT-FbR" firstAttribute="top" secondItem="fk3-mF-Mvp" secondAttribute="top" id="fmy-OH-jTi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7uJ-Pb-KMC">
+                    <navigationItem key="navigationItem" title="Info" id="7uJ-Pb-KMC">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="FfP-pl-ok7">
                             <color key="tintColor" name="darkModeSetNavBar"/>
                             <connections>
