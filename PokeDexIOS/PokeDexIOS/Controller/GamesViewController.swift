@@ -16,6 +16,8 @@ class GamesViewController: UIViewController {
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var gameLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Local Variables
     
     var colorPicker = TypeColorManager()
@@ -57,7 +59,6 @@ class GamesViewController: UIViewController {
     
     func loadPokemon(){
         if let pokemon = chosenPokemon {
-            
             colorPicker.type = pokemon.types.first?.type.name
             
             pokemonColor.backgroundColor = colorPicker.getColorForType()
@@ -81,12 +82,32 @@ class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        
         defineSwipeGesture()
         
         loadPokemon()
-        
     }
+}
+
+extension GamesViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let pokemon = chosenPokemon {
+            return pokemon.game_indices.count
+        }
+        return 0
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.gameCellIdentifier, for: indexPath) as! GameCell
+        
+        if let pokemon = chosenPokemon {
+            cell.gameName.text = pokemon.game_indices[indexPath.row].version.name
+            cell.setGame(name: cell.gameName.text!)
+        }
+        return cell
+    }
     
     
 }

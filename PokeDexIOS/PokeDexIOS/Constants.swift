@@ -44,6 +44,7 @@ struct K {
         static let strokeWidth: CGFloat = 1.0
         static let moveCellIdentifier: String = "MoveCell"
         static let learnerCellIdentifier: String = "LearnerCell"
+        static let gameCellIdentifier: String = "GameCell"
     }
     
     struct SearchBar{
