@@ -36,7 +36,7 @@ class GameCell: UITableViewCell {
     }
     
     func setGame(name: String) {
-        gameName.text = "Pokemon " + gameNameSetup(name: name)
+        gameName.text = "Pokémon " + gameNameSetup(name: name)
     }
     
     func styleCell() {
