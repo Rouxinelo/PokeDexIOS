@@ -228,7 +228,7 @@ class PokemonStatsViewController: UIViewController {
         label.backgroundColor  = backgroundColor
         label.layer.borderWidth = borderWidth
         label.layer.cornerRadius = cornerRadius
-        label.text = text
+        label.text = " " + text + " "
         label.layer.masksToBounds = true
     }
     
@@ -279,13 +279,15 @@ class PokemonStatsViewController: UIViewController {
         
         colorPicker.type = pokemon.types.first?.type.name
         styleTypeLabel(label: type1Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.first?.type.name)!)
-        
+        type2Label.isHidden = true
         if pokemon.types.count > 1 {
             type2Label.isHidden = false
             colorPicker.type = pokemon.types.last?.type.name
             styleTypeLabel(label: type2Label, fontColor: colorPicker.getTextFontColor(), backgroundColor: colorPicker.getColorForType(), borderWidth: K.StatsScreen.strokeWidth, cornerRadius: K.StatsScreen.borderRadius, text: (pokemon.types.last?.type.name)!)
+
         }
         
+
         setStatLabels(pokemonStat: pokemon.stats)
     }
     
