@@ -133,19 +133,19 @@
                                         <rect key="frame" x="0.0" y="387" width="414" height="387"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-Hi-2yS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDexIOS is an IOS App made for Pokemon enjoyers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-14-uGV">
-                                                <rect key="frame" x="21.5" y="97" width="371" height="96.5"/>
+                                                <rect key="frame" x="21.5" y="48.5" width="371" height="96.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll through the hundreds of Pokemons, look at their stats and save your favourites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-dR-pp8">
-                                                <rect key="frame" x="0.5" y="193.5" width="413" height="97"/>
+                                                <rect key="frame" x="0.5" y="145" width="413" height="145.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1212,7 +1212,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zDA-UR-RhH">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zDA-UR-RhH">
                                                 <rect key="frame" x="16" y="95" width="382" height="32.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YF-iP-vUY">
@@ -1239,36 +1239,31 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="589.5"/>
                                                         <color key="backgroundColor" name="darkModeBackgrounds"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCell" id="xXz-eM-KbI" customClass="MoveCell" customModule="PokeDexIOS" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCell" id="xXz-eM-KbI" customClass="GameCell" customModule="PokeDexIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xXz-eM-KbI" id="h6c-1F-Sai">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cjR-Sw-iTS">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi6-Sk-tDv">
                                                                             <rect key="frame" x="20" y="11" width="374" height="22"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi6-Sk-tDv">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
-                                                                                    <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="tintColor" name="darkModeSetNavBar"/>
-                                                                        </stackView>
+                                                                            <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" name="cells"/>
                                                                     <color key="tintColor" name="darkModeBackgrounds"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="cjR-Sw-iTS" firstAttribute="top" secondItem="h6c-1F-Sai" secondAttribute="topMargin" id="Ebk-ZK-Wv3"/>
-                                                                        <constraint firstItem="cjR-Sw-iTS" firstAttribute="leading" secondItem="h6c-1F-Sai" secondAttribute="leadingMargin" id="KVc-rk-2x2"/>
-                                                                        <constraint firstAttribute="trailingMargin" secondItem="cjR-Sw-iTS" secondAttribute="trailing" id="OeQ-Yg-1hF"/>
-                                                                        <constraint firstAttribute="bottomMargin" secondItem="cjR-Sw-iTS" secondAttribute="bottom" id="xja-vf-BjQ"/>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="trailing" secondItem="h6c-1F-Sai" secondAttribute="trailingMargin" id="EEQ-KJ-Fab"/>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="leading" secondItem="h6c-1F-Sai" secondAttribute="leadingMargin" id="Nne-sQ-mN0"/>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="top" secondItem="h6c-1F-Sai" secondAttribute="topMargin" id="XOT-mT-8ap"/>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="centerY" secondItem="h6c-1F-Sai" secondAttribute="centerY" id="acD-9K-e4I"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="cellView" destination="h6c-1F-Sai" id="HXU-b6-uUG"/>
+                                                                    <outlet property="gameName" destination="Bi6-Sk-tDv" id="aHP-J2-T80"/>
                                                                     <outlet property="moveNameLabel" destination="Bi6-Sk-tDv" id="KNm-Cd-PnR"/>
                                                                 </connections>
                                                             </tableViewCell>

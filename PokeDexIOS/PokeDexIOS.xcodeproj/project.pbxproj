@@ -23,6 +23,7 @@
 		AF468B6327E1E01300F13852 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF468B6227E1E01300F13852 /* NetworkLayer.swift */; };
 		AF468B6527E1E07D00F13852 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF468B6427E1E07D00F13852 /* ParseData.swift */; };
 		AF4A8B0C27EE0C2D0089EA2C /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A8B0B27EE0C2D0089EA2C /* GamesViewController.swift */; };
+		AF4A8B0E27EE0F600089EA2C /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A8B0D27EE0F600089EA2C /* GameCell.swift */; };
 		AF4AE7C927DA9A1100BD09C0 /* Pokemon GB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF4AE7C727DA99FD00BD09C0 /* Pokemon GB.ttf */; };
 		AF52162927E4C91E000356CC /* ParseDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52162827E4C91E000356CC /* ParseDataTests.swift */; };
 		AF58560127DC27F7004D0648 /* MoveStatsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */; };
@@ -94,6 +95,7 @@
 		AF468B6227E1E01300F13852 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		AF468B6427E1E07D00F13852 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
 		AF4A8B0B27EE0C2D0089EA2C /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		AF4A8B0D27EE0F600089EA2C /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		AF4AE7C727DA99FD00BD09C0 /* Pokemon GB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon GB.ttf"; sourceTree = "<group>"; };
 		AF52162827E4C91E000356CC /* ParseDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseDataTests.swift; sourceTree = "<group>"; };
 		AF58560027DC27F7004D0648 /* MoveStatsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveStatsViewControllerUITests.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				AF62215C27C840EC009D3B1B /* PokemonCell.swift */,
 				AFBA654427DA4262007A54F9 /* MoveCell.swift */,
 				AF01349327DBBA1900337C36 /* LearnerCell.swift */,
+				AF4A8B0D27EE0F600089EA2C /* GameCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				AFBA654527DA4262007A54F9 /* MoveCell.swift in Sources */,
 				AFF654A927C91F0100903A58 /* AboutMeViewController.swift in Sources */,
 				AF95386227CA6F420050FDA5 /* Constants.swift in Sources */,
+				AF4A8B0E27EE0F600089EA2C /* GameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
