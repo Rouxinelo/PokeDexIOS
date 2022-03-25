@@ -11,3 +11,9 @@ Some funcionalities added:<br/>
 -Sound when a pokemon is added as favourite<br/>
 -Support for both Portrait and Landscape View on multiple devices<br/>
 -Shiny sprites for pokemons are shown when user taps on pokemon sprite (on the pokemon stats screen)<br/>
+-Screen with all moves a pokémon can learn<br/>
+-Screen with a move description aswell as all pokémon that can learn it<br/>
+-Screen with all games a pokémon is featured in<br/>
+-Support for light and dark modes (independent of phone's appearance)<br/>
+-Music player<br/>
+-Displaying random pokemon<br/>
