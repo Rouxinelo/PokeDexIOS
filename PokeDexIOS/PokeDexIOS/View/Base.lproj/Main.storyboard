@@ -1307,6 +1307,12 @@
                         </leftBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gameLabel" destination="8YF-iP-vUY" id="XQd-wF-Hq3"/>
+                        <outlet property="pokemonColor" destination="dr0-ZT-ZUZ" id="lXd-2y-vuk"/>
+                        <outlet property="pokemonName" destination="04l-Pi-sam" id="LAG-vH-feP"/>
+                        <outlet property="pokemonNumber" destination="N5y-Up-x1q" id="1TS-0F-A80"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KK-nk-75c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
