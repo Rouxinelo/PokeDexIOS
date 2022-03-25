@@ -234,6 +234,13 @@ extension MovesAndAbilitiesViewController {
                     VC.moveName = chosenMoveName
                 }
             }
+        } else if segue.identifier == K.Segues.movesAndAbilitiesToGames {
+            
+            if let VC = segue.destination as? GamesViewController {
+                if let pokemon = chosenPokemon {
+                    VC.chosenPokemon = pokemon
+                }
+            }
         }
     }
 }
