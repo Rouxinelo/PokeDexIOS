@@ -133,19 +133,19 @@
                                         <rect key="frame" x="0.0" y="387" width="414" height="387"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-Hi-2yS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDexIOS is an IOS App made for Pokemon enjoyers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-14-uGV">
-                                                <rect key="frame" x="21.5" y="48.5" width="371" height="96.5"/>
+                                                <rect key="frame" x="21.5" y="97" width="371" height="96.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll through the hundreds of Pokemons, look at their stats and save your favourites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-dR-pp8">
-                                                <rect key="frame" x="0.5" y="145" width="413" height="145.5"/>
+                                                <rect key="frame" x="0.5" y="193.5" width="413" height="97"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1163,6 +1163,12 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="chevron.right" catalog="system" id="c7Z-2q-A3p">
+                            <color key="tintColor" name="darkModeSetNavBar"/>
+                            <connections>
+                                <action selector="nextButtonPressed:" destination="hpk-80-fxJ" id="Ppg-wQ-qBz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1173,11 +1179,144 @@
                         <outlet property="pokemonName" destination="tzp-AD-gPL" id="nMH-Qg-ijT"/>
                         <outlet property="pokemonNumber" destination="BnN-Xf-sU0" id="NBy-hw-gKi"/>
                         <segue destination="A4t-Rb-NuW" kind="show" identifier="pokeMovesToMoveStats" id="SDt-G2-c4X"/>
+                        <segue destination="bFa-43-SYy" kind="show" identifier="toGames" id="2e4-uF-xkr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKi-60-fDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7026" y="66"/>
+        </scene>
+        <!--Games View Controller-->
+        <scene sceneID="OKW-hI-wDA">
+            <objects>
+                <viewController id="bFa-43-SYy" customClass="GamesViewController" customModule="PokeDexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RqG-mj-yA6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zWM-Pz-Tx3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dr0-ZT-ZUZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="127.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="N5y-Up-x1q">
+                                                <rect key="frame" x="146" y="0.0" width="122.5" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="04l-Pi-sam">
+                                                <rect key="frame" x="164.5" y="47.5" width="85" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zDA-UR-RhH">
+                                                <rect key="frame" x="16" y="95" width="382" height="32.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games In:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YF-iP-vUY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="32.5"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="zDA-UR-RhH" firstAttribute="leading" secondItem="dr0-ZT-ZUZ" secondAttribute="leading" constant="16" id="KgA-ne-maZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="zDA-UR-RhH" secondAttribute="trailing" constant="16" id="daR-Br-dTm"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-pc-bmP">
+                                        <rect key="frame" x="0.0" y="135.5" width="414" height="589.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DwU-NL-bjt">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="589.5"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QCy-bh-pO4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="589.5"/>
+                                                        <color key="backgroundColor" name="darkModeBackgrounds"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" id="xXz-eM-KbI" customClass="GameCell" customModule="PokeDexIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xXz-eM-KbI" id="h6c-1F-Sai">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi6-Sk-tDv">
+                                                                            <rect key="frame" x="20" y="11" width="374" height="22"/>
+                                                                            <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" name="cells"/>
+                                                                    <color key="tintColor" name="darkModeBackgrounds"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="trailing" secondItem="h6c-1F-Sai" secondAttribute="trailingMargin" id="EEQ-KJ-Fab"/>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="leading" secondItem="h6c-1F-Sai" secondAttribute="leadingMargin" id="Nne-sQ-mN0"/>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="top" secondItem="h6c-1F-Sai" secondAttribute="topMargin" id="XOT-mT-8ap"/>
+                                                                        <constraint firstItem="Bi6-Sk-tDv" firstAttribute="centerY" secondItem="h6c-1F-Sai" secondAttribute="centerY" id="acD-9K-e4I"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="cellView" destination="h6c-1F-Sai" id="D7D-0v-PLQ"/>
+                                                                    <outlet property="gameName" destination="Bi6-Sk-tDv" id="aHP-J2-T80"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="DwU-NL-bjt" secondAttribute="trailing" id="TBb-A9-hUd"/>
+                                            <constraint firstItem="DwU-NL-bjt" firstAttribute="leading" secondItem="Adj-pc-bmP" secondAttribute="leading" id="ceJ-kx-0VQ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CcU-Co-e3S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="bottom" secondItem="CcU-Co-e3S" secondAttribute="bottom" id="Vsl-Jt-7Hw"/>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="leading" secondItem="CcU-Co-e3S" secondAttribute="leading" id="lkX-wR-CKu"/>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="trailing" secondItem="CcU-Co-e3S" secondAttribute="trailing" id="y6x-nB-24j"/>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="top" secondItem="CcU-Co-e3S" secondAttribute="top" id="yqH-nQ-epy"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="oaC-d8-QOQ">
+                        <leftBarButtonItems>
+                            <barButtonItem image="chevron.backward" catalog="system" id="770-iy-SuU">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="bFa-43-SYy" id="XMC-Vn-3cn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="house.fill" catalog="system" id="bRJ-rV-AaT">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="bFa-43-SYy" id="fNS-E0-1cp"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gameLabel" destination="8YF-iP-vUY" id="XQd-wF-Hq3"/>
+                        <outlet property="pokemonColor" destination="dr0-ZT-ZUZ" id="lXd-2y-vuk"/>
+                        <outlet property="pokemonName" destination="04l-Pi-sam" id="LAG-vH-feP"/>
+                        <outlet property="pokemonNumber" destination="N5y-Up-x1q" id="1TS-0F-A80"/>
+                        <outlet property="tableView" destination="QCy-bh-pO4" id="jfU-bt-qXq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1KK-nk-75c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8313" y="66"/>
         </scene>
         <!--Move Stats View Controller-->
         <scene sceneID="m3P-ef-3vR">
@@ -1390,7 +1529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPK-yw-gU8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8159" y="66"/>
+            <point key="canvasLocation" x="7025" y="913"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aa2-EL-iGT">
@@ -1430,7 +1569,7 @@
         <image name="pokemonLogo" width="999" height="374"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
         <namedColor name="cells">
-            <color red="0.79607844350000001" green="0.8392156959" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.79600000381469727" green="0.83899998664855957" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="darkModeBackgrounds">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
