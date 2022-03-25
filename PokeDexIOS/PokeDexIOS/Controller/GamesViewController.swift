@@ -55,6 +55,22 @@ class GamesViewController: UIViewController {
         }
     }
     
+    // MARK: - Pokemon is not in any game
+    
+    func noGames() {
+        
+        loadBlur()
+        
+        let alertController = UIAlertController(title: "Oh No!", message:
+                                                    "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Return", style: .default, handler:  { action -> Void in
+            self.returnToPreviousScreen()
+        }))
+        alertController.message = chosenPokemon!.name.capitalizingFirstLetter() + " does not feature in any game."
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: - Load Pokemon Info
     
     func loadPokemon(){
@@ -79,10 +95,27 @@ class GamesViewController: UIViewController {
         }
     }
     
+    // MARK: - Other functions
+    
+    func loadBlur() {
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.prominent))
+        blurEffectView.frame = view.bounds
+        view.addSubview(blurEffectView)
+    }
+    
+    // MARK: - View Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        
+        if let pokemon = chosenPokemon {
+            
+            if pokemon.game_indices.count == 0 {
+                noGames()
+            }
+        }
         
         defineSwipeGesture()
         
