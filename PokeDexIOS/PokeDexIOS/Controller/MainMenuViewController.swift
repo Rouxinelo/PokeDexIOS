@@ -138,7 +138,9 @@ class MainMenuViewController: UIViewController {
     }
     
     func pauseSound() {
-        player.pause()
+        if isPlaying {
+            player.pause()
+        }
     }
     
     func stopSound() {
