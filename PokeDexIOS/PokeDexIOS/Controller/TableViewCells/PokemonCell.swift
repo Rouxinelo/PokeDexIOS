@@ -34,7 +34,7 @@ class PokemonCell: UITableViewCell {
         }
         
         if pokemon.types.count == 2 {
-            type2Label.text = pokemon.types.last?.type.name
+            type2Label.text = " " + (pokemon.types.last?.type.name)! + " "
             colorPicker.type = pokemon.types.last?.type.name
             type2Label.backgroundColor = colorPicker.getColorForType()
             type2Label.textColor = colorPicker.getTextFontColor()
@@ -42,7 +42,7 @@ class PokemonCell: UITableViewCell {
         } else {
             type2Label.alpha = 0
         }
-        type1Label.text = pokemon.types.first?.type.name
+        type1Label.text = " " + (pokemon.types.first?.type.name)! + " "
         
         colorPicker.type = pokemon.types.first?.type.name
         type1Label.backgroundColor = colorPicker.getColorForType()
