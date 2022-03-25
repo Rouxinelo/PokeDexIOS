@@ -103,7 +103,7 @@ extension GamesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCells.gameCellIdentifier, for: indexPath) as! GameCell
         
         if let pokemon = chosenPokemon {
-            cell.gameName.text = "Pokemon " +  pokemon.game_indices[indexPath.row].version.name.capitalizingFirstLetter()
+            cell.gameName.text = pokemon.game_indices[indexPath.row].version.name
             cell.setGame(name: cell.gameName.text!)
         }
         return cell

@@ -9,6 +9,8 @@ import UIKit
 
 class MoveCell: UITableViewCell {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var moveNameLabel: UILabel!
     @IBOutlet weak var whenLearnedLabel: UILabel!
     @IBOutlet weak var cellView: UIView!
