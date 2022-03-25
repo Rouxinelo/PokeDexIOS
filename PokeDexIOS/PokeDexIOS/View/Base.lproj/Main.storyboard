@@ -1193,8 +1193,106 @@
                     <view key="view" contentMode="scaleToFill" id="RqG-mj-yA6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zWM-Pz-Tx3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dr0-ZT-ZUZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="127.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="N5y-Up-x1q">
+                                                <rect key="frame" x="146" y="0.0" width="122.5" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="04l-Pi-sam">
+                                                <rect key="frame" x="164.5" y="47.5" width="85" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zDA-UR-RhH">
+                                                <rect key="frame" x="16" y="95" width="382" height="32.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YF-iP-vUY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="32.5"/>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="zDA-UR-RhH" firstAttribute="leading" secondItem="dr0-ZT-ZUZ" secondAttribute="leading" constant="16" id="KgA-ne-maZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="zDA-UR-RhH" secondAttribute="trailing" constant="16" id="daR-Br-dTm"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-pc-bmP">
+                                        <rect key="frame" x="0.0" y="135.5" width="414" height="589.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DwU-NL-bjt">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="589.5"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QCy-bh-pO4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="589.5"/>
+                                                        <color key="backgroundColor" name="darkModeBackgrounds"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCell" id="xXz-eM-KbI" customClass="MoveCell" customModule="PokeDexIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xXz-eM-KbI" id="h6c-1F-Sai">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cjR-Sw-iTS">
+                                                                            <rect key="frame" x="20" y="11" width="374" height="22"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi6-Sk-tDv">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="Pokemon-Classic" family="Pokemon Classic" pointSize="13"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                            <color key="tintColor" name="darkModeSetNavBar"/>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" name="cells"/>
+                                                                    <color key="tintColor" name="darkModeBackgrounds"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="cjR-Sw-iTS" firstAttribute="top" secondItem="h6c-1F-Sai" secondAttribute="topMargin" id="Ebk-ZK-Wv3"/>
+                                                                        <constraint firstItem="cjR-Sw-iTS" firstAttribute="leading" secondItem="h6c-1F-Sai" secondAttribute="leadingMargin" id="KVc-rk-2x2"/>
+                                                                        <constraint firstAttribute="trailingMargin" secondItem="cjR-Sw-iTS" secondAttribute="trailing" id="OeQ-Yg-1hF"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="cjR-Sw-iTS" secondAttribute="bottom" id="xja-vf-BjQ"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="cellView" destination="h6c-1F-Sai" id="HXU-b6-uUG"/>
+                                                                    <outlet property="moveNameLabel" destination="Bi6-Sk-tDv" id="KNm-Cd-PnR"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="DwU-NL-bjt" secondAttribute="trailing" id="TBb-A9-hUd"/>
+                                            <constraint firstItem="DwU-NL-bjt" firstAttribute="leading" secondItem="Adj-pc-bmP" secondAttribute="leading" id="ceJ-kx-0VQ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CcU-Co-e3S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="bottom" secondItem="CcU-Co-e3S" secondAttribute="bottom" id="Vsl-Jt-7Hw"/>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="leading" secondItem="CcU-Co-e3S" secondAttribute="leading" id="lkX-wR-CKu"/>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="trailing" secondItem="CcU-Co-e3S" secondAttribute="trailing" id="y6x-nB-24j"/>
+                            <constraint firstItem="zWM-Pz-Tx3" firstAttribute="top" secondItem="CcU-Co-e3S" secondAttribute="top" id="yqH-nQ-epy"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="oaC-d8-QOQ">
