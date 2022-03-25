@@ -1430,7 +1430,7 @@
         <image name="pokemonLogo" width="999" height="374"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
         <namedColor name="cells">
-            <color red="0.79607844350000001" green="0.8392156959" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.79600000381469727" green="0.83899998664855957" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="darkModeBackgrounds">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

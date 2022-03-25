@@ -18,6 +18,7 @@ struct Pokemon: Codable {
     let base_experience: Int
     let stats: [PossibleStat]
     var moves: [PossibleMove]
+    let game_indices: [GameIndex]
 }
 
 struct Atype: Codable {
@@ -59,5 +60,13 @@ struct Details: Codable {
 }
 
 struct MoveLearnMethod: Codable {
+    let name: String
+}
+
+struct GameIndex: Codable {
+    let version: Version
+}
+
+struct Version: Codable {
     let name: String
 }
