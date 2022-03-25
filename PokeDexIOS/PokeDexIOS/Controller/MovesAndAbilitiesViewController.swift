@@ -40,10 +40,18 @@ class MovesAndAbilitiesViewController: UIViewController {
         returnToPreviousScreen()
     }
     
+    @IBAction func nextButtonPressed(_ sender: UIBarButtonItem) {
+        goToMovesScreen()
+    }
+    
     // MARK: - Navigation functions
     
     func returnToPreviousScreen(){
         navigationController?.popViewController(animated: true)
+    }
+    
+    func goToMovesScreen(){
+        performSegue(withIdentifier: K.Segues.movesAndAbilitiesToGames, sender: self)
     }
     
     // MARK: - Gesture Handlers
@@ -51,13 +59,17 @@ class MovesAndAbilitiesViewController: UIViewController {
     func defineSwipeGesture() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
-        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .left
         self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .right {
             returnToPreviousScreen()
+        } else if gesture.direction == .left {
+            goToMovesScreen()
         }
     }
     // MARK: - Pokemon has no moves

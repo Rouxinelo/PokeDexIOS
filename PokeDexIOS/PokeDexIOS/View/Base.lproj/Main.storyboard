@@ -1163,6 +1163,12 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="chevron.right" catalog="system" id="c7Z-2q-A3p">
+                            <color key="tintColor" name="darkModeSetNavBar"/>
+                            <connections>
+                                <action selector="nextButtonPressed:" destination="hpk-80-fxJ" id="Ppg-wQ-qBz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1190,11 +1196,28 @@
                         <viewLayoutGuide key="safeArea" id="CcU-Co-e3S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oaC-d8-QOQ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="oaC-d8-QOQ">
+                        <leftBarButtonItems>
+                            <barButtonItem image="chevron.backward" catalog="system" id="770-iy-SuU">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="bFa-43-SYy" id="XMC-Vn-3cn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="house.fill" catalog="system" id="bRJ-rV-AaT">
+                                <color key="tintColor" name="darkModeSetNavBar"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="bFa-43-SYy" id="fNS-E0-1cp"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KK-nk-75c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8470" y="66"/>
+            <point key="canvasLocation" x="8313" y="66"/>
         </scene>
         <!--Move Stats View Controller-->
         <scene sceneID="m3P-ef-3vR">
