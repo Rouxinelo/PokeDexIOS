@@ -133,19 +133,19 @@
                                         <rect key="frame" x="0.0" y="387" width="414" height="387"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-Hi-2yS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDexIOS is an IOS App made for Pokemon enjoyers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-14-uGV">
-                                                <rect key="frame" x="21.5" y="48.5" width="371" height="96.5"/>
+                                                <rect key="frame" x="21.5" y="97" width="371" height="96.5"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll through the hundreds of Pokemons, look at their stats and save your favourites. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-dR-pp8">
-                                                <rect key="frame" x="0.5" y="145" width="413" height="145.5"/>
+                                                <rect key="frame" x="0.5" y="193.5" width="413" height="97"/>
                                                 <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1173,11 +1173,28 @@
                         <outlet property="pokemonName" destination="tzp-AD-gPL" id="nMH-Qg-ijT"/>
                         <outlet property="pokemonNumber" destination="BnN-Xf-sU0" id="NBy-hw-gKi"/>
                         <segue destination="A4t-Rb-NuW" kind="show" identifier="pokeMovesToMoveStats" id="SDt-G2-c4X"/>
+                        <segue destination="bFa-43-SYy" kind="show" identifier="toGames" id="2e4-uF-xkr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKi-60-fDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7026" y="66"/>
+        </scene>
+        <!--Games View Controller-->
+        <scene sceneID="OKW-hI-wDA">
+            <objects>
+                <viewController id="bFa-43-SYy" customClass="GamesViewController" customModule="PokeDexIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RqG-mj-yA6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CcU-Co-e3S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oaC-d8-QOQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1KK-nk-75c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8470" y="66"/>
         </scene>
         <!--Move Stats View Controller-->
         <scene sceneID="m3P-ef-3vR">
@@ -1390,7 +1407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPK-yw-gU8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8159" y="66"/>
+            <point key="canvasLocation" x="7025" y="913"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aa2-EL-iGT">

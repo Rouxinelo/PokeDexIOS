@@ -28,6 +28,7 @@ struct K {
         static let pokeDexToPokeStats: String = "toPokeStats"
         static let pokeStatsToMovesAndAbilities: String = "toMovesAndAbilities"
         static let movesAndAbilitiesToMoveStats: String = "pokeMovesToMoveStats"
+        static let movesAndAbilitiesToGames: String = "toGames"
     }
     
     struct StatsScreen{
